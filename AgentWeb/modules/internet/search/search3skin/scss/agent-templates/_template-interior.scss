@@ -1,0 +1,7 @@
+body.interior {
+	.rn-site-content {
+		@extend .rn-container;
+
+		padding: $gutter-width / 2;
+	}
+}

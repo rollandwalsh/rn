@@ -1,0 +1,704 @@
+// MAIN CONTENT
+// - - - - - - - - - - - - -
+
+.rn-site-content {
+	padding-bottom: $gutter-width;
+}
+
+// CAROUSEL
+
+.rn-home-carousel {
+	margin-bottom: $gutter-width / 2;
+
+	@media #{$small-only} {
+		display: none !important;
+	}
+}
+
+body.home {
+	.slick-track {
+		height: rem-calc(600);
+
+		@media #{$medium-only} {
+			height: rem-calc(300);
+		}
+	}
+
+	.slick-slide {
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
+
+// QUICK SEARCH
+
+.rn-home-quick-search {
+	background: rgba($white, .7);
+	border-top: 1px solid $white;
+	border-bottom: 1px solid $white;
+	color: $primary-color;
+	
+	margin-top: rem-calc(-120);
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	position: absolute;
+	
+	.rn-container {
+		display: flex;
+	}
+	
+	h2 {
+		font-size: rem-calc(18);
+		text-transform: uppercase;
+		
+		margin: 0;
+		padding: $gutter-width / 2;
+		
+		align-items: center;
+		display: flex;
+		order: 0;
+	}
+	
+	@media #{$medium-down} {
+		margin-top: 0;
+
+		position: relative;
+			
+		.rn-container {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	@media #{$small-only} {
+		h2 {
+			width: 100%;
+
+			justify-content: center;
+		}
+	}
+}
+
+.rn-qsr {
+	font-family: inherit;
+	
+	width: auto;
+	
+	display: flex;
+	flex: 1 1 auto;
+	order: 1;
+	
+	form {
+		padding: $gutter-width / 2;
+		
+		display: flex;
+		flex: 1 1 auto;
+	}
+	
+	.rn-qsr-cz {
+		display: flex;
+		flex: 1 1 auto;
+		
+		float: none;
+	}
+	
+	.rn-qsr-cz-f {
+		border: 1px solid $gray;
+		border-radius: $gutter-width / 2;
+		color: $gray;
+		font-size: rem-calc(12);
+		text-transform: uppercase;
+		
+		margin-right: $gutter-width * -1;
+		padding: $gutter-width / 2;
+		
+		flex: 1 1 auto;
+		
+		outline: none;
+	}
+
+	.rn-qsr-mn,
+	.rn-qsr-mx {
+		display: none;
+	}
+	
+	.rn-qsr-button {
+		background: $primary-color;
+		border: none;
+		border-radius: $gutter-width / 2;
+		color: $white;
+		font-size: rem-calc(24);
+		line-height: 1;
+		
+		margin: 0;
+		padding: $gutter-width / 2;
+		width: auto;
+		
+		align-items: center;
+		display: flex;
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $secondary-color;
+		}
+	}
+	
+	@media #{$medium-only} {
+		width: 100%;
+
+		order: 2
+	}
+
+	@media #{$small-only} {
+		width: 100%;
+	}
+}
+
+.rn-quick-search-button {
+	border: 1px solid $primary-color;
+	border-radius: $gutter-width / 2;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+	margin: $gutter-width / 2;
+	padding: $gutter-width / 2;
+	
+	align-items: center;
+	display: flex;
+	order: 2;
+	
+	transition: $transition;
+	
+	&:hover {
+		background: $primary-color;
+		color: $white;
+	}
+	
+	@media #{$medium-only} {
+		order: 1;
+	}
+}
+
+body.loggedin {
+	.rn-quick-search-button.login {
+		display: none;
+	}
+}
+
+// AGENT
+
+.rn-home-agent-profile {
+	font-size: rem-calc(14);
+	
+	margin: 0 auto;
+	max-width: rem-calc(752);
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	display: flex;
+
+	@media #{$small-only} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+.rn-home-agent-image {
+	padding: 0 ($gutter-width / 2);
+	width: rem-calc(208);
+
+	img {
+	    height: auto;
+	    max-width: 100%;
+	    width: 100%;
+	    
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+
+	@media #{$small-only} {
+		width: rem-calc(128);
+	}
+}
+
+.rn-home-agent-info {
+	padding: 0 ($gutter-width / 2);
+	
+	flex: 1;
+	
+	h1 {
+		border-bottom: 1px solid $gray-lighter;
+		color: $primary-color;
+		font-size: rem-calc(32);
+		font-weight: 200;
+		text-transform: uppercase;
+		
+		margin: 0 0 $gutter-width;
+		padding: 0 0 ($gutter-width / 2);
+	}
+
+	@media #{$small-only} {
+		padding: 0;
+
+		flex-basis: 100%;
+	}
+}
+
+.rn-home-agent-info-details {
+	color: $primary-color;
+	font-size: rem-calc(15);
+	font-weight: 300;
+	
+	margin: 0 0 $gutter-width ($gutter-width / -2);
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		border-right: 1px solid $primary-color;
+		
+		margin: 0 0 ($gutter-width / 4);
+		padding: 0 ($gutter-width / 2);
+		
+		&:last-of-type {
+			border: none;
+		}
+	}
+}
+
+// FEATURED PROPERTIES
+
+.rn-home-featured-properties {
+	@extend .rn-container;
+	padding: $gutter-width / 2;
+	
+	> h3 {
+		text-align: center;
+		text-transform: uppercase;
+		
+		margin: 0;
+		
+		i {
+			font-size: rem-calc(16);
+		}
+	}
+}
+
+.rn-fp {
+	border: none !important;
+	
+	margin: 0 ($gutter-width * 3); // Room for navigation arrows
+	width: calc(100% - (#{$gutter-width} * 6)) !important;
+	
+	> div:first-of-type {
+		margin: 0 !important;
+		width: 100% !important;
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		> div:last-of-type {
+			display: none !important;
+		}
+
+		@media #{$medium-only} {
+			justify-content: center;
+		}
+	}
+}
+
+.rn-fp-c {
+	background-color: $white !important;
+	border: none !important;
+
+	margin: 0 !important;
+	padding: $gutter-width / 2;
+	width: 32%;
+
+	float: none !important;
+
+	@media #{$medium-only} {
+		width: 50%;
+	}
+
+	@media #{$small-only} {
+		width: 100%;
+	}
+}
+
+.rn-fp-photo {
+	border: none !important;
+
+	margin-bottom: $gutter-width / 2;
+
+	a {
+		width: 100%;
+
+		position: absolute;
+		z-index: 1;
+
+		> img {
+			margin: 0 !important;
+			width: 100% !important;
+		}
+	}
+	
+	> img:not(.rn-fp-mlsicon) {
+		height: auto !important;
+		margin: 0 !important;
+		width: 100% !important;
+		
+		position: relative !important;
+		top: 0 !important;
+		right: 0 !important;
+		left: 0 !important;
+	}
+}
+
+.rn-fp-info-city,
+.rn-fp-info-price {
+	width: auto !important;
+}
+
+.rn-fp-info-city {
+	font-size: rem-calc(12);
+}
+
+.rn-fp-info-price {
+	font-size: rem-calc(14);
+	font-weight: bold;
+}
+
+.rn-fp-info-value {
+	width: auto !important;
+	
+	float: none !important;
+}
+
+.rn-fp-viewdetails {
+	border: none !important;
+	text-align: right;
+	
+	height: 0;
+	padding: 0 !important;
+	
+	a {
+		visibility: hidden;
+		width: 100%;
+		
+		position: relative;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $secondary-color;
+		}
+		
+		&:after {
+			@extend i;
+			
+			font-size: rem-calc(32);
+			
+			visibility: visible;
+			
+			content: '\e90a';
+			position: absolute;
+			top: rem-calc(-32);
+			right: 0;
+		}
+	}
+}
+
+.rn-fp-nav {
+	@extend i;
+	
+	background-image: none !important;
+	border: none !important;
+	color: $gray-lighter;
+	font-size: rem-calc(32);
+	
+	height: 100% !important;
+	padding: $gutter-width / 2;
+	width: $gutter-width * 3 !important;
+	
+	position: absolute;
+	top: 0 !important;
+	
+	cursor: pointer;
+	
+	align-items: center;
+	display: flex;
+	
+	transition: $transition;
+	
+	&:hover {
+		color: $black;
+	}
+}
+
+.rn-fp-nav-prev {
+	@extend .rn-icon-angle-left-big;
+	
+	right: auto !important;
+	left: $gutter-width * -3 !important;
+}
+
+.rn-fp-nav-next {
+	@extend .rn-icon-angle-right-big;
+	
+	right: $gutter-width * -3 !important;
+	left: auto !important;
+}
+		
+.rn-fp-mlsicon,
+.rn-fp-extras,
+.rn-fp-info-num,
+.rn-fp-info-type,
+.rn-fp-info-bed,
+.rn-fp-info-bath,
+.rn-fp-info-city .rn-fp-info-label,
+.rn-fp-info-price .rn-fp-info-label,
+.rn-fp-lo,
+.rn-fp-disclaimer {
+	display: none !important;
+}
+
+.rn-fp-loading {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.rn-fp-loadingText {
+	height: 100% !important;
+	width: 100% !important;
+
+	top: rem-calc(64) !important;
+}
+
+// CALLOUTS
+
+.rn-home-callouts {
+	@extend .rn-container;
+	
+	padding: $gutter-width / 2;
+	
+	display: flex;
+	justify-content: space-between;
+	
+	a {
+		font-size: rem-calc(18);
+		line-height: 1;
+		text-decoration: none;
+
+		padding: ($gutter-width / 2) ($gutter-width * 3) ($gutter-width / 2) ($gutter-width / 2);
+
+		flex: 0 1 auto;
+
+		transition: $transition;
+		
+		position: relative;
+		
+		&:after {
+			@extend i;
+			
+			font-size: rem-calc(32);
+			
+			content: '\e90a';
+			
+			position: absolute;
+			top: $gutter-width / 2;
+			right: $gutter-width / 2;
+		}
+		
+		&:hover {
+			color: $secondary-color;
+		}
+		
+		&.a2015buying {
+			.line-1:after {content: "Buying"}
+			.line-2:after {content: "Search for Homes Now"}
+		}
+		
+		&.a2015home.finder {
+			.line-1:after {content: "Home Finder"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015selling {
+			.line-1:after {content: "Selling"}
+			.line-2:after {content: "Get the Most for your Home"}
+		}
+		
+		&.a2015property {
+			.line-1:after {content: "Property Finder"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015mapsearch {
+			.line-1:after {content: "Map Search"}
+			.line-2:after {content: "Find your New Home"}
+		}
+		
+		&.a2015relocation {
+			.line-1:after {content: "Relocation"}
+			.line-2:after {content: "Services Available"}
+		}
+		
+		&.a2015homevalue {
+			.line-1:after {content: "Home Valuation"}
+			.line-2:after {content: "What's my Home Worth?"}
+		}
+		
+		&.a2015foreclosure {
+			.line-1:after {content: "Foreclosure"}
+			.line-2:after {content: "Search Properties"}
+		}
+		
+		&.a2015featured {
+			.line-1:after {content: "Featured"}
+			.line-2:after {content: "Properties for Sale"}
+		}
+		
+		&.a2015contact {
+			.line-1:after {content: "Contact"}
+			.line-2:after {content: "A Real Estate Broker"}
+		}
+		
+		&.a2015signup {
+			.line-1:after {content: "Sign Up"}
+			.line-2:after {content: "For Home Finder Services"}
+		}
+		
+		&.a2015marketwatch {
+			.line-1:after {content: "Market Watch"}
+			.line-2:after {content: "View Market Trends"}
+		}
+		
+		&.a2015hometrends {
+			.line-1:after {content: "Home Trends"}
+			.line-2:after {content: "Market Watch"}
+		}
+		
+		&.a2015owning {
+			.line-1:after {content: "Owning a Home"}
+			.line-2:after {content: "Property Tips"}
+		}
+		
+		&.a2015schools {
+			.line-1:after {content: "Schools"}
+			.line-2:after {content: "In your Neighborhood"}
+		}
+		
+		&.a2015marketvideo {
+			.line-1:after {content: "60-Second"}
+			.line-2:after {content: "Market Update Video"}
+		}
+		
+		&.a2015calculator {
+			.line-1:after {content: "Calculate Mortgage"}
+			.line-2:after {content: "rates and payment options"}
+		}
+		
+		&.a2015blog {
+			.line-1:after {content: "Read Our Blog"}
+			.line-2:after {content: "Keep current in the news"}
+		}
+		
+		&.a2015homevaluereport {
+			.line-1:after {content: "My Home's Value"}
+			.line-2:after {content: "Get your home value report"}
+		}
+		
+		&.a2015valuereport {
+			.line-1:after {content: "Get the value Report"}
+			.line-2:after {content: "used by Banks"}
+		}
+		
+		&.a2015mortgage {
+			.line-1:after {content: "Request Mortgage"}
+			.line-2:after {content: "get pre-approved now"}
+		}
+		
+		&.a2015openhouse {
+			.line-1:after {content: "Open House"}
+			.line-2:after {content: "find one near you"}
+		}
+		
+		&.a2015property-watch {
+			.line-1:after {content: "Property Watch"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015marketvideo_b {
+			.line-1:after {content: "60-second"}
+			.line-2:after {content: "market update video"}
+		}
+		
+		.line-1 {
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+		
+		.line-2 {
+			font-weight: 100;
+			text-transform: lowercase;
+		}
+	}
+
+	@media #{$medium-down} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+// AGENT SOCIAL LINKS
+
+.rn-home-agent-social-links {
+	@extend .rn-container;
+
+	padding: $gutter-width / 2;
+
+	h3 {
+		text-align: center;
+		text-transform: uppercase;
+
+		padding: $gutter-width / 2;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		a {
+			color: $white;
+			font-size: rem-calc(20);
+			text-decoration: none;
+			text-shadow: 0 0 rem-calc(4) rgba($primary-color, .9);
+
+			padding: $gutter-width / 2;
+
+			transition: $transition;
+
+			&:hover {
+				text-shadow: 0 0 rem-calc(4) rgba($secondary-color, .9);
+			}
+		}
+	}
+}
+
+@import 'template-form.scss',
+		'template-contact-overlay.scss',
+		'template-interior';

@@ -1,0 +1,72 @@
+// GLOBAL IMPORTS
+// - - - - - - - - - - - - -
+
+@import 'global-variables',
+        url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+
+// FONTS
+// - - - - - - - - - - - - -
+
+$search-font: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+
+// SIZES
+// - - - - - - - - - - - - -
+
+// SITE HEADER
+
+$search-site-header-height: rem-calc(70);
+$search-site-header-height-small: rem-calc(40);
+$search-site-nav-height: rem-calc(43);
+
+// SEARCH
+
+$search-height: calc(100vh - #{$search-site-header-height});
+$search-height-small: calc(100vh - #{$search-site-header-height-small});
+
+$search-header-height: rem-calc(50);
+$search-user-width: rem-calc(130);
+$search-prop-count-height: rem-calc(40);
+
+$search-footer-height: rem-calc(30);
+
+$search-view-height: calc(100vh - #{$search-site-header-height} - #{$search-header-height} - #{$search-footer-height});
+$search-view-height-small: calc(100vh - #{$search-site-header-height-small} - #{$search-footer-height});
+
+$search-gallery-width-min: rem-calc(320);
+$search-gallery-width-max: 40%;
+
+// PROP CARD
+
+$prop-card-width-min: rem-calc($prop-card-width-min-num);
+$prop-card-width-max: rem-calc(320);
+
+// MARKET WATCH
+
+$search-market-report-header-height: rem-calc(100);
+$search-market-report-view-height: calc(100vh - #{$search-site-header-height} - #{$search-market-report-header-height} - #{$search-footer-height});
+
+// RNSEARCH RESETS
+// - - - - - - - - - - - - -
+
+
+#rnSearch {
+  font-family: $search-font;
+  font-size: $base-font-size;
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// FORMS
+// - - - - - - - - - - - - -
+
+input[type="text"],
+input[type="email"],
+select {
+	&:focus {
+		border-color: $primary-color;
+	}
+}
+
+@import 'search';

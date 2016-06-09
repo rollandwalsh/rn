@@ -1,0 +1,487 @@
+@import '../sass-burger';
+
+// SITE HEADER
+// - - - - - - - - - - - - -
+
+.rn-site-header {
+	background: $white;
+	color: $black;
+	
+	width: 100%;
+	
+	> .rn-container {
+		padding: ($gutter-width / 2) 0; // Add padding to top/bottom only
+		width: 100%; // Set a width for flexbox to work within
+		
+		display: flex;
+	
+		@media #{$mobile-down} {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	align-items: center; // Center logo vertically
+	display: flex;
+	flex: 0 1 auto;
+	
+	a {
+		padding: 0 ($gutter-width / 2); // Give gutter padding to sides to make logo easily clickable with extra right padding for equal spacing from name
+	}
+	
+	img {
+		max-height: 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+
+    h3 {
+        margin: 0;
+        padding-right: $gutter-width;
+    }
+	
+	@media #{$mobile-down} {
+		a {
+			padding: 0 ($gutter-width / 2);
+		}
+	}
+	
+	@media #{$small-only} {
+		width: 40%;
+
+		justify-content: flex-end;
+	}
+}
+
+// AGENT INFO
+
+.rn-site-header-agent-name {
+	border-left: 1px solid $gray-lighter;
+	
+	padding: 0 $gutter-width; // No gutter for top/bottom double gutter for left/right
+	
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	
+	h1,
+	h4 {
+		margin: 0;
+	}
+	
+	h1 {
+		font-size: rem-calc(32);
+		font-weight: 300;
+		line-height: 1;
+	}
+	
+	h4 {
+		font-size: rem-calc(14);
+		font-weight: 200;
+	}
+	
+	@media #{$tablet-up} {
+		flex: 1 1 rem-calc(400);
+	}
+	
+	@media #{$mobile-down} {
+		max-width: 60%;
+		padding: $gutter-width / 2;
+		
+		align-items: flex-start;
+		flex: 0 1 auto;
+	}
+	
+	@media #{$small-only} {
+		h1 {
+			font-size: 6vw;
+		}
+		
+		h4 {
+			font-size: rem-calc(10);
+		}
+	}
+}
+
+.rn-site-header-agent {
+    padding: $gutter-width / 2;
+
+    display: flex;
+    justify-content: space-between;
+    img {
+        height: rem-calc(72);
+    }
+}
+
+.rn-site-header-agent-details {
+
+	align-items: center; 
+	display: flex;
+	flex: 0 0 auto;
+    flex-direction: column;
+	justify-content: space-around; // Center items vertically with space around
+
+    .rn-site-header-agent-email {
+        text-decoration: none;
+
+        align-items: center;
+        display: flex;
+
+        i {
+            font-size: rem-calc(20);
+            
+            margin-right: $gutter-width / 4;
+        }
+    }
+	
+	@media #{$mobile-down} {
+		align-items: center;
+		flex: 0 0 100%;
+	}
+}
+
+
+
+.rn-site-header-agent-phone {
+	a {
+		border-left: 1px solid $primary-color;
+		font-weight: bold;
+		text-decoration: none;
+		
+		padding: 0 ($gutter-width / 2); // No top/bottom padding as line-height is enough
+		
+		transition: $transition;
+		
+		&:first-of-type {
+			border: none;
+		}
+		
+		&:hover {
+			color: $secondary-color;
+		}
+	}
+	
+	@media #{$mobile-down} {
+		padding: ($gutter-width / 2) 0;
+		
+		a {
+			margin: ($gutter-width / 2) 0;
+		}
+	}
+}
+
+.rn-site-header-agent-email, 
+.rn-site-header-agent-social {
+	font-size: rem-calc(16);
+	text-align: right;
+	
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: block;
+	
+	li {
+		display: inline-block;
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none;
+		text-shadow: 0 0 rem-calc(4) rgba($primary-color, .9);
+		
+		padding: 0 ($gutter-width / 2);
+		
+		transition: $transition;
+		
+		&:hover {
+			text-shadow: 0 0 rem-calc(4) rgba($secondary-color, .9);
+		}
+	}
+	
+	@media #{$mobile-down} {
+		text-align: center;
+		
+		padding: ($gutter-width / 2) 0;
+		
+		a {
+			padding: $gutter-width / 2;
+		}
+	}
+}
+
+// PROPERTY WATCH
+
+.rn-site-header-property-watch {
+	font-size: rem-calc(12);
+	text-align: right;
+	
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: block;
+	
+	li {
+		display: inline-block;
+	}
+	
+	a {
+		font-weight: 400;
+		text-decoration: none;
+		
+		padding: 0 ($gutter-width / 2);
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $secondary-color;
+		}
+	}
+	
+	i {
+		font-size: rem-calc(20);
+		
+		vertical-align: middle;
+	}
+	
+	@media #{$mobile-down} {
+		text-align: center;
+		
+		padding: ($gutter-width / 2) 0;
+		
+		a {
+			padding: $gutter-width / 2;
+		}
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	background: $primary-color;
+	font-size: rem-calc(12);
+	
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	@media #{$mobile-down} {
+		position: relative;
+	}
+    .text {
+        display: none;
+    }
+
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	width: 100%; // Let menu fill full width of rn-container
+	
+	list-style: none; // Remove bullets
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		display: flex;
+		flex: 1 0 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			display: flex;
+			flex-direction: column;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:last-child {
+			.dropdown {
+				right: 0; // Let last nav item align right
+				left: auto; // Overwrite left: 0
+			}
+		}
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none; // Remove underline from links
+		text-transform: uppercase;
+		
+		padding: ($gutter-width * .75) ($gutter-width / 2); // Extra gutter padding top/bottom - normal gutter padding left/right
+		width: 100%; // Fill li width
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			&:hover {
+				a {
+					background: $secondary-color;
+				}
+			}
+			
+			a {
+				background: $primary-color;
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+    
+	@media #{$tablet-up} {
+		
+		.dropdown {
+			padding: 0; // gutter-width padding on top to drop below header
+			width: rem-calc(190);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: 100%; // Nav height
+			left: 0;
+			z-index: 10;
+		}
+	}
+
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%;
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		a {
+			background: $primary-color;
+			line-height: 2; // Increase height for ease of clicking
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+
+			li {
+				&:hover {
+					a {
+						background: $primary-color;
+					}
+				}
+
+				a {
+					background: $secondary-color;
+				}
+			}
+		}
+	}
+}
+
+body:not(.search) {
+    @media #{$tablet-up} {
+        .rn-site-header-nav-menu {
+            display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+        }
+        
+    }
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		
+		text-decoration: none;
+		
+		padding: $gutter-width / 2;
+		
+		&.rn-site-navigation-toggle {
+			display: flex; // Allow sass-burger and text to be inline
+		}
+		
+		&.rn-search-user-toggle,
+		&.rn-search-criteria-toggle {
+			display: none; // Hide for non-search pages
+		}
+		
+		.rn-site-header-nav-burger {
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white);
+		}
+		
+		&.is-active {
+			.rn-site-header-nav-burger {
+				@include burger-to-cross;
+			}
+		}
+	}
+}
+
+//Dashboard styling
+.rn-extranet {
+    padding: $gutter-width;
+}
+.rn-dashboard-form-button,
+.rn-dashboard-navigation a,
+.rn-dashboard-history-button,
+.rn-dashboard-agent-transfer-button,
+.rn-popup-button,
+.rn-popup-contact-button {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}
+
+.rn-dashboard-navigation a.rn-dashboard-active {
+	background: $primary-color;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}
+
+.rn-dashboard-home-title,
+.rn-dashboard-header-title,
+.rn-dashboard-messages h3 {
+	color: $primary-color;
+}

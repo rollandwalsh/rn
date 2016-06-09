@@ -1,0 +1,40 @@
+// SITE FOOTER
+// - - - - - - - - - - - - -
+
+.rn-site-footer {
+	font-size: rem-calc(12);
+	
+	.rn-container {
+		padding: $gutter-width / 2;
+	}
+}
+
+// LINKS
+
+.rn-site-footer-main-links {
+	margin: 0 0 $gutter-width ($gutter-width / -2);
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		border-right: 1px solid $black;
+		
+		margin: 0;
+		padding: 0 ($gutter-width / 2);
+		
+		&:last-of-type {
+			border: none;
+		}
+	}
+}
+
+.rn-site-footer-reliance-links {
+	width: 100%;
+	
+	display: flex;
+	justify-content: space-between;
+}

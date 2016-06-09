@@ -1,0 +1,133 @@
+#form1 {
+	width: 100%;
+
+	> div {
+		width: 100%;
+	}
+
+	span {
+		color: red;
+
+		padding-right: $gutter-width / 4;
+	}
+
+	#formTitle {
+		font-size: rem-calc(20px);
+		text-transform: capitalize;
+
+		margin: ($gutter-width / 2) 0;
+		padding-bottom: 0 !important;
+	}
+
+	#formCtnr {
+		border: none !important;
+				
+		padding: $gutter-width / 2;
+		width: 100% !important;
+				
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#helpText {
+		text-align: center !important;
+				
+		padding-bottom: $gutter-width / 2 !important;
+	}
+
+	#divFormContent {
+		border: 1px solid $gray-lighter !important;
+				
+		padding: 0 !important;
+		width: auto;
+				
+		display: flex;
+
+		> * {
+			border: none !important;
+			text-align: left !important;
+				
+			float: none !important;
+			padding: $gutter-width / 2 !important;
+			width: 50% !important;
+				
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	.leftFormItem {
+		padding: $gutter-width / 2 !important;
+		width: 100%;
+				
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+
+		input:last-of-type {
+			margin-top: $gutter-width / 4;
+			width: 100%;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		#Feedback {
+			margin-top: $gutter-width / 4;
+			width: 100%;
+		}
+	}
+	
+	.rightFormItem {
+		padding: $gutter-width / 2 !important;
+		width: 100%;
+				
+		display: flex;
+		flex-direction: column;
+
+		table {
+			width: 100%;
+		}
+
+		tr {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		td {
+			padding: $gutter-width / 4;
+
+			&:nth-child(2n) {width: 90%;}
+
+			&:nth-child(2n-1) {width: 10%;}
+		}
+
+		&:last-of-type td {
+			width: 100%;
+		}
+
+		#Timeframe {
+			width: 100%;
+		}
+	}
+
+	#Submit {
+		background: $primary-color;
+		border: none;
+		color: $white;
+		padding: $gutter-width / 2;
+	}
+
+	@media #{$mobile-down} {
+		#divFormContent {
+			flex-wrap: wrap;
+
+			> * {
+				width: 100% !important;
+			}
+		}
+	}
+}

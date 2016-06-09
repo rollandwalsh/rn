@@ -1,0 +1,299 @@
+@import 'global-colors',
+        'global-icons',
+		'global-functions',
+		'global-media-queries',
+		'normalize',
+        url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+
+$gutter-width: 1rem;
+$search-font: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+$transition: 150ms ease-in-out all;
+
+.rn-featured-properties {
+	font-family: $search-font;
+	line-height: 1.4;
+	
+	max-width: 100vw;
+	padding: $gutter-width / 2;
+
+	box-sizing: border-box;
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+		line-height: inherit !important;
+	}
+}
+
+// HEADER / FOOTER
+			
+.rn-featured-properties-header {
+	margin-bottom: $gutter-width;
+}
+
+.rn-featured-properties-footer {
+	margin-top: $gutter-width;
+}
+			
+.rn-featured-properties-header,
+.rn-featured-properties-footer {
+	font-size: rem-calc(14);
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.rn-featured-properties-sort {
+	span {
+		font-weight: 100;
+	}
+	
+	a {
+		text-decoration: none;
+
+		&:first-of-type:after {
+			font-weight: 100;
+
+			padding: 0 ($gutter-width / 4);
+
+			content: '| ';
+			display: inline-block;
+		}
+	}
+}
+			
+.rn-featured-properties-count {
+	text-align: center;
+}
+			
+.rn-featured-properties-pagination {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	justify-content: flex-end;
+	
+	li {
+		border-right: 1px solid $black;
+		
+		align-items: center;
+		
+		&:last-of-type {
+			border-right: none;
+		}
+	}
+	
+	a,
+	span {
+		text-decoration: none;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+	}
+
+	span {
+		font-weight: bold;
+	}
+}
+
+// LISTINGS
+
+.rn-featured-properties-listings {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+			
+.rn-featured-properties-listing {
+	background: $white;
+	border: 1px solid $gray-2;
+	box-shadow: 2px 2px 1px 0 $gray-2;
+	
+	margin: ($gutter-width / 4) 0;
+	padding: $gutter-width / 2;
+	width: calc(50% - (#{$gutter-width} / 4));
+	
+	display: flex;
+}
+			
+.rn-featured-properties-listing-link {
+	background-color: $gray-3;
+	background-position: center center;
+	background-size: cover;
+	text-decoration: none;
+	
+	align-items: center;
+	display: flex;
+	flex: 0 0 50%;
+	justify-content: center;
+	
+	position: relative;
+	
+	&:before {
+		content: "";
+		display: block;
+		padding-top: 75%;
+	}
+	
+	&:hover {
+		background-blend-mode: multiply;
+		
+		span {
+			font-size: rem-calc(14);
+			font-weight: bold;
+			letter-spacing: 1px;
+			
+			display: block;
+		}
+	}
+
+	span {
+		color: $white;
+		text-align: center;
+		text-shadow: 1px 1px 2px $black;
+		
+		display: none;
+	}
+}
+
+.rn-featured-properties-listing-details {
+	padding-left: $gutter-width / 2;
+	
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+			
+.rn-featured-properties-listing-banner {
+	font-size: rem-calc(12);
+	text-transform:uppercase;
+}
+
+.rn-featured-properties-listing-price {
+	font-family: inherit;
+	font-size: rem-calc(20);
+	font-weight: bold;
+	
+	margin: 0 !important;
+}
+
+.rn-featured-properties-listing-details-list {
+	font-size: rem-calc(12);
+	font-weight: 400;
+
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	flex: 1 1 auto;
+
+	span {
+		font-size: inherit !important;
+		font-weight: bold;
+	}
+
+	li {
+		font-size: inherit !important;
+		font-weight: inherit !important;
+
+		list-style: inherit !important;
+
+		&.rn-featured-properties-listing-courtesy-statement {
+			font-size: rem-calc(10) !important;
+	
+			padding-top: $gutter-width / 4;
+		}
+	}
+}
+
+.rn-featured-properties-listing-mls-logo {
+	align-self: flex-end;
+	
+	height: rem-calc(28);
+	padding: $gutter-width / 4;
+	width: auto !important;
+}
+
+// ALERT
+
+.rn-featured-properties-alert {
+	border: 1px solid $black;
+	font-weight: bold;
+
+	padding: $gutter-width / 2;
+}
+
+// MEDIA QUERIES
+
+@media #{$medium-only} {
+	.rn-featured-properties-sort {
+		order: 1;
+	}
+
+	.rn-featured-properties-count {
+		margin-bottom: $gutter-width / 2;
+		width: 100%;
+
+		order: 0;
+	}
+
+	.rn-featured-properties-pagination {
+		order: 2;
+	}
+
+	.rn-featured-properties-listings {
+		justify-content: center;
+	}
+	
+	.rn-featured-properties-listing {
+		width: rem-calc(480);
+	}
+}
+
+@media #{$small-only} {
+	.rn-featured-properties {
+		padding: 0;
+	}
+
+	.rn-featured-properties-sort {
+		text-align: center;
+
+		margin-bottom: $gutter-width / 2;
+		width: 100%;
+	}
+
+	.rn-featured-properties-count {
+		margin-bottom: $gutter-width / 2;
+		width: 100%;
+	}
+
+	.rn-featured-properties-pagination {
+		width: 100%;
+
+		justify-content: center;
+	}
+
+	.rn-featured-properties-listings {
+		justify-content: center;
+	}
+	
+	.rn-featured-properties-listing {
+		width: 100%;
+
+		flex-wrap: wrap;
+	}
+
+	.rn-featured-properties-listing-link {
+		flex: 0 0 100%;
+
+		&:before {
+			padding-top: 60%;
+		}
+	}
+
+	.rn-featured-properties-listing-details {
+		padding-left: 0;
+	}
+}

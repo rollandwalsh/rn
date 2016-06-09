@@ -1,0 +1,1659 @@
+// SEARCH
+// - - - - - - - - - - - - -
+
+.rn-search {
+  height: $search-height; // Calc to fill VH less site header height
+  max-height: $search-height; // Prevent search area from growing past viewport height less site header height
+
+  overflow: hidden; // Fixes extra space bug
+  position: relative;
+
+  display: flex; // Flex-items: search header / search area / search footer
+  flex-direction: column; // Top > bottom
+
+  @media #{$mobile-view} {
+    height: $search-height-small; // Grow height of search area when viewport is < 640px || < 768px and landscape
+    max-height: $search-height-small; // Adjust max-height when viewport is < 640px || < 768px and landscape
+  }
+}
+
+// SEARCH HEADER
+// - - - - - - - - - - - - -
+
+@import 'search-header';
+
+// SEARCH CONTAINER
+// - - - - - - - - - - - - -
+%rn-search-loading {
+    height: 100%;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+%rn-search-loading-content {
+	margin-top: 10px;
+}
+
+.rn-search-container {
+  height: $search-view-height;
+  width: 100%; // To ensure this element fills the full width
+
+  @media #{$mobile-view} {
+    height: $search-view-height-small; // Adjust height based on removal of search header and site header small height when viewport is < 640px || < 768px and landscape
+  }
+
+  .rn-search-map-results-container {
+    display:none;
+  }
+
+  &.rn-search-container-map {
+    .rn-search-map-results-container {
+      height: $search-prop-count-height;
+      
+      position: relative;
+      
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      @media #{$small-only} {
+          height: auto;
+          min-height: $search-prop-count-height;
+
+          flex-wrap: wrap;
+      }
+      h3 {
+        font-size: rem-calc(18);
+        font-weight: 100; 
+
+        margin: 0;
+        padding: $gutter-width / 2;
+
+        flex: 1 1 50%;
+
+      }
+
+      .rn-search-map-results-mls-source {
+        select {
+          border: none;
+          font-size: rem-calc(12);
+        }
+      }
+    }
+    .rn-search-map-results-container > div:nth-child(1):not(.rn-search-loading):not(.rn-search-map-results-mls-source) {
+        height: 100%;
+        width: 100%;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        .rn-search-alert {
+            flex: 1 1 50%;
+            .rn-search-alert-button {
+                display: none;
+            }
+            @media #{$medium-portrait, $small-only} {
+                flex: 1 1 50%;
+            }
+        }
+        h3 {
+            @media #{$medium-portrait} {
+                font-size: $gutter-width;
+
+                display: flex;
+                justify-content: flex-end;
+            }
+            @media #{$small-only} {
+                display: none;
+            }
+        }
+    }
+
+
+    .rn-search-map {
+      height: calc(100% - #{$search-prop-count-height});
+      width: 100%;
+    }
+
+    .leaflet-container {
+      height: calc(100% - #{rem-calc(34)}); // This is to account for the property count heading add for map only view.
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .rn-search-gallery {
+      display: none;
+    }
+
+    .rn-search-loading {
+      height: 100%;
+      width: 100%;
+
+      padding: $gutter-width / 2;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.rn-search-container-gallery {
+    .rn-search-map {
+      position: absolute;
+      left: 100000px;
+    }
+
+  	.leaflet-container {
+  		height: 100%;
+  		width: 100%;
+  		margin: 0 auto;
+  	}
+
+    .rn-search-gallery {
+      width: 100%;
+
+      .rn-search-loading-overlay {
+        display: none;
+      }
+    }
+
+    .rn-search-prop-card {
+      @media #{$two-col-gal-only} {
+        flex: 0 0 (100% / 2);
+      }
+
+      @media #{$three-col-gal-only} {
+        flex: 0 0 (100% / 3);
+      }
+
+      @media #{$four-col-gal-only} {
+        flex: 0 0 (100% / 4);
+      }
+
+      @media #{$five-col-gal-only} {
+        flex: 0 0 (100% / 5);
+      }
+
+      @media #{$six-col-gal-only} {
+        flex: 0 0 (100% / 6);
+      }
+
+      @media #{$seven-col-gal-only} {
+        flex: 0 0 (100% / 7);
+      }
+
+      @media #{$eight-col-gal-only} {
+        flex: 0 0 (100% / 8);
+      }
+
+      @media #{$nine-col-gal-only} {
+        flex: 0 0 (100% / 9);
+      }
+
+      @media #{$ten-col-gal-only} {
+        flex: 0 0 (100% / 10);
+      }
+
+      @media #{$eleven-col-gal-only} {
+        flex: 0 0 (100% / 11);
+      }
+    }
+
+	.rn-search-loading {
+		@extend %rn-search-loading;
+	}
+
+	.rn-search-loading-content {
+		@extend %rn-search-loading-content;
+	}
+  }
+
+  &.rn-search-container-map-gallery {
+    display: flex; // If both map and gallery are present, this should be a flex-container
+
+    .rn-search-map {
+      flex: 1 0 60%; // When both map & gallery view are visible, the map view should be a flexible 60%
+
+	  h3 {
+		  display: none;
+	  }
+
+      .rn-search-loading-overlay {
+        display: none;
+      }
+    }
+
+  	.leaflet-container {
+  		height: 100%;
+  		width: 100%;
+  		margin: 0 auto;
+  	}
+
+    .rn-search-gallery {
+      min-width: $search-gallery-width-min; // Don't allow gallery area to be thinner than the set min-width
+
+      flex: 1 1 auto; // Allow the gallery to flex to needed width when both map & gallery are present
+
+      @media #{$mobile-view} {
+        display: none !important; // Hide when viewport is < 640px || < 768px and landscape
+      }
+
+      @media #{$one-col-only} {flex: 0 1 $prop-card-width-max} // When 40% of viewport width <= one max-width card, max-width card size is flex-max
+
+      @media #{$two-col-only} {flex: 0 1 ($prop-card-width-max * 2)} // When two max-width cards < 40% of viewport width > one max-width card, the size of two cards at max-width is flex-max
+
+      @media #{$three-col-only} {flex: 0 1 ($prop-card-width-max * 3)} // When three max-width cards < 40% of viewport width > two max-width card, the size of three cards at max-width is flex-max
+
+      @media #{$four-col-only} {flex: 0 1 ($prop-card-width-max * 4)} // When four max-width cards < 40% of viewport width > three max-width card, the size of four cards at max-width is flex-max
+
+      @media #{$five-col-only} {flex: 0 1 ($prop-card-width-max * 5)} // When five max-width cards < 40% of viewport width > four max-width card, the size of five cards at max-width is flex-max
+    }
+
+    .rn-search-prop-card {
+		flex: 1 0 auto;
+
+      @media #{$one-col-only} {
+        border-right: none; // Remove border right for single column of cards
+
+        flex: 0 0 100%; // Single column of cards
+      }
+
+      @media #{$two-col-only} {
+		  flex: 0 0 (100% / 2);
+        &:nth-child(even), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$three-col-only} {
+		  flex: 0 0 (100% / 3);
+        &:nth-child(3n+3), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$four-col-only} {
+		  flex: 0 0 (100% / 4);
+        &:nth-child(4n+4), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$five-col-only} {
+		  flex: 0 0 (100% / 5);
+        &:nth-child(5n+5), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+    }
+
+	.rn-search-loading {
+		@extend %rn-search-loading;
+	}
+
+	.rn-search-loading-content {
+		@extend %rn-search-loading-content;
+	}
+  }
+
+
+    // MAP ITEMS
+    .rn-search-map-control {
+    align-items: center;
+    background-color: white;
+    border-radius: rem-calc(2);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 rem-calc(1) rem-calc(4) rem-calc(-1);
+    color: #666666;
+    cursor: pointer;
+    display: flex;
+    font-size: rem-calc(18);
+    height: rem-calc(28);
+    justify-content: center;
+    margin-right: rem-calc(10);
+    width: rem-calc(28);
+
+    &:hover {
+            color: #333333;
+        }
+    }
+
+    /* Map content card/bubble*/
+    /* Container for the overlay on the map used to display information such as listings in a group, other MLS, or listing detail */
+    .rn-search-map-content-display {
+    background: $white;
+    border: 1px solid $white-dark;
+
+    position: absolute;
+    top: rem-calc(4);
+    right: rem-calc(4);
+
+    display:none;
+    min-width: rem-calc(320);
+    z-index: 2;
+    @media #{$mobile-only} {
+        top: -($gutter-width * 2);
+        .rn-search-prop-card {
+            max-height: rem-calc(105);
+        }
+    }
+
+    .rn-search-prop-card:hover {
+		    .rn-search-prop-card-video {
+			    right: calc(1.5rem + 2px);
+	    }
+    }
+    }
+    .rn-search-map-content-display > div + div {
+    cursor: pointer;
+    font-size: rem-calc(24);
+    line-height: 0;
+
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    i {
+        background: $white;
+        color: $gray;
+    }
+    }
+
+    /* Map Listing Other MLS */
+    /* Content container to display information when "other MLS" icon (grey) is clicked */
+    .rn-search-preview-other-mls-content {
+        text-align: center;
+        padding: $gutter-width/2;
+        .rn-search-preview-other-mls-title {
+            font-weight: bold;
+        }
+        .rn-search-preview-other-mls-source-name {
+            font-size: rem-calc(14);;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    .rn-search-preview-other-mls-disclaimer {
+        color: $gray;
+        font-size: rem-calc(12);
+        padding: rem-calc(8);
+    }
+
+
+    /* Map Group Bubble */
+    /* Content container to display a list of properties when a group icon is clicked */
+    .rn-search-preview-group {
+    height: auto;
+    max-height: rem-calc(140);
+    overflow:auto;
+    }
+    
+    .rn-search-preview-group > div {
+    width:auto !important;
+    }
+/* group icon map bubble styles */
+    .rn-search-preview-group-row {
+        align-items: center;
+	    display: flex;
+
+        font-size: rem-calc(14);
+        overflow: hidden;
+        padding: rem-calc(4);
+        &:nth-child(even) {
+            background: #eee;
+        }
+    }
+
+    .rn-search-preview-group-icon,
+    .rn-search-preview-group-address,
+    .rn-search-preview-group-price {
+	    display: flex;
+    }
+
+    .rn-search-preview-group-address > a,
+    .rn-search-preview-group-price > div {
+	    color: $black;
+	    height: 100%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+    }
+
+    .rn-search-preview-group-address {
+	    width: 160px;
+    }
+
+    .rn-search-preview-group-address > a {
+	    color: $primary-color;
+        text-decoration: none;
+        
+        display: block;
+	    margin: 3px 2px;
+	    width: 152px;
+	    
+        transition: all 200ms ease-in-out;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    .rn-search-preview-group-price {
+	    width: 80px;
+	    clear: right;
+    }
+
+    .rn-search-preview-group-price > div {
+	    width: 100%;
+    }
+
+    /* Nag registration overlay */
+    .rn-search-preview-login {
+        button {
+            background: $primary-color;
+            border: none;
+            color: white;
+            font-size: rem-calc(13);
+
+            padding: $gutter-width/2;
+
+            transition: $transition;
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+        td span {
+            font-family: $search-font !important;
+            font-size: rem-calc(14) !important;
+            &:nth-child(2) {
+                color: $primary-color !important;
+                text-decoration: none !important;
+
+                transition: $transition;
+                &:hover {
+                    color: $secondary-color !important;
+                }
+            }
+            
+        }
+        
+    }
+
+}
+
+ .rn-search-map-markerlabels {
+   color: $gray;
+   background-color: $white;
+   border: 1px solid $gray-light;
+   border-radius: $gutter-width/4;
+   font-size: rem-calc(11);
+   font-weight: bold;
+   opacity: 1 !important;
+   text-align: center;
+   
+   width: rem-calc(40);
+  
+   white-space: nowrap;
+ }
+
+// MAP VIEW
+// - - - - - - - - - - - - -
+
+.rn-search-map {
+  height: 100%; // Set height to fill container
+  width: 100%; // Set width to fill container
+
+  position: relative;
+
+  #rms-mappanediv, #rms-mapcontainerdiv {
+    height: 100%;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: rem-calc(18);
+    font-weight: 100; // Light font weight for property count
+	line-height: 1;
+	text-overflow: ellipsis;
+
+    margin: 0; // Remove default heading margins
+	overflow: hidden;
+    padding: rem-calc(8);
+	white-space: nowrap;
+
+    @media #{$small-only} {
+      .hide-for-small {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+// GALLERY VIEW
+// - - - - - - - - - - - - -
+
+.rn-search-gallery {
+  height: 100%; // Set height to fill container
+  width: 100%; // Set width to fill container
+  max-height: 100%; // Prevent gallery from being taller than it's container
+
+  display: flex !important; // This element should be a flex-container for the property count area & property cards area
+  flex-direction: column; // The property count area should be directly above the property cards area
+
+  position: relative;
+ 
+}
+
+// GALLERY
+// - - - - - - - - - - - - -
+
+@import 'search-gallery';
+
+.rn-search-alert {
+    font-size: rem-calc(12);
+    text-align: center;
+    padding: rem-calc(4);
+    .rn-search-alert-link {
+        color: $primary-color;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .rn-search-alert-button {
+        display: none;
+    }
+}
+
+.rn-search-loading {
+	z-index: 2;
+	background: rgba(255,255,255,0.8);
+	display: none;
+}
+
+.rn-search-loading-content {
+	display: flex;
+	font-size: 1.125rem;
+	font-weight: bold;
+	justify-content: center;
+}
+
+.rn-search-loading-content img {
+	margin: 2px 8px 0px 0px;
+}
+
+// MAP POPUP
+// - - - - - - - - - - - - -
+
+.rn-search-map-popup {
+  padding: ($gutter-width / 2);
+
+  position: absolute;
+  top: rem-calc(34); // This accounts for the property count area
+  right: 0;
+  z-index: 1000;
+
+  display: none;
+
+  @media #{$small-only} {
+    max-width: 100%;
+    padding: ($gutter-width / 4);
+    width: rem-calc(320);
+  }
+
+  .rn-search-map-popup-close {
+    border: none;
+    background: $white;
+    color: $gray;
+    font-size: rem-calc(28);
+    line-height: 1;
+
+    padding: 0;
+
+    position: absolute;
+    top: ($gutter-width / 2); // This is to account for the padding on .rn-search-map-popup
+    right: ($gutter-width / 2); // This is to account for the padding on .rn-search-map-popup
+
+    @media #{$small-only} {
+      top: ($gutter-width / 4); // This accounts for the smaller amount of padding for .rn-search-map-popup on small devices
+      right: ($gutter-width / 4); // This accounts for the smaller amount of padding for .rn-search-map-popup on small devices
+    }
+  }
+
+  .rn-search-prop-card {
+    border: none;
+
+    width: $prop-card-width-max;
+
+    @media #{$small-only} {
+      width: 100%;
+    }
+  }
+
+  .rn-search-prop-card-collapse {
+    display: none;
+    
+    i {
+      font-size: rem-calc(32);
+    }
+     
+  }
+}
+
+
+// TEMPORARY NOTIFICATION
+// - - - - - - - - - - - - -
+
+.rn-search-map-notification,
+.rn-search-gallery-notification {
+	height: rem-calc(70);
+	margin: 0 auto;
+	width: rem-calc(310);
+
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+    z-index: 1;
+
+    .rn-search-map-notification-message,
+	.rn-search-gallery-notification-message {
+		background: rgba($primary-color, 0.85);
+		color: $white;
+		font-size: rem-calc(14);
+
+		padding: ($gutter-width / 2) $gutter-width ($gutter-width / 2) ($gutter-width / 2);
+		width: 100%;
+    }
+}
+
+.rn-search-notification-close-button {
+  color: $white;
+    
+  cursor: pointer;
+
+    position: absolute;
+  right: .25rem;
+  
+}
+
+// LOADING OVERLAY
+// - - - - - - - - - - - - -
+
+.rn-search-loading-overlay {
+  background: rgba($white, .8);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+
+	&.inactive {
+    display: none;
+  }
+}
+
+.rn-search-loading-overlay-content {
+  background: rgba($white, .8);
+	font-size: rem-calc(18);
+	font-weight: bold;
+
+	margin-top: $gutter-width / 2;
+
+	display: flex;
+	justify-content: center;
+
+	img {
+		height: rem-calc(24);
+		margin-right: $gutter-width;
+		width: rem-calc(24);
+	}
+}
+
+// SEARCH FOOTER
+// - - - - - - - - - - - - -
+
+@import 'search-footer';
+
+// LISTING OVERLAY
+// - - - - - - - - - - - - -
+
+@import 'search-listing';
+
+// MARKET WATCH REPORT
+// - - - - - - - - - - - - -
+
+@import 'market-report';
+
+
+// OLDER BROWSERS
+// - - - - - - - - - - - - -
+
+.no-flexbox {
+
+  .rn-search-container-map-gallery {
+    .rn-search-map {
+      width: 60%; // 66.6666%; - changed from 33% 9/29/15 // When both map & gallery view are visible, the gallery view should be 60% wide
+
+      @media #{$tablet-only} {
+        width: 60%;
+      }
+    }
+
+    .rn-search-gallery {
+      width: 40%; // 33.3333%; - changed from 33% 9/29/15 // When both map & gallery view are visible, the gallery view should be 40% wide
+
+      @media #{$one-col-only} {width: $prop-card-width-max}
+
+      @media #{$two-col-only} {width: ($prop-card-width-max * 2)}
+
+      @media #{$three-col-only} {width: ($prop-card-width-max * 3)}
+
+      @media #{$four-col-only} {width: ($prop-card-width-max * 4)}
+
+      @media #{$five-col-only} {width: ($prop-card-width-max * 5)}
+    }
+  }
+
+  .rn-search-prop-card-container {
+    margin: 0;
+    display: block;
+  }
+
+  .rn-search-prop-card {
+    display: block;
+  }
+}
+
+.rn-search-mls-container, .footerContainer {
+  font-size: rem-calc(12);
+  padding: rem-calc(8);
+}
+
+// OVERLAY FORMS
+// - - - - - - - - - - - - -
+.alert { // Popup when listing is not available.
+    background: $white;
+
+    padding: $gutter-width / 2;
+}
+
+#overlayMask {
+    z-index: 10000 !important; // Ensure mask opens in front of LDP overlay but behind forms
+}
+#overlayParent {
+    font-family: $search-font;
+
+    right: 0 !important;
+    left: 0 !important;
+
+    background: transparent !important;
+    height: 100%;
+    margin: 0 auto;
+    max-width: $gutter-width * 22;
+    width: auto;
+    z-index: 10001 !important; // Ensure forms open in front of LDP overlay
+    div {
+        background: $white;
+    }
+    .loginComplete { // Successful login confirmation
+        div {
+            text-align: center;
+            font-weight: bold;
+        }
+        p {
+            font-size: rem-calc(14);
+            font-weight: normal;
+            text-align: center;
+        }
+        #confirmButton {
+            color: $white;
+
+            background: $primary-color;
+            border: none;
+            margin: ($gutter-width / 4) auto;
+            padding: ($gutter-width / 4) $gutter-width;
+
+            display: flex;
+        }
+    }
+    @media #{$small-only} {
+        top: 0 !important;
+    }
+}
+
+ #overlayClose {
+     height: auto !important;
+     width: auto !important;
+     img {
+         display: none;
+     }
+     a {
+         color: transparent;
+         &::after {
+             color: $black;
+             content: "\e927";
+             font-family: 'RN-Icons';
+             font-size: rem-calc(32);
+             
+         }
+         &:hover::after {
+            color: $secondary-color;
+        }
+     }
+ }
+
+/* Schedule showing form */
+#schedule-showing-overlay {
+  background: $white;
+  font-size: rem-calc(12);
+  padding: rem-calc(8);
+  @media #{$small-only} {
+      height: 100%;
+      overflow-y: scroll;
+  }
+
+   #schedule-showing-overlay-container-form-submit {
+      background: $primary-color;
+      color: $white;
+      font-size: rem-calc(16);
+      text-align: center;
+
+      cursor: pointer;
+
+      margin: 0 auto;
+      padding: rem-calc(8);
+      width: 50%;
+
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background: lighten($primary-color, 10%);
+      }
+      &:after {
+      content: "Submit";
+      }
+    }
+  #schedule-showing-overlay-container-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    
+    margin-top: rem-calc(24);
+    padding: rem-calc(8);
+    #schedule-showing-overlay-container-header-details-title {
+      font-size: rem-calc(16);
+      font-weight: bold;
+      
+    }
+    #schedule-showing-overlay-container-header-details-mls-number, schedule-showing-overlay-container-header-details-address, schedule-showing-overlay-container-header-details-address-line2 {
+      
+    }
+  }
+  #schedule-showing-overlay-container-instructions {
+    
+    padding: rem-calc(8);
+  }
+  form {
+    
+    padding: rem-calc(8);
+    input {
+      width: 100%;
+    }
+    textarea {
+      margin: rem-calc(8 0);
+      width: 100%;
+    }
+
+  }
+}
+
+/* Request Info form */
+#submitForm {
+  background: $white;
+  
+  font-size: rem-calc(12);
+  
+  margin: 0 auto;
+  padding: rem-calc(8);
+
+  overflow-y: scroll;
+  @media #{$small-only} {
+      height: 100%;
+      width: auto;
+  }
+  #divForm {    
+    padding: rem-calc(8);
+    input {
+        font-family: $search-font !important;
+        padding: rem-calc(8);
+
+    }
+    textarea {
+        font-family: $search-font !important;
+
+    }
+    table { //mortgage info request form
+        width: auto !important;
+        h1 {
+            font-size: $gutter-width;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100% !important;
+        }
+        input[type="button"] {
+            background: $primary-color;
+            border: none;
+            color: $white;
+
+            margin-left: $gutter-width / 4;
+            
+        }
+        #firstName, #lastName, #emailAddress, #phone1 {
+            margin-bottom: $gutter-width /4;
+            width: 100%;
+        }
+        .overlayContentBody { //second level mortgage info request form
+            td {
+                padding: 0 !important;
+            }
+            .clientInfo {
+                tr {
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-between;
+                    td {
+                        align-items: center;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+    .rn-search-listing-display-info-form, .rn-search-listing-display-options-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .rn-search-listing-display-info-form-name-first, .rn-search-listing-display-info-form-name-last {
+        input {
+            border: 1px solid $gray-light;
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+
+            height: auto;
+            padding: $gutter-width / 2;
+
+            cursor: text;
+
+            outline: none;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+        }
+    }
+    .rn-search-listing-display-info-form-name, .rn-search-listing-display-info-form-info, .rn-search-listing-display-info-form-contact {
+      flex: 1 1 auto;
+    }
+    .rn-search-listing-display-form-listing, .rn-search-listing-display-form-agent, .rn-search-listing-display-help-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .rn-search-listing-display-submit-form {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      .rn-search-listing-display-submit-buttons-form {
+        input {
+          background: $primary-color;
+          border: none;
+          color: $white;
+          font-size: rem-calc(16);
+
+          margin: rem-calc(8);
+
+          transition: all 200ms ease-in-out;
+          &:hover {
+            background: lighten($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+  .overlayHeaderText {
+    font-size: rem-calc(16);
+    font-weight: bold;
+  }
+}
+
+/* Search 3 Registration/Login form */
+#aClose {
+    color: $white;
+    text-decoration: none;
+
+    position: absolute;
+    right: rem-calc(14);
+    &::after {
+        color: $black;
+        content: "\e927";
+        font-family: 'RN-Icons';
+        font-size: rem-calc(32);
+             
+    }
+    &:hover::after {
+    color: $secondary-color;
+    }
+}
+.maindashboard {
+    background: $white;
+
+    
+    padding: rem-calc(4);
+    position: relative;
+    margin: 0 auto;
+    width: rem-calc(400) !important;
+    @media #{$small-only} {
+        height: 100%;
+        overflow-y: scroll;
+        width: auto !important;
+    }
+  .maincontentcolumn {
+    margin: rem-calc(8);
+    padding: rem-calc(8);
+    header {
+      p {
+        font-family: $search-font;
+        font-size: rem-calc(16);
+        font-weight: bold;
+
+        margin: 0;
+      }
+    }
+    .regexplanation {
+        font-size: rem-calc(12);
+    }
+    .trRegistration {
+      padding: rem-calc(16 0);
+    }
+    #createprofile {
+      .maindashboard-name {
+        display: flex;
+
+        margin-bottom: rem-calc(8);
+        input {
+          font-size: rem-calc(12);
+          width: 50%;
+          &:first-child {
+            margin-right: rem-calc(8);
+          }
+        }
+      }
+      .maindashboard-phone, .maindashboard-username {
+        margin-bottom: rem-calc(8);
+        input {
+          font-size: rem-calc(12);
+
+          width: 100%;
+        }
+      }
+      #signupbutton {
+        background: $primary-color;
+        border: none;
+        color: $white;
+
+        display: block;
+        margin: 0 auto;
+        padding: rem-calc(8);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background: lighten($primary-color, 10%);
+        }
+      }
+      .maindashboard-showup {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        margin: rem-calc(8);
+        #nothankyoubutton {
+          border: none;
+
+          padding: rem-calc(8);
+        }
+        .donotshowagainlabel {
+          display: flex;
+
+          margin: rem-calc(4);
+        }
+      }
+    }
+    .login-logged-out-state {
+        margin-bottom: $gutter-width/4;
+      h2 {
+        color: $black;
+        font-size: rem-calc(16);
+
+      }
+      #existingaccount {
+        background: $primary-color;
+        border: none;
+        color: $white;
+
+        display: block;
+        margin: 0 auto;
+        padding: rem-calc(8);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background: lighten($primary-color, 10%);
+        }
+      }
+      .forgotPassword {
+        font-size: rem-calc(12);
+        text-align: center;
+
+        display: block;
+
+      }
+    }
+    .regsigninsection {
+      iframe {
+        border: none !important;
+        height: rem-calc(40) !important;
+        width: rem-calc(208) !important;
+      }
+      .registerlogin-fields {
+        display: flex;
+        flex-direction: column;
+        input {
+            flex: 1 1 auto;
+          
+          border: 1px solid #999999;
+          font-size: rem-calc(12);
+          line-height: inherit;
+          height: auto;
+          margin-bottom: rem-calc(8);
+          padding: 0.5rem;
+          cursor: text;
+          outline: none;
+          -webkit-appearance: none !important;
+          -moz-appearance: none !important;
+        }
+        input[type="submit"] {
+            flex: 0 1 auto;
+
+          background: $primary-color;
+          border: none;
+          color: $white;
+          cursor: pointer;
+          font-size: $gutter-width;
+
+          display: block;
+          margin: 0 auto;
+          padding: rem-calc(8);
+          transition: all 200ms ease-in-out;
+          &:hover {
+            background: lighten($primary-color, 10%);
+          }
+        }
+
+      }
+      .login-remember {
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        h4 {
+            margin: 0;
+        }
+      }
+    }
+    .maindashboard-privacy {
+      p {
+        font-family: inherit;
+      }
+    }
+  }
+}
+
+/* Extranet Registration/Login form */
+.rn-container {
+    .rn-popup {
+        background: $white;
+
+        position: relative;
+        margin: 0 auto;
+        @media #{$small-only} {
+            width: auto !important;
+        }
+        h1 {
+            color: $primary-color !important;
+        }
+        .rn-popup-button {
+            background: $primary-color;
+            transition: all 200ms ease-in-out;
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+    }
+}
+
+
+
+.rn-popup {
+    margin: 10% auto;
+    max-width: 350px;
+    
+    
+    .rn-overlay-close {
+        text-decoration: none;
+            i {
+                display: none;
+            }
+            &::after {
+                color: $black;
+                content: "\e927";
+                font-family: 'RN-Icons';
+                font-size: rem-calc(32);
+             
+            }
+            &:hover::after {
+            color: $secondary-color;
+        }
+    }
+    h3 {
+        color: $primary-color !important;
+    }
+    .rn-popup-button {
+        background: $primary-color;
+        transition: $transition;
+        &:hover {
+            background: lighten($primary-color, 10%);
+        }
+    }
+    /* Save Search */
+    &.rn-dashboard-listings {
+        padding: 0 rem-calc(8 8) !important;
+        .rn-dashboard-listings-header {
+            align-items: center;
+            flex-direction: row !important;
+            padding: 0;
+
+        }
+        
+        .rn-dashboard-listings-popup-form {
+            border: none;
+            
+            padding: 0;
+            width: 100%;
+        }
+        .rn-dashboard-listings-popup-search {
+            display: none;
+        }
+    }
+    /* Save Favorite */
+    &.rn-dashboard-favorites {
+        padding: 0 rem-calc(8) !important;
+        .rn-overlay-header {
+            align-items: center;
+        }
+        .rn-dashboard-favorites-card {
+            border: none;
+        }
+        .rn-popup-button {
+            display: block !important;
+            margin: 0 auto !important;
+            width: 50%;
+        }
+    }
+}
+
+
+
+
+
+
+// ADVANCED SEARCH
+// - - - - - - - - - - - - -
+.overlayWrapper {
+  margin: 0 auto;
+
+  height: auto;
+  max-height: calc(100vh - #{$search-header-height} - #{$search-site-header-height} - #{$search-footer-height} - #{$gutter-width});
+  overflow-y: scroll !important;
+}
+
+// Co-Mingling overlay
+#advancedsearchmlslist {
+    background: $white;
+
+    margin: 0 auto;
+    padding: $gutter-width;
+    width: rem-calc(500);
+    z-index: 10;
+
+    position: absolute;
+    top: $search-header-height !important;
+    left: 0 !important;
+    right: 0;
+    .advanced-close {
+        color: transparent;
+
+         position: absolute;
+         top: 0;
+         right: 0;
+         img {
+             display: none;
+         }
+  
+             
+        &::after {
+            color: $black;
+            content: "\e927";
+            font-family: 'RN-Icons';
+            font-size: rem-calc(32);
+             
+        }
+        &:hover::after {
+            color: $secondary-color;
+        }
+
+    }
+    .advanced-mls-desc {
+        font-size: rem-calc(14);
+
+        border-bottom: 1px solid $black;
+        margin: ($gutter-width / 2) 0;
+        padding: ($gutter-width / 2) 0;
+    }
+    .advanced-mls-title {
+        text-align: center;
+
+        margin-bottom: $gutter-width / 2;
+    }
+    .advancedsearchmlsitem {
+
+        padding: ($gutter-width / 2) ($gutter-width / 4);
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        .advanced-mls-item-name, .advanced-mls-item-link {
+            flex: 0 1 50%;
+        }
+        .advanced-mls-item-link {
+            text-align: right;
+        }
+        a {
+            color: $primary-color;
+            text-decoration: none;
+
+            position: relative;
+
+            transition: $transition;
+            &:hover {
+                color: $black;
+            }
+            &::after {
+                display: none;
+            }
+        }
+        &:nth-child(even) {
+            background: #eee;
+        }
+    }
+    .advancedsearchmlsfooter {
+        font-size: rem-calc(12);
+
+        border-top: 1px solid $black;
+        margin-top: ($gutter-width / 2);
+        padding-top: ($gutter-width / 2);
+    }
+     
+}
+.rn-search-advanced {
+  font-size: rem-calc(12);
+  
+  height: 100%;
+  padding: rem-calc(8);
+
+
+  h2 {
+    font-size: rem-calc(16);
+    
+    margin: 0;
+  }
+  .rn-search-advanced-header {
+    display: flex;
+    justify-content: space-between;
+    
+    font-size: $gutter-width;
+    .rn-icon-close {
+      font-size: rem-calc(24);
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+  }
+  
+  .rn-search-advanced-tabs-container {
+      background: $white-dark;
+    display: flex;
+    justify-content: space-between;
+
+    padding: $gutter-width / 2;
+    .rn-search-advanced-tabs {
+        display: flex;
+    }
+    #btnSearch {
+      order: 10;
+      
+      background: $primary-color;
+      color: white;
+      cursor: pointer;
+
+      padding: $gutter-width / 2;
+      
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background: lighten($primary-color, 10%);
+      }
+    }
+    .rn-search-tab-active, .rn-search-tab-inactive {
+        background: $white;
+        color: $gray-dark;
+
+      cursor: pointer;
+      font-size: rem-calc(12);
+      
+      height: auto;
+      margin-right: $gutter-width / 2;
+      padding: rem-calc(8);
+
+      img {
+          display: none;
+      }
+    }
+    .rn-search-tab-active {
+      background: lighten($secondary-color, 10%);
+      color: $white;
+    }
+  }
+  .rn-search-advanced-prop-type {
+    display: flex;
+    
+    padding: rem-calc(8);
+    .rn-search-advanced-prop-type-label {
+      align-items: center;
+      display: flex;
+      flex: 1 1 auto;
+    }
+  }
+  .rn-search-advanced-build-search {
+    display: flex;
+    justify-content: space-between;
+    .rn-search-advanced-search-record {
+      order: 2;
+      
+      width: 50%;
+    }
+    #criteriaPaneMySearch {
+      border: 1px solid $gray;
+      
+      height: rem-calc(334) !important;
+      overflow: auto;
+      padding: rem-calc(8);
+      .myCriteriaPropertyType {
+        font-size: rem-calc(14);
+        font-weight: bold;
+        
+        margin-top: rem-calc(4);
+      }
+      .myCriteriaValue {
+        font-size: rem-calc(12);
+        
+        padding-left: rem-calc(8);
+      }
+    }
+  }
+  .rn-search-advanced-property-count {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    
+    font-size: rem-calc(12);
+    
+    padding: rem-calc(8);
+    input {
+      margin-left: rem-calc(4);
+      padding: rem-calc(8);
+      width: auto !important;
+    }
+    .rn-search-advanced-property-count-button {
+      background: $primary-color;
+      border: 1px solid $primary-color;
+      color: $white;
+      cursor: pointer;
+      
+      padding: rem-calc(8);
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background: $primary-color;
+      }
+    }
+  }
+  .rn-search-advanced-search-options {
+    padding-right: rem-calc(8);
+    width: 50%;
+    .rn-search-advanced-search-options-category, .rn-search-advanced-search-options-feature {
+      flex: 1 1 auto;
+    }
+    .rn-search-advanced-search-options-content {
+      border: 1px solid $gray;
+      
+      max-height: rem-calc(150);
+      overflow: auto;
+      padding: rem-calc(8);
+      .rn-search-advanced-search-options-radio {
+          align-items: center;
+          display: flex;
+
+      }
+    }
+    .rn-search-advanced-search-add-date {
+      align-items: center;
+      display: flex;
+      
+      padding: rem-calc(8 0);
+      i {
+        font-size: rem-calc(20);
+        
+        margin: rem-calc(0 4 0 8);
+      }
+      select {
+        padding: 0;
+      }
+    }
+
+    .rn-search-advanced-prop-type, .rn-search-advanced-prop-type-regular, .rn-search-advanced-prop-type-niche {
+      align-items: center;
+      display: flex;
+    }
+  }
+    .rn-search-advanced-niche-container {
+        display: flex;
+        flex-wrap: wrap;
+        .rn-search-advanced-prop-type-regular, .rn-search-advanced-prop-type-niche {
+            margin-right: $gutter-width / 4;
+        }
+    }
+
+}
+
+// BROWSER OVERWRITES
+// - - - - - - - - - - - - -
+
+.no-flexboxlegacy { // Target IE
+	.rn-search-prop-card {
+		border: none; // Temporary fix for box-sizing issue
+	}
+
+    #overlayParent {
+        width: 22rem;
+    }
+}
+
+
+
+// RELIANCE OVERWRITES
+// - - - - - - - - - - - - -
+#newsearchcontainer {
+  width: auto !important;
+}
+
+.rn-suggestionfield {
+  border: none !important;
+  
+  float: none;
+  overflow: hidden;
+  width: 78%;
+  div {
+    font-family: $search-font !important;
+    font-size: rem-calc(13) !important;
+
+    float: none !important;
+    padding-right: rem-calc(4);
+    width: auto !important;
+  }
+}
+
+.rn-search-location-title {
+  background: $white;
+  border: none;
+  font-size: rem-calc(13);
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  padding-bottom: rem-calc(4);
+  div {
+    position: relative;
+  }
+}
+
+ #Div1,
+.rn-search-prop-listings-listing-details, 
+ #topLeaderboardAd,
+.reliance-log_wrapper { /* this is for dev only */
+  display:none !important;
+}
+
+

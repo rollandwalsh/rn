@@ -1,0 +1,674 @@
+// MAIN CONTENT
+// - - - - - - - - - - - - -
+
+body.home {
+	.rn-site-content {
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+		height: $container-width;
+		padding-top: rem-calc(32);
+		
+		@media #{$medium-down} {
+			height: auto;
+		}
+	}
+}
+
+// HERO TEXT
+
+.rn-home-hero-text {
+	@extend .rn-container;
+	
+	margin: 0 auto ($gutter-width / 2);
+	overflow: hidden;
+	line-height: 2.5rem;
+	padding: 10px;
+	
+	* {
+		color: $white;
+		font-size: rem-calc(40);
+		text-align: center;
+		text-shadow: 1px 1px 4px rgba($gray, .75);
+		
+		margin: 0;
+	}
+	
+	@media #{$large-up} {
+		height: rem-calc(190);
+		margin: 0 auto $gutter-width;
+		
+		* {
+			font-size: rem-calc(80);
+            line-height: 1;
+		}
+	}
+	
+	@media #{$medium-only} {
+		* {
+			font-size: rem-calc(60);
+		}
+	}
+}
+
+// QUICK SEARCH
+
+.rn-home-quick-search {
+	@extend .rn-container;
+	
+	background: rgba($tertiary-color, .7);
+	color: $primary-color;
+	
+	margin: 0 auto $gutter-width;
+	overflow: hidden;
+	padding: $gutter-width / 2;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	@media #{$large-up} {
+		height: rem-calc(100);
+		margin: ($gutter-width * 2) auto;
+	}
+	
+	@media #{$medium-only} {
+		height: rem-calc(138);
+	}
+	
+	@media #{$medium-down} {
+		flex-wrap: wrap;
+	}
+}
+
+.rn-home-quick-search-heading {
+	color: $white;
+	font-weight: 100;
+	letter-spacing: rem-calc(4);
+	text-shadow: 0 0 rem-calc(12) rgba($black, .8);
+	text-transform: uppercase;
+	
+	margin: 0;
+	padding: 0 ($gutter-width / 2);
+	width: 100%;
+	
+	@media #{$small-only} {
+		padding: 0 0 ($gutter-width / 2) 0;
+	}
+}
+
+.rn-qsr {
+	font-family: inherit;
+	
+	width: auto;
+	
+	display: flex;
+	flex: 1 1 auto;
+	
+	form {
+		padding: $gutter-width / 2;
+		
+		display: flex;
+		flex: 1 1 auto;
+	}
+
+	.rn-qsr-cz,
+	.rn-qsr-mn,
+	.rn-qsr-mx,
+	.rn-qsr-bd,
+	.rn-qsr-ba {
+		margin-right: $gutter-width / 2;
+		
+		display: flex;
+	}
+	
+	.rn-qsr-mn,
+	.rn-qsr-mx,
+	.rn-qsr-bd,
+	.rn-qsr-ba {
+		flex-basis: rem-calc(96);
+	}
+	
+	.rn-qsr-cz {
+		flex: 1 1 auto;
+		
+		float: none;
+	}
+	
+	.rn-qsr-cz-f,
+	.rn-qsr-mn-f,
+	.rn-qsr-mx-f,
+	.rn-qsr-bd-f,
+	.rn-qsr-ba-f, {
+		background-color: $white;
+		border: none;
+		color: $gray;
+		font-size: rem-calc(12) !important;
+		text-transform: uppercase;
+
+		width: 100% !important;
+	}
+	
+	.rn-qsr-cz-f {	
+		padding: $gutter-width / 2;
+
+		flex: 1 1 auto;
+		
+		outline: none;
+	}
+	
+	.rn-qsr-button {
+		background: $primary-color;
+		border: none;
+		color: $white;
+		font-size: rem-calc(20);
+		letter-spacing: rem-calc(4);
+		line-height: 1;
+		text-transform: uppercase;
+		
+		margin: 0;
+		padding: ($gutter-width / 2) $gutter-width;
+		width: auto;
+		
+		align-items: center;
+		display: flex;
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $secondary-color;
+		}
+	}
+	
+	@media #{$medium-down} {
+		width: 100%;
+		
+		form {
+			flex-wrap: wrap;
+		}
+		
+		.rn-qsr-cz {
+			margin-right: 0;
+			margin-bottom: $gutter-width / 2;
+			width: 100%;
+		}
+		
+		.rn-qsr-mn,
+		.rn-qsr-mx,
+		.rn-qsr-bd,
+		.rn-qsr-ba {
+			flex-grow: 1;
+		}
+	}
+	
+	@media #{$small-only} {
+		form {
+			padding: 0;
+			
+			justify-content: center;
+		}
+		
+		.rn-qsr-mn,
+		.rn-qsr-mx,
+		.rn-qsr-bd,
+		.rn-qsr-ba {
+			margin-bottom: $gutter-width / 2;
+			
+			flex: 0 0 calc(50% - (#{$gutter-width} / 4);
+		}
+		
+		.rn-qsr-mx,
+		.rn-qsr-ba {
+			margin-right: 0;
+		}
+	}
+}
+
+.rn-quick-search-button {
+	border: 1px solid $primary-color;
+	border-radius: $gutter-width / 2;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+	margin: $gutter-width / 2;
+	padding: $gutter-width / 2;
+	
+	align-items: center;
+	display: flex;
+	
+	transition: $transition;
+	
+	&:hover {
+		background: $primary-color;
+		color: $white;
+	}
+	
+	@media #{$medium-only} {
+		flex: 1;
+	}
+}
+
+// CONTENT
+
+.rn-home-content {
+	@extend .rn-container;
+	
+	background: rgba($white, .7);
+	
+	margin: $gutter-width auto;
+	padding: $gutter-width / 2;
+	
+	display: flex;
+	
+	@media #{$large-up} {
+		margin: ($gutter-width * 2) auto;
+	}
+}
+
+// AGENT
+
+.rn-home-agent-profile {
+	font-size: rem-calc(14);
+	
+	max-height: rem-calc(256);
+	padding: $gutter-width / 2;
+	overflow-y: scroll;
+	width: 100%;
+	
+	display: flex;
+	
+	@media #{$small-only} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+.rn-home-agent-image {
+	padding: 0 ($gutter-width / 2) 0 0;
+	width: rem-calc(120);
+
+	img {
+	    height: auto;
+	    max-width: 100%;
+	    width: 100%;
+	    
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+	
+	@media #{$small-only} {
+		padding: 0 0 ($gutter-width / 2) 0;
+	}
+}
+
+.rn-home-agent-email-link {
+	background: $primary-color;
+	color: $white;
+	font-size: rem-calc(12);
+	text-decoration: none;
+
+	padding: ($gutter-width / 2) $gutter-width;
+
+	float: right;
+
+	transition: $transition;
+
+	&:hover {
+		background: $secondary-color;
+	}
+}
+
+.rn-home-agent-info {
+	padding: 0 ($gutter-width / 2);
+	
+	flex: 1;
+	
+	h1 {
+		font-size: rem-calc(28);
+		font-weight: 600;
+		
+		margin: 0 0 ($gutter-width / 2);
+
+		span {
+			font-size: rem-calc(20);
+			font-weight: 400;
+
+			display: block;
+		}
+	}
+	
+	@media #{$small-only} {
+		flex: 100%;
+	}
+}
+
+.rn-home-agent-info-details {
+	font-size: rem-calc(15);
+	
+	margin: 0 0 $gutter-width ($gutter-width / -2);
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		border-right: 1px solid $primary-color;
+		font-weight: bold;
+		
+		padding: 0 ($gutter-width / 2);
+		
+		&:last-of-type {
+			border: none;
+		}
+		
+		span {
+			text-transform: uppercase;
+		}
+	}
+}
+
+// CALLOUTS
+
+.rn-home-callouts {
+	background: rgba($white, .7);
+	
+	height: rem-calc(147);
+	margin: $gutter-width 0;
+	overflow: hidden;
+	width: 100%;
+	
+	@media #{$large-up} {
+		margin: ($gutter-width * 2) auto;
+	}
+	
+	@media #{$small-only} {
+		height: auto;
+		margin-bottom: 0;
+	}
+	
+	> .rn-container {
+		height: 100%;
+
+		display: flex;
+		justify-content: space-between;
+		
+		@media #{$small-only} {
+			height: auto;
+
+			flex-wrap: wrap;
+		}
+	}
+	
+	a {
+		font-size: rem-calc(18);
+		text-decoration: none;
+
+		padding: ($gutter-width * 2) ($gutter-width / 2);
+
+		flex: 1 1 auto;
+
+		transition: $transition;
+		
+		position: relative;
+		
+		@media #{$large-up} {
+			padding: ($gutter-width * 2) $gutter-width;
+		}
+		
+		@media #{$medium-up} {
+			border-left: 2px solid $gray-light;
+		
+			&:first-of-type {
+				border: none;
+				
+				padding-left: $gutter-width / 2;
+			}
+		}
+		
+		@media #{$small-only} {
+			border-top: 2px solid $gray-light;
+			
+			padding: ($gutter-width / 2) ($gutter-width / 4);
+			
+			width: 100%;
+		
+			&:first-of-type {
+				border: none;
+			}
+		}
+		
+		&:hover {
+			color: $secondary-color;
+		}
+		
+		&.a2015buying {
+			.line-1:after {content: "Buying"}
+			.line-2:after {content: "Search for Homes Now"}
+		}
+		
+		&.a2015home.finder {
+			.line-1:after {content: "Home Finder"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015selling {
+			.line-1:after {content: "Selling"}
+			.line-2:after {content: "Get the Most for your Home"}
+		}
+		
+		&.a2015property {
+			.line-1:after {content: "Property Finder"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015mapsearch {
+			.line-1:after {content: "Map Search"}
+			.line-2:after {content: "Find your New Home"}
+		}
+		
+		&.a2015relocation {
+			.line-1:after {content: "Relocation"}
+			.line-2:after {content: "Services Available"}
+		}
+		
+		&.a2015homevalue {
+			.line-1:after {content: "Home Valuation"}
+			.line-2:after {content: "What's my Home Worth?"}
+		}
+		
+		&.a2015foreclosure {
+			.line-1:after {content: "Foreclosure"}
+			.line-2:after {content: "Search Properties"}
+		}
+		
+		&.a2015featured {
+			.line-1:after {content: "Featured"}
+			.line-2:after {content: "Properties for Sale"}
+		}
+		
+		&.a2015contact {
+			.line-1:after {content: "Contact"}
+			.line-2:after {content: "A Real Estate Broker"}
+		}
+		
+		&.a2015signup {
+			.line-1:after {content: "Sign Up"}
+			.line-2:after {content: "For Home Finder Services"}
+		}
+		
+		&.a2015marketwatch {
+			.line-1:after {content: "Market Watch"}
+			.line-2:after {content: "View Market Trends"}
+		}
+		
+		&.a2015hometrends {
+			.line-1:after {content: "Home Trends"}
+			.line-2:after {content: "Market Watch"}
+		}
+		
+		&.a2015owning {
+			.line-1:after {content: "Owning a Home"}
+			.line-2:after {content: "Property Tips"}
+		}
+		
+		&.a2015schools {
+			.line-1:after {content: "Schools"}
+			.line-2:after {content: "In your Neighborhood"}
+		}
+		
+		&.a2015marketvideo {
+			.line-1:after {content: "60-Second"}
+			.line-2:after {content: "Market Update Video"}
+		}
+		
+		&.a2015calculator {
+			.line-1:after {content: "Calculate Mortgage"}
+			.line-2:after {content: "rates and payment options"}
+		}
+		
+		&.a2015blog {
+			.line-1:after {content: "Read Our Blog"}
+			.line-2:after {content: "Keep current in the news"}
+		}
+		
+		&.a2015homevaluereport {
+			.line-1:after {content: "My Home's Value"}
+			.line-2:after {content: "Get your home value report"}
+		}
+		
+		&.a2015valuereport {
+			.line-1:after {content: "Get the value Report"}
+			.line-2:after {content: "used by Banks"}
+		}
+		
+		&.a2015mortgage {
+			.line-1:after {content: "Request Mortgage"}
+			.line-2:after {content: "get pre-approved now"}
+		}
+		
+		&.a2015openhouse {
+			.line-1:after {content: "Open House"}
+			.line-2:after {content: "find one near you"}
+		}
+		
+		&.a2015property-watch {
+			.line-1:after {content: "Property Watch"}
+			.line-2:after {content: "Login or Register Now"}
+		}
+		
+		&.a2015marketvideo_b {
+			.line-1:after {content: "60-second"}
+			.line-2:after {content: "market update video"}
+		}
+		
+		.line-1 {
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+		
+		.line-2 {
+			font-weight: 100;
+			text-transform: lowercase;
+		}
+		
+		i {
+			font-size: rem-calc(28);
+			line-height: 1.4;
+			
+			padding-left: $gutter-width / 8;
+		}
+	}
+}
+
+// SOCIAL LINKS
+
+.rn-home-social-links {
+	@extend .rn-container;
+	
+	padding: $gutter-width / 2;
+	
+	ul {
+		margin: $gutter-width 0;
+		padding: 0;
+		
+		list-style: none;
+		
+		display: flex;
+		justify-content: center;
+
+		li {
+			
+		}
+		
+		a {
+			color: $white;
+			font-size: rem-calc(32);
+			text-decoration: none;
+			
+			padding: $gutter-width;
+			
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+// FEATURED PROPERTIES
+.featured-properties {
+    .rn-fp {
+        width: 100% !important;
+         > div:first-of-type {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+
+             margin: 0 auto !important;
+             width: 100% !important;
+         }
+         .rn-fp-c {
+             background: $white;
+             width: 32%;
+             @media #{$mobile-view} {
+                 width: 100%;
+             }
+         }
+         .rn-fp-photo {
+             border: none;
+            overflow: hidden;
+
+	        > img:not(.rn-fp-mlsicon) {
+		        top: 0 !important;
+                right: 0 !important;
+		        left: 0 !important;
+
+		        height: 100% !important;
+                margin: 0 auto;
+                width: auto !important;
+		        
+	        }
+        }
+         .rn-fp-viewdetails {
+             background: $primary-color;
+             padding: $gutter-width / 2;
+
+             cursor: pointer;
+             transition: $transition;
+             a {
+                 color: $white;
+                 text-decoration: none;
+             }
+             &:hover {
+                 background: lighten($primary-color, 10%);
+
+             }
+         }
+    }
+}
+
+
+@import 'template-form.scss',
+		'template-contact-overlay.scss',
+		'template-interior';

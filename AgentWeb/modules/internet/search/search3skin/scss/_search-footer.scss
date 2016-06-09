@@ -1,0 +1,250 @@
+﻿// SEARCH FOOTER
+// - - - - - - - - - - - - -
+
+.rn-search-footer {
+  background: $gray-lighter;
+  border-top: 1px solid darken($gray-lighter, 10%); // Borders for deliniation of area
+  color: $gray;
+  font-size: rem-calc(11);
+
+  height: $search-footer-height; // Maintain set height of element
+  padding: $gutter-width / 2; // Add global gutter padding
+  width: 100%; // Should fill search box completely
+
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  z-index: 1; // Put the footer on top of the map in map-only mode
+  @media #{$mobile-view} {
+      font-size: $gutter-width;
+
+      height: $gutter-width * 3.5;
+      i {
+          font-size: $gutter-width * 2;
+      }
+  }
+
+  .divider {
+    border-right: 1px solid lighten($gray-light, 10%);
+
+    height: 140%;
+  }
+
+  .label {
+    @media #{$mobile-view} {
+      display: none;
+    }
+  }
+
+  i {
+    font-size: rem-calc(24);
+  }
+
+  .rn-search-criteria-selector {
+	  margin-bottom: 0;
+  }
+
+  .rn-search-criteria-link {
+	  padding: 0;
+  }
+}
+
+.rn-search-map-options,
+.rn-search-save-search,
+.rn-search-area-info,
+.rn-search-view-toggle {
+  height: 100%;
+
+  cursor: pointer;
+
+  align-items: center;
+  display: flex;
+}
+
+@media #{$mobile-view} {
+  .rn-search-map-options {
+    display: none;
+  }
+}
+
+.rn-search-save-search {
+    display: none;
+    a {
+        color: $white;
+        font-size: $gutter-width;
+        text-decoration: none;
+
+        background: $primary-color;
+        height: 100%;
+        padding: $gutter-width / 2;
+
+        display: block;
+    }
+    @media #{$mobile-view} {
+        display: block;
+    }
+}
+
+.rn-search-map-option {
+  
+	padding: 0 ($gutter-width / 2) 0 0;
+
+  &:last-child {
+	  padding: 0 0 0 ($gutter-width / 2);
+  }
+  .rn-search-mapcontrols {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    i {
+      margin-right: rem-calc(4);
+    }
+    &.polygon {
+        div {
+            align-items: center;
+            display: flex !important;
+
+            cursor: pointer;
+            line-height: 1;
+
+            margin-right:$gutter-width/2;
+            &:hover {
+              color: $secondary-color;
+            }
+        }
+    }
+  }
+  .rn-search-mapcontrols-unselected, .rn-search-mapcontrols-selected, .rn-search-mapcontrols-draw {
+    align-items: center;
+    display: flex;
+    
+    cursor: pointer;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  .rn-search-mapcontrols-drag, .rn-search-mapcontrols-unselected, .rn-search-mapcontrols-selected {
+    margin-right: rem-calc(8);
+  }
+  .rn-search-mapcontrols-selected {
+    color: $primary-color;
+  }
+  .rn-search-advanced-search-buttons {
+    display: flex;
+    justify-content: center;
+    .rn-search-advanced-search-button-search {
+      order: 1;
+    }
+    #btnNewSearch {
+      order: 2;
+    }
+    #btnSaveSearch {
+      order: 3;
+    }
+  }
+}
+
+.rn-search-criteria-slideup {
+  background: $white;
+  border-color: $gray-lighter;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+
+  width: rem-calc(250);
+
+  position: absolute;
+  bottom: $search-footer-height;
+  z-index: 10;
+
+  display: none; // Hide by default
+}
+
+.rn-search-criteria-slideup-close {
+  color: $gray;
+  font-size: rem-calc(10);
+  text-transform: uppercase;
+
+  padding: $gutter-width / 2; // Apply global padding
+
+  cursor: pointer;
+
+  span {
+    display: flex;
+    position: absolute;
+    top: rem-calc(15);
+    right: 0;
+  }
+
+  i {
+    font-size: rem-calc(20);
+    line-height: 0;
+  }
+}
+
+.rn-search-view-toggle {
+	margin-right: -($gutter-width / 2);
+	
+	#map-gallery {
+  	display: flex;
+  	    @media #{$mobile-view} {
+    	    display: none;
+  	    }
+	}
+
+    .map-button {
+        &.active {
+            color: $primary-color;
+        }
+    }
+
+	.mobile-hide {
+		display: flex;
+	}
+  
+  i {
+    padding: 0 ($gutter-width / 2);
+
+    cursor: pointer;
+
+    &.rn-icon-close {
+      margin: 0 (-$gutter-width);
+
+      transform: rotate(45deg);
+    }
+  }
+  
+  @media #{$mobile-view} {
+    .mobile-hide {
+      display: none;
+    }  
+  }
+
+  #map,
+  #gallery {
+    display: flex;
+    &:hover,
+    &.selected {
+      color: $secondary-color;
+    }
+  }
+}
+
+.rn-search-mls-container {
+  p {
+    margin: 0;
+  }
+}
+
+.rn-search-seo-city {
+    text-align: center;
+    padding: $gutter-width/2;
+    h1 {
+        color: $primary-color;
+
+        margin: 0;
+    }
+    h3 {
+        color: $secondary-color;
+    }
+}

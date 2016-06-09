@@ -1,0 +1,1065 @@
+// SEARCH HEADER
+// - - - - - - - - - - - - -
+
+.rn-search-header {
+  border-top: 1px solid darken($white-dark, 10%); // Borders for deliniation of area
+  border-bottom: 1px solid darken($white-dark, 10%); // Borders for deliniation of area
+
+  height: $search-header-height; // Maintain set height of element
+  position: relative;
+  width: 100%; // Should fill search box completely
+
+  display: flex; // Flex-items: search criteria / search user
+}
+
+
+// SEARCH CRITERIA
+// - - - - - - - - - - - - -
+
+.rn-search-criteria {
+  background: $white-dark;
+
+  padding: rem-calc(8);
+
+  display: flex; // Criteria elements should be flex-items
+  flex: 1 1 auto; // This flex-item should grow and shrink to fill the space
+}
+
+.rn-search-saved-search-icon,
+.rn-search-criteria-submit
+.rn-search-add-criteria {
+  background: $primary-color;
+  border: none;
+  color: $white;
+
+  height: 100%;
+
+  display: flex; // Used to allow for vertical aligning
+  flex: 0 0 auto; // Button should remain the same width and never grow or shrink
+  align-items: center; // Used to center the icon vertically
+}
+
+.rn-search-saved-search-icon {
+  font-size: rem-calc(32);
+
+  padding-left: ($gutter-width / 2);
+  &:hover {
+    color: $white;
+  }
+}
+
+.rn-search-back-button {
+  color: $gray-light;
+  font-size: rem-calc(64);
+  text-decoration: none;
+
+  height: 100%;
+  margin: 0 ($gutter-width / 2);
+  max-height: 100%;
+
+  align-items: center; // Used to center the icon vertically
+  display: flex; // Used to allow for vertical aligning
+  flex: 0 0 auto; // Button should remain the same width and never grow or shrink
+
+  i {
+    margin: -$gutter-width;
+  }
+}
+
+.rn-search-location-mls-input-container {
+  height: 100%;
+  max-width: rem-calc(360);
+
+  position: relative;
+
+  flex: 1 0 rem-calc(260);
+  
+  i {
+    color: $gray-light;
+    font-size: rem-calc(32);
+
+    position: absolute;
+    top: 0;
+    right: rem-calc(42);
+
+    &.rn-icon-close {
+      display: none;
+    }
+  }
+  #div_addressearchmultiresult {
+        background: $white;
+        font-size: rem-calc(12);
+
+        position: absolute;
+        top: rem-calc(32);
+        left: 0;
+        right: 0;
+        z-index: 10;
+
+        padding: $gutter-width / 4;
+        span {
+            color: $gray-dark !important;
+            &:nth-child(2) {
+                color: $primary-color !important;
+            }
+        }
+    }
+}
+
+.rn-search-mls-submit {
+  background: $primary-color;
+  border: none;
+  color: $white;
+  
+  width: auto;
+  transition: all 200ms ease-in-out;
+  &:hover {
+      background: lighten($primary-color, 10%);
+  }
+}
+
+.react-autosuggest {
+  display: flex;
+  
+  position: relative;
+  
+  width: 100%;
+
+  input[type="text"] {
+    font-size: rem-calc(10); // Decrease font size
+
+    height: 100%; // Should fill height of container completely
+    // padding-right: $gutter-width * 2; // Extra padding right for search icon
+    width: 100%; // Should fill width of container completely
+
+    &[aria-expanded="true"] {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__suggestions {
+    background-color: $white;
+    border: 1px solid $white-dark;
+
+    @media #{$mobile-view} {
+      height: rem-calc(180);
+    }
+
+    height: rem-calc(340);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    list-style-type: none;
+    overflow: auto;
+
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+
+    &-section {
+      .react-autosuggest__suggestions-section-name {
+        &:before {
+          font-family: 'RN-Icons';
+          font-size: rem-calc(18);
+
+          position: absolute;
+          left: rem-calc(4);
+        }
+        border-top: 0;
+      }
+
+      &:first-child {
+        .react-autosuggest__suggestions-section-name {
+          &:before {
+            content: "\e638";  // fa-map-marker
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        .react-autosuggest__suggestions-section-name {
+          &:before {
+            content: "\e60f";  // fa-school-marker
+          }
+        }
+      }
+
+      &-name {
+        border-top: 1px solid $white-dark;
+        color: $gray-dark;
+        font-size: rem-calc(12);
+        font-weight: bold;
+        text-transform: uppercase;
+
+        padding: ($gutter-width / 2) ($gutter-width / 2) ($gutter-width / 2) ($gutter-width * 1.5);
+      }
+
+      &-suggestions {
+        margin: 0;
+        padding: 0 0 0 16px;
+
+        list-style-type: none;
+      }
+    }
+  }
+
+  &__suggestion {
+    color: $gray-dark;
+    font-size: rem-calc(14);
+
+    padding: $gutter-width / 2;
+
+    cursor: pointer;
+
+    &--focused {
+      background-color: $secondary-color;
+      color: $white;
+    }
+  }
+}
+
+// SEARCH CRITERIA
+// - - - - - - - - - - - - -
+
+.rn-search-criteria-selectors {
+  height: 100%;
+  overflow: hidden; // Don't allow for scrolling
+  padding: 0 ($gutter-width / 2);
+
+  display: flex;
+  //flex: 0 1 auto; // Allow this area to shrink when the viewport won't fit all elements
+  //flex-wrap: wrap; // Push selector elements to the next line when shrinking
+
+  &.main {
+    .rn-search-criteria-cover {
+      background: $white-dark;
+
+      height: 100%;
+      width: 100%;
+
+      display: none;
+
+      position: absolute;
+      top: rem-calc(52);
+    }
+
+    .rn-search-criteria-selector {
+      margin-left: $gutter-width / 4; // Spacing between selectors
+
+      flex: 0 1 auto; // Buttons should remain the same width and never grow or shrink
+
+      &:first-of-type {
+        margin-left: 0; // Remove spacing for first selector
+      }
+    }
+  }
+}
+
+.rn-search-criteria-selector {
+  border: none;
+  border-radius: 0;
+  color: $gray-dark;
+  font-size: rem-calc(12);
+
+  height: 100%;
+  margin: 0 ($gutter-width / 4) 0 0;
+  padding: 0;
+
+  &.prop-type {
+
+    .rn-search-criteria-box {
+      display: flex;
+    }
+    .rn-search-criteria-checkbox-area {
+      list-style-type: none;
+      
+      margin: 0;
+      width: 50%;
+      li {
+        align-items: center;
+        display: flex;
+        label {
+            background-position: right;
+            background-repeat: no-repeat;
+
+          border: none;
+  
+          padding: ($gutter-width / 2) ($gutter-width / 4); 
+          width: calc(100% - #{rem-calc(24)});
+           @media #{$small-only} {
+                background-size: rem-calc(28);
+            }
+        }
+  
+        input {
+          margin-right: $gutter-width / 2;
+        } 
+      }
+      &.listed-as li {
+        &:nth-child(2) label {background-image:url(/media/googlemapfiles/searchicons/house.public.svg)}
+        &:nth-child(3) label {background-image:url(/media/googlemapfiles/searchicons/house.pending.svg)}
+        &:nth-child(4) label {background-image:url(/media/googlemapfiles/searchicons/house.sold.svg);}
+      }
+
+    }
+  }
+
+  &.price {
+    .rn-search-criteria-dropdown {
+      select {
+        margin-bottom: rem-calc(8);
+        width: 44%;
+      }
+    }
+    .rn-search-criteria-input {
+      border-bottom: 1px solid $white-dark;
+
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+      
+    }
+  }
+
+  &.size {
+    .rn-search-criteria-box {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      
+      padding: rem-calc(8 8 8 0);
+    }
+    .rn-search-criteria-label {
+      width: 35%;
+    }
+
+    .rn-search-criteria-select {
+      margin-bottom: rem-calc(8);
+      width: 65%;
+    }
+  }
+  
+  &.more {
+      
+    .rn-search-criteria-advanced-search {
+        @media #{$mobile-view} {
+            display:none;
+        }
+    }
+    .rn-search-criteria-dropdown {
+      width: rem-calc(500);
+    }
+    .rn-search-criteria-dropdown-container {
+      display: flex;
+      @media #{$mobile-view} {
+          flex-wrap: wrap;
+      }
+      
+    }
+    .rn-search-criteria-box {
+      flex-wrap: wrap;
+      
+      &:first-child {
+        width: 60%;
+        @media #{$mobile-view} {
+          width: 100%;
+        }
+      }
+      &:last-child {
+        width: 40%;
+        @media #{$mobile-view} {
+          width: 100%;
+        }
+      }
+      .rn-search-criteria-input {
+        border-bottom: none;
+        
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        width: 100%;
+        label {
+          width: 100%;
+        }
+        select {
+          margin-left: rem-calc(8);
+          width: 47%;
+        }
+      }
+      .rn-search-criteria-secondary-input {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        padding: rem-calc(8);
+        label {
+          width: 35%;
+        }
+        select {
+          margin-bottom: rem-calc(8);
+          width: 65%;
+        }
+      }
+      .school-district {
+        display: flex;
+        flex-direction: column;
+        
+        border: 1px solid $gray-light;
+        
+        max-height: rem-calc(128);
+        overflow: auto;
+        width: 100%;
+        label {
+          width: auto;
+        }
+      }
+      
+    }
+    .rn-search-criteria-checkbox-area {
+      list-style-type: none;
+      
+      margin: 0;
+      li {
+        align-items: center;
+        display: flex;
+        label {
+          border: none;
+  
+          padding: $gutter-width / 2; // Apply global padding
+          width: calc(100% - #{rem-calc(24)});
+        }
+        &.openhouse-checkbox {
+             label {
+                 background-image:url(/media/googlemapfiles/searchicons/house.open.svg);
+                 background-position: right;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 @media #{$small-only} {
+                     background-size: rem-calc(28);
+                 }
+            }
+        }
+  
+        input {
+          margin-right: $gutter-width / 2;
+        } 
+      }
+    }
+  }
+
+  &.show-highlight {
+	  .rn-search-criteria-slideup {
+		  height: rem-calc(264);
+		  width: rem-calc(320);
+	  }
+
+	  .rn-search-criteria-box {
+		  height: 100%;
+
+		  align-items: flex-start;
+		  flex-direction: column;
+	  }
+
+    .rn-search-criteria-label,
+    .rn-search-criteria-checkbox-area {
+		border-right: 1px solid $white-dark;
+
+		width: 50%;
+
+      &:last-child,
+      &:nth-child(5) {
+        border: none
+      }
+    }
+
+    .rn-search-criteria-checkbox-area {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+
+      .rn-search-criteria-label {
+        border: none;
+
+        width: calc(100% - #{rem-calc(24)});
+        &.school-district-label {
+            width: 100%;
+        }
+      }
+
+      .rn-search-criteria-checkbox {
+        margin-right: $gutter-width / 2;
+      }
+    }
+  }
+
+	.rn-icon-close {
+		font-size: 1.5rem;
+		margin: -0.5rem -0.125rem -0.5rem -0.5rem;
+		display: none;
+	}
+}
+
+.rn-search-criteria-link {
+  background: $white;
+  color: $gray-dark;
+
+  height: 100%;
+  padding: $gutter-width / 2;
+
+  align-items: center;
+  display: flex;
+
+  cursor: pointer;
+  label {
+      cursor: pointer;
+  }
+  @media #{$medium-portrait} {
+      font-size: rem-calc(9);
+      line-height: 1;
+  }
+  @media #{$mobile-view} {
+      height: auto;
+  }
+
+
+  .icon {
+    font-family: 'RN-Icons';
+
+    &.angle-down:before {
+    	content: '\e801'; // Angle-down-big icon code
+
+    	padding-left: $gutter-width / 2; // Give spacing from text
+    }
+
+    &.angle-up:before {
+      content: '\e800'; // Angle-down-up icon code
+
+      padding-left: $gutter-width / 2; // Give spacing from text
+    }
+
+    &.close {
+    	padding-right: $gutter-width / 2; // Give spacing from text
+    	margin: $gutter-width / -4; // Remove white space around icon
+
+      &:before {
+      	content: '\e680'; // Close icon code
+      	font-size: rem-calc(24);
+      }
+    }
+  }
+}
+
+.rn-search-criteria-dropdown {
+  background: $white;
+  border-color: $white-dark;
+  border-style: solid;
+  border-width: 0 1px 1px;
+
+  width: rem-calc(300);
+
+  position: absolute;
+  top: rem-calc(49);
+  z-index: 1001;
+
+  display: none;
+  @media #{$medium-only} {
+      right: 0;
+  }
+
+  .rn-search-dropdown-submit {
+    background: $primary-color;
+    border: none;
+    color: $white;
+    
+    padding: $gutter-width / 2;
+    width: auto;
+  }
+}
+
+.rn-search-criteria-box {
+  //align-items: center;
+  //display: flex;
+  //flex-wrap: wrap;
+}
+
+.rn-search-criteria-header {
+    background: $white;
+    border-color: $gray-lighter;
+    border-style: solid;
+    border-width: 0 1px; // Border left/right
+
+    height: rem-calc(48); // Set a height so that slides can absolutly position beneath it
+    padding: $gutter-width / 2;
+    width: 100%;
+
+    align-items: center; // Align header items vertically
+    display: none;
+    justify-content: space-between;
+    @media #{$mobile-view} {
+        display: flex;
+    }
+    .rn-search-criteria-header-back {
+        color: $gray;
+
+        align-items: center;
+        display: flex;
+        flex: 0 0 auto;
+
+        visibility: hidden;
+
+        cursor: pointer;
+
+        .icon {
+          font-family: 'RN-Search-Icons';
+          font-size: rem-calc(18);
+
+          padding-right: $gutter-width / 4;
+
+          &:before {
+            content: "\e802" // Code for icon-left-big
+          }
+        }
+
+        .text {
+          font-size: rem-calc(16);
+        }
+      }
+
+    .rn-search-criteria-header-label {
+        flex: 1 1 auto; // Fill available space
+
+        h2,
+        h4 {
+            font-weight: 200;
+            text-align: center;
+
+            margin: 0;
+        }
+
+        h2 {
+            color: $black;
+            font-size: rem-calc(18);
+            line-height: 1;
+        }
+
+        h4 {
+            color: $gray;
+            font-size: rem-calc(13);
+        }
+    }
+
+    .rn-search-criteria-header-button {
+        background: $primary-color;
+        border: none; // Remove default border
+        color: $white;
+        font-size: rem-calc(12);
+
+        padding: $gutter-width / 2;
+
+        cursor: pointer;
+
+        flex: 0 0 auto;
+    }
+}
+
+
+
+
+
+
+// CRITERIA FORM ELEMENTS
+.rn-search-criteria-input,
+.rn-search-criteria-label,
+.rn-search-criteria-select,
+.rn-search-criteria-checkbox-area {
+  padding: $gutter-width / 2; // Apply global padding
+}
+
+.rn-search-criteria-input {
+  border-bottom: 1px solid $white-dark;
+
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  input {
+    width: 45%;
+  }
+
+}
+
+.rn-search-criteria-select {
+  width: 65%;
+}
+
+.rn-search-criteria-dropdown-close {
+    background: $secondary-color;
+  border-top: 1px solid $white-dark;
+  color: $white;
+  font-size: rem-calc(11);
+  text-transform: uppercase;
+  
+  transition: $transition;
+  &:hover {
+    background: $primary-color;
+  }
+
+  padding: $gutter-width / 2; // Apply global padding
+
+  cursor: pointer;
+  @media #{$mobile-view} {
+      display: none;
+  }
+
+  span {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  i {
+    font-size: rem-calc(20);
+    line-height: 0;
+  }
+}
+
+.rn-search-criteria-option {
+  margin: 0;
+  max-height: rem-calc(330); // Keep list to show no more than 10 li's (33px height) at a time
+  overflow-y: scroll; // Allow user to scroll if there are more than 10 li's
+  padding: 0;
+
+  list-style: none;
+
+  display: block;
+  
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+	  display: none;
+  }
+
+  &.maxprice {
+    text-align: right;
+
+    display: none; // Hide by default
+  }
+
+  li {
+    color: $gray-dark;
+
+    padding: $gutter-width / 2; // Apply global padding
+
+    cursor: pointer;
+
+    &:hover {
+      background: $secondary-color;
+      color: $white;
+    }
+  }
+}
+
+.rn-search-add-criteria {
+    background: $secondary-color;
+    color: $white;
+  font-size: rem-calc(12);
+  text-decoration: none;
+
+  height: 100%;
+  padding: ($gutter-width / 2);
+
+  display: flex;
+  align-items: center;
+
+  transition: $transition;
+
+  &:hover {
+    background: lighten($secondary-color, 10%);
+  }
+
+  .rn-icon-close {
+    font-size: rem-calc(24);
+
+    margin-left: (-$gutter-width / 2);
+
+    transform: rotate(45deg);
+  }
+}
+
+.rn-search-header-mobile-buttons {
+  display: none;
+}
+
+// SEARCH USER
+// - - - - - - - - - - - - -
+
+.rn-search-user {
+  color: $gray-light;
+  font-size: rem-calc(12);
+
+  max-width: $search-user-width;
+
+  align-items: center;
+  display: flex;
+
+  .text {
+    text-overflow: ellipsis;
+
+    margin-right: $gutter-width / 2;
+
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.rn-search-user-image {
+  height: 120%;
+
+  flex: 0 0 rem-calc(38);
+
+  img {
+    border-radius: 100%;
+
+    height: 100%;
+  }
+}
+
+// OUTSIDE CLICK HANDLER
+// - - - - - - - - - - - - -
+
+.outside-click-handler {
+  height: 100%;
+}
+
+// MEDIA QUERIES
+// - - - - - - - - - - - - -
+
+@media #{$mobile-view} {
+  // SEARCH HEADER
+
+  .rn-search-header {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+
+    display: none; // Hidden when viewport is < 640px || < 768px and landscape
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+
+    &.open {
+      display: flex;
+
+      &.criteria {
+
+        .rn-search-criteria {
+          display: flex;
+        }
+      }
+
+      &.user {
+        .rn-search-user {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .rn-search-criteria,
+  .rn-search-user {
+    display: none; // Hidden when viewport is < 640px || < 768px and landscape
+  }
+
+  .rn-search-criteria {
+    background: $white-dark;
+
+    height: 100%;
+    padding: 0;
+
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .rn-search-saved-search-icon {
+    display: none;
+  }
+
+  .rn-search-back-button {
+    display: none;
+  }
+
+  .rn-search-location-mls-input-container {
+    height: auto;
+    margin: $gutter-width / 2;
+	max-width: calc(100% - #{rem-calc(32)});
+
+    order: 1;
+
+    i.rn-icon-close {
+		cursor: pointer;
+		display: block;
+		right: rem-calc(-27);
+    }
+    
+  }
+
+  // SEARCH CRITERIA
+
+  .rn-search-criteria-selectors {
+    margin-left: 0;
+    padding: 0;
+    height: calc(100vh - #{$search-site-header-height-small} - 5.375rem);
+    max-height: calc(100vh - #{$search-site-header-height-small} - 5.375rem);
+    width: 100%;
+
+    overflow-y: scroll;
+
+    flex-direction: column;
+    order: 3;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &.main {
+        .rn-search-criteria-selector {
+            margin-left: 0;
+        }
+    }
+  }
+
+  .rn-search-criteria-selector {
+    height: auto;
+    margin-right: 0;
+    margin-bottom: $gutter-width / 2;
+      .rn-search-criteria-dropdown {
+        display: block !important;
+        left:100%;
+        transition: 300ms ease-in-out left;
+        width: 100%;
+            &.slide {
+                left: 0;
+            }
+      }
+
+    &.prop-type {
+      .rn-search-criteria-dropdown, .rn-search-criteria-slideup {
+        width: 100%;
+      }
+    }
+    &.more {
+        .rn-search-criteria-dropdown {
+            width: 100%;
+        }
+        .rn-search-criteria-checkbox-area {
+            display: flex;
+            flex-wrap: wrap;
+            span {
+                flex: 1 0 100%;
+            }
+            li {
+                flex: 1 0 50%;
+            }
+        }
+        
+    }
+  }
+
+  .rn-search-criteria-link {
+    padding: $gutter-width;
+    margin: rem-calc(0 8);
+
+    .text {
+      flex: 1;
+    }
+  }
+
+  .rn-search-criteria-slideup {
+    width: 100%;
+
+    position: relative;
+  }
+
+
+
+  .rn-search-criteria-input {
+    input {
+      flex: 1;
+    }
+
+    .dash {
+      margin: 0 ($gutter-width / 2);
+    }
+  }
+
+  .rn-search-add-criteria {
+    display: none;
+  }
+
+  .rn-search-header-mobile-buttons {
+    width: 100%;
+
+    display: flex;
+
+    order: 4;
+
+    a {
+      color: $white;
+      font-size: rem-calc(10);
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      padding: $gutter-width / 2; // Apply global padding
+      width: 50%;
+
+      align-items: center;
+      display: flex;
+      justify-content: center;
+
+      &.apply {
+        background: $primary-color;
+      }
+
+      &.close {
+        background: $gray;
+      }
+    }
+
+    i {
+      line-height: 0;
+
+      &.rn-icon-check {
+        font-size: rem-calc(16);
+
+        margin-right: rem-calc(4);
+      }
+
+      &.rn-icon-close {
+        font-size: rem-calc(20);
+      }
+    }
+  }
+
+  // OUTSIDE CLICK HANDLER
+
+  .outside-click-handler {
+    height: auto;
+  }
+}
+
+@media #{$medium-portrait} {
+  .rn-search-user {
+    .text {
+      display: none;
+    }
+  }
+}

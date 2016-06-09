@@ -1,0 +1,414 @@
+@import '../../modules/internet/search/search3skin/scss/sass-burger';
+
+// SITE HEADER
+// - - - - - - - - - - - - -
+
+.rn-site-header {
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
+    width: 100%;
+
+	> .rn-container {
+        height: 100%;
+		padding: 0;
+		width: 100%; // Set a width for flexbox to work within
+		
+		display: flex;
+		justify-content: space-between;
+	}
+
+	
+
+    @media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+				
+		flex-direction: row; // Flex-items should be in a row
+		flex-wrap: nowrap; // Don't allow flex-items to wrap
+			
+		position: relative; // Set so that mobile nav dropdown spans entire header
+	
+		> .rn-container {
+			max-width: $container-width / 2;
+			flex: 1 1 auto;
+			flex-direction: row;
+            justify-content: center;
+		}
+	}
+}
+
+.rn-site-header-login-nav {
+    flex: 1 1 auto;
+}
+
+
+// PROPERTY WATCH
+
+.rn-site-header-property-watch {
+	font-size: rem-calc(13);
+	
+	padding: 0;
+	width: 100%;
+	
+	display: flex;
+
+	ul {
+		font-size: rem-calc(12);
+		text-align: right;
+	
+		margin: 0;
+		padding: $gutter-width / 2;
+		width: 100%;
+	
+		list-style: none;
+		
+		align-items: center;
+		align-self: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	
+		li {
+			display: inline-block;
+		}
+	
+		a {
+			font-weight: 400;
+			text-decoration: none;
+		
+			padding: $gutter-width / 2;
+		
+			transition: $transition;
+			
+			&:hover {
+				color: $secondary-color;
+			}
+		}
+	
+		i {
+			font-size: rem-calc(20);
+		
+			vertical-align: middle;
+		}
+	}
+    @media #{$mobile-down} {
+        display: none;
+    }
+}
+
+// LOGO
+
+.rn-site-header-logo {
+    height: 100%;
+
+	align-items: center; // Center logo vertically
+	display: flex;
+	flex: 0 1 auto;
+	
+	a {
+		padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		height: 100%;
+	}
+	
+	img {
+		height: 100%;
+		width: auto;
+	}
+    @media #{$mobile-down} {
+		height: 100%;
+		width: auto;
+				
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+		justify-content: flex-start;
+				
+		a {
+			padding: $gutter-width / 4; // Decrease padding for larger logo
+	
+			align-items: center; // Allow img to center vertically if logo should shrink horizontally
+			display: flex;
+		}
+	}
+}
+
+.rn-site-header-agent-name {
+	border-left: 1px solid $gray-lighter;
+	
+	padding: 0 $gutter-width; // No gutter for top/bottom double gutter for left/right
+	
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	
+	h1,
+	h4 {
+		margin: 0;
+	}
+	
+	h1 {
+		font-size: rem-calc(24);
+		font-weight: 300;
+		line-height: 1;
+	}
+	
+	h4 {
+		font-size: rem-calc(14);
+		font-weight: 200;
+	}
+	
+	@media #{$tablet-up} {
+		flex: 1 1 rem-calc(400);
+	}
+	
+	@media #{$mobile-down} {
+		max-width: 60%;
+		padding: $gutter-width / 2;
+		
+		align-items: flex-start;
+		flex: 0 1 auto;
+	}
+	
+	@media #{$small-only} {
+		h1 {
+			font-size: rem-calc(12);
+		}
+		
+		h4 {
+			font-size: rem-calc(10);
+		}
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	font-size: rem-calc(12);
+	
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	align-self: flex-end; // Push menu to bottom of nav
+	flex: 1 1 auto;
+
+	@media #{$mobile-down} {
+		max-width: $container-width / 2;
+		height: 100%;
+			
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+			
+		position: initial; // Reset so that mobile nav dropdown is relative to entire header
+			
+		.rn-container {
+			height: 100%;
+			margin: 0;
+				
+			align-items: center;
+			display: flex;
+		}
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	width: 100%; // Let menu fill full width of rn-container
+	
+	list-style: none; // Remove bullets
+	
+	display: flex;
+	justify-content: flex-end;
+	
+	li {
+		display: flex;
+		
+		&:hover {
+			a {
+				background: $primary-color;
+				color: $white;
+			}
+		}
+		
+		&.has-dropdown {
+			position: relative;
+			
+			display: flex;
+			flex-direction: column;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:last-child {
+			.dropdown {
+				right: 0; // Let last nav item align right
+				left: auto; // Overwrite left: 0
+			}
+		}
+	}
+	
+	a {
+		text-align: center;
+		text-decoration: none; // Remove underline from links
+		text-transform: uppercase;
+		
+		padding: ($gutter-width * .75) $gutter-width; // Extra gutter padding top/bottom - normal gutter padding left/right
+		width: 100%; // Fill li width
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			&:hover {
+				a {
+					background: $primary-color;
+					color: $white;
+				}
+			}
+			
+			a {
+				background: $white;
+				color: $primary-color;
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		
+		.dropdown {
+			padding: 0; // gutter-width padding on top to drop below header
+			width: rem-calc(190);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: 100%; // Nav height
+			left: 0;
+			z-index: 10;
+		}
+	}
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%;
+		left: 0; // Append to left of screen
+		z-index: 10000;; // Display over page content
+		
+		a {
+			background: $primary-color;
+			color: $white;
+			line-height: 2; // Increase height for ease of clicking
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+            li a {
+                background: $gray;
+            }
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+		text-decoration: none; // Removed underlines
+	
+		&.rn-site-navigation-toggle {
+			.text {
+				display: none; // Hide for search pages
+			}
+		}
+			
+		&.rn-search-user-toggle,
+		&.rn-search-criteria-toggle {
+			padding: $gutter-width / 4;
+		}
+			
+		i {
+			color: $primary-color;
+			font-size: rem-calc(33);
+		}
+			
+		.rn-site-header-nav-burger {
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $primary-color); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+		}
+			
+		&.is-active {
+			.rn-site-header-nav-burger {
+				@include burger-to-cross; // Burger transforms to cross when active
+			}
+		}
+	
+		@media #{$tablet-up} {
+			display: none; // Hidden by default
+		}
+	
+		@media #{$mobile-down} {
+			text-align: center;
+				
+			padding: $gutter-width / 2;
+				
+			display: inline-block;
+		}
+	}
+
+//Dashboard styling
+.rn-extranet {
+    padding: $gutter-width;
+}
+.rn-dashboard-form-button,
+.rn-dashboard-navigation a,
+.rn-dashboard-history-button,
+.rn-dashboard-agent-transfer-button,
+.rn-popup-button,
+.rn-popup-contact-button {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}
+
+.rn-dashboard-navigation a.rn-dashboard-active {
+	background: $primary-color;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}
+
+.rn-dashboard-home-title,
+.rn-dashboard-header-title,
+.rn-dashboard-messages h3 {
+	color: $primary-color;
+}

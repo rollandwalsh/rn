@@ -1,0 +1,236 @@
+#contact-mask {
+	background: rgba($black, .65);
+
+	height: 100vh;
+	width: 100vw;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+
+#contact-form {
+	background-color: $white;
+    border: solid 1px $gray;
+    box-shadow: 0 0 ($gutter-width / 2) rgba($black, .4);
+    font-size: rem-calc(12);
+
+    height: auto !important;
+    margin: auto;
+	max-width: $container-width;
+    padding: $gutter-width / 2;
+    width: 100% !important;
+
+    position: absolute;
+	top: rem-calc(160) !important;
+	right: 0;
+	left: 0 !important;
+    z-index: 100000;
+
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#-cf-column-form {
+	padding: $gutter-width / 2;
+	width: 70% !important;
+
+	display: flex;
+	flex-direction: column;
+
+	#-cf-form-close {
+		color: red;
+		font-size: rem-calc(10);
+		font-weight: bold;
+		text-align: right;
+		text-transform: uppercase;
+
+		cursor: pointer;
+	}
+
+	.-cf-form-required-indicator {
+		color: red;
+	}
+
+	#-cf-form {
+		width: 100% !important;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		> div {
+			width: 100%;
+
+			position: relative;
+
+			&:nth-child(4) {
+				margin-right: $gutter-width / 2;
+			}
+
+			&:nth-child(4),
+			&:nth-child(5) {
+				width: calc(50% - (#{$gutter-width} / 4));
+			}
+
+			&:nth-child(6) {
+				border: none;
+
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+
+				input {
+					border: none;
+					color: $white;
+
+					margin-right: $gutter-width / 2;
+					width: auto;
+
+					flex: 1 1 auto;
+
+					cursor: pointer;
+
+					transition: $transition;
+
+					&:last-of-type {
+						margin-right: 0;
+					}
+				}
+			}
+
+			input,
+			select {
+				height: rem-calc(36);
+			}
+
+			input,
+			select,
+			textarea {
+				margin-bottom: $gutter-width / 2;
+				padding: $gutter-width / 2;
+				width: 100%;
+			}
+
+			.-cf-form-required-indicator {
+				position: absolute;
+				top: 0;
+				left: $gutter-width / -2;
+			}
+		}
+
+		#-cf-form-field-message {
+			height: rem-calc(200) !important;
+		}
+
+		#-cf-form-button-submit {
+			background: $primary-color;
+
+			&:hover {
+				background: darken($primary-color, 7%);
+			}
+		}
+
+		#-cf-form-button-reset {
+			background: $gray;
+
+			&:hover {
+				background: darken($gray, 7%);
+			}
+		}
+
+		#-cf-form-button-cancel {
+			background: red;
+
+			&:hover {
+				background: darken(red, 7%);
+			}
+		}
+	}
+}
+
+#-cf-column-info {
+	background: $white-dark !important;
+	background-color: $white-dark !important;
+
+	padding: $gutter-width / 2;
+	width: 30% !important;
+
+	align-content: flex-start;
+    display: flex;
+	flex-wrap: wrap;
+
+	p {
+		margin-left: $gutter-width / 2;
+	}
+
+    #-cf-info-name,
+    #-cf-info-office-heading,
+    #-cf-info-photo,
+    #-cf-info-office-name,
+    #-cf-info-office-phone,
+    #-cf-info-address-1,
+    #-cf-info-address-2,
+    #-cf-info-office-heading,
+	#-cf-info-numbers-heading,
+    #-cf-info-numbers-info,
+	#-cf-info-website-heading,
+    #-cf-info-website-info,
+	#-cf-info-mobile-heading,
+    #-cf-info-mobile-info, {
+        flex: 1 1 100%;
+    }
+
+	#-cf-info-name {
+		font-size: rem-calc(16);
+		font-weight: bold;
+		text-align: center;
+	}
+
+	#-cf-info-photo {
+		text-align: center;
+	}
+	
+	#-cf-info-office-heading,
+	#-cf-info-numbers-heading,
+	#-cf-info-website-heading,
+	#-cf-info-mobile-heading {
+		font-size: rem-calc(14);
+		font-weight: bold;
+
+		margin-top: $gutter-width / 2;
+	}
+	
+	#-cf-info-address-1,
+	#-cf-info-address-2,
+	#-cf-info-address-city,
+	#-cf-info-address-state,
+	#-cf-info-address-zip {
+		display: inline-block;
+	}
+
+    #-cf-info-address-city,
+	#-cf-info-address-state,
+	#-cf-info-address-zip {
+        margin-right: rem-calc(2);
+    }
+}
+
+.-cf-clear {
+	display: none;
+}
+
+@media #{$medium-down} {
+	#contact-form {
+		margin: $gutter-width / 2;
+		width: calc(100% - #{$gutter-width}) !important;
+	}
+}
+
+@media #{$small-only} {
+	#-cf-column-form,
+	#-cf-column-info {
+		width: 100% !important;
+	}
+}

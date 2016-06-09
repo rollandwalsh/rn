@@ -1,0 +1,46 @@
+// SITE FOOTER
+// - - - - - - - - - - - - -
+
+.rn-site-footer {
+	background: $primary-color;
+	color: $white;
+	font-size: rem-calc(12);
+	
+	.rn-container {
+		padding: $gutter-width / 2;
+	}
+	
+	a {
+		color: $white;
+	}
+}
+
+// LINKS
+
+.rn-site-footer-main-links {
+	margin: 0 0 $gutter-width ($gutter-width / -2); // Give space below links and adjust to account for left padding for li's
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		border-right: 1px solid $white;
+		
+		margin: 0 0 ($gutter-width / 4);
+		padding: 0 ($gutter-width / 2);
+		
+		&:last-of-type {
+			border: none; // No final border
+		}
+	}
+}
+
+.rn-site-footer-reliance-links {
+	width: 100%;
+	
+	display: flex;
+	justify-content: space-between;
+}

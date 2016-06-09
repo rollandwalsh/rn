@@ -1,0 +1,724 @@
+﻿// GALLERY OPTIONS
+// - - - - - - - - - - - - -
+
+.rn-search-gallery-options {
+  color: $gray; // Set default color for Gallery Option elements
+  line-height: 1;
+
+  height: 100%;
+  margin: ($gutter-width / 2);
+
+  display: flex; // Container should be flex-container
+  flex: 1 1 ($gutter-width * 4);
+  justify-content: space-between;
+    @media #{$one-col-only} {
+      flex: 1 1 $gutter-width * 5;
+  }
+
+  h3 {
+    font-size: rem-calc(18);
+    font-weight: 100; // Light font weight for property count
+
+    margin: 0; // Remove default heading margins
+  }
+  fieldset {
+      padding: 0;
+  }
+
+}
+
+
+
+.rn-search-gallery-options-main {
+  > * {
+    //padding: ($gutter-width / 2); // Apply global gutter padding
+  }
+}
+
+.rn-search-gallery-options-secondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media #{$mobile-view} {
+
+  .rn-search-gallery-options-main {
+    //width: 70%; // Main options should be slightly larger than secondary
+  }
+
+  .rn-search-gallery-options-secondary {
+    //width: 30%; // Secondary options should be slightly smaller than main
+    flex-direction: row;
+    select {
+        padding-left: 0;
+    }
+  }
+}
+
+@media #{$two-col-only} {
+  .rn-search-gallery-options-main {
+    width: 50%; // Each should be half the space
+  }
+
+  .rn-search-gallery-options-secondary {
+    width: 50%; // Each should be half the space
+  }
+}
+
+@media #{$three-col-up} {
+  .rn-search-gallery-options-main,
+  .rn-search-gallery-options-secondary {
+    display: flex;
+  }
+  .rn-search-gallery-options-secondary {
+    align-items: flex-end;
+  }
+}
+
+.rn-search-container-map-gallery {
+  .rn-search-gallery-options-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.rn-search-container-gallery {
+  .rn-search-gallery-options-main,
+  .rn-search-gallery-options-secondary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: auto;
+
+  }
+}
+
+.rn-search-gallery-option {
+  border: none;
+  border-radius: 0;
+  font-size: rem-calc(12);
+  line-height: 1.4;
+
+  margin: 0;
+
+  position: relative;
+
+
+  &.mobile {
+    display: none;
+  }
+
+  &.sources,
+  &.jump-to,
+  &.mobile {
+    text-align: right; // (ONE / TWO COLS)
+  }
+}
+
+#rn-search-MLSes {
+  select {
+      background-color: $gray-1;
+    border: none;
+    
+  }
+}
+
+.rn-search-gallery-option-link {
+  display: flex;
+  
+  cursor: pointer;
+
+  a {
+    border-right: 1px solid $gray;
+    color: $primary-color;
+    cursor: pointer;
+    text-decoration: none;
+    
+    padding: rem-calc(0 4);
+    &:hover {
+        color: lighten($primary-color, 10%);
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  a, span {
+    font-size: rem-calc(12);
+  }
+
+
+  .icon {
+    font-family: 'RN-Icons';
+
+    &.angle-down:before {
+    	content: '\e801'; // Angle-down-big icon code
+
+    	padding-left: $gutter-width / 2; // Give spacing from text
+    }
+
+    &.close:before {
+    	content: '\e680'; // Close icon code
+    	font-size: rem-calc(24);
+
+    	padding-right: $gutter-width / 4; // Give spacing from text
+    	margin-left: $gutter-width / -4; // Give spacing from text
+    }
+  }
+}
+
+.rn-search-gallery-option-sort-controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  
+  a {
+    border-right: 1px solid $gray;
+    color: $primary-color;
+    text-decoration: none;
+    
+    padding: rem-calc(0 4);
+    
+    transition: all 200ms ease-in-out;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+    
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  .rn-search-prop-listings-sort-paging-forward {
+      line-height: 1.4;
+      padding-right: 0;
+  }
+}
+
+@media #{$small-only} {
+  .rn-search-gallery-options {
+    justify-content: space-between;
+
+    h3 .hide-for-small {
+      display: none;
+    }
+  }
+
+  .rn-search-gallery-options-secondary {
+    flex-shrink: 0;
+  }
+
+  .rn-search-gallery-option {
+    &.mobile {
+      display: block;
+    }
+
+    &.sort-by,
+    &.sources {
+      display: none;
+    }
+  }
+}
+
+// GALLERY OPTIONS DROPDOWN
+// - - - - - - - - - - - - -
+
+.rn-search-gallery-option-dropdown {
+  background: $white;
+  border-color: $gray-lighter;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+
+  width: 100%;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+
+  display: none; // Hide by default
+}
+
+.rn-serach-gallery-option-dropdown-close {
+  border-top: 1px solid $gray-lighter;
+  color: $gray;
+  font-size: rem-calc(10);
+  text-transform: uppercase;
+
+  padding: $gutter-width / 2; // Apply global padding
+
+  cursor: pointer;
+
+  span {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  i {
+    font-size: rem-calc(20);
+    line-height: 0;
+  }
+}
+
+.rn-search-gallery-option-option {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  &.max-price {
+    text-align: right;
+
+    display: none; // Hide by default
+  }
+
+  li {
+    color: $gray-dark;
+
+    padding: $gutter-width / 2; // Apply global padding
+
+    cursor: pointer;
+
+    &:hover {
+      background: $secondary-color;
+      color: $white;
+    }
+  }
+}
+
+// PROPERTY CARD
+// - - - - - - - - - - - - -
+
+.rn-search-prop-card-container {
+  height: calc(100% - #{$search-footer-height};
+  overflow-y: scroll; // This Element should scroll overflow content
+  -webkit-overflow-scrolling: touch;
+
+  align-content: flex-start; // If there are fewer rows of cards than will fill the pane, the rows will hook to the top
+  align-items: flex-start; // If there are fewer cards than will fill the pane, cards won't stretch
+  display: flex; // This element should be a flex-container for the property cards
+  flex-wrap: wrap; // The flex-items should be allowed to wrap
+
+  @media #{$small-only} {
+    justify-content: center;
+  }
+
+
+}
+
+.rn-search-prop-card {
+  background-color: $white; // Fallback background color in case .rn-search-prop-card-image doesn't fill card
+  background-position: center center; // Center backgorund image verically and horizontally for thinner card size
+  background-size: cover; // Property image should cover entire card
+  border-right: 1px solid $white; // Deliniating border for cards
+  border-bottom: 1px solid $white; // Deliniating border for cards
+
+  max-width: $prop-card-width-max; // Don't allow card to be wider than the set max-width
+  min-width: $prop-card-width-min; // Don't allow card to be thinner than the set min-width
+  overflow: hidden;
+
+  cursor: pointer;
+
+  position: relative; // Set to allow for it's children to be set absolute in relation to it
+
+  flex: 1 0 $prop-card-width-min; // This will give the card a preference for being the min-width but no smaller
+
+  &.no-photo {
+      background-image: url(../../modules/internet/search/search3skin/img/no-photo-available.jpg);
+  }
+  &:before {
+    content: ""; // To create white space
+    display: block; // To create white space
+    padding-top: 75%; // 75% gives the cards a 4:3 aspect ratio
+
+	@media #{$mobile-view} {
+		padding-top: 60%; // Shrink aspect ratio for cards on mobile devices
+	}
+  }
+
+  &.selected {
+    overflow: visible;
+
+    .rn-search-prop-card-listing {
+      background: $white; // Change background color to white
+      color: $black; // Change text color to display properly over white background
+
+      top: 100%; // Change absolute position to attach to bottom of the card
+      bottom: auto; // Unset the bottom boundary
+      z-index: 1000; // Keep this element above other cards
+
+      flex-wrap: wrap; // Allow flex-items to wrap
+    }
+
+    .rn-search-prop-card-listing-detail-divider {
+      border-color: $black; // Chnage divider color to display properly over white background
+    }
+
+    .rn-search-prop-card-listing-company {
+      color: $primary-color;
+      white-space: normal;
+    }
+
+    .rn-search-prop-card-listing-additional {
+      display: block; // Show additional listing data
+    }
+  }
+
+  @media only screen and (max-width: em-calc(640)) and (orientation: portrait) {
+    max-width: rem-calc(720); // A Hack to allow card to be full width on small devices so long as they are in portrait mode
+  }
+}
+
+.rn-search-prop-card-image {
+  height: auto; // Allow image to have a height in porportion to the 100% width of the card
+  width: 100%; // Image should fill card horizontally
+
+  position: absolute; // Causes image to appear in the background and not inline
+  top: 0; // Align the image to the top of .rn-search-prop-card horizontally
+  right: 0; // Center the image in .rn-search-prop-card horizontally
+  left: 0; // Center the image in .rn-search-prop-card horizontally
+}
+
+// PROPERTY CARD LISTING
+// - - - - - - - - - - - - -
+
+.rn-search-prop-card-listing {
+  background: linear-gradient(to bottom, rgba($black,0) 0%, rgba($black,0.8) 100%); // Semi-transparent overlay to cover the .rn-search-prop-card-image from 0 opacity to .8
+  color: $white; // Sets text color to display properly on the overlay color
+  line-height: 1.4; // Set default line-height for clear spacing
+
+  padding: ($gutter-width / 4) ($gutter-width / 2); // Set global gutter padding with small version for top/bottom
+  width: 100%; // Absolutely positioned elements must have a declaritive 100% width
+
+  position: absolute; // Causes this area to appear on top of .rn-search-prop-card-image and not inline
+  top: auto; // Set a value for top to change for when the card is .selected
+  right: 0; // Position to hook to right edge of card
+  bottom: 0; // Keep element anchored to the bottom of the card
+  left: 0; // Position to hook to left edge of card
+
+  transition: 300ms background ease-in-out; // Set a transition for changing from normal to .selected
+
+  display: flex; // This element should be a flex-container so flex-items fit appropriately
+}
+
+.rn-search-prop-card-map-icon {
+  width: rem-calc(52);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rn-search-prop-card-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+}
+
+.rn-search-prop-card-video {
+    background: rgba($black, 0.4);
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 200ms ease-in-out;
+    a {
+        align-items: center;
+        display: flex;
+
+        color: $white;
+        cursor: pointer;
+        font-size: rem-calc(14);
+
+        padding: rem-calc(8 16);
+        &:hover {
+            background: $white;
+            color: $black;
+        }
+        i {
+            padding-right: rem-calc(4);
+        }
+    }
+}
+
+.rn-search-prop-card-listing-mls-logo {
+    padding: $gutter-width / 4;
+}
+
+.rn-search-prop-card:hover {
+     .rn-search-prop-card-video {
+          max-height:rem-calc(96);
+    }
+}
+
+
+.rn-search-prop-card-listing-main,
+.rn-search-prop-card-listing-detail {
+  list-style: none; // Remove default list styling
+
+  margin: 0; // Remove default list styling
+  padding: 0; // Remove default list styling
+}
+
+.rn-search-prop-card-listing-main {
+  width: 50%; // This part of the card should be a flexible 50% width
+
+  .rn-search-prop-card-listing-headline {
+    h4 {
+      color: inherit; // Inherit color from .rn-search-prop-card-listing
+      font-size: rem-calc(16); // Set font-size to 1rem
+      font-weight: 700; // Set font-weight to bolder
+      line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+
+      margin: 0; // Remove default margins
+    }
+  }
+
+  .rn-search-prop-card-listing-info {
+    color: inherit; // Inherit color from .rn-search-prop-card-listing
+
+    font-size: .8rem; // Shrink font-size
+    line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+  }
+
+  .rn-search-prop-card-listing-address {
+    font-size: rem-calc(10); // Decrease font-size
+    letter-spacing: 1px; // Increase letter spacing for readability
+    line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+    text-overflow: ellipsis; // If text overflows full width, use ellipsis
+
+    max-width: 100%; // Prevent text from being wider than full width
+    overflow: hidden; // Hide overflow from full width
+    white-space: nowrap; // Don't allow text to wrap
+
+    display: block; // Seperate address elements should wrap to the next line
+  }
+}
+
+.rn-search-prop-card-listing-secondary {
+  width: 50%; // This part of the card should be a flexible 50% width
+}
+
+.rn-search-prop-card-listing-detail {
+  display: flex; // Set this element to flex-container so children are inline
+  justify-content: space-between; // Flex-items should increase space between themselves when there is room
+
+  li {
+    color: inherit; // Inherit color from .rn-search-prop-card-listing
+    font-weight: 700;
+    line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+    text-align: center; // Styling to center the text
+
+    padding: 0 ($gutter-width / 4); // Set a small version of gutter padding to the left/right
+    &.rn-search-prop-listings-listing-proptype {
+        display: none;
+    }
+
+    &.rn-search-prop-card-listing-detail-divider {
+      border-right: 1px solid $white; // Styling for a dividing border
+
+      padding: 0; // Remove padding set for siblings
+    }
+
+    span.label {
+      font-size: rem-calc(8); // Decrease font-size for small text
+      font-weight: 400;
+      text-transform: uppercase; // Styling to uppercase lettering
+
+      display: block; // Push this text to the next line
+    }
+  }
+}
+
+.rn-search-prop-card-listing-company {
+  color: $gray-1; // Set to theme color
+  font-size: rem-calc(10); // Decrease font-size for small text
+  letter-spacing: .5px; // Increase letter spacing for readability
+  line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+  text-align: right; // Justify content right
+  text-overflow: ellipsis; // If text overflows full width, use ellipsis
+
+  max-width: 100%; // Prevent text from being wider than full width
+  overflow: hidden; // Hide overflow from full width
+  padding: ($gutter-width / 4); // Add a small padding for distance from .rn-search-prop-card-detail
+  white-space: nowrap; // Don't allow text to wrap
+}
+
+.rn-search-prop-card-listing-additional {
+  display: none; // Hide this area for when card is not .selected
+
+  flex: 1 1 100%; // should fill full width of card
+
+}
+
+.rn-search-prop-card-listing-mls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  .rn-search-prop-card-listing-mls-id {
+    display: flex;
+    flex-direction: column;
+    span {
+
+      font-size: rem-calc(11);
+      display: block;
+    }
+  }
+}
+
+.rn-search-prop-card-listing-agentinfo {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: rem-calc(12);
+    list-style-type: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.rn-search-prop-card-listing-description {
+  color: inherit; // Inherit font color from .rn-search-prop-card-listing
+  font-size: rem-calc(10); // Shrink font
+  letter-spacing: .5px; // Increase letter spacing for readability
+  line-height: inherit; // Inherit line-height from .rn-search-prop-card-listing
+
+  max-height: rem-calc(72); // Prevent more than 5 lines of text from showing
+  overflow: hidden; // Hide text past 5 lines
+
+  @media #{$mobile-view} {
+	  display: none; // Hide for mobile so that the property card fits height-wise
+  }
+}
+
+
+
+.rn-search-prop-card-badge {
+  margin: 0;
+  padding: 0;
+
+  list-style: none; // Remove default list styling
+
+  position: absolute;
+  right: ($gutter-width / 4);
+  top: ($gutter-width * 2);
+
+  li {
+    background-color: rgba($black, .4);
+    color: $white;
+    font-size: rem-calc(10);
+    text-transform: uppercase;
+
+    margin-bottom: rem-calc(2);
+    padding: rem-calc(4);
+  }
+}
+
+// PROPERTY CARD FOOTER
+// - - - - - - - - - - - - -
+
+.rn-search-prop-card-footer {
+  display: flex; // Elements in footer should be flex-items
+  flex-wrap: wrap; // Allow flex-items to wrap
+}
+
+.rn-search-prop-card-social {
+  font-size: rem-calc(20); // Icons should be slightly larger than base font size
+
+  margin-right: ($gutter-width / 2); // Allow for margin between icons and buttons
+  padding: ($gutter-width / 2) 0; // Set global gutter padding with small version for top/bottom
+
+  display: flex; // Icons should be flexed
+  flex-direction: column; // Iconds should be displayed in a column
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.rn-search-prop-card-actions {
+  display: flex; // Buttons should be flex-items
+  flex: 1 1 75%; // Button area should take a flexible 75% of the container width
+  flex-wrap: wrap; // Buttons should wrap when overflowing
+
+  button {
+    border: none; // Remove default borders from buttons
+    color: $white; // Set font-color to white to offset button background-colors
+    font-size: rem-calc(13); // Reduce font-size
+
+    margin-top: ($gutter-width / 4); // Set a top margin for even spacing
+    margin-bottom: ($gutter-width / 4); // Set a bottom margin for even spacing
+    padding: ($gutter-width / 2) ($gutter-width / 4); // Buttons should have padding based on global gutter
+
+    i {
+      font-size: rem-calc(20); // Icons in button text should be slightly larger than font-size
+
+      margin-right: ($gutter-width / 2); // Force icons to be set to the left of the text with global padding
+
+      vertical-align: text-top;
+
+      &.rn-icon-angle-right-big {
+        font-size: rem-calc(16);
+      }
+    }
+  }
+}
+
+.rn-search-prop-card-favorite {
+  background: $primary-color; // Background should be default blue
+
+  flex: 1 1 auto; // Allow button to flex as needed based on width of text and card
+}
+
+.rn-search-prop-card-schedule {
+  background: $secondary-color; // Background should be light version of default blue
+
+  flex: 1 1 auto; // Allow button to flex as needed based on width of text and card
+}
+
+.rn-search-prop-card-expand {
+  background: lighten($tertiary-color, 15%); // Background should be light version of default blue
+  border: none; // Remove default borders from buttons
+  color: $white; // Set font-color to white to offset button background-colors
+  font-size: rem-calc(13); // Reduce font-size
+  text-align: center;
+  text-decoration: none;
+
+  flex: 0 0 100%; // Button should fill entire width of area
+
+  margin-top: ($gutter-width / 4); // Set a top margin for even spacing
+  margin-bottom: ($gutter-width / 4); // Set a bottom margin for even spacing
+  padding: ($gutter-width / 2) ($gutter-width / 4); // Buttons should have padding based on global gutter
+  &:hover {
+    color: $white;
+  }
+  i {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: text-top;
+  }
+}
+
+.rn-search-prop-card-collapse {
+  text-align: center; // Icon should be centered horizontally
+
+  width: 100%; // The element should be 100% of the card width for easy clickability
+
+  display: block; // Set to insure element takes up space
+
+  cursor: pointer; // Elelement should appear clickable
+}
+
+// BROWSER OVERWRITES
+// - - - - - - - - - - - - -
+

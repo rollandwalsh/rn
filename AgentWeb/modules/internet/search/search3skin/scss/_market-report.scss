@@ -1,0 +1,931 @@
+.rn-search-market-report {
+  height: $search-height; // Calc to fill VH less site header height
+  max-height: $search-height; // Prevent search area from growing past viewport height less site header height
+
+  overflow: hidden; // Fixes extra space bug
+
+  display: flex; // Flex-items: search header / search area / search footer
+  flex-direction: column; // Top > bottom
+
+  @media #{$mobile-view} {
+    height: $search-height-small; // Grow height of search area when viewport is < 640px || < 768px and landscape
+    max-height: $search-height-small; // Adjust max-height when viewport is < 640px || < 768px and landscape
+  }
+
+  // OVERLAYS
+  
+
+
+
+  #SaveReport, #LandingPage {
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+
+    background: $white;
+
+    margin: 0 auto;
+    padding: rem-calc(8);
+
+    position: absolute;
+    top: rem-calc(128);
+    left: 0;
+    right: 0;
+
+    width: rem-calc(500);
+    z-index: 100;
+    .rn-search-overlay-close {
+      font-size: rem-calc(32);
+      text-decoration: none;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      i {
+          color: $black;
+          &:hover {
+              color: $secondary-color;
+          }
+      }
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: rem-calc(8);
+    }
+    .SaveDialogRow {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      padding: rem-calc(8);
+      width: 100%;
+      .rn-search-market-report-report-email-checkbox {
+        align-items: center;
+        display: flex;
+
+        input[type="checkbox"] {
+          margin-left: rem-calc(4);
+        }
+      }
+      input[type="text"], select {
+        width: 75%;
+      }
+      input[type="button"] {
+        background: $primary-color;
+        border: none;
+        color: $white;
+
+        padding: rem-calc(8);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background: lighten($primary-color, 10%);
+        }
+      }
+    }
+
+  }
+
+}
+
+.rn-search-market-report-header {
+  border-top: 1px solid darken($white-dark, 10%); // Borders for deliniation of area
+  border-bottom: 1px solid darken($white-dark, 10%); // Borders for deliniation of area
+
+  height: $search-market-report-header-height;
+  min-height: $search-market-report-header-height; // Maintain set height of element
+  width: 100%; // Should fill search box completely
+
+  display: flex; // Flex-items: search criteria / search user
+  flex-direction: column;
+  .rn-search-market-report-header-intro {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: rem-calc(8);
+    height: 50%;
+    h2 {
+      font-size: rem-calc(20);
+      line-height: 1;
+      
+      margin: 0;
+    }
+    span {
+      font-size: rem-calc(11);
+    }
+  }
+  .rn-search-market-report-header-buttons {
+    align-items: center;
+    display: flex;
+    .rn-search-filter-scheduleEmail {
+        margin-left: rem-calc(8);
+    }
+  }
+  .rn-search-criteria {
+    align-items: center;
+    
+    position: relative;
+    height: 50%;
+    @media #{$small-only} {
+        display: none;
+    }
+    .rn-search-criteria-link {
+        padding:rem-calc(8);
+    }
+  }
+}
+
+.rn-search-container-market-report {
+  height: $search-market-report-view-height;
+  width: 100%; // To ensure this element fills the full width
+
+  @media #{$mobile-view} {
+    height: $search-view-height-small; // Adjust height based on removal of search header and site header small height when viewport is < 640px || < 768px and landscape
+  }
+
+  &.rn-search-container-map {
+    .rn-search-map {
+      width: 100%;
+    }
+
+  	.leaflet-container {
+  		height: calc(100% - #{rem-calc(34)}); // This is to account for the property count heading add for map only view.
+  		width: 100%;
+  		margin: 0 auto;
+  	}
+
+    .rn-search-gallery {
+      display: none;
+    }
+  }
+
+  &.rn-search-container-gallery {
+    .rn-search-map {
+      display: none;
+    }
+
+  	.leaflet-container {
+  		height: 100%;
+  		width: 100%;
+  		margin: 0 auto;
+  	}
+
+    .rn-search-gallery {
+      width: 100%;
+
+      .rn-search-loading-overlay {
+        display: none;
+      }
+    }
+
+    .rn-search-prop-card {
+      @media #{$two-col-gal-only} {
+        flex: 0 0 (100% / 2);
+      }
+
+      @media #{$three-col-gal-only} {
+        flex: 0 0 (100% / 3);
+      }
+
+      @media #{$four-col-gal-only} {
+        flex: 0 0 (100% / 4);
+      }
+
+      @media #{$five-col-gal-only} {
+        flex: 0 0 (100% / 5);
+      }
+
+      @media #{$six-col-gal-only} {
+        flex: 0 0 (100% / 6);
+      }
+
+      @media #{$seven-col-gal-only} {
+        flex: 0 0 (100% / 7);
+      }
+
+      @media #{$eight-col-gal-only} {
+        flex: 0 0 (100% / 8);
+      }
+
+      @media #{$nine-col-gal-only} {
+        flex: 0 0 (100% / 9);
+      }
+
+      @media #{$ten-col-gal-only} {
+        flex: 0 0 (100% / 10);
+      }
+
+      @media #{$eleven-col-gal-only} {
+        flex: 0 0 (100% / 11);
+      }
+    }
+  }
+
+  &.rn-search-container-map-gallery {
+    display: flex; // If both map and gallery are present, this should be a flex-container
+
+    .rn-search-map {
+      flex: 1 0 60%; // When both map & gallery view are visible, the map view should be a flexible 60%
+
+	  h3 {
+		  display: none;
+	  }
+
+      .rn-search-loading-overlay {
+        display: none;
+      }
+    }
+
+  	.leaflet-container {
+  		height: 100%;
+  		width: 100%;
+  		margin: 0 auto;
+  	}
+
+    .rn-search-gallery {
+      min-width: $search-gallery-width-min; // Don't allow gallery area to be thinner than the set min-width
+
+      flex: 1 1 auto; // Allow the gallery to flex to needed width when both map & gallery are present
+
+      overflow-y: scroll;
+
+      @media #{$mobile-view} {
+        display: none !important; // Hide when viewport is < 640px || < 768px and landscape
+      }
+
+      @media #{$one-col-only} {flex: 0 1 $prop-card-width-max} // When 40% of viewport width <= one max-width card, max-width card size is flex-max
+
+      @media #{$two-col-only} {flex: 0 1 ($prop-card-width-max * 2)} // When two max-width cards < 40% of viewport width > one max-width card, the size of two cards at max-width is flex-max
+
+      @media #{$three-col-only} {flex: 0 1 ($prop-card-width-max * 3)} // When three max-width cards < 40% of viewport width > two max-width card, the size of three cards at max-width is flex-max
+
+      @media #{$four-col-only} {flex: 0 1 ($prop-card-width-max * 4)} // When four max-width cards < 40% of viewport width > three max-width card, the size of four cards at max-width is flex-max
+
+      @media #{$five-col-only} {flex: 0 1 ($prop-card-width-max * 5)} // When five max-width cards < 40% of viewport width > four max-width card, the size of five cards at max-width is flex-max
+    
+      .rn-search-loading {
+          position: absolute;
+          min-width: 100%;
+          min-height: 100%;
+      }  
+    }
+
+    .rn-search-prop-card {
+		flex: 1 0 auto;
+
+      @media #{$one-col-only} {
+        border-right: none; // Remove border right for single column of cards
+
+        flex: 0 0 100%; // Single column of cards
+      }
+
+      @media #{$two-col-only} {
+		  flex: 0 0 (100% / 2);
+        &:nth-child(even), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$three-col-only} {
+		  flex: 0 0 (100% / 3);
+        &:nth-child(3n+3), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$four-col-only} {
+		  flex: 0 0 (100% / 4);
+        &:nth-child(4n+4), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+
+      @media #{$five-col-only} {
+		  flex: 0 0 (100% / 5);
+        &:nth-child(5n+5), &:last-child {
+          border-right: none; // Remove border for rightmost column cards
+        }
+      }
+    }
+  }
+}
+
+.rn-search-market-report-reports {
+  font-size: rem-calc(13);
+  .rn-search-market-report-reports-container {
+    position: relative;
+    .rn-icon-angle-up-big {
+        display: none;
+    }
+    .PanelOpen {
+        .rn-icon-angle-down-big {
+            display: none;
+        }
+        .rn-icon-angle-up-big {
+            display: block;
+        }
+    }
+    h2 {
+      display: flex;
+      justify-content: space-between;
+
+      background: $primary-color;
+      color: $white;
+
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: rem-calc(8);
+    }
+    .rn-search-market-report-reports-refresh-container {
+      background: rgba($white,0.7);
+      
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      section {
+        height: 100%;
+        header {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+
+          color: $white;
+
+          height: 100%;
+        }
+      }
+
+      .rn-search-market-report-reports-refresh-button {
+        background: $primary-color;
+        border: none;
+        color: $white;
+        
+        display: block;
+        margin: 0 auto;
+        padding: rem-calc(8);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background: lighten($primary-color, 10%);
+        }
+      }
+    }
+  }
+
+  
+  
+  .rn-search-market-report-report-snapshot {
+      .PanelHeader h2 {
+          margin-bottom: $gutter-width / 2;
+      }
+    .rn-search-market-report-report-city-zip {
+      background: $primary-color;
+      color: $white;
+      text-align: center;
+      
+      padding: rem-calc(0 4);
+      @media #{$large-up} {
+        display: none;
+      }
+    }
+    .rn-search-market-report-report-header-row {
+      border: 1px solid $black;
+      border-bottom: none;
+        
+      display: none;
+      margin: rem-calc(0 8);
+      .rn-search-market-report-report-header-row-content {
+        
+        background: $secondary-color;
+        color: $white;
+        text-align: center;
+        
+        padding: rem-calc(0 4);
+        width: 20%;
+        &.market-report-title {
+          width: 25%;
+        }
+        &.market-report-change-since {
+          width: 25%;
+          
+          .Positive {
+
+              width: 50%;
+              i {
+                  color: $primary-color;
+              }
+              .rn-icon-angle-down-circle {
+                  display: none;
+              }
+          }
+          .Negative {
+
+
+              width: 50%;
+              i {
+                  color: $secondary-color;
+              }
+              .rn-icon-angle-up-circle {
+                  display: none;
+              }
+          }
+        }
+      }
+      @media #{$large-up} {
+        display: flex;
+      }
+    }
+    .rn-search-market-report-report-snapshot-content {
+      margin-bottom: rem-calc(8);
+      padding: rem-calc(0 8px);
+    }
+    .rn-search-market-report-report-content-row {
+      display: flex;
+      flex-direction: column;
+      
+      border: 1px solid $gray;
+      border-top: none;
+      @media #{$large-up} {
+        align-items: center;
+        flex-direction: row;
+      }
+      .rn-search-market-report-report-content-row-data {
+        text-align: center;
+        
+        padding: rem-calc(4);
+        &:first-child {
+          font-weight: bold;
+        }
+        
+        @media #{$large-up} {
+          align-items: center;
+          align-self: stretch;
+          display: flex;
+          justify-content: center;
+          
+          border-right: 1px solid $gray;
+          
+          width: 20%;
+          &.market-report-title {
+            font-weight: normal;
+            width: 25%;
+          }
+          &.market-report-change-since {
+            width: 25%;
+
+            .Positive {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+              width: 50%;
+              i {
+                  color: $primary-color;
+              }
+              .rn-icon-angle-down-circle {
+                  display: none;
+              }
+          }
+          .Negative {
+              align-items: center;
+              display: flex;
+              justify-content: space-between;
+              width: 50%;
+              i {
+                  color: $secondary-color;
+              }
+              .rn-icon-angle-up-circle {
+                  display: none;
+              }
+          }
+          }
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+      
+      .rn-search-market-report-report-mobile-title {
+        @media #{$large-up} {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .rn-search-market-report-graph-container {
+      border: 1px solid $black;
+
+      margin: rem-calc(8);
+      &:first-child {
+          margin-top: 0;
+      }
+      .rn-search-market-report-graph-title {
+          background: $secondary-color;
+          color: $white;
+          font-size: rem-calc(14);
+          font-weight: bold;
+          text-align: center;
+
+          display: block;
+          padding: rem-calc(4);
+      }
+      svg > g > g > g + g rect,
+      #avgDays_div svg > g > g > g + g rect,
+      #listingCount_div svg > g > g > g + g rect {
+        fill: $primary-color !important;
+        }
+  }
+}
+
+.rn-search-container-market-report {
+    .rn-search-map-control {
+    align-items: center;
+    background-color: white;
+    border-radius: rem-calc(2);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 rem-calc(1) rem-calc(4) rem-calc(-1);
+    color: #666666;
+    cursor: pointer;
+    display: flex;
+    font-size: rem-calc(18);
+    height: rem-calc(28);
+    justify-content: center;
+    margin-right: rem-calc(10);
+    width: rem-calc(28);
+
+    &:hover {
+      color: #333333;
+    }
+  }
+
+  /* Map content card/bubble*/
+  /* Container for the overlay on the map used to display information such as listings in a group, other MLS, or listing detail */
+  .rn-search-map-content-display {
+    background: $white;
+    border: 1px solid $white-dark;
+
+    position: absolute;
+    top: rem-calc(4);
+    right: rem-calc(4);
+
+    display:none;
+    min-width: rem-calc(320);
+
+  }
+  .rn-search-map-content-display > div + div {
+    cursor: pointer;
+    font-size: rem-calc(24);
+    line-height: 0;
+
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    i {
+        background: $white;
+        color: $gray;
+    }
+  }
+
+  /* Map Listing Other MLS */
+  /* Content container to display information when "other MLS" icon (grey) is clicked */
+  .rn-search-preview-other-mls-content {
+      text-align: center;
+      padding: $gutter-width/2;
+      .rn-search-preview-other-mls-title {
+          font-weight: bold;
+      }
+      .rn-search-preview-other-mls-source-name {
+          font-size: rem-calc(14);;
+          span {
+              font-weight: bold;
+          }
+      }
+  }
+  .rn-search-preview-other-mls-disclaimer {
+      color: $gray;
+      font-size: rem-calc(12);
+      padding: rem-calc(8);
+  }
+
+  /* Map Group Bubble */
+  /* Content container to display a list of properties when a group icon is clicked */
+  .rn-search-preview-group {
+    height: auto;
+    max-height: rem-calc(140);
+    overflow:auto;
+  }
+  
+  .rn-search-preview-group > div {
+    width:auto !important;
+  }
+  /* group icon map bubble styles */
+    .rn-search-preview-group-row {
+        align-items: center;
+	    display: flex;
+
+        font-size: rem-calc(14);
+        overflow: hidden;
+        padding: rem-calc(4);
+        &:nth-child(even) {
+            background: #eee;
+        }
+    }
+
+    .rn-search-preview-group-icon,
+    .rn-search-preview-group-address,
+    .rn-search-preview-group-price {
+	    display: flex;
+    }
+
+    .rn-search-preview-group-address > a,
+    .rn-search-preview-group-price > div {
+	    color: $black;
+	    height: 100%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+    }
+
+    .rn-search-preview-group-address {
+	    width: 160px;
+    }
+
+    .rn-search-preview-group-address > a {
+	    color: $primary-color;
+        text-decoration: none;
+        
+        display: block;
+	    margin: 3px 2px;
+	    width: 152px;
+	    
+        transition: all 200ms ease-in-out;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    .rn-search-preview-group-price {
+	    width: 80px;
+	    clear: right;
+    }
+
+    .rn-search-preview-group-price > div {
+	    width: 100%;
+    }
+    /* Nag registration overlay */
+    .rn-search-preview-login {
+        button {
+            background: $primary-color;
+            border: none;
+            color: white;
+            font-size: rem-calc(13);
+
+            padding: $gutter-width/2;
+
+            transition: $transition;
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+        td span {
+            font-family: $search-font !important;
+            font-size: rem-calc(14) !important;
+            &:nth-child(2) {
+                color: $primary-color !important;
+                text-decoration: none !important;
+
+                transition: $transition;
+                &:hover {
+                    color: $secondary-color !important;
+                }
+            }
+            
+        }
+        
+    }
+}
+
+.rn-search-market-report-gallery {
+    display: flex !important;
+    flex-direction: column;
+
+    height: 100%;
+    max-height: 100%;
+    .rn-search-gallery-options {
+        min-height: $gutter-width * 6;
+    }
+}
+
+// Market Watch Mobile Header 
+@media #{$mobile-view} {
+  //Market Watch SEARCH HEADER
+
+  .rn-search-market-report-header {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+
+    display: none; // Hidden when viewport is < 640px || < 768px and landscape
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+    .rn-search-market-report-header-intro {
+        background: $white;
+        height: auto;
+    }
+
+    &.open {
+      display: flex;
+
+      &.criteria {
+
+        .rn-search-criteria {
+          display: flex;
+        }
+      }
+
+      &.user {
+        .rn-search-user {
+          display: flex;
+        }
+      }
+    }
+  
+
+  .rn-search-criteria,
+  .rn-search-user {
+    display: none; // Hidden when viewport is < 640px || < 768px and landscape
+  }
+
+  .rn-search-criteria {
+    background: $white-dark;
+
+    height: 100%;
+    padding: 0;
+
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .rn-search-saved-search-icon {
+    display: none;
+  }
+
+  .rn-search-back-button {
+    display: none;
+  }
+
+  .rn-search-location-mls-input-container {
+    height: auto;
+    margin: $gutter-width / 2;
+	max-width: calc(100% - #{rem-calc(32)});
+
+    order: 1;
+
+    i.rn-icon-close {
+		cursor: pointer;
+		display: block;
+		right: rem-calc(-27);
+    }
+  }
+
+  // SEARCH CRITERIA
+
+  .rn-search-criteria-selectors {
+    margin-left: 0;
+    padding: 0;
+    height: calc(100vh - #{$search-site-header-height-small} - 5.375rem);
+    max-height: calc(100vh - #{$search-site-header-height-small} - 5.375rem);
+    width: 100%;
+
+    overflow-y: scroll;
+
+    flex-direction: column;
+    order: 3;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &.main {
+        .rn-search-criteria-selector {
+            margin-left: 0;
+        }
+    }
+  }
+
+  .rn-search-criteria-selector {
+    height: auto;
+    margin-right: 0;
+    margin-bottom: $gutter-width / 2;
+      .rn-search-criteria-dropdown {
+        display: block !important;
+        left:100%;
+        transition: 300ms ease-in-out left;
+        width: 100%;
+            &.slide {
+                left: 0;
+            }
+      }
+
+    &.prop-type {
+      .rn-search-criteria-dropdown, .rn-search-criteria-slideup {
+        width: 100%;
+      }
+    }
+    &.more {
+        .rn-search-criteria-dropdown {
+            width: 100%;
+        }
+        
+    }
+  }
+
+  .rn-search-criteria-link {
+    padding: $gutter-width;
+    margin: rem-calc(0 8);
+
+    .text {
+      flex: 1;
+    }
+  }
+
+  .rn-search-criteria-slideup {
+    width: 100%;
+
+    position: relative;
+  }
+
+
+
+  .rn-search-criteria-input {
+    input {
+      flex: 1;
+    }
+
+    .dash {
+      margin: 0 ($gutter-width / 2);
+    }
+  }
+
+  .rn-search-add-criteria {
+    display: none;
+  }
+
+  .rn-search-header-mobile-buttons {
+    width: 100%;
+
+    display: flex;
+
+    order: 4;
+
+    a {
+      color: $white;
+      font-size: rem-calc(10);
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      padding: $gutter-width / 2; // Apply global padding
+      width: 50%;
+
+      align-items: center;
+      display: flex;
+      justify-content: center;
+
+      &.apply {
+        background: $primary-color;
+      }
+
+      &.close {
+        background: $gray;
+      }
+    }
+
+    i {
+      line-height: 0;
+
+      &.rn-icon-check {
+        font-size: rem-calc(16);
+
+        margin-right: rem-calc(4);
+      }
+
+      &.rn-icon-close {
+        font-size: rem-calc(20);
+      }
+    }
+  }
+
+  // OUTSIDE CLICK HANDLER
+
+      .outside-click-handler {
+        height: auto;
+      }
+    }
+  }
+
