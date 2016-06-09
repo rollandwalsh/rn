@@ -19,6 +19,7 @@ var search3Companies = [
 	'coldwellbanker_kline',
 	'demp',
 	'elpr',
+	'flpg',
 	'gksrealty',
  	'hmre',
  	'hqre',
@@ -94,7 +95,7 @@ gulp.task('featured-properties', function () {
 
 // SCRIPTS
 
-// Compiles global coffee files at company level
+// Compiles global coffee files at company level	
 gulp.task('scripts', function () {
 	var s3Dirs = search3Companies.map(function (dir) {
 		gulp.src('coffee/**/*.coffee')
