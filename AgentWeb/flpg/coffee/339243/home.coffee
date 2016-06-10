@@ -1,0 +1,2 @@
+carousel = $('#homeSlider')
+carousel.slick()
