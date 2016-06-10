@@ -1,0 +1,350 @@
+@import '../../modules/internet/search/search3skin/scss/sass-burger';
+
+// HEADER
+// - - - - - - - - - - - - - - -
+
+.rn-site-header {
+}
+
+// TOP BAR
+// - - - - - - - - - - - - - - -
+
+.rn-site-header-top-bar {
+	background: $black;
+	color: $white;
+	font-size: rem-calc(12);
+	
+	width: 100%;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none;
+		
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	li {
+		padding: ($gutter-width / 2) 0;
+	}
+	
+	a,
+	span {
+		color: $white;
+		font-weight: 100;
+		text-decoration: none;
+
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+	}
+}
+
+// MAIN
+// - - - - - - - - - - - - - - -
+
+.rn-site-header-main {
+	background: rgba($black, .7);
+	
+	padding: $gutter-width 0;
+
+	> .rn-container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@media #{$mobile-down} {
+		> .rn-container {
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	padding: ($gutter-width / 2) 0;
+	height: 100%;
+
+	display: block;
+
+	a {
+		padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+
+		display: block;
+	}
+	
+	img {
+		height: 100%;
+		max-height: 100%;
+		width: auto;
+
+		display: block;
+	}
+
+	@media #{$mobile-down} {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+// LINKS
+
+.rn-site-header-log-in {
+	border-color: $tore-gray-light;
+	border-radius: 0 0 ($gutter-width / 2) ($gutter-width / 2);
+	border-style: solid;
+	border-width: 0 1px 1px;
+	font-size: rem-calc(10);
+
+	margin: 0;
+	padding: $gutter-width / 3;
+
+	align-self: flex-end;
+
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+.rn-site-header-phone {
+	font-weight: bold;
+	text-decoration: none;
+
+	align-self: flex-end;
+
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+.rn-site-header-social-links {
+	font-size: rem-calc(20);
+
+	margin: 0;
+	padding: 0 0 $gutter-width 0;
+
+	list-style: none;
+	
+	align-self: flex-end;
+	display: flex;
+
+	li:last-of-type {
+		a {
+			padding-right: 0;
+		}
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+		text-shadow: -1px -1px 8px rgba($black, .8);
+
+		padding: $gutter-width * .75;
+
+		transition: $transition;
+
+		&:hover {
+			text-shadow: -1px -1px 8px rgba($black, .4);
+		}
+	}
+
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	font-family: $serif-font;
+	font-size: rem-calc(14);
+
+	flex: 1 1 auto;
+
+	position: relative; // Set so that mobile nav is absolutely positioned to this element
+}
+
+.rn-site-header-nav-menu {
+	@extend .rn-container;
+
+	padding: 0;
+	
+	list-style: none;
+	
+	li {
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+
+		&:hover {
+			a {
+				color: $gray-2;
+			}
+		}
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none;
+		
+		padding: ($gutter-width / 2) ($gutter-width / 2);
+
+		display: block;
+
+		transition: $transition;
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			border: none;
+
+			&:hover {
+				a {
+					background: $tore-gray-light;
+				}
+			}
+			
+			a {
+				background: $tore-gray-dark;
+				border: none;
+				font-weight: normal; // Override bold font
+				text-transform: none; // Override uppercase
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+
+		li {
+			border-left: 1px solid $tore-gray-light;
+			text-align: center;
+
+			flex: 1 1 auto;
+
+			&:first-child {
+				border: none;
+			}
+		}
+		
+		.dropdown {
+			padding: $gutter-width 0 0; // gutter-width padding on top to drop below header
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(19); // Nav height
+			left: 0;
+			z-index: 10;
+			
+			a:hover {
+				color: $white; // Override red hover color
+			}
+		}
+	}
+	
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		li {
+			border: none; // Remove border styling
+		}
+		
+		a {
+			background: $tore-gray-dark;
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+			
+			&:hover {
+				background: $tore-gray-light;
+			}
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		
+		text-decoration: none;
+		
+		padding: $gutter-width / 2;
+		
+		&.rn-site-navigation-toggle {
+			align-items: center;
+			display: flex;
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+		
+		&.rn-search-user-toggle,
+		&.rn-search-criteria-toggle {
+			display: none; // Hide for non-search pages
+		}
+		
+		.rn-site-header-nav-burger {
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white);
+		}
+		
+		&.is-active {
+			.rn-site-header-nav-burger {
+				@include burger-to-cross;
+			}
+		}
+	}
+}

@@ -1,0 +1,284 @@
+// SEARCH SITE HEADER
+// - - - - - - - - - - - - -
+
+// TOP BAR, LOG IN, PHONE, SOCIAL LINKS
+
+.rn-site-header-top-bar,
+.rn-site-header-log-in,
+.rn-site-header-phone,
+.rn-site-header-social-links {
+	display: none;
+}
+
+.rn-site-header {
+	background: $black;
+	color: $white;
+	font-family: $sans-serif-font;
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set heigh
+
+	@media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+	}
+}
+
+.rn-site-header-main {
+	height: 100%;
+
+	.rn-container {
+		height: 100%;
+
+		display: flex;
+	}
+
+	.tore-button {
+		color: $white;
+
+		padding: $gutter-width / 2;
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+	height: 100%;
+	
+	align-items: center; // Center logo vertically
+	display: flex;
+	flex: 1 1 auto;
+
+	a {
+		height: 100%;
+	}
+	
+	img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: $gutter-width / 4; // Decrease padding for larger logo
+		width: auto;
+
+		align-items: center; // Allow img to center vertically if logo should shrink horizontally
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+		display: flex;
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	font-size: rem-calc(12);
+	
+	padding: 0;
+	
+	align-items: flex-end; // Push menu to bottom of nav
+	flex: 1 1 auto;
+	display: flex;
+
+	@media #{$tablet-up} {
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: 0;
+		
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	width: 100%; // Let menu fill full width of nav
+	
+	list-style: none; // Remove bullets
+	
+	li {
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:last-child {
+			.dropdown {
+				right: 0; // Let last nav item align right
+				left: auto;
+			}
+		}
+	}
+	
+	a {
+		background: transparent;
+		color: $white;
+		font-family: $serif-font;
+		font-weight: normal;
+		text-decoration: none; // Remove underline from links
+		
+		padding: ($gutter-width / 2) ($gutter-width * .75); // Normal padding top/bottom - wide padding left/right
+
+		display: block;
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $tore-gray-light;
+		}
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			&:hover {
+				a {
+					background: $tore-gray-light;
+				}
+			}
+			
+			a {
+				background: $tore-gray-dark;
+				font-weight: normal; // Override bold font
+				text-transform: none; // Override uppercase
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+
+		li {
+			border-left: 1px solid $tore-gray-light;
+			text-align: center;
+
+			flex: 1 1 auto;
+
+			&:first-child {
+				border: none;
+			}
+		}
+		
+		.dropdown {
+			padding: rem-calc(7) 0 0; // gutter-width padding on top to drop below header *** SOMETHING BROKEN NEEDS 7PX INSTEAD OF 8
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(23); // Nav height
+			left: 0;
+			z-index: 10;
+		}
+	}
+
+	@media #{$mobile-down} {
+		background: $tore-gray-dark;
+
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: $search-site-header-height-small; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		a {
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	&.rn-site-navigation-toggle {
+		.text {
+			display: none; // Hide for search pages
+		}
+	}
+		
+	&.rn-search-user-toggle,
+	&.rn-search-criteria-toggle {
+		padding: $gutter-width / 4;
+	}
+		
+	i {
+		color: $white;
+		font-size: rem-calc(33);
+	}
+		
+	.rn-site-header-nav-burger {
+		@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+	}
+		
+	&.is-active {
+		.rn-site-header-nav-burger {
+			@include burger-to-cross; // Burger transforms to cross when active
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		text-align: center;
+			
+		padding: $gutter-width / 2;
+			
+		display: inline-block;
+
+		&.rn-site-navigation-toggle {
+			display: flex; // Allow sass-burger and text to be inline
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+	}
+}
+
