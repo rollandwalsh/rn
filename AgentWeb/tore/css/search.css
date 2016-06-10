@@ -5755,7 +5755,9 @@ body:not(.search) h6 {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
       display: -ms-flexbox;
-      display: flex; } }
+      display: flex; }
+      .rn-site-header-logo a {
+        height: 100%; } }
 
 .rn-site-header-nav {
   font-size: 0.75rem;
@@ -5860,7 +5862,7 @@ body:not(.search) h6 {
       .rn-site-header-nav-menu .dropdown {
         padding: 0;
         width: 100%;
-        display: block;
+        display: none;
         position: relative;
         top: auto; }
         .rn-site-header-nav-menu .dropdown li {

@@ -63,6 +63,10 @@
 		align-items: center; // Allow img to center vertically if logo should shrink horizontally
 		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
 		display: flex;
+		
+		a {
+			height: 100%;
+		}
 	}
 }
 
@@ -226,7 +230,7 @@
 			padding: 0;
 			width: 100%;
 			
-			display: block;
+			display: none;
 			
 			position: relative;
 			top: auto;

@@ -175,12 +175,9 @@ $site-header-height: rem-calc(70);
 .rn-site-header-nav-menu {
 	@extend .rn-container;
 	
-	max-height: calc(100vh - #{$site-header-height});
 	padding: 0;
 	
 	list-style: none;
-	
-	overflow: scroll;
 	
 	li {
 		&.has-dropdown {
@@ -274,7 +271,9 @@ $site-header-height: rem-calc(70);
 		}
 	}
 	
-	@media #{$mobile-down} {
+	@media #{$mobile-down} {	
+		max-height: calc(100vh - #{$site-header-height});
+		overflow-y: auto;
 		width: 100%; // Fill the width of the screen
 		
 		display: none; // Hide nav by default for smaller screens

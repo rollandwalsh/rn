@@ -1252,10 +1252,8 @@ body:not(.search) h6 {
           flex: 0 0 auto; } }
 
 .rn-site-header-nav-menu {
-  max-height: calc(100vh - 4.375rem);
   padding: 0;
-  list-style: none;
-  overflow: scroll; }
+  list-style: none; }
   .rn-site-header-nav-menu li.has-dropdown {
     position: relative; }
     .rn-site-header-nav-menu li.has-dropdown:hover .dropdown {
@@ -1309,6 +1307,8 @@ body:not(.search) h6 {
             color: #ffffff; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-nav-menu {
+      max-height: calc(100vh - 4.375rem);
+      overflow-y: auto;
       width: 100%;
       display: none;
       position: absolute;
