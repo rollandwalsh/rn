@@ -1232,7 +1232,7 @@ body:not(.search) h6 {
     margin: 0;
     list-style: none; }
     .rn-site-header-nav-menu .dropdown li {
-      border: none; }
+      text-align: center; }
       .rn-site-header-nav-menu .dropdown li:hover a {
         background: #666666; }
       .rn-site-header-nav-menu .dropdown li a {
@@ -1338,3 +1338,14 @@ body:not(.search) h6 {
         transform: translateY(0.5rem) rotate(45deg); }
       .rn-site-header-nav-button.is-active .rn-site-header-nav-burger::after {
         transform: translateY(-0.5rem) rotate(-45deg); } }
+
+.rn-home-hero-area {
+  height: 34.375rem;
+  position: relative; }
+
+.rn-home-slider {
+  box-shadow: 0 4px 8px 0 rgba(102, 102, 102, 0.75); }
+  .rn-home-slider .slick-slide {
+    background-position: center top;
+    border: 0.5rem solid #ffffff;
+    padding-top: 34.375rem; }

@@ -1,0 +1,16 @@
+.rn-home-hero-area {
+	height: rem-calc(550);
+	
+	position: relative;
+}
+
+.rn-home-slider {
+	box-shadow: 0 4px 8px 0 rgba($gray, 0.75);
+	
+	.slick-slide {
+		background-position: center top;
+		border: ($gutter-width / 2) solid $white;
+		
+		padding-top: rem-calc(550);
+	}
+}
