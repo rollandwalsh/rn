@@ -1,7 +1,7 @@
 {
-  "name": "flpg",
+  "name": "tore",
   "version": "1.0.0",
-  "description": "Florida Properties Group",
+  "description": "Tomie Raines Realtors (BHHS)",
   "main": "index.asp",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
