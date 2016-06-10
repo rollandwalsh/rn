@@ -1343,9 +1343,24 @@ body:not(.search) h6 {
   height: 34.375rem;
   position: relative; }
 
-.rn-home-slider {
+.rn-home-hero-slider {
   box-shadow: 0 4px 8px 0 rgba(102, 102, 102, 0.75); }
-  .rn-home-slider .slick-slide {
+  .rn-home-hero-slider .slick-slide {
     background-position: center top;
     border: 0.5rem solid #ffffff;
     padding-top: 34.375rem; }
+
+.rn-home-hero-content {
+  margin: 0 auto;
+  max-width: 62.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  left: 0; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-home-hero-content {
+      top: 8.75rem; } }
+  @media only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-home-hero-content {
+      top: 2.5rem; } }

@@ -4,7 +4,7 @@
 	position: relative;
 }
 
-.rn-home-slider {
+.rn-home-hero-slider {
 	box-shadow: 0 4px 8px 0 rgba($gray, 0.75);
 	
 	.slick-slide {
@@ -12,5 +12,24 @@
 		border: ($gutter-width / 2) solid $white;
 		
 		padding-top: rem-calc(550);
+	}
+}
+
+.rn-home-hero-content {
+	margin: 0 auto;
+	max-width: $container-width;
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	position: absolute;
+	right: 0;
+	left: 0;
+	
+	@media #{$tablet-up} {
+		top: rem-calc(140);
+	}
+	
+	@media #{$mobile-only} {
+		top: rem-calc(40);
 	}
 }
