@@ -1163,21 +1163,22 @@ body:not(.search) h6 {
     padding: 0.25rem 0.5rem; }
 
 .rn-site-header-main {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1rem 0; }
+  background: rgba(0, 0, 0, 0.7); }
   .rn-site-header-main > .rn-container, .rn-site-header-main > .rn-site-header-nav-menu, .rn-site-header-main > .rn-home-quick-search, .rn-site-header-main > .rn-home-featured-content, .rn-site-header-main > .rn-site-interior {
     -ms-flex-align: center;
         align-items: center;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
-        justify-content: space-between; }
-  @media only screen and (max-width: 48em) {
-    .rn-site-header-main > .rn-container, .rn-site-header-main > .rn-site-header-nav-menu, .rn-site-header-main > .rn-home-quick-search, .rn-site-header-main > .rn-home-featured-content, .rn-site-header-main > .rn-site-interior {
-      -ms-flex-direction: column;
-          flex-direction: column;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; } }
+        justify-content: space-between;
+    position: relative; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-site-header-main {
+      padding: 1rem 0; } }
+  @media only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-site-header-main {
+      height: 4.375rem;
+      padding: 0; } }
 
 .rn-site-header-logo {
   padding: 0.5rem 0;
@@ -1191,12 +1192,6 @@ body:not(.search) h6 {
     max-height: 100%;
     width: auto;
     display: block; }
-  @media only screen and (max-width: 48em) {
-    .rn-site-header-logo {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-          justify-content: center; } }
 
 .rn-site-header-log-in {
   border-color: #5b5b5b;
@@ -1246,14 +1241,21 @@ body:not(.search) h6 {
 
 .rn-site-header-nav {
   font-family: Georgia, Times, Times New Roman, serif;
-  font-size: 0.875rem;
-  -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
-  position: relative; }
+  font-size: 0.875rem; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-site-header-nav {
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; } }
+  @media only screen and (max-width: 48em) {
+    .rn-site-header-nav {
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; } }
 
 .rn-site-header-nav-menu {
+  max-height: calc(100vh - 4.375rem);
   padding: 0;
-  list-style: none; }
+  list-style: none;
+  overflow: scroll; }
   .rn-site-header-nav-menu li.has-dropdown {
     position: relative; }
     .rn-site-header-nav-menu li.has-dropdown:hover .dropdown {
@@ -1274,7 +1276,6 @@ body:not(.search) h6 {
       .rn-site-header-nav-menu .dropdown li:hover a {
         background: #5b5b5b; }
       .rn-site-header-nav-menu .dropdown li a {
-        background: #2e2e2e;
         border: none;
         font-weight: normal;
         text-transform: none;
@@ -1302,8 +1303,10 @@ body:not(.search) h6 {
         top: 1.1875rem;
         left: 0;
         z-index: 10; }
-        .rn-site-header-nav-menu .dropdown a:hover {
-          color: #ffffff; } }
+        .rn-site-header-nav-menu .dropdown a {
+          background: #2e2e2e; }
+          .rn-site-header-nav-menu .dropdown a:hover {
+            color: #ffffff; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-nav-menu {
       width: 100%;
@@ -1312,8 +1315,9 @@ body:not(.search) h6 {
       top: 100%;
       left: 0;
       z-index: 10; }
-      .rn-site-header-nav-menu li {
-        border: none; }
+      .rn-site-header-nav-menu > li {
+        border-top: 1px solid #444444;
+        border-bottom: 1px solid #000000; }
       .rn-site-header-nav-menu a {
         background: #2e2e2e;
         line-height: 2;
@@ -1326,9 +1330,13 @@ body:not(.search) h6 {
       .rn-site-header-nav-menu .dropdown {
         padding: 0;
         width: 100%;
-        display: block;
+        display: none;
         position: relative;
-        top: auto; } }
+        top: auto; }
+        .rn-site-header-nav-menu .dropdown li {
+          border-bottom: 1px solid #444444; }
+        .rn-site-header-nav-menu .dropdown a {
+          background: #000000; } }
 
 .rn-site-header-nav-button {
   text-decoration: none; }
@@ -1344,7 +1352,9 @@ body:not(.search) h6 {
         -ms-flex-align: center;
             align-items: center;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center; }
         .rn-site-header-nav-button.rn-site-navigation-toggle .text {
           font-weight: bold;
           text-transform: uppercase;

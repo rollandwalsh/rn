@@ -49,10 +49,6 @@
 	align-items: center; // Center logo vertically
 	display: flex;
 	flex: 1 1 auto;
-
-	a {
-		height: 100%;
-	}
 	
 	img {
 		max-height: 100%;
@@ -77,12 +73,11 @@
 	
 	padding: 0;
 	
-	align-items: flex-end; // Push menu to bottom of nav
+	align-items: center;
 	flex: 1 1 auto;
 	display: flex;
 
 	@media #{$tablet-up} {
-		flex-direction: column;
 		justify-content: space-between;
 	}
 
@@ -90,7 +85,6 @@
 		height: 100%;
 		padding: 0;
 		
-		align-items: center;
 		justify-content: flex-end;
 	}
 }
@@ -154,7 +148,6 @@
 			}
 			
 			a {
-				background: $tore-gray-dark;
 				font-weight: normal; // Override bold font
 				text-transform: none; // Override uppercase
 				
@@ -191,12 +184,20 @@
 			top: rem-calc(23); // Nav height
 			left: 0;
 			z-index: 10;
+			
+			li {
+				a {
+					background: $tore-gray-dark;
+				}
+			}
 		}
 	}
 
 	@media #{$mobile-down} {
 		background: $tore-gray-dark;
 
+		max-height: calc(100vh - #{$search-site-header-height});
+		overflow: scroll;
 		width: 100%; // Fill the width of the screen
 		
 		display: none; // Hide nav by default for smaller screens
@@ -205,6 +206,11 @@
 		top: $search-site-header-height-small; // Nav should display below header
 		left: 0; // Append to left of screen
 		z-index: 10; // Display over page content
+		
+		> li {
+			border-top: 1px solid $gray-5;
+			border-bottom: 1px solid $black;
+		}
 		
 		a {
 			line-height: 2; // Increase height for ease of clicking
@@ -224,6 +230,14 @@
 			
 			position: relative;
 			top: auto;
+			
+			li {
+				border-bottom: 1px solid $gray-5;
+			}
+			
+			a {
+				background: $black;
+			}
 		}
 	}
 }

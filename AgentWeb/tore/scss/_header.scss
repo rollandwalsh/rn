@@ -3,6 +3,8 @@
 // HEADER
 // - - - - - - - - - - - - - - -
 
+$site-header-height: rem-calc(70);
+
 .rn-site-header {
 }
 
@@ -47,20 +49,22 @@
 
 .rn-site-header-main {
 	background: rgba($black, .7);
-	
-	padding: $gutter-width 0;
 
 	> .rn-container {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
-	}
 
-	@media #{$mobile-down} {
-		> .rn-container {
-			flex-direction: column;
-			flex-wrap: wrap;
-		}
+		position: relative; // Set so that mobile nav is absolutely positioned to this element
+	}
+	
+	@media #{$tablet-up} {
+		padding: $gutter-width 0;
+	}
+	
+	@media #{$mobile-only} {
+		height: $site-header-height;
+		padding: 0;
 	}
 }
 
@@ -84,11 +88,6 @@
 		width: auto;
 
 		display: block;
-	}
-
-	@media #{$mobile-down} {
-		display: flex;
-		justify-content: center;
 	}
 }
 
@@ -163,18 +162,25 @@
 .rn-site-header-nav {
 	font-family: $serif-font;
 	font-size: rem-calc(14);
-
-	flex: 1 1 auto;
-
-	position: relative; // Set so that mobile nav is absolutely positioned to this element
+	
+	@media #{$tablet-up} {
+		flex: 1 1 auto;
+	}
+	
+	@media #{$mobile-down} {
+		flex: 0 0 auto;
+	}
 }
 
 .rn-site-header-nav-menu {
 	@extend .rn-container;
-
+	
+	max-height: calc(100vh - #{$site-header-height});
 	padding: 0;
 	
 	list-style: none;
+	
+	overflow: scroll;
 	
 	li {
 		&.has-dropdown {
@@ -220,7 +226,6 @@
 			}
 			
 			a {
-				background: $tore-gray-dark;
 				border: none;
 				font-weight: normal; // Override bold font
 				text-transform: none; // Override uppercase
@@ -259,8 +264,12 @@
 			left: 0;
 			z-index: 10;
 			
-			a:hover {
-				color: $white; // Override red hover color
+			a {
+				background: $tore-gray-dark;
+				
+				&:hover {
+					color: $white; // Override red hover color
+				}
 			}
 		}
 	}
@@ -275,8 +284,9 @@
 		left: 0; // Append to left of screen
 		z-index: 10; // Display over page content
 		
-		li {
-			border: none; // Remove border styling
+		> li {
+			border-top: 1px solid $gray-5;
+			border-bottom: 1px solid $black;
 		}
 		
 		a {
@@ -298,10 +308,18 @@
 			padding: 0;
 			width: 100%;
 			
-			display: block;
+			display: none;
 			
 			position: relative;
 			top: auto;
+			
+			li {
+				border-bottom: 1px solid $gray-5;
+			}
+			
+			a {
+				background: $black;
+			}
 		}
 	}
 }
@@ -323,6 +341,7 @@
 		&.rn-site-navigation-toggle {
 			align-items: center;
 			display: flex;
+			justify-content: center;
 			
 			.text {
 				font-weight: bold;

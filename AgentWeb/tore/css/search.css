@@ -5742,8 +5742,6 @@ body:not(.search) h6 {
   display: flex;
   -ms-flex: 1 1 auto;
       flex: 1 1 auto; }
-  .rn-site-header-logo a {
-    height: 100%; }
   .rn-site-header-logo img {
     max-height: 100%;
     max-width: 100%; }
@@ -5762,25 +5760,20 @@ body:not(.search) h6 {
 .rn-site-header-nav {
   font-size: 0.75rem;
   padding: 0;
-  -ms-flex-align: end;
-      align-items: flex-end;
+  -ms-flex-align: center;
+      align-items: center;
   -ms-flex: 1 1 auto;
       flex: 1 1 auto;
   display: -ms-flexbox;
   display: flex; }
   @media only screen and (min-width: 48.0625em) {
     .rn-site-header-nav {
-      -ms-flex-direction: column;
-          flex-direction: column;
       -ms-flex-pack: justify;
           justify-content: space-between; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-nav {
       height: 100%;
       padding: 0;
-      -ms-flex-align: center;
-          -ms-grid-row-align: center;
-          align-items: center;
       -ms-flex-pack: end;
           justify-content: flex-end; } }
 
@@ -5816,7 +5809,6 @@ body:not(.search) h6 {
     .rn-site-header-nav-menu .dropdown li:hover a {
       background: #5b5b5b; }
     .rn-site-header-nav-menu .dropdown li a {
-      background: #2e2e2e;
       font-weight: normal;
       text-transform: none;
       padding: 0.5rem 1rem;
@@ -5842,16 +5834,23 @@ body:not(.search) h6 {
         position: absolute;
         top: 1.4375rem;
         left: 0;
-        z-index: 10; } }
+        z-index: 10; }
+        .rn-site-header-nav-menu .dropdown li a {
+          background: #2e2e2e; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-nav-menu {
       background: #2e2e2e;
+      max-height: calc(100vh - 4.375rem);
+      overflow: scroll;
       width: 100%;
       display: none;
       position: absolute;
       top: 2.5rem;
       left: 0;
       z-index: 10; }
+      .rn-site-header-nav-menu > li {
+        border-top: 1px solid #444444;
+        border-bottom: 1px solid #000000; }
       .rn-site-header-nav-menu a {
         line-height: 2;
         text-align: center;
@@ -5863,7 +5862,11 @@ body:not(.search) h6 {
         width: 100%;
         display: block;
         position: relative;
-        top: auto; } }
+        top: auto; }
+        .rn-site-header-nav-menu .dropdown li {
+          border-bottom: 1px solid #444444; }
+        .rn-site-header-nav-menu .dropdown a {
+          background: #000000; } }
 
 .rn-site-header-nav-button {
   text-decoration: none; }
