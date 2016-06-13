@@ -1138,7 +1138,7 @@ body:not(.search) h6 {
 
 .rn-site-header {
   background: #552448;
-  background-image: url(../../img/339243/purple-grid-bg.png);
+  background-image: url(../img/339243/purple-grid-bg.png);
   background-position: center top;
   background-repeat: repeat;
   color: #ffffff;
@@ -1188,6 +1188,9 @@ body:not(.search) h6 {
   .rn-site-header-property-watch a {
     color: #ffffff;
     text-transform: uppercase; }
+  @media only screen and (max-width: 40em) {
+    .rn-site-header-property-watch {
+      display: none; } }
 
 .rn-site-header-phone {
   font-family: Georgia, Times, Times New Roman, serif;
@@ -1200,6 +1203,9 @@ body:not(.search) h6 {
     .rn-site-header-phone span:last-of-type {
       border: none;
       padding-right: 0; }
+  @media only screen and (max-width: 40em) {
+    .rn-site-header-phone {
+      display: none; } }
 
 .rn-site-header-nav {
   font-family: Georgia, Times, Times New Roman, serif;
@@ -1207,6 +1213,12 @@ body:not(.search) h6 {
   width: 100%;
   -ms-flex-item-align: end;
       align-self: flex-end; }
+  @media only screen and (max-width: 40em) {
+    .rn-site-header-nav {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: end;
+          justify-content: flex-end; } }
 
 .rn-site-header-nav-menu {
   margin: 0;
@@ -1302,12 +1314,12 @@ body:not(.search) h6 {
             align-items: flex-end;
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
         .rn-site-header-nav-button.rn-site-navigation-toggle .text {
           font-weight: bold;
           text-transform: uppercase;
-          margin-top: 0.5rem; }
+          margin-left: 0.5rem; }
       .rn-site-header-nav-button.rn-search-user-toggle, .rn-site-header-nav-button.rn-search-criteria-toggle {
         display: none; }
       .rn-site-header-nav-button .rn-site-header-nav-burger {
@@ -1338,6 +1350,9 @@ body:not(.search) h6 {
         transform: translateY(0.5rem) rotate(45deg); }
       .rn-site-header-nav-button.is-active .rn-site-header-nav-burger::after {
         transform: translateY(-0.5rem) rotate(-45deg); } }
+  @media only screen and (max-width: 40em) {
+    .rn-site-header-nav-button.rn-search-user-toggle, .rn-site-header-nav-button.rn-search-criteria-toggle {
+      display: block; } }
 
 .rn-home-hero-area {
   height: 34.375rem;
