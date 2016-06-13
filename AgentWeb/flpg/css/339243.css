@@ -1694,3 +1694,53 @@ body:not(.search) h6 {
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase; }
+
+.rn-site-footer {
+  background: #552448;
+  background-image: url(../img/339243/purple-grid-bg.png);
+  background-position: center top;
+  background-repeat: repeat;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 0.625rem; }
+  .rn-site-footer .rn-container, .rn-site-footer .rn-home-hero-content, .rn-site-footer .rn-home-content {
+    padding: 1rem; }
+
+.rn-site-footer-contact {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .rn-site-footer-contact li:first-of-type {
+    margin-right: 4rem; }
+  .rn-site-footer-contact a {
+    color: #ffffff;
+    font-size: 0.6875rem; }
+
+.rn-site-footer-disclaimer {
+  text-align: center;
+  margin-bottom: 1rem;
+  display: block; }
+
+.rn-site-footer-nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+  .rn-site-footer-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .rn-site-footer-nav li:first-of-type {
+    margin-bottom: 0.5rem; }
+  .rn-site-footer-nav span {
+    font-size: 0.75rem; }
+  .rn-site-footer-nav a {
+    color: #ffffff; }
