@@ -24,6 +24,16 @@ $transition: 150ms ease-in-out all;
 	}
 }
 
+.rn-featured-properties-search-title {
+	padding: $gutter-width / 2;
+	
+	a {
+		font-family: $search-font;
+		font-size: rem-calc(14);
+		line-height: 1.4;
+	}
+}
+
 // HEADER / FOOTER
 			
 .rn-featured-properties-header {
