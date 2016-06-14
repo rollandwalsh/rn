@@ -34,6 +34,11 @@ $transition: 150ms ease-in-out all;
 	}
 }
 
+.rn-featured-properties-sub-title {
+	margin-bottom: $gutter-width / 2;
+	width: 100%;
+}
+
 // HEADER / FOOTER
 			
 .rn-featured-properties-header {
@@ -69,6 +74,29 @@ $transition: 150ms ease-in-out all;
 			content: '| ';
 			display: inline-block;
 		}
+	}
+}
+
+.rn-featured-properties-select-form {
+	margin-top: $gutter-width / 2;
+	width: 100%;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.rn-featured-properties-select {
+	padding: $gutter-width / 2;
+	
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+
+	span {
+		white-space: nowrap;
+
+		margin-right: $gutter-width / 2;
 	}
 }
 			
@@ -241,6 +269,19 @@ $transition: 150ms ease-in-out all;
 	.rn-featured-properties-sort {
 		order: 1;
 	}
+	
+	.rn-featured-properties-select-form {
+		order: 3;
+	}
+
+	.rn-featured-properties-count-left {
+		text-align: center;
+		
+		margin-bottom: $gutter-width / 2;
+		width: 100%;
+		
+		order: 0;
+	}
 
 	.rn-featured-properties-count {
 		margin-bottom: $gutter-width / 2;
@@ -250,6 +291,9 @@ $transition: 150ms ease-in-out all;
 	}
 
 	.rn-featured-properties-pagination {
+		width: 100%;
+		
+		justify-content: center;
 		order: 2;
 	}
 
@@ -270,6 +314,13 @@ $transition: 150ms ease-in-out all;
 	.rn-featured-properties-sort {
 		text-align: center;
 
+		margin-bottom: $gutter-width / 2;
+		width: 100%;
+	}
+
+	.rn-featured-properties-count-left {
+		text-align: center;
+		
 		margin-bottom: $gutter-width / 2;
 		width: 100%;
 	}
@@ -307,3 +358,4 @@ $transition: 150ms ease-in-out all;
 		padding-left: 0;
 	}
 }
+	
