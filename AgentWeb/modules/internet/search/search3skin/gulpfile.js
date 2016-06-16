@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 var agentWebPath = '../../../../';
 
 var search3Companies = [
+/*
 	'agentpros',
 	'cbbest',
 	'cbrivercountry',	
@@ -19,7 +20,9 @@ var search3Companies = [
 	'coldwellbanker_kline',
 	'demp',
 	'elpr',
+*/
 	'flpg',
+/*
 	'gksrealty',
  	'hmre',
  	'hqre',
@@ -49,10 +52,13 @@ var search3Companies = [
  	'remaxsw',
  	'remaxtest',
  	'remaxtx',
+*/
  	'tore',
+/*
  	'valore',
  	'wbre',
- 	'weicherttriangle'		
+ 	'weicherttriangle'	
+*/	
 ];
 
 // STYLING
