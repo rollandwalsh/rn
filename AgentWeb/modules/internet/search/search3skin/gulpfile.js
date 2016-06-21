@@ -11,54 +11,59 @@ var gulp = require('gulp'),
 var agentWebPath = '../../../../';
 
 var search3Companies = [
-/*
 	'agentpros',
 	'cbbest',
-	'cbrivercountry',	
+	'cbrivercountry',
 	'cbsequim',
 	'cjre',
 	'coldwellbanker_kline',
 	'demp',
 	'elpr',
-*/
 	'flpg',
-/*
 	'gksrealty',
  	'hmre',
  	'hqre',
  	'kansasmlsera',
  	'kansasmlsindependents',
  	'kr',
+ 	'mnire',
  	'mvre',
+ 	'nire',
  	'nres',
  	'nwre',
- 	'ppro',
  	'pnwra',
+ 	'ppro',
+ 	'prufoxroach',
  	'remaxak',
+ 	'remaxal',
  	'remaxatlantic',
  	'remaxcahi',
  	'remaxcarolina',
  	'remaxcentral',
+ 	'remaxga',
  	'remaxflorida',
  	'remaxil',
  	'remaxin',
+ 	'remaxla',
+ 	'remaxky',
+ 	'remaxmidstates',
+ 	'remaxms',
  	'remaxmtn',
  	'remaxnc',
  	'remaxncoh',
  	'remaxne',
+ 	'remaxok',
  	'remaxpade',
  	'remaxpnw',
  	'remaxstl',
  	'remaxsw',
  	'remaxtest',
+ 	'remaxtn',
  	'remaxtx',
-*/
  	'tore',
-/*
  	'valore',
  	'wbre',
- 	'weicherttriangle'	
-*/	
+ 	'weicherttriangle'
 ];
 
 // STYLING
@@ -74,10 +79,10 @@ gulp.task('styles', function () {
 	    	}
 	    }))
 	    .pipe(sass())
-	    .pipe(autoprefixer('last 2 versions', '>1%', 'ie 10'))
+	    .pipe(autoprefixer('last 3 versions', '>1%', 'ie 10'))
 	    .pipe(gulp.dest(agentWebPath + dir + '/css/'))
 	    .pipe(rename({ suffix: '.min' }))
-	    .pipe(cleancss())
+	    .pipe(cleancss({processImport: false}))
 	    .pipe(gulp.dest(agentWebPath + dir + '/css/'))
 	});
 });
@@ -92,7 +97,7 @@ gulp.task('featured-properties', function () {
 	    }
 	}))
 	.pipe(sass())
-	.pipe(autoprefixer('last 2 versions', '>1%', 'ie 10'))
+	.pipe(autoprefixer('last 3 versions', '>1%', 'ie 10'))
 	.pipe(gulp.dest('N:/Media/global/featured-properties/css/'))
 	.pipe(rename({ suffix: '.min' }))
 	.pipe(cleancss())

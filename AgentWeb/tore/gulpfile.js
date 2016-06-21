@@ -27,7 +27,7 @@ gulp.task('styles', function () {
 			}
 		}))
 		.pipe(sass())
-		.pipe(autoprefixer('last 2 versions', '>1%', 'ie 10'))
+		.pipe(autoprefixer('last 3 versions', '>1%', 'ie 10'))
 		.pipe(gulp.dest('css/'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(cleancss())
