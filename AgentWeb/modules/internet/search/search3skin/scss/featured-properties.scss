@@ -98,6 +98,10 @@ $transition: 150ms ease-in-out all;
 
 		margin-right: $gutter-width / 2;
 	}
+	
+	select::-ms-expand {
+		display: none;
+	}
 }
 			
 .rn-featured-properties-count {
@@ -110,7 +114,7 @@ $transition: 150ms ease-in-out all;
 	
 	list-style: none;
 	
-	align-self: center;
+	align-self: flex-start;
 	display: flex;
 	justify-content: flex-end;
 	
@@ -133,6 +137,7 @@ $transition: 150ms ease-in-out all;
 
 	span {
 		font-weight: bold;
+		line-height: 1;
 	}
 }
 
@@ -164,7 +169,6 @@ $transition: 150ms ease-in-out all;
 	
 	align-items: center;
 	display: flex;
-	flex: 0 0 50%;
 	justify-content: center;
 	
 	position: relative;
@@ -200,7 +204,6 @@ $transition: 150ms ease-in-out all;
 	padding-left: $gutter-width / 2;
 	
 	display: flex;
-	flex: 1 1 auto;
 	flex-direction: column;
 }
 			
@@ -266,6 +269,16 @@ $transition: 150ms ease-in-out all;
 
 // MEDIA QUERIES
 
+@media #{$large-up} {
+	.rn-featured-properties-listing-link {
+		width: 50%;
+	}
+
+	.rn-featured-properties-listing-details {
+		width: 50%;
+	}
+}
+
 @media #{$medium-only} {
 	.rn-featured-properties-sort {
 		order: 1;
@@ -304,6 +317,14 @@ $transition: 150ms ease-in-out all;
 	
 	.rn-featured-properties-listing {
 		width: rem-calc(480);
+	}
+	
+	.rn-featured-properties-listing-link {
+		width: 50%;
+	}
+
+	.rn-featured-properties-listing-details {
+		width: 50%;
 	}
 }
 
@@ -348,7 +369,7 @@ $transition: 150ms ease-in-out all;
 	}
 
 	.rn-featured-properties-listing-link {
-		flex: 0 0 100%;
+		width: 100%;
 
 		&:before {
 			padding-top: 60%;
@@ -357,6 +378,7 @@ $transition: 150ms ease-in-out all;
 
 	.rn-featured-properties-listing-details {
 		padding-left: 0;
+		width: 100%;
 	}
 }
 	
