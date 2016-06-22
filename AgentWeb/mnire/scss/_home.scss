@@ -1,0 +1,145 @@
+.rn-home-page {
+	background-position: center top;
+	background-repeat: no-repeat;
+	
+	&.bg-1 {
+		background-image: url(../img/home-bg-1.jpg);
+	}
+	
+	&.bg-2 {
+		background-image: url(../img/home-bg-2.jpg);
+	}
+	
+	&.bg-3 {
+		background-image: url(../img/home-bg-3.jpg);
+	}
+}
+
+.rn-home-hero-area {	
+	height: rem-calc(500);
+	margin: 0 auto;
+	max-width: rem-calc(848);
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	h2 {
+		color: $white;
+		font-family: $serif-font;
+		font-size: rem-calc(50);
+		font-weight: normal;
+		line-height: .8;
+		text-transform: uppercase;
+		
+		span {
+			font-size: rem-calc(100);
+			
+			display: block;
+		}
+	}
+}
+
+.rn-home-quick-search-area {
+	display: flex;
+}
+
+.rn-home-quick-search-main,
+.rn-home-quick-search-map {
+	background: rgba($white, .65);
+	border: 1px solid $white;
+	border-radius: 2px;
+	
+	padding: $gutter-width / 2;
+}
+
+.rn-home-quick-search-main {
+	margin-right: $gutter-width / 2;
+	
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.rn-home-quick-search-map {
+	overflow: hidden;
+	width: rem-calc(214); // 198 (img width) + 16 (padding)
+	
+	img {
+		margin-bottom: rem-calc(-32);
+	}
+}
+
+.rn-home-quick-search-links {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		margin-right: $gutter-width / 4;
+		
+		flex: 1 1 auto;
+		
+		display: block;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+	
+	a {
+		background: $purple;
+		color: $white;
+		font-size: rem-calc(14);
+		font-weight: 200;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		padding: $gutter-width / 2;
+		width: 100%;
+		
+		display: block;
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $bhhs-gray-dark;
+		}
+	}
+}
+
+.rn-home-quick-search-sub-links {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		margin-right: $gutter-width;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+	
+	a {
+		color: $bhhs-gray-dark;
+		font-size: rem-calc(14);
+		font-weight: 600;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $purple;
+		}
+	}
+}

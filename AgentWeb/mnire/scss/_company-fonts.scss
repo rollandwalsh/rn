@@ -1,0 +1,14 @@
+// FONTS
+// - - - - - - - - - - - - -
+
+$sans-serif-font: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+$serif-font: Georgia, 'Times New Roman', serif;
+
+// HTML RESETS
+// - - - - - - - - - - - - -
+
+html,
+body {
+	font-family: $sans-serif-font;
+	font-size: $base-font-size;
+}
