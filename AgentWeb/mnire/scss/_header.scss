@@ -1,5 +1,9 @@
 @import '../../modules/internet/search/search3skin/scss/sass-burger';
 
+iframe[name="google_conversion_frame"] {
+	display: none;
+}
+
 // HEADER
 // - - - - - - - - - - - - - - -
 
