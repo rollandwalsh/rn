@@ -1,0 +1,358 @@
+// SEARCH SITE HEADER
+// - - - - - - - - - - - - -
+
+iframe[name="google_conversion_frame"] {
+	display: none;
+}
+
+// PHONE / RIGHT
+
+.rn-site-header-phone,
+.rn-site-header-right {
+	display: none;
+}
+
+// HEADER
+
+.rn-site-header {
+	background: $white;
+	color: $purple;
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
+
+	.rn-container {
+		height: 100%;
+
+		align-items: flex-end;
+		display: flex;
+	}
+	
+	@media #{$tablet-up} {
+		.rn-container {
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
+
+	@media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+	}
+}
+
+// TOP BAR
+
+.rn-site-header-top-bar {
+	@media #{$tablet-up} {
+		order: 1;
+	}
+	
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+.rn-site-header-property-watch {
+	background: $white;
+	border-radius: $gutter-width / 2;
+	box-shadow: inset 0 0 8px 0 rgba($bhhs-gray-dark,0.9);
+	color: $bhhs-gray-light;
+	font-size: rem-calc(11);
+	font-weight: 700;
+	
+	margin: ($gutter-width / -2) 0 0;
+	padding: rem-calc(6) ($gutter-width / 4) ($gutter-width / 4);
+
+	list-style: none;
+	
+	align-items: center;
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	
+	li {
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+	}
+
+	a {
+	}
+	
+	.show-for-mobile {
+		display: none;
+	}
+}
+
+// MAIN
+
+.rn-site-header-main {
+	height: 100%;
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+	height: 100%;
+	
+	align-items: center; // Center logo vertically
+	display: flex;
+
+	a {
+		height: 100%;
+	}
+	
+	img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+	
+	@media #{$tablet-up} {
+		height: 100%;
+		
+		order: 0;
+	}
+	
+	@media #{$medium-only} {
+		width: rem-calc(130);
+	}
+ 
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: $gutter-width / 4; // Decrease padding for larger logo
+		width: auto;
+
+		align-items: center; // Allow img to center vertically if logo should shrink horizontally
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+		display: flex;
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	font-size: rem-calc(12);
+	
+	padding: 0;
+	
+	align-items: flex-end; // Push menu to bottom of nav
+	display: flex;
+
+	@media #{$tablet-up} {
+		align-self: flex-end;
+		flex: 0 0 auto;
+		flex-direction: column;
+		justify-content: space-between;
+		order: 2;
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: 0;
+		
+		align-items: center;
+		flex: 1 1 auto;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	width: 100%; // Let menu fill full width of nav
+	
+	list-style: none; // Remove bullets
+	
+	li {
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:last-child {
+			.dropdown {
+				right: 0; // Let last nav item align right
+				left: auto;
+			}
+		}
+	}
+	
+	a {
+		background: transparent;
+		font-weight: 600;
+		text-decoration: none; // Remove underline from links
+		text-transform: uppercase;
+		
+		padding: $gutter-width / 2; // Normal padding top/bottom - wide padding left/right
+
+		display: block;
+		
+		transition: $transition;
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			&:hover {
+				a {
+					background: $purple;
+					border-top: 1px solid lighten($purple, 5%);
+					border-bottom: 1px solid darken($purple, 5%);
+				}
+			}
+			
+			a {
+				background: $bhhs-gray-dark;
+				border-top: 1px solid $bhhs-gray-light;
+				border-bottom: 1px solid $black;
+				color: $white;
+				
+				padding: $gutter-width / 2;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	span {
+		@extend i;
+	}
+
+	@media #{$tablet-up} {
+		overflow: visible !important; // Used here to ensure nav-menu is visible in case of use at smaller screen and then expanded to larger screen
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+
+		li {
+			text-align: center;
+
+			flex: 1 1 auto;
+
+			&:first-child {
+				border: none;
+			}
+		}
+		
+		> li {
+			&:hover > a {
+				color: $bhhs-gray-dark;
+			}
+			
+			> a {
+				color: $purple;
+			}
+		}
+		
+		
+		.dropdown {
+			padding: rem-calc(7) 0 0; // gutter-width padding on top to drop below header *** SOMETHING BROKEN NEEDS 7PX INSTEAD OF 8
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(25); // Nav height
+			left: 0;
+			z-index: 10;
+		}
+	}
+
+	@media #{$mobile-down} {
+		background: $purple;
+
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: $search-site-header-height-small; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		a {
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+		}
+		
+		> li > a {
+			color: $white;
+			border-top: 1px solid lighten($purple, 5%);
+			border-bottom: 1px solid darken($purple, 5%);
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	&.rn-site-navigation-toggle {
+		.text {
+			display: none; // Hide for search pages
+		}
+	}
+		
+	&.rn-search-user-toggle,
+	&.rn-search-criteria-toggle {
+		padding: $gutter-width / 4;
+	}
+		
+	i {
+		color: $purple;
+		font-size: rem-calc(33);
+	}
+		
+	.rn-site-header-nav-burger {
+		@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $purple); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+	}
+		
+	&.is-active {
+		.rn-site-header-nav-burger {
+			@include burger-to-cross; // Burger transforms to cross when active
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $purple;
+		text-align: center;
+			
+		padding: $gutter-width / 2;
+			
+		display: inline-block;
+
+		&.rn-site-navigation-toggle {
+			display: flex; // Allow sass-burger and text to be inline
+		}
+	}
+}
+

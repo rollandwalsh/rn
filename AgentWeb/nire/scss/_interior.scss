@@ -1,0 +1,386 @@
+// INTERIOR
+// - - - - - - - - - - - - -
+
+.rn-interior-page,
+.rn-agent-office-page,
+.rn-extranet-page {
+		.rn-site-header {
+			border-bottom: 3px solid $purple;
+			
+			margin-bottom: $gutter-width * 2;
+		}
+		
+		.rn-site-header-phone {
+		color: $purple;
+	}
+	
+	.rn-site-header-nav-menu {
+		> li > a {
+			color: $purple;
+		}
+	
+		@media #{$tablet-up} {
+			> li:hover > a {
+				color: $bhhs-gray-dark;
+			}
+		}
+	}
+}
+
+.rn-site-interior {
+	@extend .rn-container;
+
+	padding: ($gutter-width / 2);
+
+	img { // Respnosive images
+	    height: auto;
+	    max-width: 100%;
+		width: 100%;
+	    
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+	
+	.centered { // Class to center things
+		text-align: center;
+	}
+	
+	.flex-video { // Handles responsive videos
+	    height: 0;
+	    margin-bottom: $gutter-width / 2;
+	    padding-bottom: 75%;
+	    overflow: hidden;
+	    
+	    position: relative;
+	    
+	    iframe,
+	    object,
+	    embed,
+	    video {
+		    height: 100%;
+		    width: 100%;
+		    
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+	    }
+	}
+
+	// GRID
+	
+	.rn-row {
+		margin-bottom: $gutter-width / 2;
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		&.center {
+			justify-content: center;
+		}
+	}
+	
+	.rn-column {
+		padding: $gutter-width;
+		
+		&.half {
+			flex: 0 0 50%;
+		}
+		
+		&.one-third {
+			flex: 0 0 33%;
+		}
+		
+		&.two-thirds {
+			flex: 0 0 66%;
+		}
+		
+		@media #{$mobile-down} {
+			&.half,
+			&.one-third,
+			&.two-thirds {
+				padding: ($gutter-width / 2) 0;
+
+				flex: 1 1 100%;
+			}
+		}
+	}
+	
+	// FONT STYLING
+	
+	h1 {
+		color: $purple;
+		font-size: rem-calc(40);
+		font-weight: 100;
+	}
+	
+	h2 {
+		color: $purple;
+		font-size: rem-calc(32);
+		font-weight: 100;
+	}
+	
+	h3 {
+		color: $purple;
+		font-size: rem-calc(24);
+		font-weight: 100;
+	}
+	
+	h4 {
+		color: $purple;
+		font-size: rem-calc(20);
+		font-weight: 100;
+	}
+	
+	h5 {
+		color: $purple;
+		font-size: rem-calc(18);
+		font-weight: 400;
+	}
+	
+	h6 {
+		color: $purple;
+		font-size: rem-calc(16);
+		font-style: italic;
+		font-weight: 400;
+	}
+
+	p {
+		font-size: rem-calc(16);
+		line-height: 1.4;
+	}
+	
+	p,
+	ul,
+	ol,
+	span {
+		color: $black;
+	}
+
+	a {
+		color: $purple;
+		
+		transition: $transition;
+
+		&:hover {
+			color: $bhhs-gray-dark;
+		}
+	}
+	
+	.no-bullet {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none;
+	}
+	
+	blockquote {
+		border: 1px solid $bhhs-gray-dark;
+		color: $bhhs-gray-dark;
+		font-size: rem-calc(18);
+	}
+	
+	hr {
+		border-color: $bhhs-gray-dark;
+		border-style: solid;
+		border-width: 1px 0 0;
+		
+		margin: $gutter-width auto;
+	}
+}	
+
+// DASHBOARD
+// - - - - - - - - - - - - -
+
+.rn-extranet-page {
+	.rn-dashboard-form-button,
+	.rn-dashboard-navigation a,
+	.rn-dashboard-history-button,
+	.rn-dashboard-agent-transfer-button,
+	.rn-popup-button,
+	.rn-popup-contact-button {
+		background: $primary-color;
+
+		transition: $transition;
+
+		&:hover {
+			background: $gray;
+		}
+	}
+
+	.rn-dashboard-navigation a.rn-dashboard-active {
+		background: $primary-color;
+
+		&:hover {
+			background: $gray;
+		}
+	}
+
+	.rn-dashboard-home-title,
+	.rn-dashboard-header-title,
+	.rn-dashboard-messages h3 {
+		color: $primary-color;
+	}
+}
+
+// AGENTS & OFFICES
+// - - - - - - - - - - - - -
+
+.rn-roster-search-submit {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: $gray;
+	}
+}
+
+.rn-agent-name,
+.rn-office-name,
+.rn-agent-contact-office-directions {
+	color: $primary-color;
+
+	a {
+		color: $gray;
+		text-decoration: none;
+	}
+}
+
+.rn-agent-button-questions a {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: $gray;
+	}
+}
+
+// HOME VALUES
+// - - - - - - - - - - - - -
+
+.rn-home-values-form {
+	.rn-home-values-form-submit {
+		width: auto !important; // Overwrite 20% in homevalues.css (not working for mobile)
+	}
+}
+
+.rn-home-values-tools {
+	img {
+		max-width: none !important;
+
+		flex: 0 0 15%;
+	}
+
+	@media #{$mobile-down} {
+		flex-wrap: wrap;
+
+		img {
+			flex: 0 0 33%;
+		}
+	}
+}
+
+.rn-home-values-card-top {
+	background-color: $primary-color !important;
+}
+
+#rn-home-values-share-button, 
+#rn-home-values-save-button, 
+.rn-home-values-share-submit,
+.rn-home-values-form-submit {
+	background-color: $primary-color !important;
+	color: $white;
+
+	&:hover {
+		background-color: $gray !important;
+	}
+}
+
+.rn-home-values-iframe {padding-bottom:385%}
+
+#submitForm input[type='button'] {
+	background-color: $primary-color !important;
+}
+
+// HOME WORTH
+
+#worth {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	fieldset {
+		border-color: lighten($gray, 20%);
+
+		margin: 0 1% !important;
+		padding: $gutter-width !important;
+		width: 48%;
+
+		legend {
+			padding: 0 ($gutter-width / 2);
+		}
+
+		label {
+			font-size: rem-calc(12);
+
+			margin-bottom: $gutter-width / 4;
+		}
+
+		input {
+			width: 100% !important;
+		}
+
+		select {
+			font-size: rem-calc(14);
+		}
+
+		input,
+		select {
+			font-size: rem-cacl(14) !important;
+
+			margin-bottom: $gutter-width;
+		}
+	}
+
+	img {
+		height: rem-calc(7);
+		margin-left: rem-calc(2);
+		width: rem-calc(7);
+	}
+	
+	input[type="submit"] {
+		background: $primary-color;
+		border: none;
+		border-radius: $gutter-width / 2;
+		color: $white;
+		font-size: 1rem;
+		text-transform: uppercase;
+
+		padding: ($gutter-width / 2) $gutter-width;
+		margin: ($gutter-width / 2) auto !important;
+		width: auto !important;
+
+		transition: $transition;
+
+		&:hover {
+			background: $gray;
+		}
+	}
+
+	span {
+		color: $gray;
+		font-size: rem-calc(10) !important;
+		text-align: center;
+
+		margin: ($gutter-width / 2) auto;
+		width: 100%;
+	}
+
+	@media #{$mobile-down} {
+		fieldset {
+			width: 99%;
+		}
+	}
+}
