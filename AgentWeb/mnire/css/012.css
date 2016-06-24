@@ -19,41 +19,8 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.rn-icon-heart-solid:before {
-  content: "\f004"; }
-
-.rn-icon-heart:before {
-  content: "\f08a"; }
-
-.rn-icon-star-solid:before {
-  content: "\f005"; }
-
-.rn-icon-star:before {
-  content: "\f006"; }
-
-.rn-icon-twitter:before {
-  content: "\f099"; }
-
-.rn-icon-facebook:before {
-  content: "\f09a"; }
-
-.rn-icon-google-plus:before {
-  content: "\f0d5"; }
-
-.rn-icon-instagram:before {
-  content: "\f16d"; }
-
-.rn-icon-linkedin:before {
-  content: "\f0e1"; }
-
-.rn-icon-youtube:before {
-  content: "\f16a"; }
-
-.rn-icon-pinterest:before {
-  content: "\f231"; }
-
-.rn-icon-rss:before {
-  content: "\f09e"; }
+.rn-icon-user-solid:before {
+  content: "\e9ca"; }
 
 .rn-icon-add-user:before {
   content: "\e900"; }
@@ -652,9 +619,6 @@ i {
 .rn-icon-user:before {
   content: "\e9bd"; }
 
-.rn-icon-user-solid:before {
-  content: "\e9ca"; }
-
 .rn-icon-users:before {
   content: "\e9be"; }
 
@@ -691,6 +655,42 @@ i {
 .rn-icon-wristwatch:before {
   content: "\e9c9"; }
 
+.rn-icon-heart-solid:before {
+  content: "\f004"; }
+
+.rn-icon-heart:before {
+  content: "\f08a"; }
+
+.rn-icon-star-solid:before {
+  content: "\f005"; }
+
+.rn-icon-star:before {
+  content: "\f006"; }
+
+.rn-icon-twitter:before {
+  content: "\f099"; }
+
+.rn-icon-facebook:before {
+  content: "\f09a"; }
+
+.rn-icon-google-plus:before {
+  content: "\f0d5"; }
+
+.rn-icon-instagram:before {
+  content: "\f16d"; }
+
+.rn-icon-linkedin:before {
+  content: "\f0e1"; }
+
+.rn-icon-youtube:before {
+  content: "\f16a"; }
+
+.rn-icon-pinterest:before {
+  content: "\f231"; }
+
+.rn-icon-rss:before {
+  content: "\f09e"; }
+
 .rn-icon-scope:before {
   content: "\e058"; }
 
@@ -708,6 +708,9 @@ i {
 
 .rn-icon-triangle-down:before {
   content: "\e9df"; }
+
+.rn-icon-blogger:before {
+  content: "\e9cb"; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
