@@ -2044,7 +2044,7 @@ a.rn-home-callout-main-link:hover img {
   .rn-site-interior ul,
   .rn-site-interior ol,
   .rn-site-interior span {
-    color: #000000; }
+    color: #636466; }
   .rn-site-interior a {
     color: #53164d;
     transition: 150ms ease-in-out all; }
@@ -2059,7 +2059,7 @@ a.rn-home-callout-main-link:hover img {
     color: #636466;
     font-size: 1.125rem; }
   .rn-site-interior hr {
-    border-color: #636466;
+    border-color: #939598;
     border-style: solid;
     border-width: 1px 0 0;
     margin: 1rem auto; }
@@ -2206,6 +2206,9 @@ a.rn-home-callout-main-link:hover img {
   @media only screen and (max-width: 48em) {
     #worth fieldset {
       width: 99%; } }
+
+img[src*="button_search_up.gif"] {
+  width: auto; }
 
 .rn-site-footer {
   color: #636466;

@@ -154,7 +154,7 @@
 	ul,
 	ol,
 	span {
-		color: $black;
+		color: $bhhs-gray-dark;
 	}
 
 	a {
@@ -181,7 +181,7 @@
 	}
 	
 	hr {
-		border-color: $bhhs-gray-dark;
+		border-color: $bhhs-gray-light;
 		border-style: solid;
 		border-width: 1px 0 0;
 		
@@ -383,4 +383,8 @@
 			width: 99%;
 		}
 	}
+}
+
+img[src*="button_search_up.gif"] {
+	width: auto; // adjusts button width for Property Search widget on SEO pages
 }
