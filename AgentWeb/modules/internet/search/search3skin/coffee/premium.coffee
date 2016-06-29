@@ -13,7 +13,7 @@ pageBody = $('body')
 pageClass = ->
 	if urlSearch is '' and (urlPathname is '' or urlPathname is '/')
 		pageBody.addClass 'rn-home-page'
-	else if urlSearch.includes('findahome') or urlPathname.includes('Home') or urlPathname.includes('Land') or urlPathname.includes('Commercial') or urlPathname.includes('Condo') or urlPathname.includes 'MultiFamily'
+	else if $('#rnSearch').length > 0 or urlSearch.includes('findahome') or urlPathname.includes('Home') or urlPathname.includes('Land') or urlPathname.includes('Commercial') or urlPathname.includes('Condo') or urlPathname.includes 'MultiFamily'
 		pageBody.addClass 'rn-search-page'
 		styleSheet = $('link[rel=stylesheet][href*="app"]').attr 'href'
 		styleSheet = styleSheet.replace 'app', 'search'
