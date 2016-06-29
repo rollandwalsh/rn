@@ -320,6 +320,7 @@ iframe[name="google_conversion_frame"] {
 		
 		> li > a {
 			background: $purple;
+			color: $white;
 			border-top: 1px solid lighten($purple, 5%);
 			border-bottom: 1px solid darken($purple, 5%);
 		}
@@ -342,7 +343,7 @@ iframe[name="google_conversion_frame"] {
 	}
 
 	@media #{$mobile-down} {
-		color: $white;
+		color: $purple;
 		text-align: center;
 		text-decoration: none; // Removed underlines
 			
@@ -355,12 +356,12 @@ iframe[name="google_conversion_frame"] {
 		}
 			
 		i {
-			color: $white;
+			color: $purple;
 			font-size: rem-calc(33);
 		}
 			
 		.rn-site-header-nav-burger {
-			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $purple); // Burger should be 24px high with 1px high $gray lines and 7px gaps
 		}
 			
 		&.is-active {

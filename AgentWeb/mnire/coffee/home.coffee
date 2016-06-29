@@ -9,6 +9,7 @@ $ ->
 			$('.rn-qsr-mx-f option').eq(0).html '$ Max'
 			$('.rn-qsr-bd-f option').eq(0).html 'Beds'
 			$('.rn-qsr-ba-f option').eq(0).html 'Baths'
+			$('.rn-qsr-p-f-Waterfront input').prop 'checked', false
 			$('.rn-qsr-button').wrap '<div class="rn-qsr-button-container"></div>'
 			clearInterval qs
 		return

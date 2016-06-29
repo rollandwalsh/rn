@@ -1357,6 +1357,7 @@ iframe[name="google_conversion_frame"] {
           background: #53164d; }
       .rn-site-header-nav-menu > li > a {
         background: #53164d;
+        color: #ffffff;
         border-top: 1px solid #671b60;
         border-bottom: 1px solid #3f113a; }
       .rn-site-header-nav-menu .dropdown {
@@ -1372,7 +1373,7 @@ iframe[name="google_conversion_frame"] {
 
 @media only screen and (max-width: 48em) {
   .rn-site-header-nav-button {
-    color: #ffffff;
+    color: #53164d;
     text-align: center;
     text-decoration: none;
     padding: 0.25rem;
@@ -1380,7 +1381,7 @@ iframe[name="google_conversion_frame"] {
     .rn-site-header-nav-button.rn-search-criteria-toggle {
       display: none; }
     .rn-site-header-nav-button i {
-      color: #ffffff;
+      color: #53164d;
       font-size: 2.0625rem; }
     .rn-site-header-nav-button .rn-site-header-nav-burger {
       position: relative;
@@ -1394,7 +1395,7 @@ iframe[name="google_conversion_frame"] {
         display: block;
         width: 1.5rem;
         height: 0.0625rem;
-        background-color: #ffffff;
+        background-color: #53164d;
         transition-property: background-color, -webkit-transform;
         transition-property: background-color, transform;
         transition-property: background-color, transform, -webkit-transform;
@@ -2041,10 +2042,113 @@ a.rn-home-callout-main-link:hover img {
     color: #636466;
     font-size: 1.125rem; }
   .rn-site-interior hr {
-    border-color: #939598;
+    border-color: #cccccc;
     border-style: solid;
     border-width: 1px 0 0;
     margin: 1rem auto; }
+
+.rn-careers-carousel div {
+  text-align: center;
+  position: relative; }
+
+.rn-careers-carousel h2 {
+  background: rgba(255, 255, 255, 0.8);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+  .rn-careers-carousel h2 span {
+    color: #53164d;
+    font-size: 1.875rem;
+    display: block; }
+
+@media only screen and (max-width: 48em) {
+  .rn-careers-carousel h2 {
+    font-size: 0.75rem;
+    padding: 0.5rem; }
+    .rn-careers-carousel h2 span {
+      font-size: 1.25rem; } }
+
+.rn-careers-header {
+  color: #636466 !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center; }
+
+.rn-careers-content {
+  font-size: 0.875rem !important;
+  line-height: 1.8;
+  text-align: justify; }
+
+.rn-careers-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.rn-careers-column h5 {
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  margin-bottom: 0; }
+
+.rn-careers-column p {
+  font-size: 0.75rem;
+  line-height: 1.8;
+  margin-bottom: 0; }
+
+.rn-careers-column a {
+  font-size: 0.875rem;
+  font-style: italic;
+  text-transform: uppercase; }
+
+.rn-careers-column.callouts {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .rn-careers-column.callouts li {
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding: 0 0.5rem 1rem 5rem; }
+
+@media only screen and (min-width: 48.0625em) {
+  .rn-careers-column.callouts {
+    border-right: 1px solid #cccccc;
+    padding: 0.5rem;
+    width: 38%; }
+  .rn-careers-column.service-area {
+    padding: 0.5rem;
+    width: 24%; } }
+
+@media only screen and (max-width: 48em) {
+  .rn-careers-column.callouts {
+    padding: 0.5rem;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%; }
+    .rn-careers-column.callouts:first-of-type {
+      border-right: 1px solid #cccccc; }
+  .rn-careers-column.service-area {
+    width: 100%; }
+    .rn-careers-column.service-area img {
+      margin: 0 auto;
+      max-width: 13.125rem;
+      display: block; } }
+
+@media only screen and (max-width: 40em) {
+  .rn-careers-column.callouts {
+    border: none;
+    padding: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; } }
 
 .rn-extranet-page .rn-dashboard-form-button,
 .rn-extranet-page .rn-dashboard-navigation a,

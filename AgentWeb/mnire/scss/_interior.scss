@@ -189,6 +189,156 @@
 	}
 }	
 
+// CAREERS PAGES
+// - - - - - - - - - - - - -
+
+.rn-careers-carousel {
+	div {
+		text-align: center;
+		
+		position: relative;
+	}
+	
+	h2 {
+		background: rgba($white, .8);
+		font-family: $serif-font;
+		font-size: rem-calc(18);
+		line-height: 1;
+		text-transform: uppercase;
+		
+		margin: 0;
+		padding: $gutter-width ($gutter-width / 2);
+		width: 100%;
+		
+		position: absolute;
+		bottom: 0;
+		
+		span {
+			color: $purple;
+			font-size: rem-calc(30);
+			
+			display: block;
+		}
+	}
+	
+	@media #{$mobile-down} {
+		h2 {
+			font-size: rem-calc(12);
+			
+			padding: $gutter-width / 2;
+			
+			span {
+				font-size: rem-calc(20);
+			}
+		}
+	}
+}
+
+.rn-careers-header {
+	color: $bhhs-gray-dark !important;
+	font-family: $serif-font;
+	font-size: rem-calc(20);
+	font-weight: bold;
+	text-align: center;
+}
+
+.rn-careers-content {
+	font-size: rem-calc(14) !important;
+	line-height: 1.8;
+	text-align: justify;
+}
+
+.rn-careers-row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.rn-careers-column {
+	h5 {
+		font-size: rem-calc(15);
+		text-transform: uppercase;
+		
+		margin-bottom: 0;
+	}
+	
+	p {
+		font-size: rem-calc(12);
+		line-height: 1.8;
+		
+		margin-bottom: 0;
+	}
+	
+	a {
+		font-size: rem-calc(14);
+		font-style: italic;
+		text-transform: uppercase;
+	}
+	
+	&.callouts {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none;
+		
+		li {
+			background-position: left top;
+			background-repeat: no-repeat;
+			
+			padding: 0 ($gutter-width / 2) $gutter-width rem-calc(80);
+		}
+	}
+	
+	&.service-area {
+	}
+	
+	@media #{$tablet-up} {
+		&.callouts {
+			border-right: 1px solid $gray-2;
+			
+			padding: $gutter-width / 2;
+			width: 38%;
+		}
+		
+		&.service-area {
+			padding: $gutter-width / 2;
+			width: 24%;
+		}
+	}
+	
+	@media #{$mobile-down} {
+		&.callouts {
+			padding: $gutter-width / 2;
+			
+			flex: 0 0 50%;
+			
+			&:first-of-type {
+				border-right: 1px solid $gray-2;
+			}
+		}
+		
+		&.service-area {
+			width: 100%;
+			
+			img {
+				margin: 0 auto;
+				max-width: rem-calc(210);
+				
+				display: block;
+			}
+		}
+	}
+	
+	@media #{$small-only} {
+		&.callouts {
+			border: none;
+			
+			padding: 0;
+			
+			flex: 0 0 100%;
+		}
+	}
+}
+
 // DASHBOARD
 // - - - - - - - - - - - - -
 
@@ -384,6 +534,9 @@
 		}
 	}
 }
+
+// SEO PAGES
+// - - - - - - - - - - - - -
 
 img[src*="button_search_up.gif"] {
 	width: auto; // adjusts button width for Property Search widget on SEO pages
