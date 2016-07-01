@@ -138,4 +138,5 @@ gulp.task('icons', function () {
 
 gulp.task('default', function () {
 	gulp.watch("scss/**/*.scss", ['styles']);
+	gulp.watch("coffee/**/*.coffee", ['scripts']);
 });

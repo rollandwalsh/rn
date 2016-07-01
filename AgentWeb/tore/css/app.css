@@ -1126,6 +1126,9 @@ select {
   .hide-for-mobile {
     display: none !important; } }
 
+table {
+  table-layout: fixed; }
+
 html,
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;

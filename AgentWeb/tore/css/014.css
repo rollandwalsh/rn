@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic");
 @font-face {
   font-family: 'RN-Icons';
   src: url("../fonts/RN-Icons.ttf?c4danl") format("truetype"), url("../fonts/RN-Icons.woff?c4danl") format("woff"), url("../fonts/RN-Icons.svg?c4danl#RN-Icons") format("svg");
@@ -1128,6 +1128,9 @@ select {
   .hide-for-mobile {
     display: none !important; } }
 
+table {
+  table-layout: fixed; }
+
 #rnSearch {
   font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 100%;
@@ -1982,7 +1985,7 @@ select:focus {
   /* Nag registration overlay */ }
   @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
     .rn-search-container {
-      height: calc(100vh - 2.5rem - 1.875rem); } }
+      height: calc(100vh - 2.5rem - 3.5rem); } }
   .rn-search-container .rn-search-map-results-container {
     display: none; }
   .rn-search-container.rn-search-container-map .rn-search-map-results-container {
@@ -3094,7 +3097,7 @@ select:focus {
     width: 1.5rem; }
 
 .rn-search-footer {
-  background: #cccccc;
+  background: #eeeeee;
   border-top: 1px solid #b3b3b3;
   color: #666666;
   font-size: 0.6875rem;
@@ -3111,7 +3114,7 @@ select:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1; }
-  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+  @media only screen and (max-width: 48em) {
     .rn-search-footer {
       font-size: 1rem;
       height: 3.5rem; }
@@ -3129,6 +3132,10 @@ select:focus {
     margin-bottom: 0; }
   .rn-search-footer .rn-search-criteria-link {
     padding: 0; }
+
+#clearoverlay-button {
+  left: 0.25rem !important;
+  bottom: 0.75rem !important; }
 
 .rn-search-map-options,
 .rn-search-save-search,
@@ -3153,13 +3160,17 @@ select:focus {
     color: #ffffff;
     font-size: 1rem;
     text-decoration: none;
-    background: #2e2e2e;
+    background: #5b5b5b;
     height: 100%;
     padding: 0.5rem;
     display: block; }
+    .rn-search-save-search a.rn-search-criteria-marketstats {
+      background: #2e2e2e; }
   @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
     .rn-search-save-search {
-      display: block; } }
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; } }
 
 .rn-search-map-option {
   padding: 0 0.5rem 0 0; }
@@ -3251,41 +3262,51 @@ select:focus {
     font-size: 1.25rem;
     line-height: 0; }
 
-.rn-search-view-toggle {
-  margin-right: -0.5rem; }
-  .rn-search-view-toggle #map-gallery {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
-      .rn-search-view-toggle #map-gallery {
-        display: none; } }
-  .rn-search-view-toggle .map-button.active {
-    color: #2e2e2e; }
-  .rn-search-view-toggle .mobile-hide {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-  .rn-search-view-toggle i, .rn-search-view-toggle .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle a:after, .rn-search-view-toggle .rn-fp-nav, .rn-search-view-toggle .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle a:after {
-    padding: 0 0.5rem;
-    cursor: pointer; }
-    .rn-search-view-toggle i.rn-icon-close, .rn-search-view-toggle .rn-fp-viewdetails a.rn-icon-close:after, .rn-fp-viewdetails .rn-search-view-toggle a.rn-icon-close:after, .rn-search-view-toggle .rn-icon-close.rn-fp-nav, .rn-search-view-toggle .rn-home-callouts a.rn-icon-close:after, .rn-home-callouts .rn-search-view-toggle a.rn-icon-close:after {
-      margin: 0 -1rem;
-      -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-              transform: rotate(45deg); }
+.rn-search-view-toggle #map-gallery {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
   @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
-    .rn-search-view-toggle .mobile-hide {
+    .rn-search-view-toggle #map-gallery {
       display: none; } }
-  .rn-search-view-toggle #map,
-  .rn-search-view-toggle #gallery {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    .rn-search-view-toggle #map:hover, .rn-search-view-toggle #map.selected,
-    .rn-search-view-toggle #gallery:hover,
-    .rn-search-view-toggle #gallery.selected {
-      color: #5b5b5b; }
+
+.rn-search-view-toggle .map-button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .rn-search-view-toggle .map-button i, .rn-search-view-toggle .map-button .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle .map-button a:after, .rn-search-view-toggle .map-button .rn-fp-nav, .rn-search-view-toggle .map-button .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle .map-button a:after {
+    color: #666666; }
+    @media only screen and (max-width: 40em) {
+      .rn-search-view-toggle .map-button i, .rn-search-view-toggle .map-button .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle .map-button a:after, .rn-search-view-toggle .map-button .rn-fp-nav, .rn-search-view-toggle .map-button .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle .map-button a:after {
+        color: #ffffff;
+        background: #2e2e2e;
+        height: 100%;
+        padding: 0.5rem; } }
+  .rn-search-view-toggle .map-button:hover i, .rn-search-view-toggle .map-button:hover .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle .map-button:hover a:after, .rn-search-view-toggle .map-button:hover .rn-fp-nav, .rn-search-view-toggle .map-button:hover .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle .map-button:hover a:after {
+    color: #2e2e2e; }
+  .rn-search-view-toggle .map-button.active i, .rn-search-view-toggle .map-button.active .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle .map-button.active a:after, .rn-search-view-toggle .map-button.active .rn-fp-nav, .rn-search-view-toggle .map-button.active .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle .map-button.active a:after {
+    color: #2e2e2e; }
+  @media only screen and (max-width: 40em) {
+    .rn-search-view-toggle .map-button.active {
+      display: none; } }
+
+.rn-search-view-toggle .mobile-hide {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.rn-search-view-toggle i, .rn-search-view-toggle .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-view-toggle a:after, .rn-search-view-toggle .rn-fp-nav, .rn-search-view-toggle .rn-home-callouts a:after, .rn-home-callouts .rn-search-view-toggle a:after {
+  padding: 0 0.5rem;
+  cursor: pointer; }
+  .rn-search-view-toggle i.rn-icon-close, .rn-search-view-toggle .rn-fp-viewdetails a.rn-icon-close:after, .rn-fp-viewdetails .rn-search-view-toggle a.rn-icon-close:after, .rn-search-view-toggle .rn-icon-close.rn-fp-nav, .rn-search-view-toggle .rn-home-callouts a.rn-icon-close:after, .rn-home-callouts .rn-search-view-toggle a.rn-icon-close:after {
+    margin: 0 -1rem;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
+
+@media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+  .rn-search-view-toggle .mobile-hide {
+    display: none; } }
 
 .rn-search-mls-container p {
   margin: 0; }
@@ -3379,16 +3400,22 @@ select:focus {
   max-width: 1000px;
   padding-top: 0.5rem;
   z-index: 100; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .fixed {
+      position: initial; } }
 
 .rn-search-listing-display-details {
   height: 100%;
-  width: 25%;
+  width: 50%;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
 
 .rn-search-listing-display-map-icon {
   margin: 0 0.5rem; }
@@ -3396,26 +3423,92 @@ select:focus {
 .rn-search-listing-display-details-main {
   margin: 0;
   padding: 0 0.5rem;
-  width: calc(100% - 3rem);
-  list-style: none; }
+  list-style: none;
+  -webkit-flex: 1 1 55%;
+      -ms-flex: 1 1 55%;
+          flex: 1 1 55%; }
   .rn-search-listing-display-details-main li {
     width: 100%; }
+  .rn-search-listing-display-details-main .rn-search-listing-display-details-mls,
+  .rn-search-listing-display-details-main .rn-search-listing-display-details-status {
+    font-size: 0.75rem;
+    text-transform: uppercase; }
 
-.rn-search-listing-display-details-headline h4 {
-  color: inherit;
-  font-size: 1.5rem;
-  line-height: 1;
-  margin: 0; }
+.rn-search-listing-display-details-headline {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .rn-search-listing-display-details-headline header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .rn-search-listing-display-details-headline h4 {
+    color: inherit;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0; }
+  .rn-search-listing-display-details-headline a {
+    cursor: pointer; }
+  .rn-search-listing-display-details-headline i, .rn-search-listing-display-details-headline .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-listing-display-details-headline a:after, .rn-search-listing-display-details-headline .rn-fp-nav, .rn-search-listing-display-details-headline .rn-home-callouts a:after, .rn-home-callouts .rn-search-listing-display-details-headline a:after {
+    color: #666666;
+    font-size: 2rem; }
+
+.rn-search-listing-display-mortgage-calculator {
+  display: none;
+  background: #ffffff;
+  border: 1px solid #666666;
+  font-size: 0.875rem;
+  padding: 0.5rem;
+  position: absolute;
+  width: auto;
+  z-index: 1; }
+  .rn-search-listing-display-mortgage-calculator #mortgageCalculator {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    width: 100%; }
+    .rn-search-listing-display-mortgage-calculator #mortgageCalculator #mortgageCalculatorPadding {
+      padding: 0;
+      width: 100%; }
+  .rn-search-listing-display-mortgage-calculator #montlyPayment {
+    font-size: 1rem;
+    font-weight: bold; }
+    .rn-search-listing-display-mortgage-calculator #montlyPayment label {
+      font-weight: normal;
+      font-size: 0.875rem; }
+  .rn-search-listing-display-mortgage-calculator dd, .rn-search-listing-display-mortgage-calculator dl {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0; }
+  .rn-search-listing-display-mortgage-calculator #Form1 {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .rn-search-listing-display-mortgage-calculator #Form1 #buttonSubmit {
+      background: #2e2e2e;
+      border: none;
+      color: #ffffff;
+      font-size: 0.875rem;
+      text-align: center;
+      margin: 0.5rem;
+      padding: 0.5rem; }
 
 .rn-search-listing-display-details-info {
   color: inherit;
-  font-size: 0.6875rem; }
-
-.rn-search-listing-display-details-address {
-  text-overflow: ellipsis;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap; }
+  font-size: 0.875rem;
+  font-weight: normal;
+  padding: 0 0.5rem; }
 
 .rn-search-listing-display-details-neighborhood {
   text-overflow: ellipsis;
@@ -3425,16 +3518,6 @@ select:focus {
     color: #666666;
     font-size: 0.5625rem; }
 
-.rn-search-listing-display-details-secondary {
-  height: 100%;
-  width: 25%;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
 .rn-search-listing-display-details-detail {
   margin: 0;
   padding: 0;
@@ -3442,6 +3525,9 @@ select:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex: 1 1 45%;
+      -ms-flex: 1 1 45%;
+          flex: 1 1 45%;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
@@ -3461,13 +3547,6 @@ select:focus {
       text-transform: uppercase;
       display: block; }
 
-.rn-search-listing-display-details-notice {
-  font-size: 0.75rem;
-  text-align: center; }
-  @media only screen and (min-width: 64.0625em) {
-    .rn-search-listing-display-details-notice {
-      margin: 1rem 0; } }
-
 .rn-search-listing-display-details-tags {
   margin: 0;
   padding: 0.125rem 0;
@@ -3481,6 +3560,8 @@ select:focus {
     text-transform: uppercase;
     margin-right: 0.25rem;
     padding: 0.125rem 0.375rem; }
+    .rn-search-listing-display-details-tags li img {
+      width: 100%; }
 
 .rn-search-listing-display-details-actions {
   border-left: 1px solid #cccccc;
@@ -3646,7 +3727,7 @@ select:focus {
       border-color: #ffffff;
       border-style: solid;
       border-width: 0 1px 1px 0;
-      height: 40vh;
+      height: calc(70vh - 6rem);
       width: auto; }
   .rn-search-listing-display-carousel-main .slick-slide {
     opacity: .3; }
@@ -3721,89 +3802,25 @@ select:focus {
     .mlrPreviewBar a:hover {
       color: #6e6e6e; }
 
-.rn-search-listing-display-blur {
-  -webkit-filter: url(#blur);
-          filter: url(#blur);
-  -webkit-flex: 1 1 100%;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
-  width: 100%; }
-
-.rn-search-listing-display-blur-form {
-  background: #eeeeee;
-  color: #444444;
-  font-size: 1rem;
-  position: absolute;
-  top: 4rem;
-  left: 0;
-  bottom: 2rem;
-  height: 6rem;
-  padding: 1rem;
-  width: 100%;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+.rn-search-listing-display-content-main {
+  border-bottom: 2px solid #cccccc;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 1 100%;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-  .rn-search-listing-display-blur-form button {
-    background: #2e2e2e;
-    border: none;
-    color: #ffffff;
-    font-size: 0.875rem;
-    margin: 0.25rem 0;
-    padding: 0.5rem;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    transition: 150ms ease-in-out all; }
-    .rn-search-listing-display-blur-form button:hover {
-      background: #484848; }
-  @media only screen and (max-width: 40em) {
-    .rn-search-listing-display-blur-form {
-      font-size: 0.75rem;
-      text-align: center; }
-      .rn-search-listing-display-blur-form button {
-        font-size: 0.75rem;
-        margin: 0; } }
-
-.rn-search-listing-display-carousel .rn-search-listing-display-blur-form {
-  top: inherit; }
-
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /* IE10+ CSS styles go here */
-  .rn-search-listing-display-blur {
-    color: transparent;
-    text-shadow: 4px 4px 4px #666666;
-    opacity: 0.4; }
-    .rn-search-listing-display-blur img {
-      opacity: 0.2 !important; } }
-
-.rn-search-listing-display-main {
-  border-bottom: 2px solid #cccccc; }
-  .rn-search-listing-display-main:after {
-    content: "";
-    clear: both;
-    display: block; }
+  display: flex; }
 
 .rn-search-listing-display-content-main-content {
-  padding: 0.5rem 0.5rem 0.5rem 0; }
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  width: 75%; }
   .rn-search-listing-display-content-main-content .rn-search-listing-display-content-open-house-heading {
     margin: 0 0 0.5rem; }
     .rn-search-listing-display-content-main-content .rn-search-listing-display-content-open-house-heading span {
       font-weight: 100; }
 
 .rn-search-listing-display-content-details {
-  padding: 0.5rem 0.5rem 0.5rem 0; }
+  padding: 0 0.5rem 0.5rem 0; }
+  .rn-search-listing-display-content-details h2 {
+    font-weight: bold;
+    margin-bottom: 0; }
   .rn-search-listing-display-content-details p,
   .rn-search-listing-display-content-details .infoCourtesyOf {
     font-size: 0.75rem;
@@ -3823,62 +3840,8 @@ select:focus {
   .rn-search-listing-display-content-details-header .rn-search-listing-display-content-details-price {
     line-height: 1;
     margin: 0; }
-  .rn-search-listing-display-content-details-header .rn-search-listing-display-content-details-calc-link {
-    cursor: pointer;
-    font-size: 0.75rem;
-    text-decoration: none; }
-  .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator {
-    display: none;
-    background: #ffffff;
-    border: 1px solid #666666;
-    font-size: 0.875rem;
-    padding: 0.5rem;
-    position: absolute;
-    width: auto;
-    z-index: 1; }
-    .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #mortgageCalculator {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      padding: 0;
-      width: 100%; }
-      .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #mortgageCalculator #mortgageCalculatorPadding {
-        padding: 0;
-        width: 100%; }
-    .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #montlyPayment {
-      font-size: 1rem;
-      font-weight: bold; }
-      .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #montlyPayment label {
-        font-weight: normal;
-        font-size: 0.875rem; }
-    .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator dd, .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator dl {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      margin: 0; }
-    .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #Form1 {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column; }
-      .rn-search-listing-display-content-details-header .rn-search-listing-display-content-mortgage-calculator #Form1 #buttonSubmit {
-        background: #2e2e2e;
-        border: none;
-        color: #ffffff;
-        font-size: 0.875rem;
-        text-align: center;
-        margin: 0.5rem;
-        padding: 0.5rem; }
   .rn-search-listing-display-content-details-header .rn-search-listing-display-details-status {
     font-size: 0.75rem;
-    display: block; }
-  .rn-search-listing-display-content-details-header .rn-search-listing-display-details-mls {
-    font-size: 0.875rem;
     display: block; }
 
 .rn-search-listing-display-content-details-data {
@@ -3910,31 +3873,26 @@ select:focus {
       display: block; }
 
 .rn-search-listing-display-feature-list {
+  display: none;
   margin: 0 0 1rem;
   padding: 0;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
   list-style: none; }
+  .rn-search-listing-display-feature-list:first-of-type {
+    display: block; }
   .rn-search-listing-display-feature-list li {
     margin: 0;
     padding: 0.25rem;
-    /* flex: 0 0 50%; // Two columns */
-    -webkit-flex: 0 0 calc(100% / 3);
-        -ms-flex: 0 0 calc(100% / 3);
-            flex: 0 0 calc(100% / 3); }
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
     .rn-search-listing-display-feature-list li span {
       font-size: 0.75rem; }
       .rn-search-listing-display-feature-list li span:first-child {
-        font-weight: bold; }
-        .rn-search-listing-display-feature-list li span:first-child:before {
-          content: "\00B7 ";
-          padding-right: 0.25rem; }
-        .rn-search-listing-display-feature-list li span:first-child:after {
-          content: ": "; }
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 25%; }
+      .rn-search-listing-display-feature-list li span.value {
+        width: 75%; }
 
 .rn-search-listing-display-disclaimer {
   font-size: 0.625rem; }
@@ -3944,16 +3902,9 @@ select:focus {
     display: block; }
 
 .rn-search-listing-display-content-main-sidebar {
-  float: right;
   padding-top: 0.5rem;
   padding-left: 0.5rem;
-  width: 18rem;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+  width: 25%; }
 
 .rn-search-listing-display-content-question h3 {
   margin: 0.5rem 0; }
@@ -3969,7 +3920,7 @@ select:focus {
     background: #2e2e2e;
     border: none;
     color: #ffffff;
-    font-size: 1.125rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
     padding: 0.5rem; }
@@ -3993,21 +3944,27 @@ select:focus {
     margin-right: 0.5rem;
     width: auto; }
 
-.rn-search-listing-display-content-main {
-  border-bottom: 2px solid #cccccc; }
-  .rn-search-listing-display-content-main::after {
-    content: "";
-    display: block;
-    clear: both; }
-
 .rn-search-listing-display-content-main-features {
-  position: relative;
-  width: calc(100% - 18rem);
-  -webkit-flex: 0 0 100%;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%; }
+  margin-top: 0.5rem;
+  position: relative; }
   .rn-search-listing-display-content-main-features h4 {
-    margin: 0 0 0.5rem; }
+    background: #eeeeee;
+    border: 1px solid #666666;
+    margin: 0 0 0.5rem;
+    padding: 0.5rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    cursor: pointer; }
+    .rn-search-listing-display-content-main-features h4 i, .rn-search-listing-display-content-main-features h4 .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-listing-display-content-main-features h4 a:after, .rn-search-listing-display-content-main-features h4 .rn-fp-nav, .rn-search-listing-display-content-main-features h4 .rn-home-callouts a:after, .rn-home-callouts .rn-search-listing-display-content-main-features h4 a:after {
+      transition: 150ms ease-in-out all; }
+    .rn-search-listing-display-content-main-features h4.open .rn-icon-angle-down-big {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg); }
 
 .rn-search-listing-display-content-zillow-reviews {
   width: 100%;
@@ -4015,6 +3972,9 @@ select:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   visibility: hidden; }
   .rn-search-listing-display-content-zillow-reviews i, .rn-search-listing-display-content-zillow-reviews .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-listing-display-content-zillow-reviews a:after, .rn-search-listing-display-content-zillow-reviews .rn-fp-nav, .rn-search-listing-display-content-zillow-reviews .rn-home-callouts a:after, .rn-home-callouts .rn-search-listing-display-content-zillow-reviews a:after {
     width: 6.5rem;
@@ -4088,6 +4048,8 @@ select:focus {
     margin: 0; }
   .rn-search-listing-display-content-agent-info h5 {
     font-weight: 400; }
+  .rn-search-listing-display-content-agent-info a {
+    text-decoration: none; }
 
 .rn-search-listing-display-content-agent-photo {
   border: 1px solid #cccccc;
@@ -4115,77 +4077,107 @@ select:focus {
   position: relative;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
-  .rn-search-listing-display-content-secondary.floor-plans {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-    .rn-search-listing-display-content-secondary.floor-plans .rn-search-listing-display-content-floor-plans-photos {
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .rn-search-listing-display-content-secondary.floor-plans .rn-search-listing-display-content-floor-plans-photos {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .rn-search-listing-display-content-secondary.floor-plans .rn-search-listing-display-content-floor-plans-photos img {
+      height: 100%;
+      width: 100%; }
+  .rn-search-listing-display-content-secondary.days-on-market ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  .rn-search-listing-display-content-secondary.map.rn-search-listing-display-blur {
+    height: 100%;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+    .rn-search-listing-display-content-secondary.map.rn-search-listing-display-blur form {
+      max-height: 6rem; }
+  .rn-search-listing-display-content-secondary.map .listingmap-accuracybar {
+    font-size: 0.75rem; }
+  .rn-search-listing-display-content-secondary.agent-info {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+  .rn-search-listing-display-content-secondary.listing-documents ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+    .rn-search-listing-display-content-secondary.listing-documents ul li {
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap; }
-      .rn-search-listing-display-content-secondary.floor-plans .rn-search-listing-display-content-floor-plans-photos img {
-        height: 100%;
-        width: 100%; }
-  .rn-search-listing-display-content-secondary.listing-documents {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-    .rn-search-listing-display-content-secondary.listing-documents ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap;
-      -webkit-justify-content: space-around;
-          -ms-flex-pack: distribute;
-              justify-content: space-around; }
-      .rn-search-listing-display-content-secondary.listing-documents ul li {
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex: 1 1 33%;
-            -ms-flex: 1 1 33%;
-                flex: 1 1 33%; }
-        @media only screen and (max-width: 40em) {
-          .rn-search-listing-display-content-secondary.listing-documents ul li {
-            -webkit-flex: 1 1 100%;
-                -ms-flex: 1 1 100%;
-                    flex: 1 1 100%; } }
-        .rn-search-listing-display-content-secondary.listing-documents ul li img {
-          margin-right: 0.25rem;
-          width: 1.5rem; }
-        .rn-search-listing-display-content-secondary.listing-documents ul li a {
-          font-size: 0.75rem;
-          text-decoration: none; }
-  .rn-search-listing-display-content-secondary.home-value {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-    .rn-search-listing-display-content-secondary.home-value .homevaluation {
-      display: none; }
-    .rn-search-listing-display-content-secondary.home-value .rn-search-listing-display-home-value-button {
-      -webkit-align-self: center;
-          -ms-flex-item-align: center;
-              align-self: center;
-      background: #2e2e2e;
-      color: #ffffff;
-      font-size: 1.25rem;
-      text-decoration: none;
-      padding: 0.5rem;
-      transition: all 200ms ease-in-out; }
-      .rn-search-listing-display-content-secondary.home-value .rn-search-listing-display-home-value-button:hover {
-        background: #484848; }
+      -webkit-flex: 1 1 33%;
+          -ms-flex: 1 1 33%;
+              flex: 1 1 33%; }
+      @media only screen and (max-width: 40em) {
+        .rn-search-listing-display-content-secondary.listing-documents ul li {
+          -webkit-flex: 1 1 100%;
+              -ms-flex: 1 1 100%;
+                  flex: 1 1 100%; } }
+      .rn-search-listing-display-content-secondary.listing-documents ul li img {
+        margin-right: 0.25rem;
+        width: 1.5rem; }
+      .rn-search-listing-display-content-secondary.listing-documents ul li a {
+        font-size: 0.75rem;
+        text-decoration: none; }
+  .rn-search-listing-display-content-secondary.home-value .homevaluation {
+    display: none;
+    overflow: auto !important; }
+  .rn-search-listing-display-content-secondary.home-value .rn-search-listing-display-home-value-button {
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    background: #2e2e2e;
+    color: #ffffff;
+    font-size: 1.25rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: all 200ms ease-in-out; }
+    .rn-search-listing-display-content-secondary.home-value .rn-search-listing-display-home-value-button:hover {
+      background: #484848; }
+  .rn-search-listing-display-content-secondary.demographics .demographics-content,
+  .rn-search-listing-display-content-secondary.demographics .schools-content {
+    display: none; }
+  .rn-search-listing-display-content-secondary.demographics h2 {
+    background: #eeeeee;
+    border: 1px solid #666666;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    cursor: pointer; }
+    .rn-search-listing-display-content-secondary.demographics h2 i, .rn-search-listing-display-content-secondary.demographics h2 .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-listing-display-content-secondary.demographics h2 a:after, .rn-search-listing-display-content-secondary.demographics h2 .rn-fp-nav, .rn-search-listing-display-content-secondary.demographics h2 .rn-home-callouts a:after, .rn-home-callouts .rn-search-listing-display-content-secondary.demographics h2 a:after {
+      transition: 150ms ease-in-out all; }
+    .rn-search-listing-display-content-secondary.demographics h2.open .rn-icon-angle-down-big, .rn-search-listing-display-content-secondary.demographics h2.opened .rn-icon-angle-down-big {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg); }
   .rn-search-listing-display-content-secondary.demographics p {
     font-size: 0.75rem;
     margin: 0; }
@@ -4193,8 +4185,6 @@ select:focus {
     width: 100%; }
   .rn-search-listing-display-content-secondary.demographics .rn-ldp-fullinfo-detailed-nav {
     display: none; }
-  .rn-search-listing-display-content-secondary.demographics h3 {
-    text-align: center; }
   .rn-search-listing-display-content-secondary.demographics h4 {
     margin: 0; }
   .rn-search-listing-display-content-secondary.demographics .rn-ldp-demographics-household {
@@ -4347,6 +4337,9 @@ select:focus {
     .rn-search-listing-display-content-secondary.demographics .onmarket .rn-search-listing-display-blur {
       min-height: 8rem; }
     .rn-search-listing-display-content-secondary.demographics .onmarket ul {
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
@@ -4356,6 +4349,10 @@ select:focus {
       list-style-type: none;
       margin: 0;
       padding: 0; }
+      .rn-search-listing-display-content-secondary.demographics .onmarket ul li {
+        -webkit-flex: 1 1 50%;
+            -ms-flex: 1 1 50%;
+                flex: 1 1 50%; }
       .rn-search-listing-display-content-secondary.demographics .onmarket ul a {
         color: #2e2e2e;
         text-decoration: none;
@@ -4365,21 +4362,17 @@ select:focus {
 
 .rn-search-listing-display-content-history,
 .rn-search-listing-display-content-open-houses {
-  -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  text-align: center;
+  -webkit-flex: 1 1 50%;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
   margin: 0;
   padding: 0; }
   .rn-search-listing-display-content-history ul,
   .rn-search-listing-display-content-open-houses ul {
-    margin: 0 auto;
-    max-width: 22.5rem;
     padding: 0.5rem;
     list-style: none; }
     .rn-search-listing-display-content-history ul li,
     .rn-search-listing-display-content-open-houses ul li {
-      font-size: 0.75rem;
       margin-bottom: 1rem;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -4391,37 +4384,49 @@ select:focus {
       .rn-search-listing-display-content-open-houses ul li span {
         text-align: left; }
 
-.rn-search-listing-display-content-history ul li span {
-  -webkit-flex: 0 0 calc(100% / 3);
-      -ms-flex: 0 0 calc(100% / 3);
-          flex: 0 0 calc(100% / 3); }
-  .rn-search-listing-display-content-history ul li span:last-child {
-    font-weight: bold;
-    text-align: right; }
+.rn-search-listing-display-content-history ul {
+  max-width: 31.25rem; }
+  .rn-search-listing-display-content-history ul li span {
+    -webkit-flex: 0 0 calc(100% / 3);
+        -ms-flex: 0 0 calc(100% / 3);
+            flex: 0 0 calc(100% / 3); }
+    .rn-search-listing-display-content-history ul li span:last-child {
+      font-weight: bold;
+      text-align: right; }
+
+.rn-search-listing-display-content-history.open-house {
+  text-align: center; }
+  .rn-search-listing-display-content-history.open-house ul {
+    margin: 0 auto;
+    max-width: 22.5rem; }
 
 .rn-search-listing-display-content-open-houses {
+  text-align: center;
   border-left: 2px solid #cccccc; }
   @media only screen and (max-width: 40em) {
     .rn-search-listing-display-content-open-houses {
       border-top: 2px solid #cccccc;
       border-left: none; } }
-  .rn-search-listing-display-content-open-houses ul li {
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
-    .rn-search-listing-display-content-open-houses ul li span {
-      font-weight: bold;
-      -webkit-flex: 0 0 calc(100% / 2);
-          -ms-flex: 0 0 calc(100% / 2);
-              flex: 0 0 calc(100% / 2); }
-      .rn-search-listing-display-content-open-houses ul li span:nth-child(2) {
-        text-align: right; }
-      .rn-search-listing-display-content-open-houses ul li span:last-child {
-        font-weight: normal;
-        -webkit-flex: 0 0 100%;
-            -ms-flex: 0 0 100%;
-                flex: 0 0 100%;
-        display: block; }
+  .rn-search-listing-display-content-open-houses ul {
+    margin: 0 auto;
+    max-width: 22.5rem; }
+    .rn-search-listing-display-content-open-houses ul li {
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+      .rn-search-listing-display-content-open-houses ul li span {
+        font-weight: bold;
+        -webkit-flex: 0 0 calc(100% / 2);
+            -ms-flex: 0 0 calc(100% / 2);
+                flex: 0 0 calc(100% / 2); }
+        .rn-search-listing-display-content-open-houses ul li span:nth-child(2) {
+          text-align: right; }
+        .rn-search-listing-display-content-open-houses ul li span:last-child {
+          font-weight: normal;
+          -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+                  flex: 0 0 100%;
+          display: block; }
 
 .rn-search-listing-display-content-video {
   width: 100%;
@@ -4466,6 +4471,78 @@ select:focus {
 
 #listingmap {
   height: 20rem; }
+
+.rn-search-listing-display-blur .rn-search-listing-display-carousel-main img {
+  margin: 0 auto; }
+
+.rn-search-listing-display-blur .rn-search-listing-display-carousel-small {
+  display: none; }
+
+.rn-search-listing-display-blur .rn-search-listing-display-feature-list:first-of-type {
+  display: none; }
+
+.rn-search-listing-display-blur-form {
+  color: #444444;
+  font-size: 1rem;
+  background: #cccccc;
+  height: 6rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 100%;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .rn-search-listing-display-blur-form button {
+    background: #2e2e2e;
+    border: none;
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    transition: 150ms ease-in-out all; }
+    .rn-search-listing-display-blur-form button:hover {
+      background: #484848; }
+  @media only screen and (max-width: 40em) {
+    .rn-search-listing-display-blur-form {
+      font-size: 0.75rem;
+      text-align: center; }
+      .rn-search-listing-display-blur-form button {
+        font-size: 0.75rem;
+        margin: 0; } }
+
+.rn-search-listing-display-carousel .rn-search-listing-display-blur-form {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1rem; }
+
+.no-flexboxlegacy {
+  /* IE10+ CSS styles go here */ }
+  .no-flexboxlegacy .rn-search-listing-display-details-main {
+    -webkit-flex: 0 1 50%;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%; }
+  .no-flexboxlegacy .rn-search-listing-display-details-detail {
+    -webkit-flex: 0 1 45%;
+        -ms-flex: 0 1 45%;
+            flex: 0 1 45%; }
+  .no-flexboxlegacy .rn-search-listing-display-content-agent-info img {
+    display: block; }
 
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
   .rn-search-listing-display-header {
@@ -4525,11 +4602,7 @@ select:focus {
     padding: 0 0.25rem;
     -webkit-flex: 0 1 auto;
         -ms-flex: 0 1 auto;
-            flex: 0 1 auto; }
-  .rn-search-listing-display-feature-list li {
-    -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%; } }
+            flex: 0 1 auto; } }
 
 @media only screen and (max-width: 40em) {
   .rn-search-listing-display-overlay {
@@ -4540,7 +4613,7 @@ select:focus {
   .rn-search-listing-display {
     padding: 0.5rem; }
   .rn-search-listing-display-header {
-    height: 10rem;
+    height: 11rem;
     padding-right: 0;
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -4555,18 +4628,35 @@ select:focus {
             flex: 0 0 100%; }
   .rn-search-listing-display-details-main {
     padding: 0; }
+    .rn-search-listing-display-details-main li {
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+                  -ms-grid-row-align: center;
+              align-items: center; }
   .rn-search-listing-display-content-main-features {
     width: 100%; }
   .rn-search-listing-display-details-headline h4 {
     font-size: 1.125rem;
     line-height: inherit; }
+  .rn-search-listing-display-details-headline .rn-search-listing-display-map-icon {
+    margin-left: 0; }
+  .rn-search-listing-display-mortgage-calculator {
+    top: 2.875rem;
+    left: 0;
+    right: 0; }
+  .rn-search-listing-display-details-info {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    padding: 0; }
   .rn-search-listing-display-details-address {
     font-size: 0.875rem; }
   .rn-search-listing-display-details-neighborhood,
   .rn-search-listing-display-details-tags {
     display: none; }
   .rn-search-listing-display-details-detail {
-    padding: 0.5rem 1rem;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
     -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
             justify-content: flex-start; }
@@ -4585,13 +4675,16 @@ select:focus {
   .rn-search-listing-display-details-notice {
     font-size: 0.625rem; }
   .rn-search-listing-display-details-actions {
-    border: none; }
+    border: none;
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end; }
     .rn-search-listing-display-details-actions a {
       padding: 0.25rem; }
       .rn-search-listing-display-details-actions a span {
         display: none; }
   .rn-search-listing-display-content {
-    max-height: calc(100% - 10rem - 1rem); }
+    max-height: calc(100% - 11rem - 1rem); }
   .rn-search-listing-display-carousel-main .slick-slide img {
     height: auto;
     width: 100%; }
@@ -4599,6 +4692,11 @@ select:focus {
     display: none; }
   .rn-search-listing-display-carousel-count {
     display: block; }
+  .rn-search-listing-display-content-main {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    margin-bottom: 1rem; }
   .rn-search-listing-display-content-main-content {
     padding: 0;
     margin: 0.5rem 0 1rem;
@@ -4638,27 +4736,28 @@ select:focus {
         text-transform: none;
         padding-left: 0.25rem;
         display: inline-block; }
-  .rn-search-listing-display-feature-list li {
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%; }
+  .rn-search-listing-display-feature-list:first-of-type {
+    display: none; }
+  .rn-search-listing-display-feature-list li span:first-child {
+    width: 50%; }
+  .rn-search-listing-display-feature-list li span.value {
+    width: 50%; }
   .rn-search-listing-display-content-main-sidebar {
-    border-bottom: 2px solid #cccccc;
-    float: none;
     margin-bottom: 1rem;
     padding-top: 0;
     padding-bottom: 0.5rem;
     padding-left: 0;
-    width: 100%;
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%; }
+    width: 100%; }
   .rn-search-listing-display-content-secondary {
     margin-bottom: 1rem;
     padding: 0;
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
+    .rn-search-listing-display-content-secondary.days-on-market ul {
+      margin-bottom: 0.5rem; }
+      .rn-search-listing-display-content-secondary.days-on-market ul li {
+        margin-bottom: 0.5rem; }
   .rn-search-listing-display-content-history,
   .rn-search-listing-display-content-open-houses {
     width: 100%; }
@@ -4668,6 +4767,389 @@ select:focus {
       padding: 0; }
   .rn-search-listing-display-content-history {
     border-right: none; } }
+
+.rn-search-add-criteria {
+  font-size: 1rem;
+  padding: 0.5rem 1rem; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.rn-search-criteria-marketstats {
+  background: #2e2e2e;
+  margin-left: 0.5rem; }
+  .rn-search-criteria-marketstats.animated {
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-name: pulse;
+            animation-name: pulse;
+    -webkit-animation-iteration-count: 3;
+            animation-iteration-count: 3; }
+  .rn-search-criteria-marketstats:hover {
+    background: #484848; }
+
+.rn-search-marketstats-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: calc(100% - $search-site-header-height);
+  padding: 1.5rem 1rem;
+  width: 100%;
+  position: fixed;
+  top: 4.375rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-search-marketstats-overlay {
+      height: 100%;
+      padding: 0;
+      position: absolute;
+      top: 0; } }
+
+#SaveReport, #LandingPage {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #000000;
+  margin: 0 auto;
+  padding: 0.5rem;
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  right: 0;
+  width: 31.25rem;
+  z-index: 101; }
+  #SaveReport .rn-search-overlay-close, #LandingPage .rn-search-overlay-close {
+    font-size: 2rem;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 0; }
+    #SaveReport .rn-search-overlay-close i, #SaveReport .rn-search-overlay-close .rn-fp-viewdetails a:after, .rn-fp-viewdetails #SaveReport .rn-search-overlay-close a:after, #SaveReport .rn-search-overlay-close .rn-fp-nav, #SaveReport .rn-search-overlay-close .rn-home-callouts a:after, .rn-home-callouts #SaveReport .rn-search-overlay-close a:after, #LandingPage .rn-search-overlay-close i, #LandingPage .rn-search-overlay-close .rn-fp-viewdetails a:after, .rn-fp-viewdetails #LandingPage .rn-search-overlay-close a:after, #LandingPage .rn-search-overlay-close .rn-fp-nav, #LandingPage .rn-search-overlay-close .rn-home-callouts a:after, .rn-home-callouts #LandingPage .rn-search-overlay-close a:after {
+      color: #000000; }
+      #SaveReport .rn-search-overlay-close i:hover, #SaveReport .rn-search-overlay-close .rn-fp-viewdetails a:hover:after, .rn-fp-viewdetails #SaveReport .rn-search-overlay-close a:hover:after, #SaveReport .rn-search-overlay-close .rn-fp-nav:hover, #SaveReport .rn-search-overlay-close .rn-home-callouts a:hover:after, .rn-home-callouts #SaveReport .rn-search-overlay-close a:hover:after, #LandingPage .rn-search-overlay-close i:hover, #LandingPage .rn-search-overlay-close .rn-fp-viewdetails a:hover:after, .rn-fp-viewdetails #LandingPage .rn-search-overlay-close a:hover:after, #LandingPage .rn-search-overlay-close .rn-fp-nav:hover, #LandingPage .rn-search-overlay-close .rn-home-callouts a:hover:after, .rn-home-callouts #LandingPage .rn-search-overlay-close a:hover:after {
+        color: #5b5b5b; }
+  #SaveReport h2, #LandingPage h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem; }
+  #SaveReport .SaveDialogRow, #LandingPage .SaveDialogRow {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%; }
+    #SaveReport .SaveDialogRow .rn-search-market-report-report-email-checkbox, #LandingPage .SaveDialogRow .rn-search-market-report-report-email-checkbox {
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #SaveReport .SaveDialogRow .rn-search-market-report-report-email-checkbox input[type="checkbox"], #LandingPage .SaveDialogRow .rn-search-market-report-report-email-checkbox input[type="checkbox"] {
+        margin-left: 0.25rem; }
+    #SaveReport .SaveDialogRow input[type="text"], #SaveReport .SaveDialogRow select, #LandingPage .SaveDialogRow input[type="text"], #LandingPage .SaveDialogRow select {
+      width: 75%; }
+    #SaveReport .SaveDialogRow input[type="button"], #LandingPage .SaveDialogRow input[type="button"] {
+      background: #2e2e2e;
+      border: none;
+      color: #ffffff;
+      padding: 0.5rem;
+      transition: all 200ms ease-in-out; }
+      #SaveReport .SaveDialogRow input[type="button"]:hover, #LandingPage .SaveDialogRow input[type="button"]:hover {
+        background: #484848; }
+
+.rn-search-marketstats-content {
+  background: white;
+  height: 100%;
+  padding: 1rem;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  overflow-y: scroll; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-search-marketstats-content {
+      -webkit-overflow-scrolling: touch; } }
+
+.rn-search-marketstats-header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-search-marketstats-header {
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; } }
+
+.rn-search-marketstats-city-zip {
+  list-style-type: none;
+  text-align: center;
+  border-right: 1px solid #666666;
+  margin: 0;
+  padding: 0 0.5rem;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 50%;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .rn-search-marketstats-city-zip li {
+    color: #666666;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    border-right: 1px solid #999999;
+    padding: 0 0.5rem;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .rn-search-marketstats-city-zip li:last-of-type {
+      border: none; }
+    .rn-search-marketstats-city-zip li span.label {
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-top: 0.25rem; }
+    @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+      .rn-search-marketstats-city-zip li {
+        border: none;
+        -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+                    -ms-grid-row-align: flex-start;
+                align-items: flex-start; } }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-search-marketstats-city-zip {
+      text-align: left;
+      border: none;
+      width: 100%;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+                  -ms-grid-row-align: flex-start;
+              align-items: flex-start;
+      -webkit-flex: 1 1 100%;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+
+.rn-search-marketstats-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 50%;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .rn-search-marketstats-actions a {
+    color: #ffffff;
+    font-size: 2.25rem;
+    text-decoration: none;
+    background: #5b5b5b;
+    padding: 0.5rem;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    transition: 150ms ease-in-out all; }
+    .rn-search-marketstats-actions a:hover {
+      background: #757575; }
+    .rn-search-marketstats-actions a span {
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-left: 0.25rem;
+      display: block; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    .rn-search-marketstats-actions {
+      -webkit-flex: 1 1 100%;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%; }
+      .rn-search-marketstats-actions a {
+        margin: 0.5rem 0.5rem 0;
+        width: 100%; } }
+
+.rn-search-marketstats-overlay-close {
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-size: 3rem;
+  line-height: 1;
+  text-align: center;
+  padding: 0.25rem 0;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .rn-search-marketstats-overlay-close:hover {
+    color: #5b5b5b; }
+
+.rn-search-marketstats-snapshot {
+  padding: 2rem 0 1rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.rn-search-marketstats-snapshot-container,
+.rn-search-marketstats-trends-container {
+  border: 1px solid #2e2e2e;
+  margin: 0 0 1rem;
+  -webkit-flex: 0 0 32%;
+      -ms-flex: 0 0 32%;
+          flex: 0 0 32%; }
+  @media only screen and (max-width: 64em) {
+    .rn-search-marketstats-snapshot-container,
+    .rn-search-marketstats-trends-container {
+      margin: 0 0.5rem 1rem;
+      -webkit-flex: 1 1 50%;
+          -ms-flex: 1 1 50%;
+              flex: 1 1 50%; } }
+
+.rn-search-marketstats-report-header {
+  color: #ffffff;
+  line-height: 1;
+  background: #2e2e2e;
+  padding: 0.5rem 0.25rem;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .rn-search-marketstats-report-header .rn-search-marketstats-report-header-title {
+    font-size: 1.125rem; }
+  .rn-search-marketstats-report-header .rn-search-marketstats-report-header-value {
+    font-size: 1.75rem;
+    font-weight: bold; }
+
+.rn-search-marketstats-report-content {
+  color: #666666; }
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-row {
+    padding: 1rem 0.25rem;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .rn-search-marketstats-report-content .rn-search-marketstats-report-row:nth-child(even) {
+      background: #eeeeee; }
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-value,
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-title,
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-change-value,
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-change-title {
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%; }
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-value,
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-change-value {
+    font-size: 1.5rem;
+    font-weight: bold; }
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-title,
+  .rn-search-marketstats-report-content .rn-search-marketstats-report-change-title {
+    font-size: 1.125rem; }
+  .rn-search-marketstats-report-content .Positive i, .rn-search-marketstats-report-content .Positive .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-marketstats-report-content .Positive a:after, .rn-search-marketstats-report-content .Positive .rn-fp-nav, .rn-search-marketstats-report-content .Positive .rn-home-callouts a:after, .rn-home-callouts .rn-search-marketstats-report-content .Positive a:after {
+    color: #2e2e2e; }
+  .rn-search-marketstats-report-content .Negative i, .rn-search-marketstats-report-content .Negative .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-search-marketstats-report-content .Negative a:after, .rn-search-marketstats-report-content .Negative .rn-fp-nav, .rn-search-marketstats-report-content .Negative .rn-home-callouts a:after, .rn-home-callouts .rn-search-marketstats-report-content .Negative a:after {
+    color: #5b5b5b;
+    display: inline-block;
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg); }
+
+.rn-search-marketstats-trends {
+  padding: 1.75rem 0 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .rn-search-marketstats-trends .rn-search-marketstats-report-header-title {
+    font-size: 1.5rem; }
+    .rn-search-marketstats-trends .rn-search-marketstats-report-header-title .bold {
+      font-weight: bold;
+      text-transform: uppercase; }
+  .rn-search-marketstats-trends svg > g > g > g + g rect,
+  .rn-search-marketstats-trends #avgDays_div svg > g > g > g + g rect,
+  .rn-search-marketstats-trends #listingCount_div svg > g > g > g + g rect {
+    fill: #2e2e2e !important; }
 
 .rn-search-market-report {
   height: calc(100vh - 4.375rem);
@@ -4801,7 +5283,7 @@ select:focus {
   width: 100%; }
   @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
     .rn-search-container-market-report {
-      height: calc(100vh - 2.5rem - 1.875rem); } }
+      height: calc(100vh - 2.5rem - 3.5rem); } }
   .rn-search-container-market-report.rn-search-container-map .rn-search-map {
     width: 100%; }
   .rn-search-container-market-report.rn-search-container-map .leaflet-container {
@@ -6222,14 +6704,65 @@ body:not(.search) h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-    @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 48em) {
+    .rn-site-header {
+      height: 2.5rem;
+      max-height: 2.5rem;
+      position: relative;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
       .rn-site-header > .rn-container, body.search .rn-site-header > .rn-site-header, .rn-site-header > .rn-home-featured-properties, .rn-site-header > .rn-home-callouts, .rn-site-header > .rn-home-agent-social-links, body.interior .rn-site-header > .rn-site-content {
-        -webkit-flex-wrap: wrap;
-            -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-        -webkit-justify-content: center;
-            -ms-flex-pack: center;
-                justify-content: center; } }
+        height: 100%;
+        padding: 0;
+        -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+                flex: 1 1 auto; } }
+
+.rn-site-header-agent-contact {
+  height: 100%; }
+  .rn-site-header-agent-contact img {
+    height: 100%;
+    padding: 0 0.5rem;
+    width: auto;
+    cursor: pointer; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-site-header-agent-contact {
+      display: none; } }
+  @media only screen and (max-width: 48em) {
+    .rn-site-header-agent-contact {
+      height: 100%; } }
+
+.rn-site-header-agent-contact-list {
+  background: #ffffff;
+  border-bottom: 1px solid #2e2e2e;
+  margin: 0;
+  padding: 0.5rem;
+  width: 100%;
+  list-style: none;
+  display: none;
+  position: absolute;
+  z-index: 1; }
+  .rn-site-header-agent-contact-list h2 {
+    font-weight: 300;
+    margin-bottom: 0; }
+  .rn-site-header-agent-contact-list h4 {
+    font-weight: 200;
+    margin-bottom: 0.5rem; }
+  .rn-site-header-agent-contact-list li {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .rn-site-header-agent-contact-list a {
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem; }
 
 .rn-site-header-logo {
   -webkit-align-items: center;
@@ -6237,28 +6770,44 @@ body:not(.search) h6 {
           align-items: center;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto; }
+  display: flex; }
   .rn-site-header-logo a {
-    padding: 0 0.5rem; }
+    padding: 0 1rem 0 0.5rem; }
   .rn-site-header-logo img {
     max-height: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: auto; }
   .rn-site-header-logo h3 {
     margin: 0;
     padding-right: 1rem; }
-  @media only screen and (max-width: 48em) {
-    .rn-site-header-logo a {
-      padding: 0 0.5rem; } }
-  @media only screen and (max-width: 40em) {
+  @media only screen and (min-width: 48.0625em) {
     .rn-site-header-logo {
-      width: 40%;
-      -webkit-justify-content: flex-end;
-          -ms-flex-pack: end;
-              justify-content: flex-end; } }
+      -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto; } }
+  @media only screen and (max-width: 48em) {
+    .rn-site-header-logo {
+      height: 100%;
+      -webkit-flex: 1 1 auto;
+          -ms-flex: 1 1 auto;
+              flex: 1 1 auto;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .rn-site-header-logo a {
+        height: 100%;
+        padding: 0.25rem 0.5rem;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      .rn-site-header-logo img {
+        height: 100%; }
+      .rn-site-header-logo h3 {
+        font-size: 0.75rem;
+        line-height: 1; } }
 
 .rn-site-header-agent-name {
   border-left: 1px solid #cccccc;
@@ -6292,6 +6841,7 @@ body:not(.search) h6 {
               flex: 1 1 25rem; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-agent-name {
+      display: none;
       max-width: 60%;
       padding: 0.5rem;
       -webkit-align-items: flex-start;
@@ -6317,6 +6867,9 @@ body:not(.search) h6 {
           justify-content: space-between; }
   .rn-site-header-agent img {
     height: 4.5rem; }
+  @media only screen and (max-width: 48em) {
+    .rn-site-header-agent {
+      display: none; } }
 
 .rn-site-header-agent-details {
   -webkit-align-items: center;
@@ -6423,6 +6976,7 @@ body:not(.search) h6 {
     vertical-align: middle; }
   @media only screen and (max-width: 48em) {
     .rn-site-header-property-watch {
+      display: none;
       text-align: center;
       padding: 0.5rem 0; }
       .rn-site-header-property-watch a {
@@ -6432,11 +6986,25 @@ body:not(.search) h6 {
   background: #2e2e2e;
   font-size: 0.75rem;
   margin: 0;
-  padding: 0;
-  width: 100%; }
+  padding: 0; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-site-header-nav {
+      width: 100%; } }
   @media only screen and (max-width: 48em) {
     .rn-site-header-nav {
-      position: relative; } }
+      background: #ffffff;
+      height: 100%;
+      -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto; }
+      .rn-site-header-nav .rn-container, .rn-site-header-nav body.search .rn-site-header, body.search .rn-site-header-nav .rn-site-header, .rn-site-header-nav .rn-home-featured-properties, .rn-site-header-nav .rn-home-callouts, .rn-site-header-nav .rn-home-agent-social-links, .rn-site-header-nav body.interior .rn-site-content, body.interior .rn-site-header-nav .rn-site-content {
+        height: 100%;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; } }
   .rn-site-header-nav .text {
     display: none; }
 
@@ -6537,11 +7105,14 @@ body:not(.search) h6 {
       color: #ffffff;
       text-decoration: none;
       padding: 0.5rem; }
-      .rn-site-header-nav-button.rn-site-navigation-toggle {
+      .rn-site-header-nav-button i, .rn-site-header-nav-button .rn-fp-viewdetails a:after, .rn-fp-viewdetails .rn-site-header-nav-button a:after, .rn-site-header-nav-button .rn-fp-nav, .rn-site-header-nav-button .rn-home-callouts a:after, .rn-home-callouts .rn-site-header-nav-button a:after {
+        color: #2e2e2e;
+        font-size: 2.0625rem; }
+      .rn-site-header-nav-button.rn-site-navigation-toggle, .rn-site-header-nav-button.rn-search-user-toggle {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex; }
-      .rn-site-header-nav-button.rn-search-user-toggle, .rn-site-header-nav-button.rn-search-criteria-toggle {
+      .rn-site-header-nav-button.rn-search-criteria-toggle {
         display: none; }
       .rn-site-header-nav-button .rn-site-header-nav-burger {
         position: relative;
@@ -6555,7 +7126,7 @@ body:not(.search) h6 {
           display: block;
           width: 1.5rem;
           height: 0.0625rem;
-          background-color: #ffffff;
+          background-color: #2e2e2e;
           transition-property: background-color, -webkit-transform;
           transition-property: background-color, transform;
           transition-property: background-color, transform, -webkit-transform;
@@ -6628,11 +7199,14 @@ body.search .rn-site-header {
       -webkit-flex-wrap: nowrap;
           -ms-flex-wrap: nowrap;
               flex-wrap: nowrap;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
       position: relative; }
       body.search .rn-site-header > .rn-container, body.search .rn-site-header > .rn-site-header, body.search .rn-site-header > .rn-home-featured-properties, body.search .rn-site-header > .rn-home-callouts, body.search .rn-site-header > .rn-home-agent-social-links, body.search body.interior .rn-site-header > .rn-site-content, body.interior body.search .rn-site-header > .rn-site-content {
-        -webkit-flex: 1 1 auto;
-            -ms-flex: 1 1 auto;
-                flex: 1 1 auto;
+        -webkit-flex: 0 0 60%;
+            -ms-flex: 0 0 60%;
+                flex: 0 0 60%;
         -webkit-flex-direction: row;
             -ms-flex-direction: row;
                 flex-direction: row; } }
@@ -6651,7 +7225,7 @@ body.search .rn-site-header-logo {
   @media only screen and (max-width: 48em) {
     body.search .rn-site-header-logo {
       height: 100%;
-      width: auto;
+      width: 100%;
       -webkit-flex: 0 0 auto;
           -ms-flex: 0 0 auto;
               flex: 0 0 auto;
@@ -6660,12 +7234,15 @@ body.search .rn-site-header-logo {
               justify-content: flex-start; }
       body.search .rn-site-header-logo a {
         padding: 0.25rem;
+        width: 100%;
         -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex; } }
+        display: flex; }
+      body.search .rn-site-header-logo h3 {
+        font-size: 0.625rem; } }
 
 body.search .rn-site-header-agent-name {
   margin: 0.5rem 0;
@@ -6674,12 +7251,12 @@ body.search .rn-site-header-agent-name {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
   body.search .rn-site-header-agent-name h1 {
-    font-size: 1.5rem; }
+    font-size: 1.125rem; }
   body.search .rn-site-header-agent-name h4 {
-    font-size: 0.75rem; }
-    @media only screen and (max-width: 48em) {
-      body.search .rn-site-header-agent-name h4 {
-        display: none; } }
+    font-size: 0.875rem; }
+  @media only screen and (max-width: 48em) {
+    body.search .rn-site-header-agent-name {
+      display: none; } }
 
 body.search .rn-site-header-agent img {
   display: none; }
@@ -6698,6 +7275,9 @@ body.search .rn-site-header-agent-details {
   body.search .rn-site-header-agent-details .rn-site-header-agent-social {
     margin: 0; }
 
+body.search .rn-site-header-property-watch {
+  display: none; }
+
 body.search .rn-site-header-nav {
   background: transparent;
   max-width: 9.375rem;
@@ -6714,6 +7294,11 @@ body.search .rn-site-header-nav {
   position: initial;
   width: 100%;
   z-index: 10; }
+  @media only screen and (max-width: 40em), only screen and (min-width: 0) and (max-width: 48em) and (orientation: landscape) {
+    body.search .rn-site-header-nav {
+      -webkit-flex: 0 0 40%;
+          -ms-flex: 0 0 40%;
+              flex: 0 0 40%; } }
   body.search .rn-site-header-nav li a {
     background: #2e2e2e;
     color: #ffffff;
@@ -6747,8 +7332,10 @@ body.search .rn-site-header-nav-menu {
   left: 0;
   right: 0;
   margin: 0 auto;
+  max-height: calc(100vh - 4.375rem);
   max-width: 75rem;
-  z-index: 10000; }
+  z-index: 10000;
+  overflow-y: auto; }
   body.search .rn-site-header-nav-menu a {
     text-align: center; }
   body.search .rn-site-header-nav-menu .dropdown li a {
@@ -7143,9 +7730,7 @@ body.loggedin .rn-quick-search-button.login {
       margin: 0 !important;
       width: 100% !important; }
   .rn-fp-photo > img:not(.rn-fp-mlsicon) {
-    height: auto !important;
-    margin: 0 !important;
-    width: 100% !important;
+    margin: 0 auto !important;
     position: relative !important;
     top: 0 !important;
     right: 0 !important;
@@ -7196,6 +7781,7 @@ body.loggedin .rn-quick-search-button.login {
   width: 3rem !important;
   position: absolute;
   top: 0 !important;
+  z-index: 100 !important;
   cursor: pointer;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -7375,7 +7961,9 @@ body.loggedin .rn-quick-search-button.login {
 
 .rn-home-agent-social-links {
   padding: 0.5rem; }
+  .rn-home-agent-social-links h2,
   .rn-home-agent-social-links h3 {
+    font-size: 1.125rem;
     text-align: center;
     text-transform: uppercase;
     padding: 0.5rem; }
@@ -7389,15 +7977,15 @@ body.loggedin .rn-quick-search-button.login {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
     .rn-home-agent-social-links ul a {
       color: #ffffff;
-      font-size: 1.25rem;
+      font-size: 2.75rem;
       text-decoration: none;
       text-shadow: 0 0 0.25rem rgba(46, 46, 46, 0.9);
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       transition: 150ms ease-in-out all; }
       .rn-home-agent-social-links ul a:hover {
         text-shadow: 0 0 0.25rem rgba(91, 91, 91, 0.9); }

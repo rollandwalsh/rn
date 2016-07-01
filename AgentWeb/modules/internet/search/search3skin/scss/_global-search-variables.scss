@@ -2,7 +2,7 @@
 // - - - - - - - - - - - - -
 
 @import 'global-variables',
-        url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+        url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic');
 
 // FONTS
 // - - - - - - - - - - - - -
@@ -28,9 +28,10 @@ $search-user-width: rem-calc(130);
 $search-prop-count-height: rem-calc(40);
 
 $search-footer-height: rem-calc(30);
+$search-footer-height-small: rem-calc(56);
 
 $search-view-height: calc(100vh - #{$search-site-header-height} - #{$search-header-height} - #{$search-footer-height});
-$search-view-height-small: calc(100vh - #{$search-site-header-height-small} - #{$search-footer-height});
+$search-view-height-small: calc(100vh - #{$search-site-header-height-small} - #{$search-footer-height-small});
 
 $search-gallery-width-min: rem-calc(320);
 $search-gallery-width-max: 40%;

@@ -1,18 +1,11 @@
-var carousel, randomSlide;
+var agentContact, agentContactList;
 
-randomSlide = Math.floor(Math.random() * $('.rn-home-carousel > div').length);
+agentContact = $('#rnSiteHeaderAgentContactImg');
 
-carousel = $('.rn-home-carousel');
+agentContactList = $('#rnSiteHeaderAgentContactList');
 
-carousel.slick({
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 10001,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  slickGoTo: randomSlide
+agentContact.on('click', function() {
+  return agentContactList.slideToggle();
 });
 
 $(function() {

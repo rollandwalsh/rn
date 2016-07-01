@@ -1,3 +1,421 @@
+// MARKET STATS OVERLAY
+// ................
+
+
+.rn-search-add-criteria {
+    font-size: $gutter-width;
+    padding: ($gutter-width / 2) $gutter-width;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+.rn-search-criteria-marketstats {
+    background: $primary-color;
+
+    margin-left: $gutter-width / 2;
+
+    &.animated {
+        animation-delay: 4s;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-name: pulse;
+        animation-iteration-count: 3;
+    }
+
+    &:hover {
+        background: lighten($primary-color, 10%);
+    }
+}
+
+
+
+
+
+.rn-search-marketstats-overlay {
+	background: rgba($black, .6);
+	
+	height: calc(100% - $search-site-header-height);
+	padding: ($gutter-width * 1.5) $gutter-width;
+	width: 100%;
+	
+	position: fixed;
+	top: $search-site-header-height;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	
+	align-items: center;
+	display: flex;
+	justify-content: center;
+    @media #{$mobile-view} {
+		height: 100%;
+		padding: 0;
+		
+        position: absolute;
+		top: 0;
+    }
+ 	
+}
+
+// SCHEDULE EMAIL FORM
+// ................
+
+#SaveReport, #LandingPage {
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+
+    background: $white;
+    border: 1px solid $black;
+
+    margin: 0 auto;
+    padding: rem-calc(8);
+
+    position: absolute;
+    top: rem-calc(128);
+    left: 0;
+    right: 0;
+
+    width: rem-calc(500);
+    z-index: 101;
+    .rn-search-overlay-close {
+      font-size: rem-calc(32);
+      text-decoration: none;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      i {
+          color: $black;
+          &:hover {
+              color: $secondary-color;
+          }
+      }
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: rem-calc(8);
+    }
+    .SaveDialogRow {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      padding: rem-calc(8);
+      width: 100%;
+      .rn-search-market-report-report-email-checkbox {
+        align-items: center;
+        display: flex;
+
+        input[type="checkbox"] {
+          margin-left: rem-calc(4);
+        }
+      }
+      input[type="text"], select {
+        width: 75%;
+      }
+      input[type="button"] {
+        background: $primary-color;
+        border: none;
+        color: $white;
+
+        padding: rem-calc(8);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background: lighten($primary-color, 10%);
+        }
+      }
+    }
+
+  }
+
+.rn-search-marketstats-content {
+    background: white; 
+    height: 100%; 
+    padding: $gutter-width;
+    max-width: 1000px; 
+    width: 100%;
+
+    position: relative; // Relative positioning so close X can position absolutely
+
+    overflow-y: scroll;
+
+    @media #{$mobile-view} {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+// HEADER
+// ................
+
+.rn-search-marketstats-header {
+    display: flex;
+    justify-content: space-between;
+
+    @media #{$mobile-view} {
+        flex-wrap: wrap;
+    }
+}
+
+.rn-search-marketstats-city-zip {
+    list-style-type: none;
+    text-align: center;
+
+    border-right: 1px solid $gray;
+    margin: 0;
+    padding: 0 ($gutter-width / 2);
+
+    align-items: center;
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: center;
+
+    li {
+        color: $gray;
+		font-size: rem-calc(24);
+		font-weight: 700;
+		line-height: 1;
+
+		border-right: 1px solid $gray-light; // Styling for a dividing border
+        padding: 0 ($gutter-width / 2); // Set a small version of gutter padding to the left/right
+        
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        &:last-of-type {
+		    border: none; // Remove border for last item in list
+            
+	    }
+        span {
+            &.label {
+                font-size: rem-calc(12); // Decrease font-size for small text
+			    font-weight: 400;
+			    text-transform: uppercase; // Styling to uppercase lettering
+
+                margin-top: $gutter-width / 4;
+
+            }
+        }
+        @media #{$mobile-view} {
+            border: none;
+
+            align-items: flex-start;
+        }
+    }
+
+    @media #{$mobile-view} {
+        text-align: left;
+        
+        border: none;
+        width: 100%;
+
+        align-items: flex-start;
+        flex: 1 1 100%;
+        flex-direction: column;
+    }
+}
+
+.rn-search-marketstats-actions {
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: center;
+    
+    a {
+		color: $white;
+		font-size: rem-calc(36);
+		text-decoration: none;
+		
+		background: $secondary-color;
+        padding: $gutter-width / 2;
+
+        align-items: center;
+        display: flex;
+
+        transition: $transition;
+			
+		&:hover {
+			background: lighten($secondary-color, 10%);
+		}
+		
+		span {
+			font-size: rem-calc(16);
+			text-transform: uppercase;
+			
+            margin-left: $gutter-width / 4;
+
+            display: block;
+		}
+
+	}
+
+    @media #{$mobile-view} {
+        flex: 1 1 100%;
+        
+        a {
+            margin: ($gutter-width / 2) ($gutter-width / 2) 0;
+            width: 100%;
+        }
+    }
+}
+
+.rn-search-marketstats-overlay-close {
+    background: transparent;
+	border: none;
+	color: $black;
+	font-size: $gutter-width * 3;
+	line-height: 1;
+	text-align: center;
+	
+	padding: ($gutter-width / 4) 0;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	
+	&:hover {
+		color: $secondary-color;
+	}
+}
+
+// CONTENT
+// ................
+
+// Snapshot
+
+.rn-search-marketstats-snapshot {
+    padding: ($gutter-width * 2) 0 $gutter-width;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.rn-search-marketstats-snapshot-container,
+.rn-search-marketstats-trends-container {
+    border: 1px solid $primary-color;
+    margin: 0 0 $gutter-width ;
+    
+    flex: 0 0 32%;
+    @media #{$medium-down} {
+        margin: 0 ($gutter-width / 2) $gutter-width;
+
+        flex: 1 1 50%;
+    }
+
+}
+
+.rn-search-marketstats-report-header {
+    color: $white;
+    line-height: 1;
+
+    background: $primary-color;
+    padding: ($gutter-width / 2) ($gutter-width / 4); 
+
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+
+    .rn-search-marketstats-report-header-title {
+        font-size: rem-calc(18);
+    }
+    .rn-search-marketstats-report-header-value {
+        font-size: rem-calc(28);
+        font-weight: bold;
+        
+    }
+}
+
+.rn-search-marketstats-report-content {
+    color: $gray;
+
+    .rn-search-marketstats-report-row {
+        padding: $gutter-width ($gutter-width / 4);
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        &:nth-child(even) {
+            background: $gray-1;
+        }
+    }
+    .rn-search-marketstats-report-value, 
+    .rn-search-marketstats-report-title,
+    .rn-search-marketstats-report-change-value, 
+    .rn-search-marketstats-report-change-title, {
+        flex: 0 0 50%;
+    }
+
+    .rn-search-marketstats-report-value,
+    .rn-search-marketstats-report-change-value {
+        font-size: rem-calc(24);
+        font-weight: bold;
+    }
+
+    .rn-search-marketstats-report-title,
+    .rn-search-marketstats-report-change-title {
+        font-size: rem-calc(18);
+    }
+
+    .Positive {
+        i {
+            color: $primary-color;
+        }
+    }
+
+    .Negative {
+        i {
+            color: $secondary-color;
+
+            display: inline-block;
+
+            transform: rotate(180deg);
+        }
+    }
+
+
+
+}
+
+// Trends
+
+.rn-search-marketstats-trends {
+    padding: ($gutter-width * 1.75) 0 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .rn-search-marketstats-report-header-title {
+        font-size: rem-calc(24);
+        .bold {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    svg > g > g > g + g rect,
+    #avgDays_div svg > g > g > g + g rect,
+    #listingCount_div svg > g > g > g + g rect {
+        fill: $primary-color !important;
+    }
+}
+
+
+
+
+
+
+
+// OLD MARKET REPORT
+// ................
+
 .rn-search-market-report {
   height: $search-height; // Calc to fill VH less site header height
   max-height: $search-height; // Prevent search area from growing past viewport height less site header height

@@ -2,7 +2,7 @@
 // - - - - - - - - - - - - -
 
 .rn-search-footer {
-  background: $gray-lighter;
+  background: $gray-1;
   border-top: 1px solid darken($gray-lighter, 10%); // Borders for deliniation of area
   color: $gray;
   font-size: rem-calc(11);
@@ -16,7 +16,7 @@
   justify-content: space-between;
 
   z-index: 1; // Put the footer on top of the map in map-only mode
-  @media #{$mobile-view} {
+  @media #{$mobile-down} {
       font-size: $gutter-width;
 
       height: $gutter-width * 3.5;
@@ -50,6 +50,11 @@
   }
 }
 
+#clearoverlay-button {
+    left: $gutter-width / 4 !important;
+    bottom: rem-calc(12) !important;
+}
+
 .rn-search-map-options,
 .rn-search-save-search,
 .rn-search-area-info,
@@ -75,14 +80,17 @@
         font-size: $gutter-width;
         text-decoration: none;
 
-        background: $primary-color;
+        background: $secondary-color;
         height: 100%;
         padding: $gutter-width / 2;
 
         display: block;
+        &.rn-search-criteria-marketstats {
+            background: $primary-color;
+        }
     }
     @media #{$mobile-view} {
-        display: block;
+        display: flex;
     }
 }
 
@@ -183,7 +191,6 @@
 }
 
 .rn-search-view-toggle {
-	margin-right: -($gutter-width / 2);
 	
 	#map-gallery {
   	display: flex;
@@ -193,8 +200,35 @@
 	}
 
     .map-button {
+        display: flex;
+        i {
+            color: $gray;
+
+            @media #{$small-only} {
+                color: $white;
+
+                background: $primary-color;
+                height: 100%;
+                padding: ($gutter-width / 2);
+            }
+            
+            
+        }
+        &:hover {
+            i {
+                color: $primary-color;
+            }
+            
+        }
         &.active {
-            color: $primary-color;
+            i {
+                color: $primary-color;
+            }
+            
+            @media #{$small-only} {
+                display: none;
+            }
+            
         }
     }
 
@@ -218,15 +252,6 @@
     .mobile-hide {
       display: none;
     }  
-  }
-
-  #map,
-  #gallery {
-    display: flex;
-    &:hover,
-    &.selected {
-      color: $secondary-color;
-    }
   }
 }
 

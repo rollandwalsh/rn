@@ -11,6 +11,11 @@ carousel.slick(
 	slickGoTo: randomSlide
 )
 
+agentContact = $('#rnSiteHeaderAgentContactImg')
+agentContactList = $('#rnSiteHeaderAgentContactList')
+agentContact.on 'click', () ->
+	agentContactList.slideToggle()
+
 $ ->
 	qs = setInterval((->
 		if $('.rn-qsr').length > 0
@@ -25,7 +30,7 @@ $ ->
 	), 200)
 	return
 
-$('#-wf-col-2').addClass('rn-home-content-main')
-$('#-wf-col-3').addClass('rn-home-content-secondary')
-$('#-wf-col-2, #-wf-col-3').wrapAll('<section class="rn-home-content"></section>')
-$('.rn-home-social-links').appendTo('#-wf-col-3')
+$('#-wf-col-2').addClass 'rn-home-content-main'
+$('#-wf-col-3').addClass 'rn-home-content-secondary'
+$('#-wf-col-2, #-wf-col-3').wrapAll '<section class="rn-home-content"></section>'
+$('.rn-home-social-links').appendTo '#-wf-col-3'

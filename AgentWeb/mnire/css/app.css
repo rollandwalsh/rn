@@ -1127,6 +1127,9 @@ select {
   .hide-for-mobile {
     display: none !important; } }
 
+table {
+  table-layout: fixed; }
+
 html,
 body {
   font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -2065,7 +2068,7 @@ a.rn-home-callout-main-link:hover img {
     border-width: 1px 0 0;
     margin: 1rem auto; }
 
-.rn-careers-carousel div {
+.rn-careers-carousel .slick-slide {
   text-align: center;
   position: relative; }
 
@@ -2117,15 +2120,11 @@ a.rn-home-callout-main-link:hover img {
   text-transform: uppercase;
   margin-bottom: 0; }
 
-.rn-careers-column p {
+.rn-careers-column p,
+.rn-careers-column ul {
   font-size: 0.75rem;
   line-height: 1.8;
   margin-bottom: 0; }
-
-.rn-careers-column a {
-  font-size: 0.875rem;
-  font-style: italic;
-  text-transform: uppercase; }
 
 .rn-careers-column.callouts {
   margin: 0;
@@ -2135,6 +2134,10 @@ a.rn-home-callout-main-link:hover img {
     background-position: left top;
     background-repeat: no-repeat;
     padding: 0 0.5rem 1rem 5rem; }
+  .rn-careers-column.callouts a {
+    font-size: 0.875rem;
+    font-style: italic;
+    text-transform: uppercase; }
 
 @media only screen and (min-width: 48.0625em) {
   .rn-careers-column.callouts {
@@ -2210,7 +2213,7 @@ a.rn-home-callout-main-link:hover img {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin: 0 auto;
+  margin: 0.25rem auto;
   padding: 0.5rem;
   display: block; }
   .rn-careers-button span {

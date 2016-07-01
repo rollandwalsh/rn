@@ -193,7 +193,7 @@
 // - - - - - - - - - - - - -
 
 .rn-careers-carousel {
-	div {
+	.slick-slide {
 		text-align: center;
 		
 		position: relative;
@@ -261,17 +261,12 @@
 		margin-bottom: 0;
 	}
 	
-	p {
+	p,
+	ul {
 		font-size: rem-calc(12);
 		line-height: 1.8;
 		
 		margin-bottom: 0;
-	}
-	
-	a {
-		font-size: rem-calc(14);
-		font-style: italic;
-		text-transform: uppercase;
 	}
 	
 	&.callouts {
@@ -285,6 +280,12 @@
 			background-repeat: no-repeat;
 			
 			padding: 0 ($gutter-width / 2) $gutter-width rem-calc(80);
+		}
+		
+		a {
+			font-size: rem-calc(14);
+			font-style: italic;
+			text-transform: uppercase;
 		}
 	}
 	
@@ -396,7 +397,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	
-	margin: 0 auto;
+	margin: ($gutter-width / 4) auto;
 	padding: $gutter-width / 2;
 	
 	display: block;

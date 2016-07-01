@@ -14,11 +14,85 @@
 		width: 100%; // Set a width for flexbox to work within
 		
 		display: flex;
+	}
 	
-		@media #{$mobile-down} {
-			flex-wrap: wrap;
-			justify-content: center;
+    @media #{$mobile-down} {
+		height: $search-site-header-height-small;
+        max-height: $search-site-header-height-small;
+
+        position: relative;
+
+        align-items: center;
+        display: flex;
+        
+		> .rn-container {
+			height: 100%;
+            padding: 0;
+
+            flex: 1 1 auto;
 		}
+	}
+}
+
+// AGENT CONTACT
+
+.rn-site-header-agent-contact {
+	height: 100%; // Fill mobile header height
+	
+	img {
+		height: 100%; // Fill .rn-site-header-agent-contact height
+		padding: 0 ($gutter-width / 2); // Give padding to left/right for ease of clicking and space between image and logo
+		width: auto;
+		
+		cursor: pointer;
+	}
+	
+	@media #{$tablet-up} {
+		display: none;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+	}
+}
+
+.rn-site-header-agent-contact-list {
+	background: $white;
+	border-bottom: 1px solid $primary-color;
+	
+	margin: 0;
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	list-style: none;
+	
+	display: none;
+	
+	position: absolute;
+	z-index: 1;
+	
+	h2 {
+		font-weight: 300;
+		
+		margin-bottom: 0;
+	}
+	
+	h4 {
+		font-weight: 200;
+		
+		margin-bottom: $gutter-width / 2;
+	}
+	
+	li {
+		align-items: center;
+		display: flex;
+	}
+	
+	a {
+		font-size: rem-calc(14);
+		text-decoration: none;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
 	}
 }
 
@@ -27,33 +101,48 @@
 .rn-site-header-logo {
 	align-items: center; // Center logo vertically
 	display: flex;
-	flex: 0 1 auto;
 	
 	a {
-		padding: 0 ($gutter-width / 2); // Give gutter padding to sides to make logo easily clickable with extra right padding for equal spacing from name
+		padding: 0 $gutter-width 0 ($gutter-width / 2); // Give gutter padding to sides to make logo easily clickable with extra right padding for equal spacing from name
 	}
 	
 	img {
 		max-height: 100%;
 		max-width: 100%;
-		width: 100%;
+		width: auto;
 	}
 
     h3 {
         margin: 0;
         padding-right: $gutter-width;
     }
+    
+    @media #{$tablet-up} {
+	    flex: 0 0 auto;
+    }
 	
 	@media #{$mobile-down} {
+		height: 100%;
+		
+		flex: 1 1 auto;
+		justify-content: center;
+		
 		a {
-			padding: 0 ($gutter-width / 2);
-		}
-	}
-	
-	@media #{$small-only} {
-		width: 40%;
+			height: 100%;
+			padding: ($gutter-width / 4) ($gutter-width / 2);
 
-		justify-content: flex-end;
+            align-items: center;
+            display: flex;
+		}
+		
+		img {
+			height: 100%;
+		}
+		
+		h3 {
+			font-size: rem-calc(12);
+			line-height: 1;
+		}
 	}
 }
 
@@ -90,6 +179,8 @@
 	}
 	
 	@media #{$mobile-down} {
+        display: none;
+
 		max-width: 60%;
 		padding: $gutter-width / 2;
 		
@@ -113,13 +204,17 @@
 
     display: flex;
     justify-content: space-between;
+    
     img {
         height: rem-calc(72);
+    }
+    
+    @media #{$mobile-down} {
+        display: none;
     }
 }
 
 .rn-site-header-agent-details {
-
 	align-items: center; 
 	display: flex;
 	flex: 0 0 auto;
@@ -144,8 +239,6 @@
 		flex: 0 0 100%;
 	}
 }
-
-
 
 .rn-site-header-agent-phone {
 	a {
@@ -253,6 +346,7 @@
 	}
 	
 	@media #{$mobile-down} {
+        display: none;
 		text-align: center;
 		
 		padding: ($gutter-width / 2) 0;
@@ -271,15 +365,28 @@
 	
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	
+	@media #{$tablet-up} {
+		width: 100%;
+	}
 
 	@media #{$mobile-down} {
-		position: relative;
+        background: $white;
+        height: 100%;
+
+        flex: 0 0 auto;
+
+        .rn-container {
+            height: 100%;
+
+            align-items: center;
+            display: flex;
+        }
 	}
+	
     .text {
         display: none;
     }
-
 }
 
 .rn-site-header-nav-menu {
@@ -431,18 +538,23 @@ body:not(.search) {
 		text-decoration: none;
 		
 		padding: $gutter-width / 2;
+
+        i {
+            color: $primary-color; 
+            font-size: rem-calc(33);
+        }
 		
-		&.rn-site-navigation-toggle {
+		&.rn-site-navigation-toggle,
+        &.rn-search-user-toggle {
 			display: flex; // Allow sass-burger and text to be inline
 		}
 		
-		&.rn-search-user-toggle,
 		&.rn-search-criteria-toggle {
 			display: none; // Hide for non-search pages
 		}
 		
 		.rn-site-header-nav-burger {
-			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white);
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $primary-color);
 		}
 		
 		&.is-active {

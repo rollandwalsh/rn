@@ -1,7 +1,7 @@
 $ld-border: 2px solid $gray-lighter;
 
 $ld-header-height: rem-calc(96);
-$ld-header-height-small: rem-calc(160);
+$ld-header-height-small: rem-calc(176);
 
 $ld-main-sidebar-width: rem-calc(288);
 $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
@@ -110,14 +110,18 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	max-width: 1000px;
 	padding-top: rem-calc(8);
 	z-index: 100;
+    @media #{$mobile-view} {
+        position: initial;
+    }
 }
 
 .rn-search-listing-display-details {
 	height: 100%;
-	width: 25%;
+	width: 50%;
 	
 	align-items: flex-start;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .rn-search-listing-display-map-icon {
@@ -127,18 +131,30 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 .rn-search-listing-display-details-main {
 	margin: 0;
 	padding: 0 ($gutter-width / 2);
-	width: calc(100% - 3rem);
 	
 	list-style: none;
 	
-
+    flex: 1 1 55%;
 	
 	li {
-		width: 100%;
-	}
+        width: 100%;
+    }
+
+    .rn-search-listing-display-details-mls,
+    .rn-search-listing-display-details-status {
+        font-size: rem-calc(12);
+        text-transform: uppercase;
+    }
 }
 
 .rn-search-listing-display-details-headline {
+    align-items: flex-start;
+    display: flex;
+
+    header {
+        display: flex;
+    }
+
 	h4 {
 		color: inherit;
 		font-size: rem-calc(24);
@@ -146,19 +162,88 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 		
 		margin: 0;
 	}
+
+    a {
+        cursor: pointer;
+    }
+
+    i {
+        color: $gray;
+        font-size: $gutter-width * 2;
+    }
+}
+
+.rn-search-listing-display-mortgage-calculator {
+	display: none;
+		
+	background: $white;
+    border: 1px solid $gray;
+  	font-size: rem-calc(14);
+
+  	padding: rem-calc(8);	
+	position: absolute;
+	width: auto;
+    z-index: 1;
+	#mortgageCalculator {
+  		display: flex;
+
+        padding: 0;
+        width: 100%;
+        #mortgageCalculatorPadding {
+            padding: 0;
+            width: 100%;
+        }
+    }
+  	#montlyPayment {
+    	font-size: rem-calc(16);
+    	font-weight: bold;
+    	label {
+      	font-weight: normal;
+      	font-size: rem-calc(14);
+    	}
+  	}
+  	dd, dl {
+    	display: flex;
+    	flex-direction: column;
+    		
+    	margin: 0;
+    }
+  		
+  	#Form1 {
+    	display: flex;
+    	flex-direction: column;
+    	#buttonSubmit {
+      	background: $primary-color;
+      	border: none;
+      	color: $white;
+      	font-size: rem-calc(14);
+      	text-align: center;
+      		
+      	margin: rem-calc(8);
+      	padding: rem-calc(8);
+    	}
+  	}
+		
+}
+
+.rn-search-listing-display-details-notice {
+
+}
+
+.rn-search-listing-display-details-mls {
+
 }
 
 .rn-search-listing-display-details-info {
 	color: inherit;
-	font-size: rem-calc(11);
+	font-size: rem-calc(14);
+    font-weight: normal;
+
+    padding: 0 ($gutter-width / 2);
 }
 
 .rn-search-listing-display-details-address {
-	text-overflow: ellipsis;
-	
-	display: block;
-	overflow: hidden;
-	white-space: nowrap;
+
 }
 
 .rn-search-listing-display-details-neighborhood {
@@ -173,14 +258,6 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	}
 }
 
-.rn-search-listing-display-details-secondary {
-	height: 100%;
-	width: 25%;
-	
-	display: flex;
-	flex-direction: column;
-}
-
 .rn-search-listing-display-details-detail {
 	margin: 0;
 	padding: 0;
@@ -188,6 +265,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	list-style: none;
 	
 	display: flex; // Set this element to flex-container so children are inline
+    flex: 1 1 45%;
 	justify-content: space-around;
 
 	li {
@@ -215,15 +293,6 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	}
 }
 
-.rn-search-listing-display-details-notice {
-	font-size: rem-calc(12);
-    text-align: center;
-
-    @media #{$large-up} {
-        margin: $gutter-width 0;
-    }
-}
-
 .rn-search-listing-display-details-tags {
 	margin: 0;
 	padding: rem-calc(2) 0;
@@ -239,6 +308,10 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 		
 		margin-right: rem-calc(4);
 		padding: rem-calc(2) rem-calc(6);
+
+        img {
+            width: 100%;
+        }
 	}
 }
 
@@ -423,7 +496,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 			border-style: solid;
 			border-width: 0 1px 1px 0;
 		
-			height: 40vh;
+			height: calc(70vh - #{$ld-header-height};
 			width: auto;
 		}
 	}
@@ -535,99 +608,20 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
     }
 }
 
-// LISTING DISPLAY MIN/MAX BLUR
-.rn-search-listing-display-blur {
-   filter: url(#blur); 
-
-   flex: 1 1 100%; 
-
-   width: 100%;
-}
-
-.rn-search-listing-display-blur-form {
-    background: $white-dark;
-    color: $gray-dark;
-    font-size: $gutter-width;
-
-    position: absolute;
-    top: $gutter-width * 4;
-    left: 0;
-    bottom: $gutter-width * 2;
-
-    height: $gutter-width * 6;
-    padding: $gutter-width;
-    width: 100%;
-    
-    align-items: center;
-    display: flex; 
-    //display: none;
-    flex: 1 1 100%;
-    flex-direction: column;
-    button {
-        background: $primary-color;
-        border: none;
-        color: $white;
-        font-size: rem-calc(14);
-
-        margin: rem-calc(4 0);
-        padding: $gutter-width / 2;
-
-        align-items: center;
-        display: flex;
-
-        transition: $transition;
-        &:hover {
-            background: lighten($primary-color, 10%);
-        }
-    }
-    @media #{$small-only} {
-        font-size: rem-calc(12);
-        text-align: center;
-        button {
-            font-size: rem-calc(12);
-            margin: 0;
-        }
-    }
-}
-
-.rn-search-listing-display-carousel {
-    .rn-search-listing-display-blur-form {
-        top: inherit;
-    }
-}
-
-
-
-
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-/* IE10+ CSS styles go here */
-    .rn-search-listing-display-blur {
-       color: transparent;
-       text-shadow: 4px 4px 4px $gray;
-       opacity: 0.4;
-       img {
-           opacity: 0.2 !important;
-       }
-    }
-}
 
 // MAIN CONTENT
 // - - - - - - - - - - - - -
+.rn-search-listing-display-content-main {
+    border-bottom: $ld-border; 
 
-.rn-search-listing-display-main {
-    border-bottom: $ld-border;
-    &:after {
-        content: "";
-        clear: both;
-        display: block;
-    }
+    display: flex;
 }
 
 .rn-search-listing-display-content-main-content {
 	padding: ($gutter-width / 2) ($gutter-width / 2) ($gutter-width / 2) 0; // Spacing to the right for wide screens
 
-    
-	
+    width: 75%;
+
 	.rn-search-listing-display-content-open-house-heading {
 		margin: 0 0 ($gutter-width / 2);
 		
@@ -638,8 +632,13 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 }
 
 .rn-search-listing-display-content-details {
-	padding: ($gutter-width / 2) ($gutter-width / 2) ($gutter-width / 2) 0;
+	padding: 0 ($gutter-width / 2) ($gutter-width / 2) 0;
 	
+    h2 {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
 	p,
 	.infoCourtesyOf {
 		font-size: rem-calc(12);
@@ -662,76 +661,12 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 		margin: 0;
 	}
 	
-	.rn-search-listing-display-content-details-calc-link {
-  	cursor: pointer;
-		font-size: rem-calc(12);
-		text-decoration: none;
-	}
-	
-	.rn-search-listing-display-content-mortgage-calculator {
-		display: none;
-		
-		background: $white;
-        border: 1px solid $gray;
-  		font-size: rem-calc(14);
-
-  	    padding: rem-calc(8);	
-		position: absolute;
-		width: auto;
-        z-index: 1;
-		#mortgageCalculator {
-  		    display: flex;
-
-            padding: 0;
-            width: 100%;
-            #mortgageCalculatorPadding {
-                padding: 0;
-                width: 100%;
-            }
-        }
-  		#montlyPayment {
-    		font-size: rem-calc(16);
-    		font-weight: bold;
-    		label {
-      		font-weight: normal;
-      		font-size: rem-calc(14);
-    		}
-  		}
-  		dd, dl {
-    		display: flex;
-    		flex-direction: column;
-    		
-    		margin: 0;
-        }
-  		
-  		#Form1 {
-    		display: flex;
-    		flex-direction: column;
-    		#buttonSubmit {
-      		background: $primary-color;
-      		border: none;
-      		color: $white;
-      		font-size: rem-calc(14);
-      		text-align: center;
-      		
-      		margin: rem-calc(8);
-      		padding: rem-calc(8);
-    		}
-  		}
-		
-	}
-	
 	.rn-search-listing-display-details-status {
 		font-size: rem-calc(12);
 		
 		display: block;
 	}
-	
-	.rn-search-listing-display-details-mls {
-		font-size: rem-calc(14);
-		
-		display: block;
-	}
+
 }
 
 .rn-search-listing-display-content-details-data {
@@ -774,39 +709,35 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 }
 
 .rn-search-listing-display-feature-list {
+    display: none;
+
 	margin: 0 0 $gutter-width;
 	padding: 0;
 	
-	display: flex;
-	flex-wrap: wrap;
-	
 	list-style: none;
+
+    &:first-of-type {
+        display: block;
+    }
 	
 	li {
 		margin: 0;
 		padding: $gutter-width / 4;
-		
-		/* flex: 0 0 50%; // Two columns */
-		
-		flex: 0 0 calc(100% / 3); // Three coloumns
 
+        display: flex;
 		
 		span {
 			font-size: rem-calc(12);
 			
 			&:first-child {
 				font-weight: bold;
-				
-				&:before {
-					content: "\00B7 ";
-					
-					padding-right: $gutter-width / 4;
-				}
-				
-				&:after {
-					content: ": ";
-				}
+                text-transform: uppercase;
+
+                width: 25%;
 			}
+            &.value {
+                width: 75%;
+            }
 		}
 	}
 }
@@ -827,13 +758,10 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 // - - - - - - - - - - - - -
 
 .rn-search-listing-display-content-main-sidebar {
-  float: right;
 	padding-top: $gutter-width / 2;
 	padding-left: $gutter-width / 2; // Spacing for wide screens
-	width: $ld-main-sidebar-width;
-	
-	display: flex;
-	flex-wrap: wrap;
+
+    width: 25%;
 }
 
 .rn-search-listing-display-content-question {
@@ -855,7 +783,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 			background: $primary-color;
 			border: none;
 			color: $white;
-			font-size: rem-calc(18);
+			font-size: rem-calc(13);
 			font-weight: 600;
 			text-transform: uppercase;
 			
@@ -888,24 +816,32 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
 // FEATURES
 // - - - - - - - - - - - - -
-.rn-search-listing-display-content-main {
-    &::after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-    border-bottom: $ld-border;
-    
-}
-
 .rn-search-listing-display-content-main-features {
+    margin-top: $gutter-width / 2;
+
 	position: relative; // For blur form to position absolutely;
-    width: $ld-main-content-width;
-    
-    flex: 0 0 100%;
 	
 	h4 {
-		margin: 0 0 ($gutter-width / 2);
+		background: $gray-1;
+        border: 1px solid $gray;
+        margin: 0 0 ($gutter-width / 2);
+        padding: $gutter-width / 2;
+
+        display: flex;
+        justify-content: space-between;
+
+        cursor: pointer;
+
+        i {
+            transition: $transition;
+        }
+        
+        &.open {
+            .rn-icon-angle-down-big {
+                transform: rotate(180deg);
+            }
+        }
+        
 	}
 }
 
@@ -914,6 +850,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
     margin-top: ($gutter-width / 2);
 
     display: flex;
+    flex-wrap: wrap;
 
     visibility: hidden;
 
@@ -1034,6 +971,9 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	h5 {
 		font-weight: 400;
 	}
+    a {
+        text-decoration: none;
+    }
 }
 
 .rn-search-listing-display-content-agent-photo {
@@ -1070,8 +1010,9 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
     position: relative; // For min/max blur form to position absolutely
 	
 	display: flex;
+    flex-direction: column;
+
     &.floor-plans {
-        flex-direction: column;
         .rn-search-listing-display-content-floor-plans-photos {
             display: flex;
             flex-wrap: wrap;
@@ -1082,8 +1023,35 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
         }
 
     }
+
+    &.days-on-market {
+        ul {
+            list-style-type: none;
+
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &.map {
+        &.rn-search-listing-display-blur {
+            height: 100%;
+
+            flex-wrap: nowrap;
+            form {
+                max-height: $gutter-width * 6;
+            }
+        }
+        .listingmap-accuracybar {
+            font-size: rem-calc(12);
+        }
+    }
+
+    &.agent-info {
+        flex-direction: row;
+    }
+
     &.listing-documents {
-        flex-direction: column;
         ul {
             list-style-type: none;
             margin: 0;
@@ -1110,11 +1078,13 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
             }
         }
     }
+
 	&.home-value {
-		flex-direction: column;
 
 			.homevaluation {
 			    display: none;
+
+                overflow: auto !important;
 			}
 			.rn-search-listing-display-home-value-button {
 				align-self: center;
@@ -1131,7 +1101,36 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 				}
 			}
 	}
+
     &.demographics {
+        .demographics-content,
+        .schools-content {
+            display: none;
+        }
+
+        h2 {
+            background: $gray-1;
+            border: 1px solid $gray;
+            font-size: $gutter-width * 1.5;
+            padding: $gutter-width / 2;
+
+            display: flex;
+            justify-content: space-between;
+
+            cursor: pointer;
+            i {
+                transition: $transition;
+            }
+        
+            &.open,
+            &.opened {
+                .rn-icon-angle-down-big {
+                    transform: rotate(180deg);
+                }
+            }
+
+        }
+
         p {
             font-size: rem-calc(12);
             margin: 0;
@@ -1141,9 +1140,6 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
         }
         .rn-ldp-fullinfo-detailed-nav {
             display:none;
-        }
-        h3 {
-            text-align: center;
         }
         h4 {
             margin: 0;
@@ -1296,6 +1292,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
                min-height: $gutter-width * 8;
            }
            ul {
+               align-items: center;
                display: flex;
                justify-content: space-between;
 
@@ -1303,6 +1300,9 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
                margin: 0;
                padding: 0;
+               li {
+                   flex: 1 1 50%;
+               }
                a {
                    color: $primary-color;
                    text-decoration: none;
@@ -1318,24 +1318,19 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
 .rn-search-listing-display-content-history,
 .rn-search-listing-display-content-open-houses {
-	flex: 1 1 auto;
-    
-    text-align: center;
-	
+	flex: 1 1 50%;
+
 	margin: 0;
 	padding: 0;
 	
 	
 	ul {
-		margin: 0 auto;
-		max-width: rem-calc(360);
+
 		padding: $gutter-width / 2;
 		
 		list-style: none;
 		
-		li {
-			font-size: rem-calc(12);
-			
+		li {			
 			margin-bottom: $gutter-width;
 			
 			display: flex;
@@ -1350,6 +1345,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
 .rn-search-listing-display-content-history {	
 	ul {
+        max-width: rem-calc(500);
 		li {
 			span {
 				flex: 0 0 calc(100% / 3);
@@ -1361,15 +1357,26 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 			}
 		}
 	}
+    &.open-house {
+        text-align: center;
+        ul {
+            margin: 0 auto;
+            max-width: rem-calc(360);
+        }
+    }
 }
 
 .rn-search-listing-display-content-open-houses {
+    text-align: center;
+
 	border-left: $ld-border;
     @media #{$small-only} {
         border-top: $ld-border;
         border-left: none;
     }
 	ul {
+        margin: 0 auto;
+        max-width: rem-calc(360);
 		li {
 			flex-wrap: wrap;
 			
@@ -1448,6 +1455,99 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
 #listingmap {
 	height: rem-calc(320);
+}
+
+// LISTING DISPLAY MIN/MAX BLUR
+.rn-search-listing-display-blur {
+
+    .rn-search-listing-display-carousel-main {
+        img {
+            margin: 0 auto;
+        }
+    }
+    .rn-search-listing-display-carousel-small {
+        display: none;
+    }
+
+    .rn-search-listing-display-feature-list {
+        &:first-of-type {
+            display: none;
+        }
+    }
+
+}
+
+.rn-search-listing-display-blur-form {
+    color: $gray-dark;
+    font-size: $gutter-width;
+
+    background: $gray-2;
+    height: $gutter-width * 6;
+    margin-bottom: $gutter-width;
+    padding: $gutter-width;
+    width: 100%;
+    
+    align-items: center;
+    display: flex; 
+    flex: 1 1 100%;
+    flex-direction: column;
+    button {
+        background: $primary-color;
+        border: none;
+        color: $white;
+        font-size: rem-calc(14);
+
+        margin: rem-calc(4 0);
+        padding: $gutter-width / 2;
+
+        align-items: center;
+        display: flex;
+
+        transition: $transition;
+        &:hover {
+            background: lighten($primary-color, 10%);
+        }
+    }
+    @media #{$small-only} {
+        font-size: rem-calc(12);
+        text-align: center;
+        button {
+            font-size: rem-calc(12);
+            margin: 0;
+        }
+    }
+}
+
+.rn-search-listing-display-carousel {
+    .rn-search-listing-display-blur-form {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: $gutter-width;
+    }
+}
+
+.rn-search-listing-display-content-main-features {
+    .rn-search-listing-display-blur-form {
+
+    }
+}
+
+.no-flexboxlegacy {
+/* IE10+ CSS styles go here */
+    .rn-search-listing-display-details-main {
+        flex: 0 1 50%;
+    }
+    .rn-search-listing-display-details-detail {
+        flex: 0 1 45%;
+    }
+
+    .rn-search-listing-display-content-agent-info {
+        img {
+            display: block;
+        }
+    }
+
 }
 
 // MEDIA QUERIES
@@ -1540,9 +1640,7 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 
 
 	.rn-search-listing-display-feature-list {		
-		li {
-			flex: 0 0 50%; // Two columns
-		}
+
 	}
 }
 
@@ -1579,6 +1677,9 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	
 	.rn-search-listing-display-details-main {
 		padding: 0;
+        li {
+            align-items: center;
+        }
 	}
 
     .rn-search-listing-display-content-main-features {
@@ -1590,8 +1691,24 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 			font-size: rem-calc(18);
 			line-height: inherit;
 		}
+        .rn-search-listing-display-map-icon {
+            margin-left: 0;
+        }
 	}
+
+    .rn-search-listing-display-mortgage-calculator {
+        top: rem-calc(46);
+        left: 0;
+        right: 0;
+    }
 	
+    .rn-search-listing-display-details-info {
+        font-size: rem-calc(14);
+
+        margin-bottom: 0;
+        padding:0;
+    }
+
 	.rn-search-listing-display-details-address {
 		font-size: rem-calc(14);
 	}
@@ -1602,9 +1719,8 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	}
 	
 	.rn-search-listing-display-details-detail {
-		padding: rem-calc(8 16);
-		
-		justify-content: flex-start;
+		flex: 1 1 100%;
+        justify-content: flex-start;
 		
 		li {
 			font-size: rem-calc(14);
@@ -1636,6 +1752,8 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	.rn-search-listing-display-details-actions {
 		border: none;
 		
+        align-self: flex-end;
+
 		a {
 			padding: $gutter-width / 4;
 			
@@ -1672,6 +1790,11 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	
 	// MAIN CONTENT
 
+    .rn-search-listing-display-content-main {
+        flex-wrap: wrap;
+
+        margin-bottom: $gutter-width;
+    }
 
 	.rn-search-listing-display-content-main-content {
 		
@@ -1743,24 +1866,31 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 	}
 
 	.rn-search-listing-display-feature-list {		
-		li {
-			flex: 0 0 100%; // One column
+		&:first-of-type {
+            display: none;
 		}
+        li {
+		    span {
+			    &:first-child {
+                    width: 50%;
+			    }
+                &.value {
+                    width: 50%;
+                }
+		    }
+	    }
 	}
 
 	// SIDEBAR
 
 	.rn-search-listing-display-content-main-sidebar {
-		border-bottom: $ld-border;
 		
-        float: none;
 		margin-bottom: $gutter-width;
 		padding-top: 0;
 		padding-bottom: $gutter-width / 2;
 		padding-left: 0; // Remove padding for small screens
         width: 100%;
 		
-		flex: 0 0 100%;
 	}
 	
 	// SECONDARY CONTENT
@@ -1770,6 +1900,15 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 		padding: 0;
 		
 		flex-wrap: wrap;
+
+        &.days-on-market {
+            ul {
+                margin-bottom: $gutter-width / 2;
+                li {
+                    margin-bottom: $gutter-width / 2;
+                }
+            }
+        }
 	}
 	
 	.rn-search-listing-display-content-history,

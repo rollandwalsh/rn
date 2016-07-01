@@ -11,6 +11,11 @@ carousel.slick(
 	slickGoTo: randomSlide
 )
 
+agentContact = $('#rnSiteHeaderAgentContactImg')
+agentContactList = $('#rnSiteHeaderAgentContactList')
+agentContact.on 'click', () ->
+	agentContactList.slideToggle()
+
 $ ->
 	qs = setInterval((->
 		if $('.rn-qsr').length > 0

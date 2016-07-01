@@ -1,4 +1,4 @@
-var carousel, randomSlide;
+var agentContact, agentContactList, carousel, randomSlide;
 
 randomSlide = Math.floor(Math.random() * $('.rn-home-carousel > div').length);
 
@@ -13,6 +13,14 @@ carousel.slick({
   arrows: false,
   fade: true,
   slickGoTo: randomSlide
+});
+
+agentContact = $('#rnSiteHeaderAgentContactImg');
+
+agentContactList = $('#rnSiteHeaderAgentContactList');
+
+agentContact.on('click', function() {
+  return agentContactList.slideToggle();
 });
 
 $(function() {
