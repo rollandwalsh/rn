@@ -1,0 +1,8 @@
+body.home,
+body.interior {
+	-ms-overflow-style: initial;
+
+	&::-webkit-scrollbar {
+		display: initial;
+	}
+}
