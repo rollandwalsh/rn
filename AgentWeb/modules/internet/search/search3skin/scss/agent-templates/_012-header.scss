@@ -17,8 +17,9 @@
 		justify-content: space-between;
 	}
 	
-	@media #{$mobile-view} {
-        border-bottom: none;
+	@media #{$mobile-down} {
+		border-bottom: none;
+		
         height: $search-site-header-height-small;
         max-height: $search-site-header-height-small;
 
@@ -26,11 +27,13 @@
 
         align-items: center;
         display: flex;
+        
 		> .rn-container {
-            height: 100%;
+			height: 100%;
+            padding: 0;
 
-            flex: 1 1 75%;
-			justify-content: center;
+            flex: 1 1 auto;
+            flex-wrap: nowrap;
 		}
 	}
 }
@@ -89,9 +92,73 @@
 			vertical-align: middle;
 		}
 	}
-    @media #{$mobile-view} {
-        display: none;
+	
+    @media #{$mobile-down} {
+        display: none; // Hide property watch bar for mobile
     }
+}
+
+// AGENT CONTACT
+
+.rn-site-header-agent-mobile-contact {
+	height: 100%; // Fill mobile header height
+	
+	img {
+		height: 100%; // Fill .rn-site-header-agent-contact height
+		padding: 0 ($gutter-width / 2); // Give padding to left/right for ease of clicking and space between image and logo
+		width: auto;
+		
+		cursor: pointer;
+	}
+	
+	@media #{$tablet-up} {
+		display: none;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+	}
+}
+
+.rn-site-header-agent-mobile-contact-list {
+	background: $white;
+	border-bottom: 1px solid $primary-color;
+	
+	margin: 0;
+	padding: $gutter-width / 2;
+	width: 100%;
+	
+	list-style: none;
+	
+	display: none;
+	
+	position: absolute;
+	top: $search-site-header-height-small;
+	z-index: 2;
+	
+	h2 {
+		font-weight: 300;
+		
+		margin-bottom: 0;
+	}
+	
+	h4 {
+		font-weight: 200;
+		
+		margin-bottom: $gutter-width / 2;
+	}
+	
+	li {
+		align-items: center;
+		display: flex;
+	}
+	
+	a {
+		font-size: rem-calc(14);
+		text-decoration: none;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+	}
 }
 
 // LOGO
@@ -99,125 +166,55 @@
 .rn-site-header-logo {
 	align-items: center; // Center logo vertically
 	display: flex;
-	flex: 1 1 15%;
 	
 	a {
 		padding: 0 $gutter-width 0 ($gutter-width / 2); // Give gutter padding to sides to make logo easily clickable with extra right padding for equal spacing from name
-
-        
 	}
 	
 	img {
 		max-height: 100%;
 		max-width: 100%;
-		width: 100%;
+		width: auto;
 	}
 
     h3 {
         margin: 0;
         padding-right: $gutter-width;
-        @media #{$mobile-view} {
-            font-size: rem-calc(12);
-            line-height: 1;
-        }
     }
-
+    
+    @media #{$tablet-up} {
+	    flex: 0 0 auto;
+    }
 	
 	@media #{$mobile-down} {
+		height: 100%;
+		
+		flex: 1 1 auto;
+		justify-content: center;
+		
 		a {
-			padding: 0 ($gutter-width / 2);
+			height: 100%;
+			padding: ($gutter-width / 4) ($gutter-width / 2);
 
             align-items: center;
             display: flex;
 		}
-	}
-	
-	@media #{$small-only} {
-        height: 100%;
-		width: 40%;
-
-		justify-content: flex-end;
+		
+		h3 {
+			font-size: rem-calc(12);
+			line-height: 1;
+		}
 	}
 }
 
-// MOBILE AGENT DETAILS
-
-.rn-site-header-mobile-agent {
-    display: none;
-    @media #{$mobile-view} {
-        display: block;
-        height: 100%;
-        width: 50%;
-        z-index: 10;
-        .rn-site-header-mobile-agent-photo {
-            height: 100%;
-            width: 100%;
-
-            align-items: center;
-            display: flex;
-            img {
-                height: 100%;
-                width: auto;
-            }
-            i {
-                color: $primary-color;
-                font-size: rem-calc(20);
-                font-weight: bold;
-
-                transition: $transition;
-            }
-            
-        }
-        &.is-active {
-            .rn-icon-angle-down {
-                transform: rotate(180deg);
-            }
-        }
-    }
-}
-
-.rn-site-header-mobile-agent-info {
-    display: none; // Default hide until agent photo is clicked
-
-    position: absolute;
-    left: $gutter-width;
-    right: $gutter-width;
-
-    background: $white;
-    padding: $gutter-width / 2;
-}
-
-.rn-site-header-mobile-agent-details {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    .rn-site-header-mobile-agent-name {
-        font-size: rem-calc(24);
-    }
-
-    .rn-site-header-agent-contact {
-        flex: 1 1 100%;
-        li {
-            display: none;
-        }
-        li:first-of-type {
-            display: flex;
-        }
-    }
-
-    span {
-        &:last-of-type {
-            margin-bottom: $gutter-width / 2;
-        }
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    li {
-        font-size: rem-calc(14);
-    }
+.no-flexboxlegacy { // Target IE
+	.rn-site-header-logo {
+		@media #{$mobile-down} {
+			img {
+				width: 100%;
+			}
+		}
+	}
 }
 
 // AGENT DETAILS
@@ -257,38 +254,22 @@
     img {
 		height: rem-calc(72);
 		width: auto;
-        @media #{$mobile-view} {
-            display: none;
-        }
 	}
 	
-	@media #{$tablet-up} {
-		flex: 1 1 rem-calc(288);
+	@media #{$mobile-down} {
+        display: none; // Hide for mobile view - this content will then be accessible in .rn-site-header-agent-mobile-content
 	}
+}
 
-    @media #{$tablet-only} {
-        max-width: 25%;
-    }
+.rn-site-header-agent {
+	padding: ($gutter-width / 4) 0;
+	
+	display: flex;
+    flex: 1 1 25%;
+    justify-content: flex-end;
 	
 	@media #{$mobile-down} {
         display: none;
-
-		max-width: 60%;
-		padding: $gutter-width / 2;
-		
-		align-items: flex-start;
-		flex: 0 1 auto;
-	}
-	
-	@media #{$small-only} {
-
-		h1 {
-			font-size: 6vw;
-		}
-		
-		h4 {
-			font-size: rem-calc(10);
-		}
 	}
 }
 
@@ -312,30 +293,6 @@
 		color: $primary-color;
         text-decoration: none;
 	}
-	
-	@media #{$small-only} {
-        width: 100%;
-
-		align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-	}
-}
-
-.rn-site-header-agent {
-	padding: ($gutter-width / 4) 0;
-	
-	display: flex;
-    flex: 1 1 25%;
-    justify-content: flex-end;
-	
-	
-	@media #{$small-only} {
-        display: none;
-
-		padding: $gutter-width / 2;
-	}
 }
 
 .rn-site-header-agent-contact,
@@ -348,6 +305,7 @@
 	
 	align-items: center;
     display: flex;
+	flex: 1 1 auto;
 		
 	li {
 		padding: ($gutter-width / 4) ($gutter-width / 2);
@@ -365,7 +323,8 @@
 }
 
 .rn-site-header-agent-contact {
-    flex: 1 1 100%;
+    width: 100%;
+    
     li {
         border-left: 1px solid $primary-color;
         &:first-of-type {
@@ -376,6 +335,7 @@
 
 .rn-site-header-agent-email {
     flex: 1 1 auto;
+    
     li {
         align-items: center;
         display: flex;
@@ -385,6 +345,7 @@
 
 .rn-site-header-agent-social {
     flex: 1 1 auto;
+    
 	a {
 		text-decoration: none;
 	}
@@ -397,20 +358,23 @@
 	
 	margin: 0;
 	padding: 0;
-	width: 100%;
+
+    .text {
+        display: none;
+    }
+	
+	@media #{$tablet-up} {
+		width: 100%;
+	}
 
 	@media #{$mobile-down} {
-        flex: 1 1 25%;
+        flex: 0 0 auto;
 
         .rn-container {
             align-items: center;
             display: flex;
         }
 	}
-
-    .text {
-        display: none;
-    }
 }
 
 .rn-site-header-nav-menu {
@@ -562,7 +526,7 @@ body:not(.search) {
 		
 		text-decoration: none;
 		
-		padding: $gutter-width / 2;
+		padding: ($gutter-width /4) ($gutter-width / 2); // Smaller top/bottom padding because the height of the mobile header is too short to accomodate the normal gutter-width (even still, this padding is a little too much - possible solutions are to lower the font size of the icons or remove top/bottom padding - since the icons are flex aligned middle, it shouldn't be an issue - this padding forcing the size to be bigger than the container makes me unhappy, though - R Walsh)
 
 		justify-content: flex-end;
 
@@ -574,7 +538,6 @@ body:not(.search) {
         &.rn-search-user-toggle {
 			display: flex; // Allow sass-burger and text to be inline
 		}
-		
 		
 		&.rn-search-criteria-toggle {
 			display: none; // Hide for non-search pages

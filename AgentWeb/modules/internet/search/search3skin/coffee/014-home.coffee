@@ -1,3 +1,8 @@
+agentMobileContact = $('#rnSiteHeaderAgentMobileContactImg')
+agentMobileContactList = $('#rnSiteHeaderAgentMobileContactList')
+agentMobileContact.on 'click', () ->
+	agentMobileContactList.slideToggle()
+	
 randomSlide = Math.floor(Math.random() * $('.rn-home-carousel > div').length)
 carousel = $('.rn-home-carousel')
 carousel.slick(
@@ -10,11 +15,6 @@ carousel.slick(
 	fade: true
 	slickGoTo: randomSlide
 )
-
-agentContact = $('#rnSiteHeaderAgentContactImg')
-agentContactList = $('#rnSiteHeaderAgentContactList')
-agentContact.on 'click', () ->
-	agentContactList.slideToggle()
 
 $ ->
 	qs = setInterval((->

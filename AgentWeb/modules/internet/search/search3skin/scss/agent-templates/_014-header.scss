@@ -36,7 +36,7 @@
 
 // AGENT CONTACT
 
-.rn-site-header-agent-contact {
+.rn-site-header-agent-mobile-contact {
 	height: 100%; // Fill mobile header height
 	
 	img {
@@ -56,7 +56,7 @@
 	}
 }
 
-.rn-site-header-agent-contact-list {
+.rn-site-header-agent-mobile-contact-list {
 	background: $white;
 	border-bottom: 1px solid $primary-color;
 	
@@ -69,7 +69,8 @@
 	display: none;
 	
 	position: absolute;
-	z-index: 1;
+	top: $search-site-header-height-small;
+	z-index: 2;
 	
 	h2 {
 		font-weight: 300;
@@ -135,10 +136,6 @@
             display: flex;
 		}
 		
-		img {
-			height: 100%;
-		}
-		
 		h3 {
 			font-size: rem-calc(12);
 			line-height: 1;
@@ -146,7 +143,17 @@
 	}
 }
 
-// AGENT INFO
+.no-flexboxlegacy { // Target IE
+	.rn-site-header-logo {
+		@media #{$mobile-down} {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+// AGENT NAME
 
 .rn-site-header-agent-name {
 	border-left: 1px solid $gray-lighter;
@@ -154,7 +161,6 @@
 	padding: 0 $gutter-width; // No gutter for top/bottom double gutter for left/right
 	
 	display: flex;
-	flex: 1 1 auto;
 	flex-direction: column;
 	justify-content: center;
 	
@@ -175,7 +181,7 @@
 	}
 	
 	@media #{$tablet-up} {
-		flex: 1 1 rem-calc(400);
+		flex: 1 1 rem-calc(320);
 	}
 	
 	@media #{$mobile-down} {
@@ -186,9 +192,7 @@
 		
 		align-items: flex-start;
 		flex: 0 1 auto;
-	}
-	
-	@media #{$small-only} {
+			
 		h1 {
 			font-size: 6vw;
 		}
@@ -199,14 +203,17 @@
 	}
 }
 
+// AGENT AREA
+
 .rn-site-header-agent {
     padding: $gutter-width / 2;
 
     display: flex;
-    justify-content: space-between;
+    flex: 0 0 auto;
     
     img {
         height: rem-calc(72);
+        padding-right: $gutter-width / 2;
     }
     
     @media #{$mobile-down} {
@@ -217,75 +224,70 @@
 .rn-site-header-agent-details {
 	align-items: center; 
 	display: flex;
-	flex: 0 0 auto;
+	flex: 1 1 auto;
     flex-direction: column;
-	justify-content: space-around; // Center items vertically with space around
-
-    .rn-site-header-agent-email {
-        text-decoration: none;
-
-        align-items: center;
-        display: flex;
-
-        i {
-            font-size: rem-calc(20);
-            
-            margin-right: $gutter-width / 4;
-        }
-    }
+	justify-content: space-around; // Center items vertically with space between
 	
-	@media #{$mobile-down} {
-		align-items: center;
-		flex: 0 0 100%;
+	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		
+		list-style: none;
+		
+		display: flex;
+		justify-content: center;
+		
+		li {
+		}
 	}
 }
 
-.rn-site-header-agent-phone {
-	a {
+.rn-site-header-agent-phone,
+.rn-site-header-agent-email {
+	li {
 		border-left: 1px solid $primary-color;
-		font-weight: bold;
-		text-decoration: none;
-		
-		padding: 0 ($gutter-width / 2); // No top/bottom padding as line-height is enough
-		
-		transition: $transition;
 		
 		&:first-of-type {
 			border: none;
 		}
+	}
+	
+	a {
+		font-weight: bold;
+		text-decoration: none;
+		
+		padding: 0 ($gutter-width / 2); // Very light bottom padding to assist line height
+		
+		transition: $transition;
 		
 		&:hover {
 			color: $secondary-color;
 		}
 	}
-	
-	@media #{$mobile-down} {
-		padding: ($gutter-width / 2) 0;
+}
+
+.rn-site-header-agent-email {
+	li {
 		
-		a {
-			margin: ($gutter-width / 2) 0;
+	}
+	
+	a {
+		font-size: rem-calc(14);
+		
+		align-items: center;
+		display: flex;
+		
+		i {
+			font-size: rem-calc(16);
 		}
 	}
 }
 
-.rn-site-header-agent-email, 
 .rn-site-header-agent-social {
-	font-size: rem-calc(16);
-	text-align: right;
-	
-	margin: 0;
-	padding: 0;
-	
-	list-style: none;
-	
-	display: block;
-	
-	li {
-		display: inline-block;
-	}
-	
 	a {
 		color: $white;
+		font-size: rem-calc(16);
 		text-decoration: none;
 		text-shadow: 0 0 rem-calc(4) rgba($primary-color, .9);
 		
@@ -297,16 +299,19 @@
 			text-shadow: 0 0 rem-calc(4) rgba($secondary-color, .9);
 		}
 	}
-	
-	@media #{$mobile-down} {
-		text-align: center;
-		
-		padding: ($gutter-width / 2) 0;
-		
-		a {
-			padding: $gutter-width / 2;
-		}
-	}
+}
+
+.rn-site-header-agent-email {
+    text-decoration: none;
+
+    align-items: center;
+    display: flex;
+
+    i {
+        font-size: rem-calc(20);
+        
+        margin-right: $gutter-width / 4;
+    }
 }
 
 // PROPERTY WATCH
@@ -366,8 +371,18 @@
 	margin: 0;
 	padding: 0;
 	
+    .text {
+        display: none;
+    }
+	
 	@media #{$tablet-up} {
 		width: 100%;
+		
+		&.scroll-fix {
+			position: fixed;
+			top: 0;
+			z-index: 1;
+		}
 	}
 
 	@media #{$mobile-down} {
@@ -383,10 +398,6 @@
             display: flex;
         }
 	}
-	
-    .text {
-        display: none;
-    }
 }
 
 .rn-site-header-nav-menu {
@@ -569,6 +580,7 @@ body:not(.search) {
 .rn-extranet {
     padding: $gutter-width;
 }
+
 .rn-dashboard-form-button,
 .rn-dashboard-navigation a,
 .rn-dashboard-history-button,

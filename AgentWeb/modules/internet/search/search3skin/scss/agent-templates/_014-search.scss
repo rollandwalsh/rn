@@ -3,36 +3,36 @@ body.search {
 	// - - - - - - - - - - - - -
 	
 	.rn-site-header {
-		@extend .rn-container;
-		
 		height: $search-site-header-height; // Set to control search area height
 		max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
-        max-width: rem-calc(1200);
+        width: 100%; // Fill entire screen
 		
-		display: flex;
-		
+		display: flex; // display > .rn-container and .rn-site-header-nav in flex
+		justify-content: center; // Keep elements in center of the screen.
+
 		> .rn-container {
 			height: 100%;
-            max-width: rem-calc(1050);
-			padding: 0; // Add padding to top/bottom only
-
-            
+			margin: 0;
+			padding: 0;
+			
+			flex: 0 1 auto;
+			flex-wrap: nowrap;
 		}
-	
+		
+		@media #{$tablet-up} {
+			> .rn-container {
+				max-width: calc(#{$container-width} - #{rem-calc(100)}); // > .rn-container should be no wider than the entire container-width less the width of the .rn-site-header-nav (100)
+				width: 100%; // Fill screen fully if less than max-width
+				
+				justify-content: flex-start; // Content should be to the left of the element
+			}
+		}
+		
 		@media #{$mobile-down} {
 			height: $search-site-header-height-small; // Change header height for mobile
 			max-height: $search-site-header-height-small; // Maintain header height despite content
-				
-			flex-direction: row; // Flex-items should be in a row
-			flex-wrap: nowrap; // Don't allow flex-items to wrap
-            justify-content: space-between;
 			
 			position: relative; // Set so that mobile nav dropdown spans entire header
-	
-			> .rn-container {
-				flex: 0 0 60%;
-				flex-direction: row;
-			}
 		}
 	}
 	
@@ -41,10 +41,7 @@ body.search {
 	.rn-site-header-logo {
 		height: 100%;
 		
-		flex: 0 1 auto;
-		
 		a {
-			padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
 			height: 100%;
 		}
 		
@@ -52,21 +49,21 @@ body.search {
 			height: 100%;
 			width: auto;
 		}
+		
+		@media #{$tablet-up} {
+			a {
+				padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+			}
+		}
 	
 		@media #{$mobile-down} {
 			height: 100%;
 			width: 100%;
-				
-			flex: 0 0 auto; // Don't allow logo to to shrink for mobile
-			justify-content: flex-start;
-				
+
 			a {
 				padding: $gutter-width / 4; // Decrease padding for larger logo
-                width: 100%;
-	
-				align-items: center; // Allow img to center vertically if logo should shrink horizontally
-				display: flex;
 			}
+
             h3 {
                 font-size: rem-calc(10);
             }
@@ -75,55 +72,58 @@ body.search {
 
 	// AGENT INFO
 	.rn-site-header-agent-name {
-		margin: ($gutter-width / 2) 0;
 		padding: 0 ($gutter-width / 2); // No gutter for top/bottom, normal gutter for left/right
-
-		flex: 1 1 auto;
 		
-		h1 {
-            font-size: rem-calc(18);
-        }
-        h4 {
-            font-size: rem-calc(14);
-        }
-        @media #{$mobile-down} {
-			display: none;
+		@media #{$tablet-up} {
+			display: flex;
+		
+			h1 {
+	            font-size: rem-calc(18);
+	        }
+	        
+	        h4 {
+	            font-size: rem-calc(14);
+	        }
+		}
+	}
+	
+    .rn-site-header-agent {
+		img {
+			height: rem-calc(56);
 		}
 		
-
-	}
-    .rn-site-header-agent {
-        img {
-            
-            display: none;
-            @media #{$tablet-up} {
-                height: rem-calc(56);
-
-                display: block;
-            }
-        }
-        
+		@media #{$mobile-down} {
+			img {
+				display: none;
+			}
+		}
     }
+    
     .rn-site-header-agent-details {
-        display: none;
-        @media #{$tablet-up} {
-            display: flex;
-        }
         .rn-site-header-agent-social {
             margin: 0;
         }
+        
+        @media #{$tablet-up} {
+	        display: flex;
+        }
+        
+        @media #{$mobile-down} {
+	        display: none;
+        }
     }
+	
+	// PROPERTY WATCH
 
-    // PROPERTY WATCH 
-    .rn-site-header-property-watch {
-        display: none;
-    }
+	.rn-site-header-property-watch {
+		display: none;
+	}
 
 	// NAVIGATION
 	
 	.rn-site-header-nav {
         background: transparent;
-	    max-width: rem-calc(150);
+        
 	    height: 100%;
 			
 	    display: flex;
@@ -131,13 +131,16 @@ body.search {
 	    justify-content: flex-end;
 			
         position: initial;
-		width: 100%; // Fill the width of the screen
 			
 		z-index: 10; // Display over page content
-
-        @media #{$mobile-view} {
-            flex: 0 0 40%;
-        }
+		
+		.rn-container {
+			height: 100%;
+			margin: 0;
+			
+			align-items: center;
+			display: flex;
+		}
 		
 		li a {
 			background: $primary-color;
@@ -148,12 +151,13 @@ body.search {
 			width: 100%; // Fill entire li element
 			
 			display: block; // Fill entire width
-            transition: $transition;
-            
-            &:hover {
-                    background: lighten($primary-color, 10%);
-                }
-		    }
+			
+			transition: $transition;
+			
+			&:hover {
+				background: lighten($primary-color, 10%);
+			}
+		}
 		
 		.dropdown {
 			padding: 0;
@@ -164,16 +168,10 @@ body.search {
 			position: relative;
 			top: auto;
 		}
-
-			
-	    .rn-container {
-		    height: 100%;
-		    margin: 0;
-				
-		    align-items: center;
-		    display: flex;
-	    }
-
+		
+		@media #{$tablet-up} {
+			width: rem-calc(100); // Set width to 100px (space for two icons)
+		}
 	}
 	
 	.rn-site-header-nav-menu {
@@ -194,6 +192,7 @@ body.search {
         a {
             text-align: center;
         }
+        
 		.dropdown li a {
 			background: $gray;
             transition: $transition;
@@ -209,35 +208,26 @@ body.search {
 	}
 	
 	.rn-site-header-nav-button {
+		background: transparent;
 		color: $primary-color;
         text-decoration: none; // Removed underlines
-
-		background: transparent;
-
 		
 		padding: $gutter-width / 2;
 
 		justify-content: flex-end;
 		
 		&.rn-site-navigation-toggle,
-        &.rn-search-user-toggle {
-            @media #{$tablet-up} {
-                height: 100%;
-                padding: ($gutter-width / 4);
-            }
-            
+        &.rn-search-user-toggle {            
             align-items: center;
 			display: flex; // Allow sass-burger and text to be inline
             flex-direction: column;
             justify-content: space-between;
+            
             .text {
 				font-weight: bold;
                 text-transform: uppercase;
 
                 margin-top: $gutter-width / 4;
-                @media #{$tablet-up} {
-                    display: block;
-                }
 			}
 		}
 			
@@ -249,9 +239,6 @@ body.search {
 			
 		.rn-site-header-nav-burger {
 			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $primary-color); // Burger should be 24px high with 1px high $gray lines and 7px gaps
-            @media #{$tablet-up} {
-                margin-top: $gutter-width;
-            }
 		}
 			
 		&.is-active {
@@ -259,7 +246,22 @@ body.search {
 				@include burger-to-cross; // Burger transforms to cross when active
 			}
 		}
-	
+		
+		@media #{$tablet-up} {
+			&.rn-site-navigation-toggle,
+			&.rn-search-user-toggle {
+				height: 100%;
+				padding: $gutter-width / 4;
+				
+				.text {
+					display: block;
+				}
+			}
+			
+			.rn-site-header-nav-burger {
+				margin-top: $gutter-width;
+			}
+		}
 	
 		@media #{$mobile-down} {
 			text-align: center;
@@ -267,10 +269,11 @@ body.search {
 			padding: $gutter-width / 2;
 				
 			display: inline-block;
+
             &.rn-search-user-toggle,
-		&.rn-search-criteria-toggle {
-			padding: $gutter-width / 4;
-		}
+		    &.rn-search-criteria-toggle {
+			    padding: $gutter-width / 4;
+		    }
 		}
 	}
 	

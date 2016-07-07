@@ -374,7 +374,9 @@ body.home {
 }
 
 .rn-fp-photo {
+    height: rem-calc(125);
     overflow: hidden;
+
 	a > img {
 		width: 100% !important;
 
@@ -669,6 +671,11 @@ $callout-height: rem-calc(88);
 		&.a2015marketvideo_b {
 			.line-1:after {content: "60-second"}
 			.line-2:after {content: "market update video"}
+		}
+
+		&.a2015marketwatchb {
+			.line-1:after {content: "Market Watch"}
+			.line-2:after {content: "view market trends"}
 		}
 		
 		.line-1 {

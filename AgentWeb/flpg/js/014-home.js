@@ -1,4 +1,12 @@
-var agentContact, agentContactList, carousel, randomSlide;
+var agentMobileContact, agentMobileContactList, carousel, randomSlide;
+
+agentMobileContact = $('#rnSiteHeaderAgentMobileContactImg');
+
+agentMobileContactList = $('#rnSiteHeaderAgentMobileContactList');
+
+agentMobileContact.on('click', function() {
+  return agentMobileContactList.slideToggle();
+});
 
 randomSlide = Math.floor(Math.random() * $('.rn-home-carousel > div').length);
 
@@ -13,14 +21,6 @@ carousel.slick({
   arrows: false,
   fade: true,
   slickGoTo: randomSlide
-});
-
-agentContact = $('#rnSiteHeaderAgentContactImg');
-
-agentContactList = $('#rnSiteHeaderAgentContactList');
-
-agentContact.on('click', function() {
-  return agentContactList.slideToggle();
 });
 
 $(function() {

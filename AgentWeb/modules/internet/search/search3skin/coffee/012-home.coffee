@@ -1,7 +1,7 @@
-agentContact = $('#rnSiteHeaderAgentContactImg')
-agentContactList = $('#rnSiteHeaderAgentContactList')
-agentContact.on 'click', () ->
-	agentContactList.slideToggle()
+agentMobileContact = $('#rnSiteHeaderAgentMobileContactImg')
+agentMobileContactList = $('#rnSiteHeaderAgentMobileContactList')
+agentMobileContact.on 'click', () ->
+	agentMobileContactList.slideToggle()
 
 $ ->
 	qs = setInterval((->

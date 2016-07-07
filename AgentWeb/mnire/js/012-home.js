@@ -1,11 +1,11 @@
-var agentContact, agentContactList;
+var agentMobileContact, agentMobileContactList;
 
-agentContact = $('#rnSiteHeaderAgentContactImg');
+agentMobileContact = $('#rnSiteHeaderAgentMobileContactImg');
 
-agentContactList = $('#rnSiteHeaderAgentContactList');
+agentMobileContactList = $('#rnSiteHeaderAgentMobileContactList');
 
-agentContact.on('click', function() {
-  return agentContactList.slideToggle();
+agentMobileContact.on('click', function() {
+  return agentMobileContactList.slideToggle();
 });
 
 $(function() {
