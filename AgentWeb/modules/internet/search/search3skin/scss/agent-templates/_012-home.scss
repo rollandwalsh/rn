@@ -267,6 +267,7 @@ body.home {
 
 // AGENT
 
+.rn-home-agent-text,
 .rn-home-agent-profile {
 	font-size: rem-calc(14);
 	
@@ -274,7 +275,9 @@ body.home {
 	padding: $gutter-width / 2;
 	overflow-y: scroll;
 	width: 100%;
-	
+}
+
+.rn-home-agent-profile {
 	display: flex;
 	
 	@media #{$small-only} {
@@ -667,7 +670,6 @@ body.home {
          }
     }
 }
-
 
 @import 'template-form.scss',
 		'template-contact-overlay.scss',

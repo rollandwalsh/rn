@@ -403,9 +403,6 @@
         }
       }
       .school-district {
-        display: flex;
-        flex-direction: column;
-        
         border: 1px solid $gray-light;
         
         max-height: rem-calc(128);
@@ -784,6 +781,10 @@
     margin-left: (-$gutter-width / 2);
 
     transform: rotate(45deg);
+  }
+  @media #{$medium-only} {
+      font-size: rem-calc(13) !important;
+      line-height: 1;
   }
 }
 

@@ -56,6 +56,17 @@
   }
 }
 
+@media #{$medium-only} {
+  .rn-search-gallery-options-main {
+    width: 50%; // Each should be half the space
+  }
+
+  .rn-search-gallery-options-secondary {
+    width: 50%; // Each should be half the space
+  }
+
+}
+
 @media #{$two-col-only} {
   .rn-search-gallery-options-main {
     width: 50%; // Each should be half the space
@@ -687,7 +698,7 @@
 }
 
 .rn-search-prop-card-expand {
-  background: lighten($tertiary-color, 15%); // Background should be light version of default blue
+  background: $tertiary-color; // Background should be light version of default blue
   border: none; // Remove default borders from buttons
   color: $white; // Set font-color to white to offset button background-colors
   font-size: rem-calc(13); // Reduce font-size

@@ -283,7 +283,8 @@ body.home {
 }
 
 .rn-site-header-agent-contact {
-    flex: 1 1 100%;
+    width: 100%;
+    
     li {
         border-left: 1px solid $white;
         &:first-of-type {
@@ -293,11 +294,13 @@ body.home {
 }
 
 .rn-site-header-agent-email {
-    flex: 1 1 50%;
+    width: calc(50% - (#{$gutter-width} / 4));
+    
     li {
         align-items: center;
         display: flex;
     }
+    
     i {
         color: $white;
         font-size: rem-calc(18);
@@ -307,7 +310,8 @@ body.home {
 }
 
 .rn-site-header-agent-social {
-    flex: 1 1 50%;
+    width: calc(50% - (#{$gutter-width} / 4));
+    
 	a {
 		text-decoration: none;
 	}
@@ -566,6 +570,7 @@ body:not(.search) {
 .rn-extranet {
     padding: $gutter-width;
 }
+
 .rn-dashboard-form-button,
 .rn-dashboard-navigation a,
 .rn-dashboard-history-button,
