@@ -8,15 +8,36 @@
 	.rn-container {
 		display: flex;
 	}
+	
+	@media #{$mobile-down} {
+        height: rem-calc(40);
+        max-height: rem-calc(40);
+
+        position: relative;
+
+        align-items: center;
+        display: flex;
+        
+		> .rn-container {
+			height: 100%;
+            padding: 0;
+
+            flex: 1 1 auto;
+            flex-wrap: nowrap;
+		}
+	}
 }
 
 // LOGO
 
 .rn-site-header-logo {
-	padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
 	height: 100%;
 
 	display: block;
+	
+	a {
+		display: block;
+	}
 	
 	img {
 		height: 100%;
@@ -25,10 +46,21 @@
 
 		display: block;
 	}
+	
+	@media #{$tablet-up} {
+		a {
+			padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		}
+	}
 
 	@media #{$mobile-down} {
 		display: flex;
 		justify-content: center;
+		
+		a {
+			height: 100%;
+			padding: $gutter-width / 4; // Give smaller padding for mobile
+		}
 	}
 }
 
@@ -40,12 +72,16 @@
 	flex: 1 1 auto;
 	flex-direction: column;
 	justify-content: space-between;
+	
+	@media #{$mobile-down} {
+		height: 100%;
+	}
 }
 
 // PROPERTY WATCH
 
 .rn-site-header-property-watch {
-	background: lighten($purple, 15%);
+	background: lighten($purple, 25%);
 	border: 1px solid $white;
 	border-radius: $gutter-width / 2;
 	font-size: rem-calc(10);
@@ -55,12 +91,19 @@
 
 	list-style: none;
 	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		padding: 0 ($gutter-width / 4);
+	}
+	
 	a {
 		color: $white;
 		text-transform: uppercase;
 	}
 	
-	@media #{$small-only} {
+	@media #{$mobile-down} {
 		display: none;
 	}
 }
@@ -85,7 +128,7 @@
 		}
 	}
 	
-	@media #{$small-only} {
+	@media #{$mobile-down} {
 		display: none;
 	}
 }
@@ -100,7 +143,10 @@
 
 	align-self: flex-end;
 	
-	@media #{$small-only} {
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
 		display: flex;
 		justify-content: flex-end;
 	}
@@ -271,13 +317,6 @@
 			.rn-site-header-nav-burger {
 				@include burger-to-cross;
 			}
-		}
-	}
-	
-	@media #{$small-only} {
-		&.rn-search-user-toggle,
-		&.rn-search-criteria-toggle {
-			display: block; 
 		}
 	}
 }

@@ -1,34 +1,73 @@
 @import '../../../modules/internet/search/search3skin/scss/sass-burger';
 
-// HEADER
+// SITE HEADER
+// - - - - - - - - - - - - -
 
 .rn-site-header {
 	@include purple-grid-bg();
 	
+	color: $white;
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
+	
 	.rn-container {
+		height: 100%;
+		padding: 0; // Add padding to top/bottom only
+		width: 100%; // Set a width for flexbox to work within
+		
 		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	@media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+			
+		flex-direction: row; // Flex-items should be in a row
+		flex-wrap: nowrap; // Don't allow flex-items to wrap
+		
+		position: relative;
+
+		.rn-container {
+			flex-direction: row;
+		}
 	}
 }
 
 // LOGO
 
 .rn-site-header-logo {
-	padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
 	height: 100%;
-
-	display: block;
+	width: auto;
+	
+	align-items: center; // Center logo vertically
+	display: flex;
+	flex: 1 1 auto;
+	
+	a {
+		padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		height: 100%;
+	}
 	
 	img {
-		height: 100%;
 		max-height: 100%;
-		width: auto;
-
-		display: block;
+		max-width: 100%;
 	}
 
 	@media #{$mobile-down} {
-		display: flex;
-		justify-content: center;
+		height: 100%;
+		width: auto;
+			
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+			
+		a {
+			padding: $gutter-width / 4; // Decrease padding for larger logo
+
+			align-items: center; // Allow img to center vertically if logo should shrink horizontally
+			display: flex;
+		}
 	}
 }
 
@@ -40,6 +79,10 @@
 	flex: 1 1 auto;
 	flex-direction: column;
 	justify-content: space-between;
+	
+	@media #{$mobile-down} {
+		height: 100%;
+	}
 }
 
 // PROPERTY WATCH
@@ -50,57 +93,48 @@
 	border-radius: $gutter-width / 2;
 	font-size: rem-calc(10);
 	
-	margin: ($gutter-width / -2) 0 $gutter-width;
+	margin: ($gutter-width / -2) 0 0;
 	padding: ($gutter-width * .75) ($gutter-width / 2) ($gutter-width / 2);
-
+	
 	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		padding: 0 ($gutter-width / 4);
+	}
 	
 	a {
 		color: $white;
 		text-transform: uppercase;
 	}
 	
-	@media #{$small-only} {
-		display: none;
+	@media #{$mobile-down} {
+		display: none !important;
 	}
 }
 
 // HEADER PHONE
 
 .rn-site-header-phone {
-	font-family: $serif-font;
-	font-size: rem-calc(14);
-	
-	flex: 1 1 auto;
-	
-	span {
-		border-right: 1px solid $white;
-		
-		padding: 0 ($gutter-width / 2);
-		
-		&:last-of-type {
-			border: none;
-			
-			padding-right: 0;
-		}
-	}
-	
-	@media #{$small-only} {
-		display: none;
-	}
+	display: none;
 }
 
 // NAVIGATION
 
 .rn-site-header-nav {
 	font-family: $serif-font;
-	font-size: rem-calc(14);
+	font-size: rem-calc(13);
 	
 	width: 100%;
 
 	align-self: flex-end;
 	
-	@media #{$small-only} {
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
 		display: flex;
 		justify-content: flex-end;
 	}
@@ -233,6 +267,26 @@
 
 .rn-site-header-nav-button {
 	text-decoration: none; // Removed underlines
+		
+	&.rn-search-user-toggle,
+	&.rn-search-criteria-toggle {
+		padding: $gutter-width / 4;
+	}
+		
+	i {
+		color: $white;
+		font-size: rem-calc(33);
+	}
+		
+	.rn-site-header-nav-burger {
+		@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+	}
+		
+	&.is-active {
+		.rn-site-header-nav-burger {
+			@include burger-to-cross; // Burger transforms to cross when active
+		}
+	}
 
 	@media #{$tablet-up} {
 		display: none; // Hidden by default
@@ -240,15 +294,14 @@
 
 	@media #{$mobile-down} {
 		color: $white;
-		
-		text-decoration: none;
-		
+		text-align: center;
+			
 		padding: $gutter-width / 2;
-		
+			
+		display: inline-block;
+
 		&.rn-site-navigation-toggle {
-			align-items: flex-end; // Justify sass-burger and text right
-			display: flex;
-			justify-content: flex-end;
+			display: flex; // Allow sass-burger and text to be inline
 			
 			.text {
 				font-weight: bold;
@@ -256,28 +309,6 @@
 				
 				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
 			}
-		}
-		
-		&.rn-search-user-toggle,
-		&.rn-search-criteria-toggle {
-			display: none; // Hide for non-search pages
-		}
-		
-		.rn-site-header-nav-burger {
-			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white);
-		}
-		
-		&.is-active {
-			.rn-site-header-nav-burger {
-				@include burger-to-cross;
-			}
-		}
-	}
-	
-	@media #{$small-only} {
-		&.rn-search-user-toggle,
-		&.rn-search-criteria-toggle {
-			display: block; 
 		}
 	}
 }

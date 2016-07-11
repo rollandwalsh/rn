@@ -7646,6 +7646,15 @@ body.loggedin .rn-quick-search-button.login {
     text-transform: uppercase;
     margin: 0 0 1rem;
     padding: 0 0 0.5rem; }
+    .rn-home-agent-info h1 span {
+      font-size: 60%;
+      display: block; }
+  .rn-home-agent-info img {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle; }
   @media only screen and (max-width: 40em) {
     .rn-home-agent-info {
       padding: 0;

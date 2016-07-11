@@ -3,7 +3,7 @@ var navItemsClasses, pageBody, pageClass, urlPathname, urlSearch;
 navItemsClasses = function() {
   $('#rnSiteHeaderNavMenu li').removeAttr('class');
   $('#rnSiteHeaderNavMenu a').removeAttr('class');
-  return $('#rnSiteHeaderNavMenu .submenu-list').attr('class', 'dropdown').parent('li').addClass('has-dropdown');
+  $('#rnSiteHeaderNavMenu .submenu-list').attr('class', 'dropdown').parent('li').addClass('has-dropdown');
 };
 
 urlPathname = window.location.pathname;

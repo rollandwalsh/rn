@@ -5,5 +5,6 @@ navMenuButton.on 'click', (e) ->
   navMenuButton.toggleClass 'is-active'
   navMenu.slideToggle()
   e.preventDefault()
+  console.log 'test'
   return
   

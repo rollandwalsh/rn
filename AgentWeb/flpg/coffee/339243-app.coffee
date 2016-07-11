@@ -1,3 +1,7 @@
+accountId = '339243';
+companyAbbr = 'flpg'
+companyId = '373'
+
 carousel = $('#homeSlider')
 carousel.slick()
 
@@ -10,7 +14,11 @@ $ ->
 			$('.rn-qsr-bd-f option').eq(0).html 'Beds'
 			$('.rn-qsr-ba-f option').eq(0).html 'Bath'
 			$('.rn-qsr-button').replaceWith '<button onclick="submitForm()" class="rn-qsr-button" type="submit"><i class="rn-icon-search"></i></button>'
-			$('#quickSearchLink').insertBefore '.rn-qsr-button'
+			$('.rn-qsr-button').before '<div class="rn-qsr-selects"></div>'
+			$('.rn-qsr-bd').appendTo '.rn-qsr-selects'
+			$('.rn-qsr-ba').appendTo '.rn-qsr-selects'
+			$('.rn-qsr-mn').appendTo '.rn-qsr-selects'
+			$('.rn-qsr-mx').appendTo '.rn-qsr-selects'
 			clearInterval qs
 		return
 	), 200)

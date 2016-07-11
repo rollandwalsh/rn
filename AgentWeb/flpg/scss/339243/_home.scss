@@ -16,6 +16,38 @@
 		
 		padding-top: rem-calc(550);
 	}
+	
+	.slick-dots {
+		@extend .rn-container;
+		
+		text-align: right;
+		
+		padding: 0 ($gutter-width / 2);
+		
+		right: 0;
+		bottom: $gutter-width;
+		left: 0;
+		
+		li {
+			button:before {
+				background: transparent;
+				border: 1px solid $white;
+				border-radius: 100%;
+				color: transparent !important;
+				line-height: rem-calc(12) !important;
+				
+				height: rem-calc(12) !important;
+				width: rem-calc(12) !important;
+				
+				opacity: 1 !important;
+			}
+			
+			&.slick-active button:before {
+				background: $white;
+				color: $white !important
+			}
+		}
+	}
 }
 
 .rn-home-hero-content {
@@ -71,7 +103,9 @@
 }
 
 .rn-qsr {
+	color: $secondary-color;
 	font-family: inherit;
+	font-size: rem-calc(14);
 	
 	margin-top: $gutter-width;
 	width: 100%;
@@ -92,45 +126,58 @@
 		display: flex;
 		
 		float: none;
+		
+		order: 0;
 	}
 	
 	.rn-qsr-cz-f {
 		border: none;
+		color: inherit !important; // Needs important to overwrite inline styling
 		
-		font-size: rem-calc(14);
+		font-size: inherit !important; // Needs important to overwrite inline styling
 		text-transform: uppercase;
 		
 		height: rem-calc(40);
 		margin-right: 0;
 		padding: $gutter-width / 2;
-		width: 100%;
+		width: 100% !important; // Needs important to overwrite inline styling
 		
 		outline: none;
+	}
+	
+	.rn-qsr-selects {
+		margin-right: $gutter-width;
+		width: calc(100% - #{rem-calc(96)} - #{$gutter-width}); // Fill form element less the size of the button (96) and padding (16)
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		order: 1;
 	}
 
 	.rn-qsr-mn,
 	.rn-qsr-mx,
 	.rn-qsr-bd,
 	.rn-qsr-ba {
-		float: none;
-	}
-
-	.rn-qsr-mn {
 		margin-right: 0;
-
-		align-items: center;
-		display: flex;
+		float: none;
+		
+		width: calc(50% - (#{$gutter-width} / 2)
+	}
+	.rn-qsr-bd,
+	.rn-qsr-ba {
+		margin-bottom: $gutter-width;
 	}
 
 	select {
 		background-color: $white;
 		border: none;
 		font-family: inherit;
-		font-size: rem-calc(14) !important;
+		font-size: rem-calc(14) !important; // Needs important to overwrite inline styling
 		text-transform: uppercase;
 
 		height: rem-calc(40);
-		width: 100% !important;
+		width: 100% !important; // Needs important to overwrite inline styling
 		
 		outline: none;
 	}
@@ -139,17 +186,18 @@
 		background: transparent;
 		border: none;
 		color: $white;
-		font-size: rem-calc(18);
+		font-size: rem-calc(64);
 		font-weight: 600;
 		line-height: 1;
 		
-		height: rem-calc(40);
+		height: rem-calc(96); // Font size (64px) + gutter-width * 2 (32)
 		margin: 0;
-		padding: ($gutter-width / 2) $gutter-width;
-		width: auto;
+		padding: $gutter-width;
+		width: rem-calc(96); // Font size (64px) + gutter-width * 2 (32)
 		
 		align-items: center;
 		display: flex;
+		order: 2;
 		
 		transition: $transition;
 		
@@ -157,98 +205,10 @@
 			background: $secondary-color;
 		}
 	}
-
-
-	@media #{$tablet-up} {
-		width: 100%;
-
-		order: 2;
-
-		.rn-qsr-mn,
-		.rn-qsr-mx,
-		.rn-qsr-bd,
-		.rn-qsr-ba {
-			flex: 1 1 auto;
-		}
-
-		.rn-qsr-mx {
-			margin-right: $gutter-width;
-		}
-
-		.rn-qsr-bd {
-			margin-right: $gutter-width / 2;
-		}
-
-		.rn-qsr-clearctr {
-			display: none;
-		}
-	}
-
-	@media #{$mobile-down} {
-		width: 100%;
-
-		form {
-			flex-wrap: wrap;
-		}
-
-		.rn-qsr-cz {
-			order: 0;
-		}
-
-		.rn-qsr-mx,
-		.rn-qsr-bd,
-		.rn-qsr-ba {
-			flex: 0 0 25%;
-		}
-
-		.rn-qsr-mn,
-		.rn-qsr-mx {
-			order: 1;
-		}
-
-		.rn-qsr-mn {
-			flex: 0 0 calc(25% + #{rem-calc(22)});
-		}
-
-		.rn-qsr-mn-l {
-			padding: $gutter-width / 4;
-		}
-
-		.rn-qsr-mx {
-			margin-right: 0;
-		}
-
-		a {
-			font-size: rem-calc(11);
-			text-align: right;
-
-			padding: 0;
-
-			flex: 1 1 auto;
-			order: 2;
-		}
-
-		.rn-qsr-bd,
-		.rn-qsr-ba {
-			order: 3;
-		}
-
-		.rn-qsr-bd {
-			margin-right: rem-calc(22);
-		}
-
-		select {
-			margin-bottom: $gutter-width / 2;
-		}
-
-		.rn-qsr-clearctr {
-			flex: 1 1 auto;
-			order: 4;
-		}
-
-		.rn-qsr-button {
-			order: 4;
-		} 
+	
+	.rn-qsr-clearctr,
+	.rn-qsr-label {
+		display: none;
 	}
 }
 

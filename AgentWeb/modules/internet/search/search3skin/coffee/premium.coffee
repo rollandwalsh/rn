@@ -1,3 +1,4 @@
+# Formats premium site populated navigation
 navItemsClasses = ->
 	$('#rnSiteHeaderNavMenu li').removeAttr 'class'
 	# Remove uneccessary class from li tags
@@ -5,11 +6,13 @@ navItemsClasses = ->
 	# Remove uneccessary class from a tags
 	$('#rnSiteHeaderNavMenu .submenu-list').attr('class', 'dropdown').parent('li').addClass 'has-dropdown'
 	# Change dropdown ul tags to .dropdown and add .has-dropdown to their parent li tags
+	return
 
 urlPathname = window.location.pathname
 urlSearch = window.location.search
 pageBody = $('body')
 
+# Sets correct body class name based on current page.
 pageClass = ->
 	if urlSearch is '' and (urlPathname is '' or urlPathname is '/')
 		pageBody.addClass 'rn-home-page'
@@ -22,6 +25,7 @@ pageClass = ->
 		pageBody.addClass 'rn-agent-office-page'
 	else
 		pageBody.addClass 'rn-interior-page'
-		
+
+# Run functions
 navItemsClasses()
 pageClass()
