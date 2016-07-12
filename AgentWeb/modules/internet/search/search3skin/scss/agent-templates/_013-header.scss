@@ -468,13 +468,14 @@ body.home {
 	}
 
 	@media #{$tablet-up} {
-		
 		.dropdown {
+			max-height: 80vh; // Sets a max height in case there are so many elements in a dropdown that it goes beyond the height of the page
 			padding: 0; // gutter-width padding on top to drop below header
 			width: rem-calc(190);
 		
 			display: none; // Hide by default
-		
+			
+			overflow-y: scroll; // Allows scrolling in case there are a ridiculous amout of elements in the dropdown
 			position: absolute;
 			top: 100%; // Nav height
 			left: 0;

@@ -7108,9 +7108,11 @@ body:not(.search) h6 {
       display: inline-block; }
   @media only screen and (min-width: 48.0625em) {
     .rn-site-header-nav-menu .dropdown {
+      max-height: 80vh;
       padding: 0;
       width: 11.875rem;
       display: none;
+      overflow-y: scroll;
       position: absolute;
       top: 100%;
       left: 0;

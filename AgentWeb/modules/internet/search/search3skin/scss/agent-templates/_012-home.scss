@@ -620,55 +620,213 @@ body.home {
 }
 
 // FEATURED PROPERTIES
-.featured-properties {
-    .rn-fp {
-        width: 100% !important;
-         > div:first-of-type {
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: space-between;
 
-             margin: 0 auto !important;
-             width: 100% !important;
-         }
-         .rn-fp-c {
-             background: $white;
-             width: 32%;
-             @media #{$mobile-view} {
-                 width: 100%;
-             }
-         }
-         .rn-fp-photo {
-             border: none;
-            overflow: hidden;
+.rn-home-featured-properties {
+	@extend .rn-container;
+	
+	padding: $gutter-width / 2;
+	
+	> h3 {
+		text-align: center;
+		text-transform: uppercase;
+		
+		margin: 0;
+		
+		i {
+			font-size: rem-calc(16);
+		}
+	}
+}
 
-	        > img:not(.rn-fp-mlsicon) {
-		        top: 0 !important;
-                right: 0 !important;
-		        left: 0 !important;
+.rn-fp {
+	border: none !important;
+	
+	margin: 0 ($gutter-width * 3); // Room for navigation arrows
+	width: calc(100% - (#{$gutter-width} * 6)) !important;
+	
+	> div:first-of-type {
+		margin: 0 !important;
+		width: 100% !important;
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
-		        height: 100% !important;
-                margin: 0 auto;
-                width: auto !important;
-		        
-	        }
-        }
-         .rn-fp-viewdetails {
-             background: $primary-color;
-             padding: $gutter-width / 2;
+		> div:last-of-type {
+			display: none !important;
+		}
 
-             cursor: pointer;
-             transition: $transition;
-             a {
-                 color: $white;
-                 text-decoration: none;
-             }
-             &:hover {
-                 background: lighten($primary-color, 10%);
+		@media #{$medium-only} {
+			justify-content: center;
+		}
+	}
+}
 
-             }
-         }
-    }
+.rn-fp-c {
+	background-color: $white !important;
+	border: none !important;
+
+	margin: 0 !important;
+	padding: $gutter-width / 2;
+	width: 32%;
+
+	float: none !important;
+
+	@media #{$medium-only} {
+		width: 50%;
+	}
+
+	@media #{$small-only} {
+		width: 100%;
+	}
+}
+
+.rn-fp-photo {
+	border: none !important;
+
+	margin-bottom: $gutter-width / 2;
+
+	a {
+		width: 100%;
+
+		position: absolute;
+		z-index: 1;
+
+		> img {
+			margin: 0 !important;
+			width: 100% !important;
+		}
+	}
+	
+	> img:not(.rn-fp-mlsicon) {
+		margin: 0 auto !important;
+		
+		position: relative !important;
+		top: 0 !important;
+		right: 0 !important;
+		left: 0 !important;
+	}
+}
+
+.rn-fp-info-city,
+.rn-fp-info-price {
+	width: auto !important;
+}
+
+.rn-fp-info-city {
+	font-size: rem-calc(12);
+}
+
+.rn-fp-info-price {
+	font-size: rem-calc(14);
+	font-weight: bold;
+}
+
+.rn-fp-info-value {
+	width: auto !important;
+	
+	float: none !important;
+}
+
+.rn-fp-viewdetails {
+	border: none !important;
+	text-align: right;
+	
+	height: 0;
+	padding: 0 !important;
+	
+	a {
+		visibility: hidden;
+		width: 100%;
+		
+		position: relative;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $secondary-color;
+		}
+		
+		&:after {
+			@extend i;
+			
+			font-size: rem-calc(32);
+			
+			visibility: visible;
+			
+			content: '\e90a';
+			position: absolute;
+			top: rem-calc(-32);
+			right: 0;
+		}
+	}
+}
+
+.rn-fp-nav {
+	@extend i;
+	
+	background-image: none !important;
+	border: none !important;
+	color: $gray-lighter;
+	font-size: rem-calc(32);
+	
+	height: 100% !important;
+	padding: $gutter-width / 2;
+	width: $gutter-width * 3 !important;
+	
+	position: absolute;
+	top: 0 !important;
+    z-index: 100 !important;
+	
+	cursor: pointer;
+	
+	align-items: center;
+	display: flex;
+	
+	transition: $transition;
+	
+	&:hover {
+		color: $black;
+	}
+}
+
+.rn-fp-nav-prev {
+	@extend .rn-icon-angle-left-big;
+	
+	right: auto !important;
+	left: $gutter-width * -3 !important;
+}
+
+.rn-fp-nav-next {
+	@extend .rn-icon-angle-right-big;
+	
+	right: $gutter-width * -3 !important;
+	left: auto !important;
+}
+		
+.rn-fp-mlsicon,
+.rn-fp-extras,
+.rn-fp-info-num,
+.rn-fp-info-type,
+.rn-fp-info-bed,
+.rn-fp-info-bath,
+.rn-fp-info-city .rn-fp-info-label,
+.rn-fp-info-price .rn-fp-info-label,
+.rn-fp-lo,
+.rn-fp-disclaimer {
+	display: none !important;
+}
+
+.rn-fp-loading {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.rn-fp-loadingText {
+	height: 100% !important;
+	width: 100% !important;
+
+	top: rem-calc(64) !important;
 }
 
 @import 'template-form.scss',

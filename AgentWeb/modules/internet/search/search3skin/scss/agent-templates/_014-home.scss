@@ -238,6 +238,22 @@ body.loggedin {
 		
 		margin: 0 0 $gutter-width;
 		padding: 0 0 ($gutter-width / 2);
+		
+		span {
+			font-size: 60%;
+			
+			display: block;
+		}
+	}
+
+	// To prevent page from breaking if agent uses a large image in this section
+	img {
+		height: auto;
+		max-width: 100%;
+		width: 100%;
+
+		display: inline-block;
+		vertical-align: middle;
 	}
 
 	@media #{$small-only} {
