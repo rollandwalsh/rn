@@ -406,18 +406,26 @@
 	margin-bottom: $gutter-width;
 	width: rem-calc(220);
 	
-	img {
-		@include photo-border();
-		
-		width: 100%;
-	}
-	
 	a {
 		color: $secondary-color;
 		text-decoration: none;
 		
+		width: 100%;
+		
 		&:hover {
 			button { background: $black}
+		}
+		
+		div {
+			@include photo-border();
+			
+			width: 100%;
+			
+			&:before {
+				content: "";
+				display: block;
+				padding-top: 75%;
+			}
 		}
 	}
 	

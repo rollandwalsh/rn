@@ -1759,15 +1759,20 @@ body:not(.search) h6 {
 .rn-home-featured-property {
   margin-bottom: 1rem;
   width: 13.75rem; }
-  .rn-home-featured-property img {
-    border: 0.25rem solid #ffffff;
-    box-shadow: 1px 1px 4px 0px rgba(121, 120, 120, 0.8);
-    width: 100%; }
   .rn-home-featured-property a {
     color: #797878;
-    text-decoration: none; }
+    text-decoration: none;
+    width: 100%; }
     .rn-home-featured-property a:hover button {
       background: #000000; }
+    .rn-home-featured-property a div {
+      border: 0.25rem solid #ffffff;
+      box-shadow: 1px 1px 4px 0px rgba(121, 120, 120, 0.8);
+      width: 100%; }
+      .rn-home-featured-property a div:before {
+        content: "";
+        display: block;
+        padding-top: 75%; }
   .rn-home-featured-property ul {
     font-size: 0.8125rem;
     line-height: 1.4;

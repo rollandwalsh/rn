@@ -44,7 +44,7 @@ $(function() {
         img = $(div + 'div.rn-fp-photo img:nth-child(3)').attr('src');
         city = $(div + '#rn-fp-info-value-city').html();
         price = $(div + '#rn-fp-info-value-list-price').html();
-        $('<article class="rn-home-featured-listing"><a href="' + link + '"><div class="" style="background-image: url(' + img + ')"></div><ul><li><span>City</span>' + city + '</li><li><span>Price</span>' + price + '</li><ul><button>View Details <i class="rn-icon-triangle-right"></i></button></a></article>').appendTo('#featuredListings');
+        $('<article class="rn-home-featured-property"><a href="' + link + '"><div class="" style="background-image: url(' + img + ')"></div><ul><li><span>City</span>' + city + '</li><li><span>Price</span>' + price + '</li><ul><button>View Details <i class="rn-icon-triangle-right"></i></button></a></article>').appendTo('#featuredProperties');
         i++;
       }
       $('.rn-fp').remove();
