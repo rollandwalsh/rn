@@ -1242,7 +1242,7 @@ body:not(.search) h6 {
     text-transform: uppercase; }
   @media only screen and (max-width: 48em) {
     .rn-site-header-property-watch {
-      display: none; } }
+      display: none !important; } }
 
 .rn-site-header-phone {
   font-family: Georgia, Times, Times New Roman, serif;
@@ -1763,8 +1763,6 @@ body:not(.search) h6 {
     color: #797878;
     text-decoration: none;
     width: 100%; }
-    .rn-home-featured-property a:hover button {
-      background: #000000; }
     .rn-home-featured-property a div {
       border: 0.25rem solid #ffffff;
       box-shadow: 1px 1px 4px 0px rgba(121, 120, 120, 0.8);
@@ -1791,7 +1789,10 @@ body:not(.search) h6 {
     text-transform: uppercase;
     margin: 0 auto;
     padding: 0.5rem;
-    display: block; }
+    display: block;
+    transition: 150ms ease-in-out all; }
+    .rn-home-featured-property button:hover {
+      background: #797878; }
 
 .rn-home-callouts {
   background: #eeeeee;

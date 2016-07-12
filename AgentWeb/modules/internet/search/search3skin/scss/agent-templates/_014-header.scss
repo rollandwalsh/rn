@@ -257,7 +257,7 @@
 		font-weight: bold;
 		text-decoration: none;
 		
-		padding: 0 ($gutter-width / 2); // Very light bottom padding to assist line height
+		padding: 0 ($gutter-width / 2) ($gutter-width / 4); // Very light bottom padding to assist line height
 		
 		transition: $transition;
 		

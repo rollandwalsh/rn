@@ -412,10 +412,6 @@
 		
 		width: 100%;
 		
-		&:hover {
-			button { background: $black}
-		}
-		
 		div {
 			@include photo-border();
 			
@@ -459,6 +455,12 @@
 		padding: $gutter-width / 2;
 		
 		display: block;
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $secondary-color;
+		}
 	}
 }
 

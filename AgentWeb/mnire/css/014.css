@@ -6924,7 +6924,7 @@ body {
 .rn-site-header-agent-email a {
   font-weight: bold;
   text-decoration: none;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 0.25rem;
   transition: 150ms ease-in-out all; }
   .rn-site-header-agent-phone a:hover,
   .rn-site-header-agent-email a:hover {

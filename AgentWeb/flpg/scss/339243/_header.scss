@@ -104,7 +104,7 @@
 	}
 	
 	@media #{$mobile-down} {
-		display: none;
+		display: none !important; // !important needed to overwrite js that shows logged in/out state
 	}
 }
 
