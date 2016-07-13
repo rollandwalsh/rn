@@ -304,9 +304,13 @@
 			}
 		}
 		
-		&.rn-search-user-toggle,
 		&.rn-search-criteria-toggle {
 			display: none; // Hide for non-search pages
+		}
+			
+		i {
+			color: $white;
+			font-size: rem-calc(33);
 		}
 		
 		.rn-site-header-nav-burger {

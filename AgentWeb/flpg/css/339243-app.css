@@ -1388,8 +1388,11 @@ body:not(.search) h6 {
           font-weight: bold;
           text-transform: uppercase;
           margin-left: 0.5rem; }
-      .rn-site-header-nav-button.rn-search-user-toggle, .rn-site-header-nav-button.rn-search-criteria-toggle {
+      .rn-site-header-nav-button.rn-search-criteria-toggle {
         display: none; }
+      .rn-site-header-nav-button i {
+        color: #ffffff;
+        font-size: 2.0625rem; }
       .rn-site-header-nav-button .rn-site-header-nav-burger {
         position: relative;
         margin-top: 0.5rem;
