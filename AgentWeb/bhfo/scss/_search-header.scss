@@ -1,0 +1,334 @@
+// SITE HEADER
+// - - - - - - - - - - - - -
+
+.rn-site-header {
+	background: $white;
+	color: $purple;
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
+	
+	@media #{$tablet-up} {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+		
+		display: flex;
+		flex-direction: row; // Flex-items should be in a row
+		flex-wrap: nowrap; // Don't allow flex-items to wrap
+		
+		position: relative;
+	}
+}
+
+// TOP BAR
+// - - - - - - - - - - - - -
+
+.rn-site-header-top-bar {
+	display: none;
+}
+
+// MAIN
+// - - - - - - - - - - - - -
+
+.rn-site-header-main {
+	@media #{$tablet-up} {
+		height: calc(100% - 25px);
+		margin: 0 auto;
+		max-width: $container-width;
+		width: 100%;
+		
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: 0;
+		
+		flex: 0 1 auto;
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	height: 100%;
+	width: auto;
+	
+	align-items: center; // Center logo vertically
+	display: flex;
+	
+	a {
+		padding: $gutter-width / 4; // Give gutter padding to make logo easily clickable
+		height: 100%;
+	}
+	
+	img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+	
+	@media #{$tablet-up} {
+		flex: 1 1 auto;
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		width: auto;
+			
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+			
+		a {
+			align-items: center; // Allow img to center vertically if logo should shrink horizontally
+			display: flex;
+		}
+	}
+}
+
+// PHONE
+
+.rn-site-header-phone {
+	color: $purple;
+	font-size: rem-calc(14);
+	font-weight: 600;
+	
+	margin: 0;
+	padding: $gutter-width / 2;
+	
+	@media #{$mobile-down} {
+		display: none; // Element hidden for mobile
+	}
+}
+
+// SOCIAL
+
+.rn-site-header-social {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	a {
+		color: $white;
+		font-size: rem-calc(18);
+		text-decoration: none;
+		text-shadow: 0px 0px ($gutter-width / 4) $bhhs-gray-dark;
+		
+		padding: ($gutter-width / 2) ($gutter-width * .8);
+	}
+	
+	@media #{$mobile-down} {
+		display: none; // Element hidden for mobile
+	}
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	background: $purple;
+	font-size: rem-calc(12);
+	font-weight: 400;
+	text-transform: uppercase;
+	
+	@media #{$tablet-up} {
+		width: 100%;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		text-align: center;
+		
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:hover a {
+			background: $bhhs-gray-dark;
+		}
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+
+		display: block;
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			text-align: center;	
+
+			&:hover {
+				a {
+					background: $gray;
+				}
+			}
+			
+			a {
+				background: $purple;
+				border: none;
+				font-weight: normal; // Override bold font
+				text-transform: none; // Override uppercase
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		margin: 0 auto;
+		max-width: $container-width;
+		width: 100%;
+		
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+		justify-content: center;
+		
+		.dropdown {
+			padding: $gutter-width 0 0; // gutter-width padding on top to drop below header
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(8); // Nav height
+			left: 0;
+			z-index: 10;
+			
+			a:hover {
+				color: $white; // Override red hover color
+			}
+		}
+	}
+	
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		li {
+			border: none; // Remove border styling
+		}
+		
+		a {
+			background: $purple;
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+			
+			&:hover {
+				background: $black;
+			}
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+		
+	&.rn-search-user-toggle,
+	&.rn-search-criteria-toggle {
+		padding: $gutter-width / 4;
+	}
+		
+	i {
+		color: $white;
+		font-size: rem-calc(33);
+	}
+		
+	.rn-site-header-nav-burger {
+		@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+	}
+		
+	&.is-active {
+		.rn-site-header-nav-burger {
+			@include burger-to-cross; // Burger transforms to cross when active
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		text-align: center;
+			
+		padding: $gutter-width / 2;
+			
+		display: inline-block;
+
+		&.rn-site-navigation-toggle {
+			display: flex; // Allow sass-burger and text to be inline
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+	}
+}

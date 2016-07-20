@@ -1,0 +1,353 @@
+@import '../../modules/internet/search/search3skin/scss/sass-burger';
+
+$site-header-height-main: rem-calc(120);
+$site-header-height-small: rem-calc(40);
+
+// HEADER
+// - - - - - - - - - - - - -
+
+.rn-site-header {
+	@include transparent-bg();
+	
+	@media #{$mobile-down} {
+        height: $site-header-height-small;
+        max-height: $site-header-height-small;
+
+        position: relative;
+
+        align-items: center;
+        display: flex;
+	}
+}
+
+// TOP BAR
+// - - - - - - - - - - - - -
+
+.rn-site-header-top-bar {
+	background: $bhhs-gray-dark;
+	color: $white;
+	font-size: rem-calc(10);
+	
+	width: 100%;
+	
+	ul {
+		@extend .rn-container;
+		
+		padding: 0;
+		
+		list-style: none;
+		
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	li {
+		padding: $gutter-width / 4;
+	}
+	
+	a {
+		color: $white;
+	}
+	
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+// MAIN
+// - - - - - - - - - - - - -
+
+.rn-site-header-main {
+	@extend .rn-container;
+	
+	@media #{$tablet-up} {
+		height: $site-header-height-main;
+		max-height: $site-header-height-main;
+		
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		padding: 0;
+		
+		flex: 0 1 auto;
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	height: 100%;
+
+	display: block;
+	
+	a {
+		display: block;
+	}
+	
+	img {
+		height: 100%;
+		max-height: 100%;
+		width: auto;
+
+		display: block;
+	}
+	
+	@media #{$tablet-up} {
+		a {
+			padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		}
+	}
+
+	@media #{$mobile-down} {
+		display: flex;
+		
+		a {
+			height: 100%;
+			padding: $gutter-width / 4; // Give smaller padding for mobile
+		}
+	}
+}
+
+// PHONE
+
+.rn-site-header-phone {
+	color: $purple;
+	font-size: rem-calc(18);
+	font-weight: 600;
+	
+	margin: 0;
+	padding: $gutter-width / 2;
+	
+	align-self: flex-end;
+	
+	@media #{$mobile-down} {
+		display: none; // Element hidden for mobile
+	}
+}
+
+// SOCIAL
+
+.rn-site-header-social {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	align-self: flex-end;
+	display: flex;
+	
+	a {
+		color: $white;
+		font-size: rem-calc(18);
+		text-decoration: none;
+		text-shadow: 0px 0px ($gutter-width / 4) $bhhs-gray-dark;
+		
+		padding: ($gutter-width / 2) ($gutter-width * .8);
+	}
+	
+	@media #{$mobile-down} {
+		display: none; // Element hidden for mobile
+	}
+}
+
+// NAV
+// - - - - - - - - - - - - -
+
+.rn-site-header-nav {
+	background: $purple;
+	font-size: rem-calc(12);
+	font-weight: 400;
+	text-transform: uppercase;
+	
+	@media #{$tablet-up} {
+		width: 100%;
+	}
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	@extend .rn-container;
+	
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		text-align: center;
+		
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+		
+		&:hover a {
+			background: $bhhs-gray-dark;
+		}
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none;
+		
+		height: rem-calc(32);
+		padding: $gutter-width / 2;
+
+		display: block;
+		
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			text-align: center;	
+
+			&:hover {
+				a {
+					color: $purple;
+				}
+			}
+			
+			a {
+				background: $bhhs-gray-dark;
+				border: none;
+				font-weight: 600;
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		
+		.dropdown {
+			padding: 0;
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(32); // Nav height
+			left: 0;
+			z-index: 10;
+		}
+	}
+	
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		li {
+			border: none; // Remove border styling
+		}
+		
+		a {
+			background: $purple;
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+			
+			&:hover {
+				background: $black;
+			}
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		
+		text-decoration: none;
+		
+		padding: $gutter-width / 2;
+		
+		&.rn-site-navigation-toggle {
+			align-items: flex-end; // Justify sass-burger and text right
+			display: flex;
+			justify-content: flex-end;
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+		
+		&.rn-search-criteria-toggle {
+			display: none; // Hide for non-search pages
+		}
+			
+		i {
+			color: $white;
+			font-size: rem-calc(33);
+		}
+		
+		.rn-site-header-nav-burger {
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white);
+		}
+		
+		&.is-active {
+			.rn-site-header-nav-burger {
+				@include burger-to-cross;
+			}
+		}
+	}
+}

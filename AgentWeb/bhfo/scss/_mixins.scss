@@ -1,0 +1,62 @@
+// BACKGROUNDS
+// - - - - - - - - - - - - -
+
+@mixin transparent-bg($border: false) {
+	background: rgba($white, .5);
+	
+	@if $border == true {
+		border-top: 1px solid $white;
+		border-bottom: 1px solid $white;
+	}
+}
+
+// FONTS
+// - - - - - - - - - - - - -
+
+@mixin home-heading($size: $gutter-width) {
+	color: $purple;
+	font-size: $size;
+	font-weight: 100;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+// BUTTONS
+// - - - - - - - - - - - - -
+
+@mixin button($color: $purple, $size: $gutter-width, $full-width: false) {
+	@include button-static;
+
+	background: $color;
+	background: linear-gradient($color 0%, mix($black, $color, 15%) 100%);
+	border: none;
+	font-size: $size;
+	
+	padding: ($size * .4) ($size / 2);
+	
+	@if $full-width == true {
+		width: 100%;
+		
+		display: inline-block;
+	}
+  
+	&:hover {
+		background: mix($color, $black, 15%);
+		background: linear-gradient($color 0%, mix($black, $color, 30%) 100%);
+	}
+}
+
+@mixin button-static {
+	border-radius: $gutter-width / 2;
+	color: $white;
+	font-weight: 200;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+	transition: $transition;
+	
+	&:hover {
+		cursor: pointer;
+	}
+}
