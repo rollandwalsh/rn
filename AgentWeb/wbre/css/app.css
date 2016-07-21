@@ -1529,21 +1529,42 @@ body {
       margin: 0;
       padding: 0.5rem 1rem; }
     .rn-home-hero-content:last-of-type h3 {
-      font-weight: 400; }
+      font-size: 1.375rem;
+      font-weight: 700; }
     .rn-home-hero-content:last-of-type a {
-      background: #a7a6a8;
       border-radius: 0.5rem;
-      color: #ffffff;
-      font-weight: 100;
+      font-weight: 600;
       text-decoration: none;
       text-transform: uppercase;
       padding: 0.5rem 1rem; }
       .rn-home-hero-content:last-of-type a:hover {
         background: #414042; }
     .rn-home-hero-content:last-of-type h6 {
-      color: #a7a6a8;
-      font-size: 1rem;
-      font-weight: 100; }
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.5rem;
+      -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+              align-self: flex-end; }
+  @media only screen and (min-width: 48.0625em) {
+    .rn-home-hero-content:last-of-type {
+      background: #b70018;
+      border: none;
+      color: #ffffff; }
+      .rn-home-hero-content:last-of-type a {
+        background: #ffffff;
+        color: #c7c8ca; }
+      .rn-home-hero-content:last-of-type h6 {
+        color: #ffffff; } }
+  @media only screen and (max-width: 48em) {
+    .rn-home-hero-content:last-of-type {
+      color: #414042; }
+      .rn-home-hero-content:last-of-type a {
+        background: #b70018;
+        color: #ffffff; }
+      .rn-home-hero-content:last-of-type h6 {
+        color: #414042; } }
 
 .rn-home-carousel {
   box-shadow: 0 4px 8px 0 rgba(65, 64, 66, 0.75); }
