@@ -1,0 +1,343 @@
+// INTERIOR
+// - - - - - - - - - - - - -
+
+.rn-site-interior,
+.rn-site-new-construction {
+	.rn-container {
+		padding: $gutter-width / 2;
+	}
+	
+	hr {
+		border: 1px solid $woods-gray-dark;
+		
+		margin: $gutter-width ($gutter-width / -2);
+	}
+	
+	.rn-divider {
+		border: 1px solid $woods-gray-dark;
+		
+		flex: 0 0 auto;
+	}
+	
+	.uppercase {
+		color: $red;
+		font-size: rem-calc(18);
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+	
+.rn-site-interior {	
+	img { // Respnosive images
+	    height: auto;
+	    max-width: 100%;
+		width: 100%;
+	    
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+	
+	.centered { // Class to center things
+		text-align: center;
+
+		margin-bottom: $gutter-width;
+	}
+	
+	.flex-video { // Handles responsive videos
+	    height: 0;
+	    margin-bottom: $gutter-width / 2;
+	    padding-bottom: 75%;
+	    overflow: hidden;
+	    
+	    position: relative;
+	    
+	    iframe,
+	    object,
+	    embed,
+	    video {
+		    height: 100%;
+		    width: 100%;
+		    
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+	    }
+	}
+
+	// GRID
+	
+	.rn-row {
+		margin-bottom: $gutter-width / 2;
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		&.center {
+			justify-content: center;
+		}
+	}
+	
+	.rn-column {
+		padding: $gutter-width;
+		
+		&.half {
+			flex: 0 0 50%;
+		}
+		
+		&.one-third {
+			flex: 0 0 33%;
+		}
+		
+		&.two-thirds {
+			flex: 0 0 66%;
+		}
+		
+		@media #{$mobile-down} {
+			&.half,
+			&.one-third,
+			&.two-thirds {
+				padding: ($gutter-width / 2) 0;
+
+				flex: 1 1 100%;
+			}
+		}
+	}
+	
+	// FONT STYLING
+	
+	h1 {
+		color: $red;
+		font-size: rem-calc(30);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	h2 {
+		color: $red;
+		font-size: rem-calc(24);
+		font-weight: normal;
+	}
+	
+	h3 {
+		color: $gray-dark;
+		font-size: rem-calc(18);
+		font-weight: bold;
+	}
+	
+	h4 {
+		color: $gray-dark;
+		font-size: rem-calc(16);
+		font-weight: normal;
+	}
+	
+	h5 {
+		color: $gray-dark;
+		font-size: rem-calc(16);
+		font-weight: 300;
+	}
+	
+	h6 {
+		color: $red;
+		font-size: rem-calc(15);
+		font-weight: bold;
+	}
+	
+	p,
+	ul,
+	ol,
+	span {
+		color: $gray-dark;
+	}
+	
+	blockquote {
+		color: $red;
+		font-size: rem-calc(24);
+		font-weight: normal;
+		font-style: italic;
+	}
+	
+	.button {
+		background: $red;
+		border: none;
+		color: $white;
+		font-size: rem-calc(12);
+		font-weight: bold;
+		text-transform: uppercase;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+		
+		transition: $transition;
+		
+		&:hover {
+			background: $woods-gray-dark;
+		}
+	}
+}
+	
+// SOCIAL LINKS
+
+.rn-interior-links-social {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	justify-content: center;
+	
+	li {
+		flex: 0 0 auto;
+	}
+	
+	a {
+		color: $gray-lighter;
+		font-size: rem-calc(26);
+		text-decoration: none;
+		
+		padding: $gutter-width / 2;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $woods-gray-dark;
+		};
+	}
+}
+
+
+// DASHBOARD
+// - - - - - - - - - - - - -
+
+.rn-extranet-page {
+
+	.rn-dashboard-form-button,
+	.rn-dashboard-navigation a,
+	.rn-dashboard-history-button,
+	.rn-dashboard-agent-transfer-button,
+	.rn-popup-button,
+	.rn-popup-contact-button {
+		background: $red;
+
+		transition: $transition;
+
+		&:hover {
+			background: $woods-gray-dark;
+		}
+	}
+
+	.rn-dashboard-navigation a.rn-dashboard-active {
+		background: $woods-gray-dark;
+	}
+
+	.rn-dashboard-home-title,
+	.rn-dashboard-header-title,
+	.rn-dashboard-messages h3 {
+		color: $red;
+	}
+}
+
+// AGENTS & OFFICES
+// - - - - - - - - - - - - -
+
+.rn-roster-search-submit {
+	background: $woods-gray-dark;
+
+	transition: $transition;
+
+	&:hover {
+		background: darken($woods-gray-dark, 8%);
+	}
+}
+
+.rn-agent-name,
+.rn-office-name,
+.rn-agent-contact-office-directions {
+	color: $red;
+
+	a {
+		color: $woods-gray-dark;
+		text-decoration: none;
+	}
+}
+
+.rn-agent-button-questions a {
+	background: $red;
+
+	transition: $transition;
+
+	&:hover {
+		background: $woods-gray-dark;
+	}
+}
+
+// HOME VALUES
+// - - - - - - - - - - - - -
+
+.rn-home-values-form .rn-home-values-form-submit {
+	width: auto !important;
+}
+
+.rn-home-values-card-top {
+	background: $woods-gray-dark;
+}
+
+#rn-home-values-share-button, 
+#rn-home-values-save-button, 
+.rn-home-values-share-submit,
+.rn-home-values-form-submit {
+	background: $woods-gray-dark;
+	color: $white;
+
+	&:hover {
+		background: darken($woods-gray-dark, 8%);
+	}
+}
+
+// Registration form 
+
+.maindashboard {
+    #signupbutton,
+    #existingaccount,
+    .registerlogin-fields input[type="submit"] {
+        background: $primary-color;
+        border:none;
+	    color: $white;
+
+	    &:hover {
+		    background: darken($primary-color, 8%);
+	    }
+    }
+}
+
+// NEW CONSTRUCTION
+
+.rn-site-new-construction {
+	dd.mainArea,
+	dd.sideBar {
+		.section {
+			background-color: $white-dark;
+		
+			h2 {
+				background-color: $primary-color;
+				color: $white;
+			}
+		
+			.lists a {
+				color: $primary-color;
+			
+				&:hover {
+					color: lighten($primary-color, 10%);
+				}
+			}
+		
+			dl.header {
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	.featSubdivisions ul li {
+		background-color: $primary-color;
+	}
+}
