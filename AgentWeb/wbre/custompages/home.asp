@@ -75,7 +75,7 @@ cStatic = "/static"
 					<div class="rn-home-hero-content">
 						<h3>Get Matched With Your Perfect Neighborhood</h3>
 						<a href="https://www.liveby.co/woodsbros" target="_blank">Discover Now</a>
-						<h6>BETA Version</h6>
+						<h6>BETA</h6>
 					</div>
 				</section>
 			</div>
