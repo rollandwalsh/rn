@@ -689,6 +689,9 @@ i {
 .rn-icon-rss:before {
   content: "\f09e"; }
 
+.rn-icon-speedometer:before {
+  content: "\e051"; }
+
 .rn-icon-scope:before {
   content: "\e058"; }
 

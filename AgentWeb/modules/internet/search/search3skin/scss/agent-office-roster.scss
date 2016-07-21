@@ -1,0 +1,248 @@
+@import 'global-colors',
+        'global-icons',
+		'global-functions',
+		'global-media-queries',
+		'normalize',
+        url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+
+
+#overlayParent {
+    max-width: rem-calc(800);
+
+	display: flex;
+}
+
+#overlayClose {
+    width: auto !important;
+
+    top: 0 !important;
+    right: 0 !important;
+
+    a,
+    img {
+        display: none;
+    }
+    &:after {
+        color: $black;
+        content: "\e927";
+        font-family: 'RN-Icons';
+        font-size: 2rem;
+    }
+}
+
+#-cf-form-close {
+    display: none;
+}
+
+#-cf-column-form {
+    flex: 1 1 auto;
+    width: 50%;
+
+    form {
+        font-size: rem-calc(12);
+
+        padding: rem-calc(16);
+        padding-right: rem-calc(8);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+}
+
+#-cf-form {
+    width: auto !important;
+}
+
+
+// INPUT FIELDS 
+#-cf-form > div {
+    margin-bottom: rem-calc(16) / 2;
+
+    align-items: flex-end;
+    display: flex;
+
+    &:first-of-type {
+        .-cf-form-label-correspondance {
+            display: flex;
+            flex: 1 1 25%;
+    
+        }
+
+        .-cf-form-field-wrapper {
+            display: flex;
+            flex: 1 1 75%;
+
+            input {
+                width: 100%;
+
+                order: 1;
+            }
+
+            .-cf-form-required-indicator {
+                color: red;
+                font-size: rem-calc(16);
+                font-weight: bold;
+
+                order: 0;
+            }
+        }
+    }
+
+    &:nth-of-type(2) {
+        .-cf-form-label-correspondance {
+            flex: 1 1 25%;
+        }
+
+        input {
+            flex: 1 1 75%;
+        }
+    }
+
+    &:nth-of-type(3) {
+        textarea {
+            height: rem-calc(100);
+            width: 100%;
+        }
+    }
+
+    &:nth-of-type(4),
+    &:nth-of-type(5) {
+
+        .-cf-form-label-name {
+            flex: 1 1 10%;
+        }
+        .-cf-form-label-contact,
+        .-cf-form-field-wrapper,
+        .-cf-form-field-contact {
+            flex: 1 1 15%;
+        }
+
+        .-cf-form-label-name,
+        .-cf-form-label-contact {
+            padding-left: rem-calc(4);
+        }
+
+        .-cf-form-field-wrapper {
+            display: flex;
+            input {
+                width: 100%;
+
+                order: 1;
+            }
+        }
+    }
+
+    &:nth-of-type(6) {
+        justify-content: center;
+
+        input {
+            color: $white;
+            font-size: rem-calc(16);
+
+            border:none;
+            margin: rem-calc(4);
+            padding: rem-calc(8);
+
+            &:nth-of-type(1) {
+                background: #cc0000;
+            }
+
+            &:nth-of-type(2) {
+                background: $gray;
+            }
+
+            &:nth-of-type(3) {
+                background: #009900;
+            }
+        }
+    }
+}
+
+.-cf-form-required-indicator {
+    color: red;
+    font-size: rem-calc(16);
+    font-weight: bold;
+}
+
+.-cf-clear {
+    display: none;
+}
+
+#-cf-disclaimer {
+    display: flex;
+}
+
+
+// AGENT INFO
+
+#-cf-column-info {
+    background: $gray-1;
+    margin: rem-calc(16);
+    margin-left: rem-calc(8);
+    padding: rem-calc(16);
+
+    display: flex;
+    flex: 1 1 50%;
+    flex-wrap: wrap;
+
+    div {
+        flex: 1 1 100%;
+    }
+}
+
+#-cf-info-name {
+    font-size: rem-calc(20);
+    font-weight: bold;
+    text-align: center;
+}
+
+#-cf-info-office-heading,
+#-cf-info-website-heading,
+#-cf-info-mobile-heading {
+    font-weight: bold;
+}
+
+#-cf-info-office-name,
+#-cf-info-address-1,
+#-cf-info-address-2,
+#-cf-info-address-city,
+#-cf-info-address-state,
+#-cf-info-address-zip,
+#-cf-info-office-phone,
+#-cf-info-website-info,
+#-cf-info-mobile-info {
+    font-size: rem-calc(14);
+}
+
+#-cf-info-address-city,
+#-cf-info-address-state,
+#-cf-info-address-zip {
+    padding-right: rem-calc(3);
+
+    flex: 0 1 auto !important;
+}
+
+
+
+
+// MEDIA QUERIES
+
+@media #{$mobile-down} {
+    #overlayParent {
+        flex-wrap: wrap;
+    }
+
+    #-cf-column-form {
+        padding-top: rem-calc(32);
+        padding-right: rem-calc(16);
+        padding-bottom: rem-calc(8);
+    }
+
+    #-cf-column-info {
+        margin-top: rem-calc(8);
+        margin-left: rem-calc(8);
+    }
+}

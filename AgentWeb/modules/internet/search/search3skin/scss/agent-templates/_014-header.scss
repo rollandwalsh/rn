@@ -211,10 +211,10 @@
     display: flex;
     flex: 0 0 auto;
     
-    img {
-        height: rem-calc(72);
-        padding-right: $gutter-width / 2;
-    }
+	img {
+		height: rem-calc(72);
+		padding-right: $gutter-width / 2;
+	}
     
     @media #{$mobile-down} {
         display: none;
@@ -237,9 +237,6 @@
 		
 		display: flex;
 		justify-content: center;
-		
-		li {
-		}
 	}
 }
 
@@ -268,10 +265,6 @@
 }
 
 .rn-site-header-agent-email {
-	li {
-		
-	}
-	
 	a {
 		font-size: rem-calc(14);
 		
@@ -280,6 +273,8 @@
 		
 		i {
 			font-size: rem-calc(16);
+
+			margin-right: $gutter-width / 4;
 		}
 	}
 }
@@ -299,19 +294,6 @@
 			text-shadow: 0 0 rem-calc(4) rgba($secondary-color, .9);
 		}
 	}
-}
-
-.rn-site-header-agent-email {
-    text-decoration: none;
-
-    align-items: center;
-    display: flex;
-
-    i {
-        font-size: rem-calc(20);
-        
-        margin-right: $gutter-width / 4;
-    }
 }
 
 // PROPERTY WATCH

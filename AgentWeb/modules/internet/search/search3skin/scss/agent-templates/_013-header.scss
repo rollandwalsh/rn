@@ -134,7 +134,7 @@ body.home {
     }
     
     @media #{$tablet-up} {
-	    flex: 0 0 auto;
+	    flex: 0 1 rem-calc(320);
     }
 	
 	@media #{$mobile-down} {
@@ -168,7 +168,7 @@ body.home {
 	}
 }
 
-// AGENT DETAILS
+// AGENT NAME
 
 .rn-site-header-agent-name {
 	border-left: 1px solid $gray-lighter;
@@ -176,8 +176,6 @@ body.home {
 	padding: 0 $gutter-width; // No gutter for top/bottom double gutter for left/right
 	
 	display: flex;
-	flex: 1 1 auto;
-
 
     .rn-site-header-agent-name-headers {
         display: flex;
@@ -208,20 +206,36 @@ body.home {
 		width: auto;
 	}
 	
+	@media #{$tablet-up} {
+		flex: 1 1 rem-calc(320);
+	}
+	
 	@media #{$mobile-down} {
         display: none; // Hide for mobile view - this content will then be accessible in .rn-site-header-agent-mobile-content
+	}
+}
+
+// AGENT AREA
+
+.rn-site-header-agent {
+	padding: $gutter-width / 2;
+	
+	display: flex;
+    flex: 0 0 auto;
+	
+	@media #{$mobile-down} {
+        display: none;
 	}
 }
 
 .rn-site-header-agent-details {
 	font-size: rem-calc(13);
 	
-	padding: 0 ($gutter-width / 4);
-	
-	align-content: space-around;
-    display: flex;
-    flex-wrap: wrap;
-	justify-content: space-between;
+	align-items: center; 
+	display: flex;
+	flex: 1 1 auto;
+    flex-direction: column;
+	justify-content: space-around; // Center items vertically with space between
 	
 	h3 {
 		font-size: rem-calc(16);
@@ -232,61 +246,28 @@ body.home {
 	a {
 		color: $white;
         text-decoration: none;
+
+		padding: 0 ($gutter-width / 2) ($gutter-width / 4); // Very light bottom padding to assist line height
 	}
 	
-	@media #{$mobile-down} {
-        width: 100%;
-
-		align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-	}
-}
-
-.rn-site-header-agent {
-	padding: ($gutter-width / 4) 0;
-	
-	display: flex;
-    flex: 1 1 25%;
-    justify-content: flex-end;
-
-	img {
-		height: rem-calc(72);
-		width: auto;
-	}
-	
-	@media #{$mobile-down} {
-        display: none;
-
-		padding: $gutter-width / 2;
-	}
-}
-
-.rn-site-header-agent-contact,
-.rn-site-header-agent-email,
-.rn-site-header-agent-social {
-	margin: 0;
-	padding: 0;
-	
-	list-style: none;
-	
-	display: flex;
+	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
 		
-	li {
-		padding: ($gutter-width / 4) ($gutter-width / 2);
+		list-style: none;
 		
-		&:first-of-type {
-			padding-left: 0;
-		}
+		display: flex;
+		justify-content: center;
 	}
 }
 
-.rn-site-header-agent-contact {
+.rn-site-header-agent-phone {
     width: 100%;
     
     li {
         border-left: 1px solid $white;
+
         &:first-of-type {
             border: none;
         }
@@ -294,26 +275,17 @@ body.home {
 }
 
 .rn-site-header-agent-email {
-    width: calc(50% - (#{$gutter-width} / 4));
-    
-    li {
-        align-items: center;
-        display: flex;
-    }
-    
-    i {
-        color: $white;
-        font-size: rem-calc(18);
-
-        margin-right: $gutter-width / 4;
-    }
-}
-
-.rn-site-header-agent-social {
-    width: calc(50% - (#{$gutter-width} / 4));
-    
 	a {
-		text-decoration: none;
+		font-size: rem-calc(14);
+		
+		align-items: center;
+		display: flex;
+		
+		i {
+			font-size: rem-calc(16);
+
+			margin-right: $gutter-width / 4;
+		}
 	}
 }
 

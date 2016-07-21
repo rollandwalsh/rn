@@ -1,11 +1,15 @@
 ﻿// GALLERY OPTIONS
 // - - - - - - - - - - - - -
 
+
+#searchresultcontent {
+    height: 100%;
+}
+
 .rn-search-gallery-options {
   color: $gray; // Set default color for Gallery Option elements
   line-height: 1;
 
-  height: 100%;
   margin: ($gutter-width / 2);
 
   display: flex; // Container should be flex-container

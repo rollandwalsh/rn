@@ -717,6 +717,12 @@
 	}
 }
 
+// DRIVE TIME
+// - - - - - - - - - - - - -
+
+@import 'drive-time';
+
+
 // SEARCH FOOTER
 // - - - - - - - - - - - - -
 
@@ -1012,6 +1018,10 @@
       align-items: center;
       display: flex;
       flex-direction: column;
+
+      span {
+          width: 100%;
+      }
       .rn-search-listing-display-submit-buttons-form {
         input {
           background: $primary-color;

@@ -970,18 +970,18 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
 }
 
 .rn-search-listing-display-content-agent-info {
-	width: 100%;
+	margin-bottom: $gutter-width / 4;
+    width: 100%;
 	
 	align-items: flex-start;
     display: flex;
     img {
         height: auto;
         margin-right: $gutter-width / 2;
-
-        flex: 1 1 35%;
+        width: 35%
     }
     div {
-        flex: 1 1 65%;
+        width: 65%;
     }
 	
 	h3,
@@ -1043,6 +1043,10 @@ $ld-main-content-width: calc(100% - #{$ld-main-sidebar-width});
             }
         }
 
+    }
+
+    &.history {
+        flex-direction: row;
     }
 
     &.days-on-market {

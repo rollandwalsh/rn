@@ -190,7 +190,30 @@
   }
 }
 
-.rn-search-view-toggle {
+.rn-search-footer-buttons {
+    display: flex;
+}
+
+#drive-time {
+    margin-right: $gutter-width / 2;
+
+    display: flex;
+
+    @media #{$tablet-up} {
+        display: none;
+    }
+
+    i {
+        color: $gray;
+
+        background: $white;
+        height: 100%;
+        padding: ($gutter-width / 2);
+            
+    }
+}
+
+.rn-search-view-toggle {    
 	
 	#map-gallery {
   	display: flex;
