@@ -7231,6 +7231,9 @@ body:not(.search) h6 {
     .rn-site-header-agent-name {
       display: none; } }
 
+.rn-site-header-agent-name-headers {
+  margin-right: 1rem; }
+
 .rn-site-header-agent {
   padding: 0.5rem;
   display: -webkit-flex;
@@ -7423,7 +7426,7 @@ body:not(.search) h6 {
       padding: 0;
       width: 11.875rem;
       display: none;
-      overflow-y: scroll;
+      overflow-y: auto;
       position: absolute;
       top: 100%;
       left: 0;
