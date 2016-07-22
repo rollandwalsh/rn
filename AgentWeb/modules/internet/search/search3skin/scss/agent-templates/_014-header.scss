@@ -160,9 +160,9 @@
 	
 	padding: 0 $gutter-width; // No gutter for top/bottom double gutter for left/right
 	
+	align-items: center; // Centers image and agent name/title vertically
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex: 1 1 rem-calc(320);
 	
 	h1,
 	h4 {
@@ -180,26 +180,13 @@
 		font-weight: 200;
 	}
 	
-	@media #{$tablet-up} {
-		flex: 1 1 rem-calc(320);
+	img {
+		height: rem-calc(72);
+		width: auto;
 	}
 	
 	@media #{$mobile-down} {
         display: none;
-
-		max-width: 60%;
-		padding: $gutter-width / 2;
-		
-		align-items: flex-start;
-		flex: 0 1 auto;
-			
-		h1 {
-			font-size: 6vw;
-		}
-		
-		h4 {
-			font-size: rem-calc(10);
-		}
 	}
 }
 
