@@ -1,0 +1,21 @@
+@mixin purple-grid-bg() {
+	background: $purple;
+	background-image: url(../img/339243/purple-grid-bg.png);
+	background-position: center top;
+	background-repeat: repeat;
+	color: $white;
+	
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+@mixin photo-border() {
+	border: ($gutter-width / 4) solid $white;
+	box-shadow: 1px 1px 4px 0px rgba($secondary-color, .8);
+}
+
+@mixin gray-background() {
+	background: $gray-1;
+	border: 1px solid darken($gray-1, 10%);
+}

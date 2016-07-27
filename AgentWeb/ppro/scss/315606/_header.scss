@@ -1,0 +1,385 @@
+@import '../../../modules/internet/search/search3skin/scss/sass-burger';
+
+// TOP BAR
+// - - - - - - - - - - - - - - -
+
+.rn-site-header-top-bar {
+	background: $blue;
+	color: $red;
+	font-size: rem-calc(12);
+	
+	width: 100%;
+	
+	&.logged-out {
+		display: none;
+	}
+	
+	.rn-container {
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none;
+		
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	li {
+		padding: 0;
+	}
+	
+	a {
+		color: $red;
+		
+		padding: ($gutter-width / 4) ($gutter-width / 2);
+		
+		display: block;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $pp-gray-dark;
+		}
+	}
+}
+
+// HEADER MAIN
+// - - - - - - - - - - - - - - -
+
+.rn-site-header-main {
+	background: $white;
+	
+	width: 100%;
+	
+	&.fixed {
+		border-bottom: 1px solid $gray-2;
+		
+		position: fixed;
+		top: 0;
+		z-index: 99999;
+	}
+	
+	> .rn-container {
+		display: flex;
+	}
+	
+	@media #{$tablet-up} {
+		> .rn-container {
+			padding: $gutter-width / 2;
+		
+			flex-wrap: wrap;
+		}
+	}
+	
+	@media #{$mobile-down} {
+        height: rem-calc(40);
+        max-height: rem-calc(40);
+
+        position: relative;
+
+        align-items: center;
+        display: flex;
+        
+		> .rn-container {
+			height: 100%;
+            padding: 0;
+
+            flex: 1 1 auto;
+            flex-wrap: nowrap;
+		}
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	display: block;
+	
+	a {
+		display: block;
+	}
+	
+	img {
+		height: 100%;
+		max-height: 100%;
+		width: auto;
+
+		display: block;
+	}
+	
+	@media #{$tablet-up} {
+		a {
+			padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		}
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		display: flex;
+		
+		a {
+			height: 100%;
+			padding: $gutter-width / 4; // Give smaller padding for mobile
+		}
+		
+		img {
+			height: 100%;
+		}
+	}
+}
+
+// RIGHT SIDE OF HEADER
+
+.rn-site-header-contact {
+	color: $pp-gray-light;
+	font-family: $brown-light-font;
+	padding: ($gutter-width / 2) 0;
+	
+	align-self: flex-start;
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	
+	h3 {
+		font-size: rem-calc(18);
+		font-weight: 200;
+		text-transform: uppercase;
+		
+		margin: 0 $gutter-width 0 0;
+	}
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none;
+		
+		display: flex;
+	}
+	
+	a {
+		font-size: rem-calc(24);
+		line-height: 1;
+		text-decoration: none;
+		
+		padding: 0 ($gutter-width / 2);
+	}
+	
+	span {
+		font-size: rem-calc(24);
+		font-weight: 200;
+		text-align: right;
+		
+		padding: $gutter-width / 2;
+		width: 100%;
+	}
+	
+	@media #{$mobile-down} {
+		display: none;
+	}
+}
+
+// NAVIGATION
+// - - - - - - - - - - - - - - -
+
+.rn-site-header-nav {
+	font-family: $brown-light-font;
+	font-size: rem-calc(14);
+	
+	width: 100%;
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		text-align: center;
+		
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+	}
+	
+	a {
+		color: $pp-gray-light;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		padding: $gutter-width / 2;
+
+		display: block;
+		
+		transition: $transition;
+		
+		&:hover {
+			color: $red;
+		}
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			text-align: center;	
+
+			&:hover {
+				a {
+					color: $red;
+				}
+			}
+			
+			a {
+				color: $pp-gray-light;
+				border: none;
+				font-weight: normal; // Override bold font
+				text-transform: none; // Override uppercase
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		.dropdown {
+			padding: $gutter-width 0 0; // gutter-width padding on top to drop below header
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(16); // Nav height
+			left: 0;
+			z-index: 10;
+			
+			a:hover {
+				color: $red; // Override red hover color
+			}
+		}
+	}
+	
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		li {
+			border: none; // Remove border styling
+		}
+		
+		a {
+			color: $pp-gray-dark;
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+			
+			&:hover {
+				color: $red;
+			}
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $pp-gray-dark;
+		
+		text-decoration: none;
+		
+		padding: $gutter-width / 2;
+		
+		&.rn-site-navigation-toggle {
+			align-items: flex-end; // Justify sass-burger and text right
+			display: flex;
+			justify-content: flex-end;
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+		
+		&.rn-search-criteria-toggle {
+			display: none; // Hide for non-search pages
+		}
+			
+		i {
+			color: $pp-gray-dark;
+			font-size: rem-calc(33);
+		}
+		
+		.rn-site-header-nav-burger {
+			@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $pp-gray-dark);
+		}
+		
+		&.is-active {
+			.rn-site-header-nav-burger {
+				@include burger-to-cross;
+			}
+		}
+	}
+}

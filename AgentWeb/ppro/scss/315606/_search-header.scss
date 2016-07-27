@@ -1,0 +1,316 @@
+/*
+@import '../../../modules/internet/search/search3skin/scss/sass-burger';
+
+// SITE HEADER
+// - - - - - - - - - - - - -
+
+.rn-site-header {
+	@include purple-grid-bg();
+	
+	color: $white;
+	
+	height: $search-site-header-height; // Set to control search area height
+	max-height: $search-site-header-height; // Don't allow the heder to outgrow the set height
+	
+	.rn-container {
+		height: 100%;
+		padding: 0; // Add padding to top/bottom only
+		width: 100%; // Set a width for flexbox to work within
+		
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	@media #{$mobile-down} {
+		height: $search-site-header-height-small; // Change header height for mobile
+		max-height: $search-site-header-height-small; // Maintain header height despite content
+			
+		flex-direction: row; // Flex-items should be in a row
+		flex-wrap: nowrap; // Don't allow flex-items to wrap
+		
+		position: relative;
+
+		.rn-container {
+			flex-direction: row;
+		}
+	}
+}
+
+// LOGO
+
+.rn-site-header-logo {
+	height: 100%;
+	width: auto;
+	
+	align-items: center; // Center logo vertically
+	display: flex;
+	flex: 1 1 auto;
+	
+	a {
+		padding: $gutter-width / 2; // Give gutter padding to make logo easily clickable
+		height: 100%;
+	}
+	
+	img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+
+	@media #{$mobile-down} {
+		height: 100%;
+		width: auto;
+			
+		flex: 1 0 auto; // Don't allow logo to to shrink for mobile
+			
+		a {
+			padding: $gutter-width / 4; // Decrease padding for larger logo
+
+			align-items: center; // Allow img to center vertically if logo should shrink horizontally
+			display: flex;
+		}
+	}
+}
+
+// RIGHT SIDE OF HEADER
+
+.rn-site-header-right {
+	align-items: flex-end;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	@media #{$mobile-down} {
+		height: 100%;
+	}
+}
+
+// PROPERTY WATCH
+
+.rn-site-header-property-watch {
+	background: lighten($purple, 15%);
+	border: 1px solid $white;
+	border-radius: $gutter-width / 2;
+	font-size: rem-calc(10);
+	
+	margin: ($gutter-width / -2) 0 0;
+	padding: ($gutter-width * .75) ($gutter-width / 2) ($gutter-width / 2);
+	
+	list-style: none;
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		padding: 0 ($gutter-width / 4);
+	}
+	
+	a {
+		color: $white;
+		text-transform: uppercase;
+	}
+	
+	@media #{$mobile-down} {
+		display: none !important;
+	}
+}
+
+// HEADER PHONE
+
+.rn-site-header-phone {
+	display: none;
+}
+
+// NAVIGATION
+
+.rn-site-header-nav {
+	font-family: $serif-font;
+	font-size: rem-calc(13);
+	
+	width: 100%;
+
+	align-self: flex-end;
+	
+	@media #{$mobile-down} {
+		height: 100%;
+		
+		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.rn-site-header-nav-menu {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+	
+	display: flex;
+	
+	li {
+		text-align: right;
+		
+		flex: 1 1 auto;
+		
+		&.has-dropdown {
+			position: relative;
+			
+			&:hover {
+				.dropdown {
+					display: block; // Show dropdown menu when hovering over nav item
+				}
+			}
+		}
+	}
+	
+	a {
+		color: $white;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		padding: $gutter-width / 2;
+
+		display: block;
+	}
+	
+	.dropdown {
+		margin: 0;
+		
+		list-style: none;
+		
+		li {
+			text-align: center;	
+
+			&:hover {
+				a {
+					background: $gray;
+				}
+			}
+			
+			a {
+				background: $purple;
+				border: none;
+				font-weight: normal; // Override bold font
+				text-transform: none; // Override uppercase
+				
+				padding: ($gutter-width / 2) $gutter-width;
+				min-width: 100%;
+				
+				display: inline-block;
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: flex !important; // Used here to ensure nav-menu is flexed in case of use at smaller screen and then expanded to larger screen
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		
+		.dropdown {
+			padding: $gutter-width 0 0; // gutter-width padding on top to drop below header
+			width: rem-calc(160);
+		
+			display: none; // Hide by default
+		
+			position: absolute;
+			top: rem-calc(16); // Nav height
+			left: 0;
+			z-index: 10;
+			
+			a:hover {
+				color: $white; // Override red hover color
+			}
+		}
+	}
+	
+	@media #{$mobile-down} {
+		width: 100%; // Fill the width of the screen
+		
+		display: none; // Hide nav by default for smaller screens
+		
+		position: absolute; // Nav should overlap content for mobile
+		top: 100%; // Nav should display below header
+		left: 0; // Append to left of screen
+		z-index: 10; // Display over page content
+		
+		li {
+			border: none; // Remove border styling
+		}
+		
+		a {
+			background: $purple;
+			line-height: 2; // Increase height for ease of clicking
+			text-align: center; // Center text
+			
+			padding: $gutter-width / 2; // Increase padding for ease of clicking
+			width: 100%; // Fill entire li element
+			
+			display: block; // Fill entire width
+			
+			&:hover {
+				background: $black;
+			}
+		}
+		
+		.dropdown {
+			padding: 0;
+			width: 100%;
+			
+			display: block;
+			
+			position: relative;
+			top: auto;
+		}
+	}
+}
+
+.rn-site-header-nav-button {
+	text-decoration: none; // Removed underlines
+		
+	&.rn-search-user-toggle,
+	&.rn-search-criteria-toggle {
+		padding: $gutter-width / 4;
+	}
+		
+	i {
+		color: $white;
+		font-size: rem-calc(33);
+	}
+		
+	.rn-site-header-nav-burger {
+		@include burger(rem-calc(24), rem-calc(1), rem-calc(7), $white); // Burger should be 24px high with 1px high $gray lines and 7px gaps
+	}
+		
+	&.is-active {
+		.rn-site-header-nav-burger {
+			@include burger-to-cross; // Burger transforms to cross when active
+		}
+	}
+
+	@media #{$tablet-up} {
+		display: none; // Hidden by default
+	}
+
+	@media #{$mobile-down} {
+		color: $white;
+		text-align: center;
+			
+		padding: $gutter-width / 2;
+			
+		display: inline-block;
+
+		&.rn-site-navigation-toggle {
+			display: flex; // Allow sass-burger and text to be inline
+			
+			.text {
+				font-weight: bold;
+				text-transform: uppercase;
+				
+				margin-left: $gutter-width / 2; // Give spacing to the right of sass-burger
+			}
+		}
+	}
+}
+*/

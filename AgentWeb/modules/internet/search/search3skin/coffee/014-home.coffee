@@ -20,7 +20,11 @@ $ ->
 	qs = setInterval((->
 		if $('.rn-qsr').length > 0
 			$('.rn-qsr-cz-f').attr('placeholder', 'Enter Location or MLS#').removeAttr('style')
-			$('.rn-qsr-button').replaceWith '<button onclick="submitForm()" class="rn-qsr-button" type="submit"><i class="rn-icon-search"></i></button>'
+			$('.rn-qsr-mn-f option').eq(0).html('$Min');
+			$('.rn-qsr-mx-f option').eq(0).html('$Max');
+			$('.rn-qsr-bd-f option').eq(0).html('Beds');
+			$('.rn-qsr-ba-f option').eq(0).html('Baths');
+			$('.rn-qsr-button').replaceWith('<button onclick="submitForm()" class="rn-qsr-button" type="submit">Go <i class="rn-icon-angle-right-medium"></i></button>');
 			clearInterval qs
 		return
 	), 200)
