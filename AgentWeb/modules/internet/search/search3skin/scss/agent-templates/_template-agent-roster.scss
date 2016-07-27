@@ -1,0 +1,33 @@
+// AGENTS & OFFICES
+// - - - - - - - - - - - - -
+
+.rn-roster-search-submit {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}
+
+.rn-agent-name,
+.rn-office-name,
+.rn-agent-contact-office-directions {
+	color: $primary-color;
+
+	a {
+		color: $gray;
+		text-decoration: none;
+	}
+}
+
+.rn-agent-button-questions a {
+	background: $primary-color;
+
+	transition: $transition;
+
+	&:hover {
+		background: lighten($primary-color, 10%);
+	}
+}

@@ -1,7 +1,88 @@
+// INTERIOR
+// - - - - - - - - - - - - -
+
 body.interior {
 	.rn-site-content {
 		@extend .rn-container;
 
 		padding: $gutter-width / 2;
+
+		img { // Respnosive images
+		    height: auto;
+		    max-width: 100%;
+			width: 100%;
+		    
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+		
+		.flex-video { // Handles responsive videos
+		    height: 0;
+		    margin-bottom: $gutter-width / 2;
+		    padding-bottom: 75%;
+		    overflow: hidden;
+		    
+		    position: relative;
+		    
+		    iframe,
+		    object,
+		    embed,
+		    video {
+			    height: 100%;
+			    width: 100%;
+			    
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+		    }
+		}
+	
+		.centered { // Class to center things
+			text-align: center;
+		}
+		
+		// GRID
+		
+		.rn-row {
+			margin-bottom: $gutter-width / 2;
+			
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			
+			&.center {
+				justify-content: center;
+			}
+		}
+		
+		.rn-column {
+			padding: $gutter-width;
+			
+			&.half {
+				flex: 0 0 50%;
+			}
+			
+			&.one-third {
+				flex: 0 0 33%;
+			}
+			
+			&.two-thirds {
+				flex: 0 0 66%;
+			}
+			
+			@media #{$mobile-down} {
+				&.half,
+				&.one-third,
+				&.two-thirds {
+					padding: ($gutter-width / 2) 0;
+	
+					flex: 1 1 100%;
+				}
+			}
+		}
+
 	}
 }
+
+@import		'template-dashboard',
+			'template-agent-roster';

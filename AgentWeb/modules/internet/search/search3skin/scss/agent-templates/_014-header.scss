@@ -548,37 +548,3 @@ body:not(.search) {
 		}
 	}
 }
-
-//Dashboard styling
-.rn-extranet {
-    padding: $gutter-width;
-}
-
-.rn-dashboard-form-button,
-.rn-dashboard-navigation a,
-.rn-dashboard-history-button,
-.rn-dashboard-agent-transfer-button,
-.rn-popup-button,
-.rn-popup-contact-button {
-	background: $primary-color;
-
-	transition: $transition;
-
-	&:hover {
-		background: lighten($primary-color, 10%);
-	}
-}
-
-.rn-dashboard-navigation a.rn-dashboard-active {
-	background: $primary-color;
-
-	&:hover {
-		background: lighten($primary-color, 10%);
-	}
-}
-
-.rn-dashboard-home-title,
-.rn-dashboard-header-title,
-.rn-dashboard-messages h3 {
-	color: $primary-color;
-}
