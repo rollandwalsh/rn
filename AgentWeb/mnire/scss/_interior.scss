@@ -243,17 +243,18 @@
 }
 
 .rn-careers-content {
-	font-size: rem-calc(14) !important;
-	line-height: 1.8;
+	font-size: rem-calc(12) !important;
+	line-height: 1.8 !important;
 	text-align: justify;
 }
 
 .rn-careers-row {
-	display: flex;
-	flex-wrap: wrap;
+	@extend .rn-row;
 }
 
 .rn-careers-column {
+	@extend .rn-column;
+	
 	h5 {
 		font-size: rem-calc(15);
 		text-transform: uppercase;
@@ -261,12 +262,25 @@
 		margin-bottom: 0;
 	}
 	
+	h6 {
+		text-transform: uppercase;
+		
+		margin-bottom: 0;
+		
+		span {
+			color: lighten($purple, 15%);
+		}
+	}
+	
 	p,
 	ul {
 		font-size: rem-calc(12);
-		line-height: 1.8;
 		
-		margin-bottom: 0;
+		margin-bottom: $gutter-width / 2;
+	}
+	
+	p {
+		text-align: justify;
 	}
 	
 	&.callouts {
@@ -289,8 +303,6 @@
 		}
 	}
 	
-	&.service-area {
-	}
 	
 	@media #{$tablet-up} {
 		&.callouts {
@@ -353,7 +365,7 @@
 	h4 {
 		background: $purple;
 		color: $white;
-		font-weight: rem-calc(14);
+		font-size: rem-calc(14);
 		font-weight: 600;
 		text-align: center;
 		text-transform: uppercase;
