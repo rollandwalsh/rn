@@ -8457,7 +8457,7 @@ body.home .rn-site-content {
   #form1 #divFormContent {
     border: 1px solid #cccccc !important;
     padding: 0 !important;
-    width: auto;
+    width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }

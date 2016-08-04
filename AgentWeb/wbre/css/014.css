@@ -8348,7 +8348,7 @@ body.loggedin .rn-quick-search-button.login {
   #form1 #divFormContent {
     border: 1px solid #cccccc !important;
     padding: 0 !important;
-    width: auto;
+    width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
