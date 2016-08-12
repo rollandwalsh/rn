@@ -447,7 +447,7 @@ body.home {
 		
 			display: none; // Hide by default
 			
-			overflow-y: scroll; // Allows scrolling in case there are a ridiculous amout of elements in the dropdown
+			overflow-y: auto; // Allows scrolling in case there are a ridiculous amout of elements in the dropdown
 			position: absolute;
 			top: 100%; // Nav height
 			left: 0;

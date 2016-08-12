@@ -17,6 +17,11 @@ $transition: 150ms ease-in-out all;
 	padding: $gutter-width / 2;
 
 	box-sizing: border-box;
+	
+	.disclaimer img {
+		max-width: none !important;
+		width: auto !important;
+	}
 
 	*, *:before, *:after {
 		box-sizing: inherit;

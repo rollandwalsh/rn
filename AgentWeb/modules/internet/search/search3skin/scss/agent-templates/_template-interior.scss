@@ -6,15 +6,6 @@ body.interior {
 		@extend .rn-container;
 
 		padding: $gutter-width / 2;
-
-		img { // Respnosive images
-		    height: auto;
-		    max-width: 100%;
-			width: 100%;
-		    
-		    display: inline-block;
-		    vertical-align: middle;
-		}
 		
 		.flex-video { // Handles responsive videos
 		    height: 0;
@@ -69,8 +60,19 @@ body.interior {
 			&.two-thirds {
 				flex: 0 0 66%;
 			}
+		}
+
+		@media #{$mobile-down} {
+			img { // Respnosive images
+			    height: auto;
+			    max-width: 100%;
+				width: 100%;
+			    
+			    display: inline-block;
+			    vertical-align: middle;
+			}
 			
-			@media #{$mobile-down} {
+			.rn-column {
 				&.half,
 				&.one-third,
 				&.two-thirds {
@@ -80,8 +82,11 @@ body.interior {
 				}
 			}
 		}
-
 	}
+}
+
+img[src*='invis.gif'] {
+	display: none !important; // HIDES ALL INSTANCES OF INVIS.GIF -- TO BE REMOVED WHEN IT HAS BEEN ERADICATED
 }
 
 @import		'template-dashboard',

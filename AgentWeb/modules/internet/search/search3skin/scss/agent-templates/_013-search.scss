@@ -175,19 +175,23 @@ body.search {
 		z-index: 10000;
 
         overflow-y: auto;
+			
+		a {
+			background: $primary-color;
+		}
 
 		.dropdown li a {
 			background: $gray;
-            transition: $transition;
-            
-            &:hover {
-                    background: lighten($gray, 10%);
-                }
-		    }
+			transition: $transition;
+			
+			&:hover {
+				background: lighten($gray, 10%);
+			}
+		}
 
-        @media #{$mobile-view} {
-            top: 100%;
-        }
+		@media #{$mobile-down} {
+			top: 100%;
+		}
 	}
 	
 	.rn-site-header-nav-button {
