@@ -1,0 +1,18 @@
+// FONTS
+// - - - - - - - - - - - - -
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700);
+
+$sans-serif-font: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+$serif-font: Georgia, 'Times New Roman', serif;
+
+$base-font-size: 100%;
+$small-font-size: rem-calc(10);
+
+html,
+body {
+	font-family: $sans-serif-font;
+	font-size: $base-font-size;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

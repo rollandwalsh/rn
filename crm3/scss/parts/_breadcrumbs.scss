@@ -1,0 +1,85 @@
+// SITE BREADCRUMBS
+// - - - - - - - - - - - - -
+
+.crm-site-breadcrumbs {
+	background: $light-gray;
+	border-bottom: 1px solid $dark-gray;
+	
+	.crm-container {
+		padding: $global-padding; // Adds UI spacing
+	}
+	
+	ul {
+		
+		border-color: $dark-gray;
+		border-style: solid;
+		border-width: 1px 0 1px 1px; // Creates a border around entire ul except right side
+		
+		margin: 0;
+		padding: 0;
+		
+		list-style: none; // Resets ul element to not have bullets on children li's
+		
+		align-items: center;
+		display: inline-flex; // Keeps element from filling entire width of parent while still flexing child elements
+	}
+	
+	li {
+		align-items: center;
+		display: flex;
+		
+		&:first-of-type a {
+			padding-left: $global-padding; // Sets first li's child element to normal padding-left as there is no angle before the first li
+		}
+	}
+	
+	a {
+		background: $white;
+		font-size: $small-font-size;
+		font-weight: 600;
+		line-height: 1.4;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		padding: rem-calc(6) ($global-padding / 2) rem-calc(6) ($global-padding * 1.5); // Slightly decreases top/bottom padding / Normal padding-right / Extra padding-left to give space for angle
+		
+		position: relative; // Sets element to relative for :after element to hook to
+		
+		&:hover {
+			text-decoration: underline;
+		}
+		
+		&:before,
+		&:after {
+			border-top: rem-calc(14) solid transparent; // Sets height of :after element to 14px (100% of parent height: font-size: 10px; line-height 1.4;)
+			border-bottom: rem-calc(14) solid transparent; // Sets height of :after element to 14px (100% of parent height: font-size: 10px; line-height 1.4;)
+			
+			height: 0;
+			width: 0;
+			
+			content: '';
+			display: block;
+			
+			position: absolute;
+			left: 100%; // Sets both pseudo elements to be flush right to parent
+		}
+		
+		&:before {
+			border-top: rem-calc(14) solid transparent; // Sets height of :after element to 14px (100% of parent height: font-size: 10px; line-height 1.4;)
+			border-bottom: rem-calc(14) solid transparent; // Sets height of :after element to 14px (100% of parent height: font-size: 10px; line-height 1.4;)
+			border-left: $global-padding solid $dark-gray; // Sets angle depth (right/left) and color
+			
+			top: -1px;
+			z-index: 1; // Sets :before element beneath :after element
+		}
+		
+		&:after {
+			border-top: rem-calc(12) solid transparent;
+			border-bottom: rem-calc(12) solid transparent;
+			border-left: calc(#{$global-padding} - 1px) solid $white;
+			
+			top: 1px;
+			z-index: 2;
+		}
+	}
+}

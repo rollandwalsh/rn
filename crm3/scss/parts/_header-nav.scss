@@ -1,0 +1,144 @@
+// HEADER NAV
+// - - - - - - - - - - - - -
+
+.crm-site-header-nav {
+	background: $primary-color; // primary-color bar spans entire width of screen
+}
+
+.crm-site-header-menu {
+	@extend .row;
+	
+	margin-bottom: 0; // Removes global margin-bottom
+	padding: 0 $global-padding; // Sets to children to have spacing to left/right for smaller screens while fully filling element vertically 
+	
+	list-style: none; // Resets ul element to not have bullets on children li's
+	
+	align-items: center; // Aligns li's vertically
+	display: flex; // Sets children li's to inline
+	
+	> li { // Targets direct li decendents only
+		padding: 0 ($global-padding / 4); // Gives light padding to differentiate li's on hover
+		
+		flex: 1 1 auto; // Sets li elements to distribute width evenly
+		
+		&:first-of-type {
+			padding-left: 0; // Removes redundant padding-left for first li
+		}
+		
+		&:last-of-type {
+			padding-right: 0; // Removes redundant padding-right for last li
+		}
+		
+		> a {
+			text-align: center; // Sets only main nav a elements to center align
+		}
+	}
+	
+	li { // Targets all lis in .crm-site-header-nav
+		&:hover > a {
+			background: $secondary-color; // Sets hover state for direct a tag decendent
+		}
+	}
+	
+	a {
+		background: $primary-color;
+		color: $white;
+		font-size: rem-calc(12);
+		line-height: 2.5; // Sets height of a > li > nav to 2.5 * font (30px)
+		text-decoration: none; // Removes default a underline
+		text-transform: uppercase;
+		
+		padding: $global-padding;
+		width: 100%; // Sets a to fill entire li width
+		
+		display: block; // Allows a to fill li completely
+		
+		&.selected {
+			border-bottom: 3px solid $secondary-color; // Sets UI indication of selected link or sublink
+			
+			padding-bottom: calc(#{$global-padding} - 3px); // Offsets padding-bottom with addition of 3px border
+		}
+		
+		&.button {
+			background: $secondary-color;
+			font-weight: 600; // Boldens button text slightly more than default a
+			line-height: 2; // Decreases line-height from 2.5 to create a thinner button
+			
+			margin-bottom: 0; // Removes global button margin
+			padding: 0 $global-padding;
+			
+			&:hover {
+				background: mix($black, $secondary-color, 25%); // Adds background color to match default state's border-bottom color
+			}
+		}
+	}
+	
+	.has-dropdown,
+	.has-slideright {
+		position: relative; // Sets li parents of sub menus to relative so that sub menus are attached locally
+		
+		> a {
+			position: relative; // Sets a elements that are siblings of submenus to relative for :after element
+			
+			&:after {
+				@extend i;
+				
+				color: $white;
+				font-size: $small-font-size;
+				opacity: .5;
+				
+				position: absolute;
+				top: rem-calc(17); // Hard codes padding-top to get to the center of the nav text 
+				right: $global-padding; // Hard codes padding-right
+			}
+		}
+	}
+	
+	.has-dropdown:hover .dropdown,
+	.has-slideright:hover .slideright {
+		display: block; // Shows hidden submenu of hovered parent li
+	}
+	
+	.has-dropdown {
+		> a {
+			padding-right: calc(#{rem-calc(10)} + #{$global-padding}); // Increases padding-right to make room for width of :after element + $global-padding
+			
+			&:after {
+				content: "\e9df";
+			}
+		}
+	}
+	
+	.has-slideright {
+		> a {
+			padding-right: calc(#{rem-calc(8)} + #{$global-padding}); // Increases padding-right to make room for width of :after element + $global-padding
+			
+			&:after {
+				content: "\e9de";
+			}
+		}
+	}
+	
+	.dropdown,
+	.slideright {
+		margin: 0;
+		padding: 0;
+		
+		list-style: none; // Resets ul element to not have bullets on children li's
+		
+		display: none; // Hides element by default
+		
+		position: absolute;
+	}
+	
+	.dropdown {
+		width: calc(100% - (#{$global-padding} / 2)); // Sets width to the full width of parent li (.crm-site-header-menu > li) less the left/right padding ($gutter-width / 4)
+	}
+	
+	.slideright {
+		width: 100%; // Sets width to match the full width of parent li
+		
+		top: 0; // Sets top to the same top as parent li
+		left: 100%; // Adjusts to be flush to the right side of the parent li
+	}
+}

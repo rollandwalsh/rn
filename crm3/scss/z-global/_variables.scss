@@ -1,0 +1,93 @@
+// GLOBAL IMPORTS
+// - - - - - - - - - - - - -
+
+@import 'functions',
+		'normalize',
+		'media-queries',
+		'colors',
+		'fonts',
+        'icons',
+        'mixins',
+		'sass-burger';
+		
+// GLOBAL VARIABLES
+// - - - - - - - - - - - - -
+
+$container-width: rem-calc(1200);
+
+$gutter-width: 1rem;
+$gutter-padding: $gutter-width / 2;
+
+$border-radius: 0; // $gutter-width / 4;
+
+$transition: 150ms ease-in-out all;
+
+// HTML RESETS
+// - - - - - - - - - - - - -
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+// TEXT
+// - - - - - - - - - - - - -
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: $gutter-padding;
+}
+
+a {
+	color: $primary-color;
+}
+
+// IMAGES
+// - - - - - - - - - - - - -
+
+img {
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// TABLES
+// - - - - - - - - - - - - -
+
+table {
+    table-layout: fixed;
+}
+
+// GLOBAL CLASSES
+// - - - - - - - - - - - - -
+
+.crm-container {
+  margin: 0 auto;
+  max-width: $container-width;
+  width: 100%;
+}
+
+.hide-for-mobile {
+	@media #{$mobile-down} {
+		display: none !important;
+	}
+}
+       

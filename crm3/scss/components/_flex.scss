@@ -1,0 +1,28 @@
+@mixin crm-flex-classes {
+  // Horizontal alignment using justify-content
+  @each $hdir, $prop in map-remove($-crm-flex-justify, left) {
+    .align-#{$hdir} {
+      @include flex-align($x: $hdir);
+    }
+  }
+
+  // Vertical alignment using align-items and align-self
+  @each $vdir, $prop in $-crm-flex-align {
+    .align-#{$vdir} {
+      @include flex-align($y: $vdir);
+    }
+
+    .align-self-#{$vdir} {
+      @include flex-align-self($y: $vdir);
+    }
+  }
+
+  // Source ordering
+  @include -crm-each-breakpoint {
+    @for $i from 1 through 6 {
+      .#{$-crm-size}-order-#{$i} {
+        @include flex-order($i);
+      }
+    }
+  }
+}

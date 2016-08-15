@@ -1,0 +1,27 @@
+// crm for Sites by ZURB
+// crm.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group float
+////
+
+@mixin crm-float-classes {
+  .float-left {
+    float: left !important;
+  }
+
+  .float-right {
+    float: right !important;
+  }
+
+  .float-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .clearfix {
+    @include clearfix;
+  }
+}

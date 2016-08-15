@@ -1,0 +1,128 @@
+// BUTTONS
+// - - - - - - - - - - - - -
+
+$button-background: $primary-button-color !default;
+$button-background-hover: mix($black, $button-background, 25%) !default;
+$button-border-radius: $border-radius !default;
+$button-color: auto !default;
+$button-font-size: 1rem !default;
+$button-font-weight: 400 !default;
+$button-margin: 0 !default;
+$button-padding: ($gutter-padding * .85) $gutter-padding !default;
+$button-sizes: (
+  small: 0.625,
+  medium: 0.75,
+  large: 1,
+  x-large: 1.25,
+) !default;
+
+%button {
+	background-color: $button-background;
+	border-radius: $button-border-radius;
+	color: $button-color;
+	font-size: $button-font-size;
+	font-weight: $button-font-weight;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+	margin: $button-margin;
+	padding: $button-padding;
+	
+	cursor: pointer;
+	
+	align-items: center;
+	display: inline-flex;
+	
+	transition: $transition;
+	
+	i {
+		font-size: 85%;
+		
+		padding-left: $gutter-padding;
+	}
+}
+
+@mixin button-size($size: medium, $expand: false) {
+	$size: map-get($button-sizes, $size);
+	$font-size: $button-font-size * $size;
+	$padding-size: ($gutter-padding * $size) ($gutter-padding * $size / .75);
+	font-size: $font-size;
+	
+	padding: $padding-size;
+	
+	@if $expand {
+		@include button-expand;
+	}
+}
+
+@mixin button-expand($expand: true) {
+	@if $expand {
+		width: 100%;
+		
+		display: flex;
+		justify-content: center;
+	}
+	@else {
+		width: auto;
+		
+		display: inline-flex;
+	}
+}
+
+@mixin button-style(
+	$background: $button-background,
+	$background-hover: $button-background-hover,
+	$color: $button-color
+){
+	@if $color == auto {
+		$color: isitlight($background);
+	}
+	
+	background: $background;
+	color: $color;
+	
+	&:hover, &:focus {
+		@if $background-hover == auto {
+			background: mix($black, $background, 25%);
+		}
+		@else {
+			background: $background-hover;
+		}
+		color: $color;
+	}
+}
+
+@mixin button(
+  $size: medium,
+  $expand: false,
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $border-radius: $button-border-radius
+) {
+  @extend %button;
+  @include button-size($size);
+  @include button-expand($expand);
+  @include button-style($background, $background-hover, $color);
+}
+
+.button {
+	@include button;
+
+	&.small   { @include button-size(small); }
+	&.medium  { @include button-size(medium); }
+	&.large  { @include button-size(large); }
+	&.x-large  { @include button-size(x-large); }
+	&.expand { @include button-expand; }
+	
+	&.secondary { @include button-style($secondary-color, auto) }
+/*
+	&.success   { @include button-style($success-color, auto) }
+	&.warning   { @include button-style($warning-color, auto) }
+	&.alert     { @include button-style($alert-color, auto) }
+	&.info      { @include button-style($info-color, auto) }
+	&.dark      { @include button-style($dark-color, auto) }
+*/
+}
