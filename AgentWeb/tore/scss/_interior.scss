@@ -1,3 +1,25 @@
+// MIXINS
+// - - - - - - - - - - - - -
+
+@mixin interior-button ($font-size: 16) {
+	background-color: $purple !important;
+	border-radius: $gutter-width / 4 !important;
+	color: $white !important;
+	font-size: rem-calc($font-size) !important;
+	font-weight: 400 !important;
+	text-decoration: none !important;
+
+	padding: ($gutter-width / 2) $gutter-width !important;
+
+	display: inline-block;
+
+	transition: $transition;
+
+	&:hover {
+		background-color: $tore-gray-dark !important;
+	}
+}
+
 // INTERIOR
 // - - - - - - - - - - - - -
 
@@ -195,6 +217,7 @@ body.rn-interior-page {
 	
 .rn-agent-bio-photo {
 	height: auto !important;
+	margin-bottom: $gutter-width;
 	width: 150px !important;
 
 	align-self: flex-start;
@@ -221,6 +244,10 @@ body.rn-interior-page {
 	h3 {
 		color: $gray-3;
 		font-size: rem-calc(20);
+	}
+	
+	ul {
+		margin-bottom: $gutter-width / 2;
 	}
 }
 
@@ -266,21 +293,7 @@ body.rn-interior-page {
 	}
 
 	a {
-		background: $purple;
-		border-radius: $gutter-width / 4;
-		color: $white;
-		font-size: rem-calc(16);
-		text-decoration: none;
-
-		padding: ($gutter-width / 2) $gutter-width;
-
-		display: block;
-
-		transition: $transition;
-
-		&:hover {
-			color: $gray-2;
-		}
+		@include interior-button;
 	}
 }
 
@@ -350,6 +363,14 @@ body.rn-interior-page {
 	&:hover {
 		background: $tore-gray-dark;
 	}
+}
+
+.TT_AddTestimonialLink {
+	@include interior-button(14);
+}
+
+.TT_starContainer {
+	color: $purple !important;
 }
 
 // HOME VALUES

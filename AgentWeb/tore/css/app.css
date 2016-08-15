@@ -2203,6 +2203,7 @@ body.rn-interior-page {
 
 .rn-agent-bio-photo {
   height: auto !important;
+  margin-bottom: 1rem;
   width: 150px !important;
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
@@ -2222,6 +2223,8 @@ body.rn-interior-page {
   .rn-agent-bio-quick-info h3 {
     color: #999999;
     font-size: 1.25rem; }
+  .rn-agent-bio-quick-info ul {
+    margin-bottom: 0.5rem; }
 
 .rn-agent-bio-contact {
   font-size: 0.75rem;
@@ -2251,16 +2254,17 @@ body.rn-interior-page {
   .rn-agent-bio-quick-action li {
     margin-right: 0.25rem; }
   .rn-agent-bio-quick-action a {
-    background: #552448;
-    border-radius: 0.25rem;
-    color: #ffffff;
-    font-size: 1rem;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    display: block;
+    background-color: #552448 !important;
+    border-radius: 0.25rem !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem !important;
+    display: inline-block;
     transition: 150ms ease-in-out all; }
     .rn-agent-bio-quick-action a:hover {
-      color: #cccccc; }
+      background-color: #2e2e2e !important; }
 
 .rn-extranet-page .rn-dashboard-form-button,
 .rn-extranet-page .rn-dashboard-navigation a,
@@ -2309,6 +2313,22 @@ body.rn-interior-page {
   transition: 150ms ease-in-out all; }
   .rn-agent-button-questions a:hover {
     background: #2e2e2e; }
+
+.TT_AddTestimonialLink {
+  background-color: #552448 !important;
+  border-radius: 0.25rem !important;
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  padding: 0.5rem 1rem !important;
+  display: inline-block;
+  transition: 150ms ease-in-out all; }
+  .TT_AddTestimonialLink:hover {
+    background-color: #2e2e2e !important; }
+
+.TT_starContainer {
+  color: #552448 !important; }
 
 .rn-home-values-form .rn-home-values-form-submit {
   width: auto !important; }
