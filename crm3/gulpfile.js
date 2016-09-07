@@ -52,14 +52,7 @@ gulp.task('scripts', function () {
 		.pipe(gulp.dest('js/'))
 });
 
-// Copy global icon font to company level
-gulp.task('icons', function () {
-	gulp.src('../modules/internet/search/search3skin/fonts/*')
-	.pipe(gulp.dest('fonts'))
-});
-
 gulp.task('default', function () {
 	gulp.watch("scss/**/*.scss", ['styles']);
 	gulp.watch("coffee/**/*.coffee", ['scripts']);
-	gulp.watch('../modules/internet/search/search3skin/scss/**/*.scss', ['styles']);
 });
