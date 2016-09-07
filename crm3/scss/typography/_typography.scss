@@ -12,9 +12,13 @@
 // Print styles
 @import 'print';
 
+// Icon font
+@import 'icons';
+
 @mixin crm-typography {
   @include crm-typography-base;
   @include crm-typography-helpers;
   @include crm-text-alignment;
   @include crm-print-styles;
+  @include crm-icon-font;
 }

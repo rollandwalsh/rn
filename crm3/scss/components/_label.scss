@@ -1,6 +1,6 @@
-// crm for Sites by ZURB
-// crm.zurb.com
-// Licensed under MIT Open Source
+// CRM3 for Reliance Network
+// www.reliancenetwork.com
+// Created by Rolland Walsh
 
 ////
 /// @group label
@@ -31,6 +31,7 @@ $label-radius: $global-radius !default;
   display: inline-block;
   padding: $label-padding;
   font-size: $label-font-size;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
   cursor: default;
@@ -49,8 +50,18 @@ $label-radius: $global-radius !default;
         &.#{$name} {
           background: $color;
           color: foreground($color);
+          
+          &.inverse {
+	          background: transparent;
+	          color: $color;
+          }
         }
       }
+    }
+    
+    &.inverse {
+	    background: transparent;
+	    color: $label-background
     }
   }
 }

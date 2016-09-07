@@ -94,50 +94,56 @@
 					<div class="crm-page-section-main">
 						<h2>Account Access Settings</h2>
 						
-						<div class="crm-page-section-row">
-							<div class="crm-page-section-column half">
-								<form>
-									<div class="crm-page-section-row">
-										<div class="crm-page-section-column half">
-											Account ID:
-										</div>
-										<div class="crm-page-section-column half">
-											190791
-										</div>
-										
-										<div class="crm-page-section-column full">
-											<label>
-												Username
-												<input type="text" placeholder="Username">
-											</label>
-										</div>
-									</div>
-
-						
-						<td nowrap="" class="required"> Username:</td>
-						<td><input class="input" type="text" name="textusername" value="relianceadmin" maxlength="50"></td>
-						
-						</tr>
-						
-						<tr>
-						<td nowrap="">New Password:</td>
-						<td><input type="password" name="password" class="input"></td>
-						</tr>
-						<tr>
-						<td nowrap="">Confirm Password:</td>
-						<td><input type="password" name="confirmpass" class="input"></td>
-						</tr>
-							
-						</tbody>
-								</form>
-							</div>
-							
-							<div class="crm-page-section-column half">
+						<form>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
 								
+									<label>Account ID: <span class="label inverse">190791</span></label>
+									<label>
+										Username<span class="label inverse alert">*</span>
+										<input type="text" name="textusername" placeholder="Username" maxlength="50" required>
+									</label>
+									<label>
+										New Password:
+										<input type="password" name="password">
+									</label>
+									<label>
+										Confirm Password:
+										<input type="password" name="confirmpass">
+									</label>
+									<p><small><span class="label inverse alert">*</span> <em>Fields marked with the red asterisk are required</em></small></p>
+								</div>
+							
+								<div class="crm-page-section-column half">
+									<p>Account Created On: 11/23/2011 8:06:00 AM</p>
+									<p>
+										Last Intranet Login: 9/6/16 7:30 AM
+										<br>
+										<small>- <a href="agentlogindetails.asp?accountid=190791&amp;intNumdays=30&amp;enddate=9/6/2016" class="infolink">View Login History</a></small>
+									</p>
+									<p>
+										Site Use Terms & Conditions: <span class="label inverse success">Accepted</span>
+										<br>
+										<small>- <a class="infolink" href="javascript:void(0);" onclick="window.open('/modules/global/onlineagreement_text.asp', 'terms', 'scrollbars=yes,width=680px,height=700px');">Read Terms &amp; Conditions</a></small>
+									</p>
+								</div>
+								<div class="crm-page-section-column full">
+									<input type="submit" value="Submit Changes" class="button">
+									<input type="button" value="Cancel" class="button" onclick="pagecancel();">
+									<input type="button" value="Delete Account" class="button" onclick="confirmdelete()">
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 					
+					<div class="crm-page-section-sidebar info">
+						<div class="crm-page-section-sidebar-content">
+							<ul class="crm-page-section-sidebar-content-icon-list">
+								<li class="attention">If your <strong>Last Intranet Login</strong> date and time are incorrect, please contact your Administrator.</li>
+							</ul>
+						</div>
+					</div>
+<!--
 					<div class="crm-page-section-sidebar">
 						<h2>Upcoming Tasks & Events</h2>
 						<div class="crm-page-section-sidebar-content">
@@ -145,10 +151,263 @@
 							<a href="#" class="button large expand">View & Schedule Tasks/Events<i class="rn-icon-triangle-right"></i></a>
 						</div>
 					</div>
+-->
 				</section>
 				
 				<hr>
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">
+						<form>
+							<h2>Account Information</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
+									<label>
+										First Name<span class="label inverse alert">*</span>
+										<input type="text" name="firstname" id="firstname" value="_Reliance" maxlength="50" onkeyup="getCharCount(this);" required>
+									</label>
+									<label>
+										Last Name<span class="label inverse alert">*</span>
+										<input type="text" name="lastname" id="lastname" value="Administrator" maxlength="50" onkeyup="getCharCount(this);" required>
+									</label>
+									<p><small><em>(Max. length 50 char. for these two field combines)</em></small></p>
+									<p><small><span class="label inverse alert">*</span> <em>Fields marked with the red asterisk are required</em></small></p>
+								</div>
+								<div class="crm-page-section-column half">
+									<div class="crm-page-section-row">
+										<div class="crm-page-section-column full">
+											<label>Default Title:<span class="label inverse">Administrator</span></label>
+											<label>
+												Custom Title:
+												<input type="text" name="title" value="" maxlength="40">
+											</label>
+											<label>
+												Display Title on Agent Site:
+												<input type="checkbox" name="chkDisplayAccountTitle" id="chkDisplayAccountTitle" onclick="javascript:toggleAccountTitleSetting(this);">
+											</label>
+											<label>
+												Associate ID:
+												<input type="text" name="franchiseid" id="franchiseid" value="" maxlength="50">
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<hr>
+							
+							<h2>Email Settings</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
+									<label>
+										Primary Email <span class="label inverse"><small>'Primary'</small></span>
+										<input type="email" name="email" id="email" maxlength="50" value="">
+									</label>
+									<label>
+										Email 2 <span class="label inverse"><small>'To-Agent Copies'</small></span>
+										<input type="email" name="email2" id="email2" maxlength="50" value="">
+									</label>
+								</div>
+								<div class="crm-page-section-column half">
+									<p>
+										Instant Acceptance
+										<br>
+										<small> - <a href="instantacceptance.asp?accountid=190791">Change Settings</a></small>
+									</p>
+									<p>
+										Client Notice Settings
+										<br>
+										<small> - <a href="../clientmanager/main/detail/emailnoticesettingsforallclients.asp?accountid=190791">View email settings for client activity notifications.</a></small>
+									</p>
+									<p>
+										Agent-to-Agent Emails
+										<br>
+										<small> - <a href="controls.asp?accountid=190791">Change Settings for Virtual Showings</a></small>
+									</p>
+								</div>
+							</div>
+							
+							<hr>
+							
+							<h2>Phone Display Settings</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
+									<select name="phone1label" id="phone1label">
+										<option value="">Primary Phone</option>
+										<option value="Assistant">Assistant</option>
+										<option value="Business">Business</option>
+										<option value="Business Fax">Business Fax</option>
+										<option value="Car">Car</option>
+										<option value="Cell">Cell</option>
+										<option value="Direct">Direct</option>
+										<option value="Home Fax">Home Fax</option>
+										<option value="Home Office">Home Office</option>
+										<option value="Home Phone">Home Phone</option>
+										<option value="Mobile Phone">Mobile Phone</option>
+										<option value="Office">Office</option>
+										<option value="Office Phone">Office Phone</option>
+										<option value="Office Fax">Office Fax</option>
+										<option value="Pager">Pager</option>
+										<option value="Primary">Primary</option>
+										<option value="Text">Text</option>
+										<option value="Toll-Free">Toll-Free</option>
+										<option value="Team Phone">Team Phone</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="crm-page-section-column half">
+									<input type="tel" name="Phone1Number" value="" maxlength="30" placeholder="Enter number here">
+								</div>
+								<div class="crm-page-section-column half">
+									<select name="phone2label" id="phone2label">
+										<option value="">Phone 2</option>
+										<option value="Assistant">Assistant</option>
+										<option value="Business">Business</option>
+										<option value="Business Fax">Business Fax</option>
+										<option value="Car">Car</option>
+										<option value="Cell">Cell</option>
+										<option value="Direct">Direct</option>
+										<option value="Home Fax">Home Fax</option>
+										<option value="Home Office">Home Office</option>
+										<option value="Home Phone">Home Phone</option>
+										<option value="Mobile Phone">Mobile Phone</option>
+										<option value="Office">Office</option>
+										<option value="Office Phone">Office Phone</option>
+										<option value="Office Fax">Office Fax</option>
+										<option value="Pager">Pager</option>
+										<option value="Primary">Primary</option>
+										<option value="Text">Text</option>
+										<option value="Toll-Free">Toll-Free</option>
+										<option value="Team Phone">Team Phone</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="crm-page-section-column half">
+									<input type="tel" name="Phone2Number" value="" maxlength="30" placeholder="Enter number here">
+								</div>
+								<div class="crm-page-section-column half">
+									<select name="phone3label" id="phone1labe3">
+										<option value="">Phone 3</option>
+										<option value="Assistant">Assistant</option>
+										<option value="Business">Business</option>
+										<option value="Business Fax">Business Fax</option>
+										<option value="Car">Car</option>
+										<option value="Cell">Cell</option>
+										<option value="Direct">Direct</option>
+										<option value="Home Fax">Home Fax</option>
+										<option value="Home Office">Home Office</option>
+										<option value="Home Phone">Home Phone</option>
+										<option value="Mobile Phone">Mobile Phone</option>
+										<option value="Office">Office</option>
+										<option value="Office Phone">Office Phone</option>
+										<option value="Office Fax">Office Fax</option>
+										<option value="Pager">Pager</option>
+										<option value="Primary">Primary</option>
+										<option value="Text">Text</option>
+										<option value="Toll-Free">Toll-Free</option>
+										<option value="Team Phone">Team Phone</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="crm-page-section-column half">
+									<input type="tel" name="Phone3Number" value="" maxlength="30" placeholder="Enter number here">
+								</div>
+								<div class="crm-page-section-column half">
+									<select name="phone4label" id="phone4label">
+										<option value="">Phone 4</option>
+										<option value="Assistant">Assistant</option>
+										<option value="Business">Business</option>
+										<option value="Business Fax">Business Fax</option>
+										<option value="Car">Car</option>
+										<option value="Cell">Cell</option>
+										<option value="Direct">Direct</option>
+										<option value="Home Fax">Home Fax</option>
+										<option value="Home Office">Home Office</option>
+										<option value="Home Phone">Home Phone</option>
+										<option value="Mobile Phone">Mobile Phone</option>
+										<option value="Office">Office</option>
+										<option value="Office Phone">Office Phone</option>
+										<option value="Office Fax">Office Fax</option>
+										<option value="Pager">Pager</option>
+										<option value="Primary">Primary</option>
+										<option value="Text">Text</option>
+										<option value="Toll-Free">Toll-Free</option>
+										<option value="Team Phone">Team Phone</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="crm-page-section-column half">
+									<input type="tel" name="Phone4Number" value="" maxlength="30" placeholder="Enter number here">
+								</div>
+								<div class="crm-page-section-column half">
+									<select name="phone5label" id="phone5label">
+										<option value="">Phone 5</option>
+										<option value="Assistant">Assistant</option>
+										<option value="Business">Business</option>
+										<option value="Business Fax">Business Fax</option>
+										<option value="Car">Car</option>
+										<option value="Cell">Cell</option>
+										<option value="Direct">Direct</option>
+										<option value="Home Fax">Home Fax</option>
+										<option value="Home Office">Home Office</option>
+										<option value="Home Phone">Home Phone</option>
+										<option value="Mobile Phone">Mobile Phone</option>
+										<option value="Office">Office</option>
+										<option value="Office Phone">Office Phone</option>
+										<option value="Office Fax">Office Fax</option>
+										<option value="Pager">Pager</option>
+										<option value="Primary">Primary</option>
+										<option value="Text">Text</option>
+										<option value="Toll-Free">Toll-Free</option>
+										<option value="Team Phone">Team Phone</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="crm-page-section-column half">
+									<input type="tel" name="Phone5Number" value="" maxlength="30" placeholder="Enter number here">
+								</div>
+							</div>
+							
+							<hr>
+							
+							<h2>External Website URL</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<input type="url" value="" maxlength="120" name="externalWebsiteUrl" placeholder="Enter URL here">
+								</div>
+							</div>
+							
+							<hr>
+							
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<br>
+									<input type="submit" value="Submit Changes" class="button">
+									<input type="button" value="Cancel" class="button" onclick="pagecancel();">
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="crm-page-section-sidebar info">
+						<div class="crm-page-section-sidebar-content">
+							<ul class="crm-page-section-sidebar-content-icon-list">
+								<li class="attention">Your <strong>Primary Email</strong> is used for website communications and required for leads.<br>If you enter an <strong>Email 2</strong>, you will be copied on client activity emails.</li>
+								<li class="attention">The <strong>Primary Phone</strong> displays on your website.<br><strong>Phone 2, 3, etc.</strong> will show wherever your contact information displays.</li>
+							</ul>
+						</div>
+					</div>
+<!--
+					<div class="crm-page-section-sidebar">
+						<h2>Upcoming Tasks & Events</h2>
+						<div class="crm-page-section-sidebar-content">
+							<p class="crm-page-section-sidebar-content-message"><strong>No Upcoming Tasks/Events</strong></p>
+							<a href="#" class="button large expand">View & Schedule Tasks/Events<i class="rn-icon-triangle-right"></i></a>
+						</div>
+					</div>
+-->
+				</section>
 				
+<!--
 				<section class="crm-page-section">
 					<div class="crm-page-section-table">
 						<h2>Reports & Summaries</h2>
@@ -262,6 +521,7 @@
 						</div>
 					</div>
 				</section>
+-->
 			</div>
 		</section>
 		

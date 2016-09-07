@@ -2,9 +2,9 @@ $site-content-spacing: $global-margin * 2;
 $site-content-border-color: $medium-gray;
 
 .crm-site-content {
-	@extend .row;
+	@include grid-row;
 	
-	margin: ($site-content-spacing - $global-padding) auto; // Adds site content spacing above/below less padding
+	margin: ($site-content-spacing - $global-padding) auto; // Adds site content spacing above/below less the padding
 	padding: $global-padding; // Adds padding in addition to margin to allow spacing for a border
 }
 
@@ -26,15 +26,20 @@ $site-content-border-color: $medium-gray;
 	display: flex; // Allows for main / sidebar flexing
 	
 	h2 {
+		background: $white;
 		border-bottom: 1px solid $site-content-border-color;
 		font-size: rem-calc(18);
 		font-weight: 700;
 		line-height: 1; // Resets line height to normalize padding;
 		text-transform: uppercase;
 		
-		margin-bottom: 0; // Removes global header margin
-		padding: $global-padding * 2; // Adds wide padding for header
+		// margin-bottom: 0; // Removes default heading margin-bottom
+		padding: ($global-padding * 2) $global-padding; // Adds wide padding for header top/bottom with normal padding left/right
 		width: 100%;
+	}
+	
+	hr {
+		margin: 0;
 	}
 }
 
@@ -44,33 +49,50 @@ $site-content-border-color: $medium-gray;
 	font-size: rem-calc(14);
 	
 	flex: 1 1 auto;
+	
+	form {
+		background: lighten($primary-color, 69%);
+		
+		
+	}
 }
 
 .crm-page-section-row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	
-	width: 100%;
+	@include flex-grid-row();
 }
 
 .crm-page-section-column {
-	padding: $global-padding;
-	
-	&.full {
-		width: 100%;
-	}
-	
-	&.half {
-		width: 50%;
-	}
-	
-	&.third {
-		width: calc(100% / 3);
-	}
+	padding: 0 $global-padding;
 	
 	.crm-page-section-row {
-		margin: -$global-padding;
+		margin-right: -$global-padding;
+		margin-left: -$global-padding;
+	}
+	
+	@include breakpoint(small) {
+		width: 100%;
+		
+		&.half.small {
+			width: 50%;
+		}
+		
+		&.third.small {
+			width: calc(100% / 3);
+		}
+	}
+	
+	@include breakpoint(medium) {
+		&.full {
+			width: 100%;
+		}
+		
+		&.half {
+			width: 50%;
+		}
+		
+		&.third {
+			width: calc(100% / 3);
+		}
 	}
 }
 
@@ -104,14 +126,25 @@ $site-content-border-color: $medium-gray;
 	
 	margin-left: $global-margin;
 	
-	display: flex;
-	flex: 0 0 rem-calc(320);
 	flex-direction: column;
 	
 	&.info {
 		background: $primary-color;
 		border-color: $primary-color;
 		color: $white;
+	}
+	
+	@include breakpoint(small) {
+		display: none;
+	}
+	
+	@include breakpoint(medium) {
+		display: flex;
+		flex: 0 0 rem-calc(240);
+	}
+	
+	@include breakpoint(large) {
+		flex: 0 0 rem-calc(320);
 	}
 }
 
@@ -137,7 +170,7 @@ $site-content-border-color: $medium-gray;
 .crm-page-section-sidebar-content-icon-list {
 	font-size: rem-calc(13);
 	
-	margin: 0;
+	margin-left: calc(#{$global-padding} + 2rem);
 	padding: 0;
 	
 	list-style: none;
@@ -145,13 +178,41 @@ $site-content-border-color: $medium-gray;
 	li {
 		margin-bottom: $global-margin;
 		
+		position: relative;
+		
+		&:before {
+			@extend i;
+			
+			border: 1px solid $white;
+			border-radius: 100%;
+			box-shadow: 1px 1px 3px 0 rgba($black, .75);
+			font-size: rem-calc(24);
+			
+			height: 2rem;
+			width: 2rem;
+			
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			
+			position: absolute;
+			left: calc(#{-$global-padding} - 2rem);
+		}
+		
+		&.attention:before {
+			background: $warning-color;
+			content: '\e962';
+		}
+		
 		&.columns {
 			p {
 				align-items: center;
 				display: flex;
 			}
 			
-			strong {
+			span {
+				font-weight: bold;
+				
 				width: rem-calc(64);
 			}
 		}

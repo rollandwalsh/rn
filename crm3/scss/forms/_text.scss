@@ -67,7 +67,7 @@ $input-radius: $global-radius !default;
   height: $height;
   padding: $form-spacing / 2;
   border: $input-border;
-  margin: 0 0 $form-spacing;
+  margin: 0 0 ($form-spacing / 2);
 
   font-family: $input-font-family;
   font-size: $input-font-size;

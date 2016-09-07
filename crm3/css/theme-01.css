@@ -1,5 +1,11 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700);
+@font-face {
+  font-family: 'CRM-Icons';
+  src: url("../fonts/CRM-Icons.ttf?c4danl") format("truetype"), url("../fonts/CRM-Icons.woff?c4danl") format("woff"), url("../fonts/CRM-Icons.svg?c4danl#CRM-Icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
    * 1. Set default font family to sans-serif.
@@ -423,7 +429,7 @@ button {
 .is-hidden {
   display: none !important; }
 
-.row, .crm-site-header-top-bar, .crm-site-header-menu, .crm-site-content {
+.row, .crm-site-header-top-bar, .crm-site-header-menu {
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
@@ -433,32 +439,29 @@ button {
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap; }
-  .row .row, .crm-site-header-top-bar .row, .crm-site-header-menu .row, .crm-site-content .row, .row .crm-site-header-top-bar, .crm-site-header-top-bar .crm-site-header-top-bar, .crm-site-header-menu .crm-site-header-top-bar, .crm-site-content .crm-site-header-top-bar, .row .crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-menu, .crm-site-header-menu .crm-site-header-menu, .crm-site-content .crm-site-header-menu, .row .crm-site-content, .crm-site-header-top-bar .crm-site-content, .crm-site-header-menu .crm-site-content, .crm-site-content .crm-site-content {
+  .row .row, .crm-site-header-top-bar .row, .crm-site-header-menu .row, .row .crm-site-header-top-bar, .crm-site-header-top-bar .crm-site-header-top-bar, .crm-site-header-menu .crm-site-header-top-bar, .row .crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-menu, .crm-site-header-menu .crm-site-header-menu {
     max-width: none;
     margin-left: -0.625rem;
     margin-right: -0.625rem; }
     @media screen and (min-width: 40em) {
-      .row .row, .crm-site-header-top-bar .row, .crm-site-header-menu .row, .crm-site-content .row, .row .crm-site-header-top-bar, .crm-site-header-top-bar .crm-site-header-top-bar, .crm-site-header-menu .crm-site-header-top-bar, .crm-site-content .crm-site-header-top-bar, .row .crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-menu, .crm-site-header-menu .crm-site-header-menu, .crm-site-content .crm-site-header-menu, .row .crm-site-content, .crm-site-header-top-bar .crm-site-content, .crm-site-header-menu .crm-site-content, .crm-site-content .crm-site-content {
+      .row .row, .crm-site-header-top-bar .row, .crm-site-header-menu .row, .row .crm-site-header-top-bar, .crm-site-header-top-bar .crm-site-header-top-bar, .crm-site-header-menu .crm-site-header-top-bar, .row .crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-menu, .crm-site-header-menu .crm-site-header-menu {
         margin-left: -0.9375rem;
         margin-right: -0.9375rem; } }
-  .row.expanded, .expanded.crm-site-header-top-bar, .expanded.crm-site-header-menu, .expanded.crm-site-content {
+  .row.expanded, .expanded.crm-site-header-top-bar, .expanded.crm-site-header-menu {
     max-width: none; }
-  .row.collapse > .column, .collapse.crm-site-header-top-bar > .column, .collapse.crm-site-header-menu > .column, .collapse.crm-site-content > .column, .row.collapse > .columns, .collapse.crm-site-header-top-bar > .columns, .collapse.crm-site-header-menu > .columns, .collapse.crm-site-content > .columns, .row.collapse > .crm-site-header-user, .collapse.crm-site-header-top-bar > .crm-site-header-user, .collapse.crm-site-header-menu > .crm-site-header-user, .collapse.crm-site-content > .crm-site-header-user {
+  .row.collapse > .column, .collapse.crm-site-header-top-bar > .column, .collapse.crm-site-header-menu > .column, .row.collapse > .columns, .collapse.crm-site-header-top-bar > .columns, .collapse.crm-site-header-menu > .columns, .row.collapse > .crm-site-header-user, .collapse.crm-site-header-top-bar > .crm-site-header-user, .collapse.crm-site-header-menu > .crm-site-header-user {
     padding-left: 0;
     padding-right: 0; }
-  .row.is-collapse-child, .is-collapse-child.crm-site-header-top-bar, .is-collapse-child.crm-site-header-menu, .is-collapse-child.crm-site-content,
-  .row.collapse > .column > .row, .collapse.crm-site-header-top-bar > .column > .row, .collapse.crm-site-header-menu > .column > .row, .collapse.crm-site-content > .column > .row,
-  .row.collapse > .columns > .row, .collapse.crm-site-header-top-bar > .columns > .row, .collapse.crm-site-header-menu > .columns > .row, .collapse.crm-site-content > .columns > .row,
-  .row.collapse > .crm-site-header-user > .row, .collapse.crm-site-header-top-bar > .crm-site-header-user > .row, .collapse.crm-site-header-menu > .crm-site-header-user > .row, .collapse.crm-site-content > .crm-site-header-user > .row,
-  .row.collapse > .column > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .column > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .column > .crm-site-header-top-bar, .collapse.crm-site-content > .column > .crm-site-header-top-bar,
-  .row.collapse > .columns > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .columns > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .columns > .crm-site-header-top-bar, .collapse.crm-site-content > .columns > .crm-site-header-top-bar,
-  .row.collapse > .crm-site-header-user > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .crm-site-header-user > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .crm-site-header-user > .crm-site-header-top-bar, .collapse.crm-site-content > .crm-site-header-user > .crm-site-header-top-bar,
-  .row.collapse > .column > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .column > .crm-site-header-menu, .collapse.crm-site-header-menu > .column > .crm-site-header-menu, .collapse.crm-site-content > .column > .crm-site-header-menu,
-  .row.collapse > .columns > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .columns > .crm-site-header-menu, .collapse.crm-site-header-menu > .columns > .crm-site-header-menu, .collapse.crm-site-content > .columns > .crm-site-header-menu,
-  .row.collapse > .crm-site-header-user > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .crm-site-header-user > .crm-site-header-menu, .collapse.crm-site-header-menu > .crm-site-header-user > .crm-site-header-menu, .collapse.crm-site-content > .crm-site-header-user > .crm-site-header-menu,
-  .row.collapse > .column > .crm-site-content, .collapse.crm-site-header-top-bar > .column > .crm-site-content, .collapse.crm-site-header-menu > .column > .crm-site-content, .collapse.crm-site-content > .column > .crm-site-content,
-  .row.collapse > .columns > .crm-site-content, .collapse.crm-site-header-top-bar > .columns > .crm-site-content, .collapse.crm-site-header-menu > .columns > .crm-site-content, .collapse.crm-site-content > .columns > .crm-site-content,
-  .row.collapse > .crm-site-header-user > .crm-site-content, .collapse.crm-site-header-top-bar > .crm-site-header-user > .crm-site-content, .collapse.crm-site-header-menu > .crm-site-header-user > .crm-site-content, .collapse.crm-site-content > .crm-site-header-user > .crm-site-content {
+  .row.is-collapse-child, .is-collapse-child.crm-site-header-top-bar, .is-collapse-child.crm-site-header-menu,
+  .row.collapse > .column > .row, .collapse.crm-site-header-top-bar > .column > .row, .collapse.crm-site-header-menu > .column > .row,
+  .row.collapse > .columns > .row, .collapse.crm-site-header-top-bar > .columns > .row, .collapse.crm-site-header-menu > .columns > .row,
+  .row.collapse > .crm-site-header-user > .row, .collapse.crm-site-header-top-bar > .crm-site-header-user > .row, .collapse.crm-site-header-menu > .crm-site-header-user > .row,
+  .row.collapse > .column > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .column > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .column > .crm-site-header-top-bar,
+  .row.collapse > .columns > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .columns > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .columns > .crm-site-header-top-bar,
+  .row.collapse > .crm-site-header-user > .crm-site-header-top-bar, .collapse.crm-site-header-top-bar > .crm-site-header-user > .crm-site-header-top-bar, .collapse.crm-site-header-menu > .crm-site-header-user > .crm-site-header-top-bar,
+  .row.collapse > .column > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .column > .crm-site-header-menu, .collapse.crm-site-header-menu > .column > .crm-site-header-menu,
+  .row.collapse > .columns > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .columns > .crm-site-header-menu, .collapse.crm-site-header-menu > .columns > .crm-site-header-menu,
+  .row.collapse > .crm-site-header-user > .crm-site-header-menu, .collapse.crm-site-header-top-bar > .crm-site-header-user > .crm-site-header-menu, .collapse.crm-site-header-menu > .crm-site-header-user > .crm-site-header-menu {
     margin-left: 0;
     margin-right: 0; }
 
@@ -474,10 +477,10 @@ button {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem; } }
 
-.column.row.row, .row.row.columns, .columns.crm-site-header-top-bar, .crm-site-header-top-bar.crm-site-header-user, .row.row.crm-site-header-user, .crm-site-header-user.crm-site-header-menu, .crm-site-header-user.crm-site-content, .columns.crm-site-header-menu, .columns.crm-site-content, .column.crm-site-header-top-bar, .column.crm-site-header-menu, .column.crm-site-content {
+.column.row.row, .row.row.columns, .columns.crm-site-header-top-bar, .crm-site-header-top-bar.crm-site-header-user, .row.row.crm-site-header-user, .crm-site-header-user.crm-site-header-menu, .columns.crm-site-header-menu, .column.crm-site-header-top-bar, .column.crm-site-header-menu {
   float: none;
   display: block; }
-  .row .column.row.row, .crm-site-header-top-bar .column.row.row, .crm-site-header-menu .column.row.row, .crm-site-content .column.row.row, .row .row.row.columns, .crm-site-header-top-bar .row.row.columns, .crm-site-header-menu .row.row.columns, .crm-site-content .row.row.columns, .row .columns.crm-site-header-top-bar, .crm-site-header-top-bar .columns.crm-site-header-top-bar, .crm-site-header-menu .columns.crm-site-header-top-bar, .crm-site-content .columns.crm-site-header-top-bar, .row .crm-site-header-top-bar.crm-site-header-user, .crm-site-header-top-bar .crm-site-header-top-bar.crm-site-header-user, .crm-site-header-menu .crm-site-header-top-bar.crm-site-header-user, .crm-site-content .crm-site-header-top-bar.crm-site-header-user, .row .row.row.crm-site-header-user, .crm-site-header-top-bar .row.row.crm-site-header-user, .crm-site-header-menu .row.row.crm-site-header-user, .crm-site-content .row.row.crm-site-header-user, .row .crm-site-header-user.crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-user.crm-site-header-menu, .crm-site-header-menu .crm-site-header-user.crm-site-header-menu, .crm-site-content .crm-site-header-user.crm-site-header-menu, .row .crm-site-header-user.crm-site-content, .crm-site-header-top-bar .crm-site-header-user.crm-site-content, .crm-site-header-menu .crm-site-header-user.crm-site-content, .crm-site-content .crm-site-header-user.crm-site-content, .row .columns.crm-site-header-menu, .crm-site-header-top-bar .columns.crm-site-header-menu, .crm-site-header-menu .columns.crm-site-header-menu, .crm-site-content .columns.crm-site-header-menu, .row .columns.crm-site-content, .crm-site-header-top-bar .columns.crm-site-content, .crm-site-header-menu .columns.crm-site-content, .crm-site-content .columns.crm-site-content, .row .column.crm-site-header-top-bar, .crm-site-header-top-bar .column.crm-site-header-top-bar, .crm-site-header-menu .column.crm-site-header-top-bar, .crm-site-content .column.crm-site-header-top-bar, .row .column.crm-site-header-menu, .crm-site-header-top-bar .column.crm-site-header-menu, .crm-site-header-menu .column.crm-site-header-menu, .crm-site-content .column.crm-site-header-menu, .row .column.crm-site-content, .crm-site-header-top-bar .column.crm-site-content, .crm-site-header-menu .column.crm-site-content, .crm-site-content .column.crm-site-content {
+  .row .column.row.row, .crm-site-header-top-bar .column.row.row, .crm-site-header-menu .column.row.row, .row .row.row.columns, .crm-site-header-top-bar .row.row.columns, .crm-site-header-menu .row.row.columns, .row .columns.crm-site-header-top-bar, .crm-site-header-top-bar .columns.crm-site-header-top-bar, .crm-site-header-menu .columns.crm-site-header-top-bar, .row .crm-site-header-top-bar.crm-site-header-user, .crm-site-header-top-bar .crm-site-header-top-bar.crm-site-header-user, .crm-site-header-menu .crm-site-header-top-bar.crm-site-header-user, .row .row.row.crm-site-header-user, .crm-site-header-top-bar .row.row.crm-site-header-user, .crm-site-header-menu .row.row.crm-site-header-user, .row .crm-site-header-user.crm-site-header-menu, .crm-site-header-top-bar .crm-site-header-user.crm-site-header-menu, .crm-site-header-menu .crm-site-header-user.crm-site-header-menu, .row .columns.crm-site-header-menu, .crm-site-header-top-bar .columns.crm-site-header-menu, .crm-site-header-menu .columns.crm-site-header-menu, .row .column.crm-site-header-top-bar, .crm-site-header-top-bar .column.crm-site-header-top-bar, .crm-site-header-menu .column.crm-site-header-top-bar, .row .column.crm-site-header-menu, .crm-site-header-top-bar .column.crm-site-header-menu, .crm-site-header-menu .column.crm-site-header-menu {
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
@@ -897,12 +900,12 @@ button {
         -ms-flex: 1 1 0px;
             flex: 1 1 0px; } }
 
-.row.medium-unstack > .column, .medium-unstack.crm-site-header-top-bar > .column, .medium-unstack.crm-site-header-menu > .column, .medium-unstack.crm-site-content > .column, .row.medium-unstack > .columns, .medium-unstack.crm-site-header-top-bar > .columns, .medium-unstack.crm-site-header-menu > .columns, .medium-unstack.crm-site-content > .columns, .row.medium-unstack > .crm-site-header-user, .medium-unstack.crm-site-header-top-bar > .crm-site-header-user, .medium-unstack.crm-site-header-menu > .crm-site-header-user, .medium-unstack.crm-site-content > .crm-site-header-user {
+.row.medium-unstack > .column, .medium-unstack.crm-site-header-top-bar > .column, .medium-unstack.crm-site-header-menu > .column, .row.medium-unstack > .columns, .medium-unstack.crm-site-header-top-bar > .columns, .medium-unstack.crm-site-header-menu > .columns, .row.medium-unstack > .crm-site-header-user, .medium-unstack.crm-site-header-top-bar > .crm-site-header-user, .medium-unstack.crm-site-header-menu > .crm-site-header-user {
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
   @media screen and (min-width: 40em) {
-    .row.medium-unstack > .column, .medium-unstack.crm-site-header-top-bar > .column, .medium-unstack.crm-site-header-menu > .column, .medium-unstack.crm-site-content > .column, .row.medium-unstack > .columns, .medium-unstack.crm-site-header-top-bar > .columns, .medium-unstack.crm-site-header-menu > .columns, .medium-unstack.crm-site-content > .columns, .row.medium-unstack > .crm-site-header-user, .medium-unstack.crm-site-header-top-bar > .crm-site-header-user, .medium-unstack.crm-site-header-menu > .crm-site-header-user, .medium-unstack.crm-site-content > .crm-site-header-user {
+    .row.medium-unstack > .column, .medium-unstack.crm-site-header-top-bar > .column, .medium-unstack.crm-site-header-menu > .column, .row.medium-unstack > .columns, .medium-unstack.crm-site-header-top-bar > .columns, .medium-unstack.crm-site-header-menu > .columns, .row.medium-unstack > .crm-site-header-user, .medium-unstack.crm-site-header-top-bar > .crm-site-header-user, .medium-unstack.crm-site-header-menu > .crm-site-header-user {
       -webkit-flex: 1 1 0px;
           -ms-flex: 1 1 0px;
               flex: 1 1 0px; } }
@@ -1103,12 +1106,12 @@ button {
         -ms-flex: 1 1 0px;
             flex: 1 1 0px; } }
 
-.row.large-unstack > .column, .large-unstack.crm-site-header-top-bar > .column, .large-unstack.crm-site-header-menu > .column, .large-unstack.crm-site-content > .column, .row.large-unstack > .columns, .large-unstack.crm-site-header-top-bar > .columns, .large-unstack.crm-site-header-menu > .columns, .large-unstack.crm-site-content > .columns, .row.large-unstack > .crm-site-header-user, .large-unstack.crm-site-header-top-bar > .crm-site-header-user, .large-unstack.crm-site-header-menu > .crm-site-header-user, .large-unstack.crm-site-content > .crm-site-header-user {
+.row.large-unstack > .column, .large-unstack.crm-site-header-top-bar > .column, .large-unstack.crm-site-header-menu > .column, .row.large-unstack > .columns, .large-unstack.crm-site-header-top-bar > .columns, .large-unstack.crm-site-header-menu > .columns, .row.large-unstack > .crm-site-header-user, .large-unstack.crm-site-header-top-bar > .crm-site-header-user, .large-unstack.crm-site-header-menu > .crm-site-header-user {
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
   @media screen and (min-width: 64em) {
-    .row.large-unstack > .column, .large-unstack.crm-site-header-top-bar > .column, .large-unstack.crm-site-header-menu > .column, .large-unstack.crm-site-content > .column, .row.large-unstack > .columns, .large-unstack.crm-site-header-top-bar > .columns, .large-unstack.crm-site-header-menu > .columns, .large-unstack.crm-site-content > .columns, .row.large-unstack > .crm-site-header-user, .large-unstack.crm-site-header-top-bar > .crm-site-header-user, .large-unstack.crm-site-header-menu > .crm-site-header-user, .large-unstack.crm-site-content > .crm-site-header-user {
+    .row.large-unstack > .column, .large-unstack.crm-site-header-top-bar > .column, .large-unstack.crm-site-header-menu > .column, .row.large-unstack > .columns, .large-unstack.crm-site-header-top-bar > .columns, .large-unstack.crm-site-header-menu > .columns, .row.large-unstack > .crm-site-header-user, .large-unstack.crm-site-header-top-bar > .crm-site-header-user, .large-unstack.crm-site-header-menu > .crm-site-header-user {
       -webkit-flex: 1 1 0px;
           -ms-flex: 1 1 0px;
               flex: 1 1 0px; } }
@@ -1178,7 +1181,8 @@ p {
 em,
 i,
 .crm-site-header-menu .has-dropdown > a:after,
-.crm-site-header-menu .has-slideright > a:after {
+.crm-site-header-menu .has-slideright > a:after,
+.crm-page-section-sidebar-content-icon-list li:before {
   font-style: italic;
   line-height: inherit; }
 
@@ -1248,11 +1252,12 @@ h6 {
 
 a {
   color: #00308a;
-  text-decoration: none;
+  text-decoration: underline;
   line-height: inherit;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #002977; }
+    color: #002977;
+    text-decoration: none; }
   a img {
     border: 0; }
 
@@ -1439,6 +1444,715 @@ kbd {
   h3 {
     page-break-after: avoid; } }
 
+i, .crm-site-header-menu .has-dropdown > a:after,
+.crm-site-header-menu .has-slideright > a:after, .crm-page-section-sidebar-content-icon-list li:before {
+  font-family: 'CRM-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.crm-icon-user-solid:before {
+  content: "\e9ca"; }
+
+.crm-icon-add-user:before {
+  content: "\e900"; }
+
+.crm-icon-airplay:before {
+  content: "\e901"; }
+
+.crm-icon-alarm:before {
+  content: "\e902"; }
+
+.crm-icon-album:before {
+  content: "\e903"; }
+
+.crm-icon-albums:before {
+  content: "\e904"; }
+
+.crm-icon-anchor:before {
+  content: "\e905"; }
+
+.crm-icon-angle-down-circle:before {
+  content: "\e906"; }
+
+.crm-icon-angle-down-big:before {
+  content: "\e9d1"; }
+
+.crm-icon-angle-down-medium:before {
+  content: "\e9d7"; }
+
+.crm-icon-angle-down:before {
+  content: "\e907"; }
+
+.crm-icon-angle-left-circle:before {
+  content: "\e908"; }
+
+.crm-icon-angle-left-big:before {
+  content: "\e9d2"; }
+
+.crm-icon-angle-left-medium:before {
+  content: "\e9d8"; }
+
+.crm-icon-angle-left:before {
+  content: "\e909"; }
+
+.crm-icon-angle-right-circle:before {
+  content: "\e90a"; }
+
+.crm-icon-angle-right-big:before {
+  content: "\e9d3"; }
+
+.crm-icon-angle-right-medium:before {
+  content: "\e9d9"; }
+
+.crm-icon-angle-right:before {
+  content: "\e90b"; }
+
+.crm-icon-angle-up-circle:before {
+  content: "\e90c"; }
+
+.crm-icon-angle-up-big:before {
+  content: "\e9d4"; }
+
+.crm-icon-angle-up-medium:before {
+  content: "\e9da"; }
+
+.crm-icon-angle-up:before {
+  content: "\e90d"; }
+
+.crm-icon-arc:before {
+  content: "\e90e"; }
+
+.crm-icon-attention:before {
+  content: "\e90f"; }
+
+.crm-icon-back-2:before {
+  content: "\e910"; }
+
+.crm-icon-back:before {
+  content: "\e911"; }
+
+.crm-icon-ball:before {
+  content: "\e912"; }
+
+.crm-icon-bandaid:before {
+  content: "\e913"; }
+
+.crm-icon-battery:before {
+  content: "\e914"; }
+
+.crm-icon-bell:before {
+  content: "\e915"; }
+
+.crm-icon-bicycle:before {
+  content: "\e916"; }
+
+.crm-icon-bluetooth:before {
+  content: "\e917"; }
+
+.crm-icon-bookmarks:before {
+  content: "\e918"; }
+
+.crm-icon-bottom-arrow:before {
+  content: "\e919"; }
+
+.crm-icon-box1:before {
+  content: "\e91a"; }
+
+.crm-icon-box2:before {
+  content: "\e91b"; }
+
+.crm-icon-browser:before {
+  content: "\e91c"; }
+
+.crm-icon-calculator:before {
+  content: "\e91d"; }
+
+.crm-icon-call:before {
+  content: "\e91e"; }
+
+.crm-icon-camera:before {
+  content: "\e91f"; }
+
+.crm-icon-car:before {
+  content: "\e920"; }
+
+.crm-icon-cart:before {
+  content: "\e921"; }
+
+.crm-icon-cash:before {
+  content: "\e922"; }
+
+.crm-icon-chat:before {
+  content: "\e923"; }
+
+.crm-icon-check:before {
+  content: "\e924"; }
+
+.crm-icon-clock:before {
+  content: "\e925"; }
+
+.crm-icon-close-circle:before {
+  content: "\e926"; }
+
+.crm-icon-close:before {
+  content: "\e927"; }
+
+.crm-icon-cloud-download:before {
+  content: "\e928"; }
+
+.crm-icon-cloud-upload:before {
+  content: "\e929"; }
+
+.crm-icon-cloud:before {
+  content: "\e92a"; }
+
+.crm-icon-coffee:before {
+  content: "\e92b"; }
+
+.crm-icon-comment:before {
+  content: "\e92c"; }
+
+.crm-icon-compass:before {
+  content: "\e92d"; }
+
+.crm-icon-config:before {
+  content: "\e92e"; }
+
+.crm-icon-copy-file:before {
+  content: "\e92f"; }
+
+.crm-icon-credit:before {
+  content: "\e930"; }
+
+.crm-icon-crop:before {
+  content: "\e931"; }
+
+.crm-icon-culture:before {
+  content: "\e932"; }
+
+.crm-icon-cup:before {
+  content: "\e933"; }
+
+.crm-icon-date:before {
+  content: "\e934"; }
+
+.crm-icon-delete-user:before {
+  content: "\e935"; }
+
+.crm-icon-diamond:before {
+  content: "\e936"; }
+
+.crm-icon-disk:before {
+  content: "\e937"; }
+
+.crm-icon-diskette:before {
+  content: "\e938"; }
+
+.crm-icon-display1:before {
+  content: "\e939"; }
+
+.crm-icon-display2:before {
+  content: "\e93a"; }
+
+.crm-icon-door-lock:before {
+  content: "\e93b"; }
+
+.crm-icon-download:before {
+  content: "\e93c"; }
+
+.crm-icon-drawer:before {
+  content: "\e93d"; }
+
+.crm-icon-drop:before {
+  content: "\e93e"; }
+
+.crm-icon-edit:before {
+  content: "\e93f"; }
+
+.crm-icon-exapnd2:before {
+  content: "\e940"; }
+
+.crm-icon-expand1:before {
+  content: "\e941"; }
+
+.crm-icon-eyedropper:before {
+  content: "\e942"; }
+
+.crm-icon-female:before {
+  content: "\e943"; }
+
+.crm-icon-file:before {
+  content: "\e944"; }
+
+.crm-icon-film:before {
+  content: "\e945"; }
+
+.crm-icon-filter:before {
+  content: "\e946"; }
+
+.crm-icon-flag:before {
+  content: "\e947"; }
+
+.crm-icon-folder:before {
+  content: "\e948"; }
+
+.crm-icon-gift:before {
+  content: "\e949"; }
+
+.crm-icon-glasses:before {
+  content: "\e94a"; }
+
+.crm-icon-gleam:before {
+  content: "\e94b"; }
+
+.crm-icon-global:before {
+  content: "\e94c"; }
+
+.crm-icon-graph:before {
+  content: "\e94d"; }
+
+.crm-icon-graph1:before {
+  content: "\e94e"; }
+
+.crm-icon-graph2:before {
+  content: "\e94f"; }
+
+.crm-icon-graph3:before {
+  content: "\e950"; }
+
+.crm-icon-gym:before {
+  content: "\e951"; }
+
+.crm-icon-hammer:before {
+  content: "\e952"; }
+
+.crm-icon-headphones:before {
+  content: "\e953"; }
+
+.crm-icon-helm:before {
+  content: "\e954"; }
+
+.crm-icon-help1:before {
+  content: "\e955"; }
+
+.crm-icon-help2:before {
+  content: "\e956"; }
+
+.crm-icon-home:before {
+  content: "\e957"; }
+
+.crm-icon-hourglass:before {
+  content: "\e958"; }
+
+.crm-icon-id:before {
+  content: "\e959"; }
+
+.crm-icon-info:before {
+  content: "\e95a"; }
+
+.crm-icon-joy:before {
+  content: "\e95b"; }
+
+.crm-icon-junk:before {
+  content: "\e95c"; }
+
+.crm-icon-key:before {
+  content: "\e95d"; }
+
+.crm-icon-keypad:before {
+  content: "\e95e"; }
+
+.crm-icon-leaf:before {
+  content: "\e95f"; }
+
+.crm-icon-left-arrow:before {
+  content: "\e960"; }
+
+.crm-icon-less:before {
+  content: "\e961"; }
+
+.crm-icon-light:before {
+  content: "\e962"; }
+
+.crm-icon-like:before {
+  content: "\e963"; }
+
+.crm-icon-like2:before {
+  content: "\e964"; }
+
+.crm-icon-link:before {
+  content: "\e965"; }
+
+.crm-icon-lintern:before {
+  content: "\e966"; }
+
+.crm-icon-lock:before {
+  content: "\e967"; }
+
+.crm-icon-look:before {
+  content: "\e968"; }
+
+.crm-icon-loop:before {
+  content: "\e969"; }
+
+.crm-icon-magic-wand:before {
+  content: "\e96a"; }
+
+.crm-icon-magnet:before {
+  content: "\e96b"; }
+
+.crm-icon-mail-open-file:before {
+  content: "\e96c"; }
+
+.crm-icon-mail-open:before {
+  content: "\e96d"; }
+
+.crm-icon-mail:before {
+  content: "\e96e"; }
+
+.crm-icon-male:before {
+  content: "\e96f"; }
+
+.crm-icon-map-2:before {
+  content: "\e970"; }
+
+.crm-icon-map-marker:before {
+  content: "\e971"; }
+
+.crm-icon-map:before {
+  content: "\e972"; }
+
+.crm-icon-medal:before {
+  content: "\e973"; }
+
+.crm-icon-pause:before {
+  content: "\e9d6"; }
+
+.crm-icon-menu:before {
+  content: "\e974"; }
+
+.crm-icon-micro:before {
+  content: "\e975"; }
+
+.crm-icon-monitor:before {
+  content: "\e976"; }
+
+.crm-icon-moon:before {
+  content: "\e977"; }
+
+.crm-icon-more:before {
+  content: "\e978"; }
+
+.crm-icon-mouse:before {
+  content: "\e979"; }
+
+.crm-icon-music:before {
+  content: "\e97a"; }
+
+.crm-icon-musiclist:before {
+  content: "\e97b"; }
+
+.crm-icon-mute:before {
+  content: "\e97c"; }
+
+.crm-icon-network:before {
+  content: "\e97d"; }
+
+.crm-icon-news-paper:before {
+  content: "\e97e"; }
+
+.crm-icon-next-2:before {
+  content: "\e97f"; }
+
+.crm-icon-next:before {
+  content: "\e980"; }
+
+.crm-icon-note:before {
+  content: "\e981"; }
+
+.crm-icon-note2:before {
+  content: "\e982"; }
+
+.crm-icon-notebook:before {
+  content: "\e983"; }
+
+.crm-icon-paint-bucket:before {
+  content: "\e984"; }
+
+.crm-icon-paint:before {
+  content: "\e985"; }
+
+.crm-icon-paper-plane:before {
+  content: "\e986"; }
+
+.crm-icon-paperclip:before {
+  content: "\e987"; }
+
+.crm-icon-pen:before {
+  content: "\e988"; }
+
+.crm-icon-pendrive:before {
+  content: "\e989"; }
+
+.crm-icon-phone:before {
+  content: "\e98a"; }
+
+.crm-icon-photo-gallery:before {
+  content: "\e98b"; }
+
+.crm-icon-photo:before {
+  content: "\e98c"; }
+
+.crm-icon-piggy:before {
+  content: "\e98d"; }
+
+.crm-icon-pin:before {
+  content: "\e98e"; }
+
+.crm-icon-plane:before {
+  content: "\e98f"; }
+
+.crm-icon-play:before {
+  content: "\e990"; }
+
+.crm-icon-plug:before {
+  content: "\e991"; }
+
+.crm-icon-plugin:before {
+  content: "\e992"; }
+
+.crm-icon-plus:before {
+  content: "\e993"; }
+
+.crm-icon-portfolio:before {
+  content: "\e994"; }
+
+.crm-icon-power:before {
+  content: "\e995"; }
+
+.crm-icon-prev:before {
+  content: "\e996"; }
+
+.crm-icon-print:before {
+  content: "\e997"; }
+
+.crm-icon-radio:before {
+  content: "\e998"; }
+
+.crm-icon-refresh-2:before {
+  content: "\e999"; }
+
+.crm-icon-refresh-cloud:before {
+  content: "\e99a"; }
+
+.crm-icon-refresh:before {
+  content: "\e99b"; }
+
+.crm-icon-repeat:before {
+  content: "\e99c"; }
+
+.crm-icon-ribbon:before {
+  content: "\e99d"; }
+
+.crm-icon-right-arrow:before {
+  content: "\e99e"; }
+
+.crm-icon-rocket:before {
+  content: "\e99f"; }
+
+.crm-icon-safe:before {
+  content: "\e9a0"; }
+
+.crm-icon-science:before {
+  content: "\e9a1"; }
+
+.crm-icon-scissors:before {
+  content: "\e9a2"; }
+
+.crm-icon-search:before {
+  content: "\e9a3"; }
+
+.crm-icon-server:before {
+  content: "\e9a4"; }
+
+.crm-icon-settings:before {
+  content: "\e9a5"; }
+
+.crm-icon-share:before {
+  content: "\e9a6"; }
+
+.crm-icon-shield:before {
+  content: "\e9a7"; }
+
+.crm-icon-shopbag:before {
+  content: "\e9a8"; }
+
+.crm-icon-shuffle:before {
+  content: "\e9a9"; }
+
+.crm-icon-signal:before {
+  content: "\e9aa"; }
+
+.crm-icon-smile:before {
+  content: "\e9ab"; }
+
+.crm-icon-speaker:before {
+  content: "\e9ac"; }
+
+.crm-icon-star-sharp:before {
+  content: "\e9ad"; }
+
+.crm-icon-stopwatch:before {
+  content: "\e9ae"; }
+
+.crm-icon-study:before {
+  content: "\e9af"; }
+
+.crm-icon-sun:before {
+  content: "\e9b0"; }
+
+.crm-icon-switch:before {
+  content: "\e9b1"; }
+
+.crm-icon-target:before {
+  content: "\e9b2"; }
+
+.crm-icon-ticket:before {
+  content: "\e9b3"; }
+
+.crm-icon-timer:before {
+  content: "\e9b4"; }
+
+.crm-icon-tools:before {
+  content: "\e9b5"; }
+
+.crm-icon-trash:before {
+  content: "\e9b6"; }
+
+.crm-icon-umbrella:before {
+  content: "\e9b7"; }
+
+.crm-icon-unlock:before {
+  content: "\e9b8"; }
+
+.crm-icon-up-arrow:before {
+  content: "\e9b9"; }
+
+.crm-icon-upload:before {
+  content: "\e9ba"; }
+
+.crm-icon-usb:before {
+  content: "\e9bb"; }
+
+.crm-icon-user-female:before {
+  content: "\e9bc"; }
+
+.crm-icon-user:before {
+  content: "\e9bd"; }
+
+.crm-icon-users:before {
+  content: "\e9be"; }
+
+.crm-icon-vector:before {
+  content: "\e9bf"; }
+
+.crm-icon-video:before {
+  content: "\e9c0"; }
+
+.crm-icon-voicemail:before {
+  content: "\e9c1"; }
+
+.crm-icon-volume:before {
+  content: "\e9c2"; }
+
+.crm-icon-volume1:before {
+  content: "\e9c3"; }
+
+.crm-icon-volume2:before {
+  content: "\e9c4"; }
+
+.crm-icon-wallet:before {
+  content: "\e9c5"; }
+
+.crm-icon-way:before {
+  content: "\e9c6"; }
+
+.crm-icon-wine:before {
+  content: "\e9c7"; }
+
+.crm-icon-world:before {
+  content: "\e9c8"; }
+
+.crm-icon-wristwatch:before {
+  content: "\e9c9"; }
+
+.crm-icon-heart-solid:before {
+  content: "\f004"; }
+
+.crm-icon-heart:before {
+  content: "\f08a"; }
+
+.crm-icon-star-solid:before {
+  content: "\f005"; }
+
+.crm-icon-star:before {
+  content: "\f006"; }
+
+.crm-icon-twitter:before {
+  content: "\f099"; }
+
+.crm-icon-facebook:before {
+  content: "\f09a"; }
+
+.crm-icon-google-plus:before {
+  content: "\f0d5"; }
+
+.crm-icon-instagram:before {
+  content: "\f16d"; }
+
+.crm-icon-linkedin:before {
+  content: "\f0e1"; }
+
+.crm-icon-youtube:before {
+  content: "\f16a"; }
+
+.crm-icon-pinterest:before {
+  content: "\f231"; }
+
+.crm-icon-rss:before {
+  content: "\f09e"; }
+
+.crm-icon-speedometer:before {
+  content: "\e051"; }
+
+.crm-icon-scope:before {
+  content: "\e058"; }
+
+.crm-icon-bubble:before {
+  content: "\e9d5"; }
+
+.crm-icon-triangle-left:before {
+  content: "\e9dc"; }
+
+.crm-icon-triangle-up:before {
+  content: "\e9dd"; }
+
+.crm-icon-triangle-right:before {
+  content: "\e9de"; }
+
+.crm-icon-triangle-down:before {
+  content: "\e9df"; }
+
+.crm-icon-blogger:before {
+  content: "\e9cb"; }
+
 [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'],
 textarea {
   display: block;
@@ -1447,7 +2161,7 @@ textarea {
   height: 2.4375rem;
   padding: 0.5rem;
   border: 1px solid #cacaca;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   font-family: inherit;
   font-size: 1rem;
   color: #000000;
@@ -1625,7 +2339,7 @@ select {
   height: 2.4375rem;
   padding: 0.5rem;
   border: 1px solid #cacaca;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   font-size: 1rem;
   font-family: inherit;
   line-height: normal;
@@ -1678,9 +2392,11 @@ select {
   vertical-align: middle;
   border: 1px solid transparent;
   border-radius: 0;
-  padding: 0.85em 1em;
-  margin: 0 0 1rem 0;
+  padding: 0.35em 0.75em;
+  margin: 0 0 0.5rem 0;
   font-size: 0.9rem;
+  text-decoration: none;
+  text-transform: uppercase;
   background-color: #ee1c26;
   color: #ffffff; }
   [data-whatinput='mouse'] .button {
@@ -1797,7 +2513,7 @@ select {
     position: relative;
     top: 0.4em;
     float: right;
-    margin-left: 1em;
+    margin-left: 0.75em;
     display: inline-block; }
   .button.arrow-only::after {
     margin-left: 0;
@@ -2131,6 +2847,8 @@ select {
     .crm-site-header-menu .has-slideright > a:after,
     .crm-site-header-menu
     .menu > li > a .has-slideright > a:after,
+    .menu > li > a .crm-page-section-sidebar-content-icon-list li:before, .crm-page-section-sidebar-content-icon-list
+    .menu > li > a li:before,
     .menu > li > a svg {
       margin-right: 0.25rem; }
   .menu > li {
@@ -2234,6 +2952,8 @@ select {
     .crm-site-header-menu .has-slideright > a:after,
     .crm-site-header-menu
     .menu.icon-top > li > a .has-slideright > a:after,
+    .menu.icon-top > li > a .crm-page-section-sidebar-content-icon-list li:before, .crm-page-section-sidebar-content-icon-list
+    .menu.icon-top > li > a li:before,
     .menu.icon-top > li > a svg {
       -webkit-align-self: stretch;
           -ms-flex-item-align: stretch;
@@ -2649,6 +3369,7 @@ select {
   display: inline-block;
   padding: 0.33333rem 0.5rem;
   font-size: 0.8rem;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
   cursor: default;
@@ -2658,18 +3379,36 @@ select {
   .label.secondary {
     background: #ee1c26;
     color: #ffffff; }
+    .label.secondary.inverse {
+      background: transparent;
+      color: #ee1c26; }
   .label.tertiary {
     background: #1593CF;
     color: #ffffff; }
+    .label.tertiary.inverse {
+      background: transparent;
+      color: #1593CF; }
   .label.success {
     background: #3adb76;
     color: #ffffff; }
+    .label.success.inverse {
+      background: transparent;
+      color: #3adb76; }
   .label.warning {
     background: #ffae00;
     color: #ffffff; }
+    .label.warning.inverse {
+      background: transparent;
+      color: #ffae00; }
   .label.alert {
     background: #ec5840;
     color: #ffffff; }
+    .label.alert.inverse {
+      background: transparent;
+      color: #ec5840; }
+  .label.inverse {
+    background: transparent;
+    color: #00308a; }
 
 .media-object {
   margin-bottom: 1rem;
@@ -4069,8 +4808,22 @@ table.hover tr:nth-of-type(even):hover {
       z-index: 2; }
 
 .crm-site-content {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
   margin: 1.5rem auto;
   padding: 0.5rem; }
+  .crm-site-content::before, .crm-site-content::after {
+    content: ' ';
+    display: table;
+    -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+  .crm-site-content::after {
+    clear: both; }
 
 .crm-page-content {
   margin: 0;
@@ -4087,14 +4840,16 @@ table.hover tr:nth-of-type(even):hover {
   display: -ms-flexbox;
   display: flex; }
   .crm-page-section h2 {
+    background: #ffffff;
     border-bottom: 1px solid #cacaca;
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
-    margin-bottom: 0;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     width: 100%; }
+  .crm-page-section hr {
+    margin: 0; }
 
 .crm-page-section-main,
 .crm-page-section-table {
@@ -4103,29 +4858,38 @@ table.hover tr:nth-of-type(even):hover {
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
+  .crm-page-section-main form,
+  .crm-page-section-table form {
+    background: #ebf2ff; }
 
 .crm-page-section-row {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%; }
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
 
 .crm-page-section-column {
-  padding: 0.5rem; }
-  .crm-page-section-column.full {
-    width: 100%; }
-  .crm-page-section-column.half {
-    width: 50%; }
-  .crm-page-section-column.third {
-    width: calc(100% / 3); }
+  padding: 0 0.5rem;
+  width: 100%; }
   .crm-page-section-column .crm-page-section-row {
-    margin: -0.5rem; }
+    margin-right: -0.5rem;
+    margin-left: -0.5rem; }
+  .crm-page-section-column.half.small {
+    width: 50%; }
+  .crm-page-section-column.third.small {
+    width: calc(100% / 3); }
+  @media screen and (min-width: 40em) {
+    .crm-page-section-column.full {
+      width: 100%; }
+    .crm-page-section-column.half {
+      width: 50%; }
+    .crm-page-section-column.third {
+      width: calc(100% / 3); } }
 
 .crm-page-section-table-row {
   -webkit-align-items: center;
@@ -4153,19 +4917,27 @@ table.hover tr:nth-of-type(even):hover {
   border: 1px solid #cacaca;
   font-size: 0.875rem;
   margin-left: 1rem;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 0 0 20rem;
-      -ms-flex: 0 0 20rem;
-          flex: 0 0 20rem;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  display: none; }
   .crm-page-section-sidebar.info {
     background: #00308a;
     border-color: #00308a;
     color: #ffffff; }
+  @media screen and (min-width: 40em) {
+    .crm-page-section-sidebar {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex: 0 0 15rem;
+          -ms-flex: 0 0 15rem;
+              flex: 0 0 15rem; } }
+  @media screen and (min-width: 64em) {
+    .crm-page-section-sidebar {
+      -webkit-flex: 0 0 20rem;
+          -ms-flex: 0 0 20rem;
+              flex: 0 0 20rem; } }
 
 .crm-page-section-sidebar-content {
   color: inherit;
@@ -4200,11 +4972,33 @@ table.hover tr:nth-of-type(even):hover {
 
 .crm-page-section-sidebar-content-icon-list {
   font-size: 0.8125rem;
-  margin: 0;
+  margin-left: calc(0.5rem + 2rem);
   padding: 0;
   list-style: none; }
   .crm-page-section-sidebar-content-icon-list li {
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    position: relative; }
+    .crm-page-section-sidebar-content-icon-list li:before {
+      border: 1px solid #ffffff;
+      border-radius: 100%;
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.75);
+      font-size: 1.5rem;
+      height: 2rem;
+      width: 2rem;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      position: absolute;
+      left: calc(-0.5rem - 2rem); }
+    .crm-page-section-sidebar-content-icon-list li.attention:before {
+      background: #ffae00;
+      content: '\e962'; }
     .crm-page-section-sidebar-content-icon-list li.columns p, .crm-page-section-sidebar-content-icon-list li.crm-site-header-user p {
       -webkit-align-items: center;
           -ms-flex-align: center;
@@ -4212,5 +5006,6 @@ table.hover tr:nth-of-type(even):hover {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex; }
-    .crm-page-section-sidebar-content-icon-list li.columns strong, .crm-page-section-sidebar-content-icon-list li.crm-site-header-user strong {
+    .crm-page-section-sidebar-content-icon-list li.columns span, .crm-page-section-sidebar-content-icon-list li.crm-site-header-user span {
+      font-weight: bold;
       width: 4rem; }
