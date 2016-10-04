@@ -38,26 +38,30 @@
 		&:hover > a {
 			background: $secondary-color; // Sets hover state for direct a tag decendent
 		}
+		
+		&[data-child-selected='true']
+		&[data-selected='true'] {
+			> a {
+				border-bottom: 3px solid $secondary-color; // Sets UI indication of selected link or sublink
+			
+				padding-bottom: calc(#{$global-padding} - 3px); // Offsets padding-bottom with addition of 3px border
+			}
+		}
 	}
 	
 	a {
 		background: $primary-color;
 		color: $white;
 		font-size: rem-calc(12);
-		line-height: 2.5; // Sets height of a > li > nav to 2.5 * font (30px)
+		line-height: 2.5; // Sets height of a > li > nav to 2.5 * font (12px * 2.5 = 30px)
 		text-decoration: none; // Removes default a underline
 		text-transform: uppercase;
+		white-space: nowrap; // Prevents link text from wrapping 
 		
 		padding: $global-padding;
 		width: 100%; // Sets a to fill entire li width
 		
 		display: block; // Allows a to fill li completely
-		
-		&.selected {
-			border-bottom: 3px solid $secondary-color; // Sets UI indication of selected link or sublink
-			
-			padding-bottom: calc(#{$global-padding} - 3px); // Offsets padding-bottom with addition of 3px border
-		}
 		
 		&.button {
 			background: $secondary-color;
@@ -88,8 +92,8 @@
 				opacity: .5;
 				
 				position: absolute;
-				top: rem-calc(17); // Hard codes padding-top to get to the center of the nav text 
-				right: $global-padding; // Hard codes padding-right
+				top: rem-calc(19); // Hard codes padding-top to get to the center of the nav text 
+				right: $global-padding * 2; // Hard codes double padding-right
 			}
 		}
 	}
@@ -122,6 +126,7 @@
 	.dropdown,
 	.slideright {
 		margin: 0;
+		min-width: calc(100% - (#{$global-padding} / 2)); // Sets min-width to the full width of parent li less the left/right padding ($gutter-width / 4)	
 		padding: 0;
 		
 		list-style: none; // Resets ul element to not have bullets on children li's
@@ -129,15 +134,14 @@
 		display: none; // Hides element by default
 		
 		position: absolute;
+		z-index: 10; // Keeps sub-nav elements above page elements
 	}
 	
 	.dropdown {
-		width: calc(100% - (#{$global-padding} / 2)); // Sets width to the full width of parent li (.crm-site-header-menu > li) less the left/right padding ($gutter-width / 4)
+		
 	}
 	
 	.slideright {
-		width: 100%; // Sets width to match the full width of parent li
-		
 		top: 0; // Sets top to the same top as parent li
 		left: 100%; // Adjusts to be flush to the right side of the parent li
 	}

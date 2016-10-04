@@ -1,6 +1,10 @@
 $site-content-spacing: $global-margin * 2;
 $site-content-border-color: $medium-gray;
 
+.crm-container {
+	@include grid-row;
+}
+
 .crm-site-content {
 	@include grid-row;
 	
@@ -53,7 +57,9 @@ $site-content-border-color: $medium-gray;
 	form {
 		background: lighten($primary-color, 69%);
 		
-		
+		.button {
+			margin: $global-padding 0;
+		}
 	}
 }
 
@@ -186,7 +192,7 @@ $site-content-border-color: $medium-gray;
 			border: 1px solid $white;
 			border-radius: 100%;
 			box-shadow: 1px 1px 3px 0 rgba($black, .75);
-			font-size: rem-calc(24);
+			font-size: rem-calc(20);
 			
 			height: 2rem;
 			width: 2rem;
@@ -202,6 +208,12 @@ $site-content-border-color: $medium-gray;
 		&.attention:before {
 			background: $warning-color;
 			content: '\e962';
+		}
+		
+		&.alert:before {
+			background: $warning-color;
+			content: '\e90f';
+			font-size: rem-calc(24);
 		}
 		
 		&.columns {

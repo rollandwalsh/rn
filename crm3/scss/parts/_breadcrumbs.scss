@@ -35,10 +35,10 @@
 	
 	a {
 		background: $white;
-		font-size: $small-font-size;
+		font-size: rem-calc(12); // Sets smaller font
 		font-weight: 600;
-		line-height: 1.4;
-		text-decoration: none;
+		line-height: rem-calc(14); // Sets height of text to match :after triangle
+		text-decoration: none; // Removes underline
 		text-transform: uppercase;
 		
 		padding: rem-calc(6) ($global-padding / 2) rem-calc(6) ($global-padding * 1.5); // Slightly decreases top/bottom padding / Normal padding-right / Extra padding-left to give space for angle

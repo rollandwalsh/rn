@@ -17,7 +17,8 @@
 				</a>
 				
 				<aside class="crm-site-header-user">
-					<span>RN</span>
+					<span>Working As</span>
+					<span class="initials">RN</span>
 					<ul class="dropdown menu align-right" data-dropdown-menu>
 						<li>
 							<a href="#">Reliance Administrator</a>
@@ -42,6 +43,20 @@
 				<ul class="crm-site-header-menu">
 					<li class="has-dropdown">
 						<a href="#">Home</a>
+						<ul class="dropdown">
+							<li><a href="#">Company 	Dashboard</a></li>
+							<li class="has-slideright">
+								<a class="selected" href="#">Design</a>
+								<ul class="slideright">
+									<li><a href="#">Test</a></li>
+									<li><a href="#">Test</a></li>
+									<li><a class="selected" href="#">Test</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Search</a></li>
+							<li><a href="#">SEO</a></li>
+							<li><a href="#">Widgets</a></li>
+						</ul>
 					</li>
 					<li class="has-dropdown">
 						<a href="#">User</a>
@@ -74,7 +89,7 @@
 					</li>
 					<li class="has-dropdown">
 						<a href="#">Support</a></li>
-					<li><a class="button" href="#">Resources <i class="rn-icon-triangle-right"></i></a></li>
+					<li><a class="button" href="#">Resources <i class="crm-icon-triangle-right"></i></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -90,18 +105,59 @@
 		
 		<section class="crm-site-content">
 			<div class="crm-page-content">
+				
 				<section class="crm-page-section">
 					<div class="crm-page-section-main">
-						<h2>Account Access Settings</h2>
-						
+						<h2>Non Participating Account</h2>
+						<div class="crm-page-section-row">
+							<div class="crm-page-section-column full">
+								<p>Please contact <a href="mailto:techassist@engageremarketing.com">techassist@engageremarketing.com</a> for information on activating the current account.</p>
+								<p>Date since non-participating: DATE</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<hr>
+				
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">
 						<form>
+							<h2>Inactive (Deleted) Account</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
+									<p>This action will reactivate and make live the previously delteted account.</p>
+									<input type="submit" id="reactivateaccount" name="reactivateaccount" value="Re-Activate Account" class="button">
+								</div>
+								<div class="crm-page-section-column half">
+									<p>Date Deleted: DATE</p>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="crm-page-section-sidebar info">
+						<div class="crm-page-section-sidebar-content">
+							<ul class="crm-page-section-sidebar-content-icon-list">
+								<li class="attention">Re-activating the account will also remove the on-hold status.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				
+				<hr>
+				
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">	
+						<form method="post" action="/modules/intranet/UserEdit/profile.asp?" onsubmit="return validate_formlogin(this);" name="formlogin" id="Form2">
+							<h2>Account Access Settings</h2>
 							<div class="crm-page-section-row">
 								<div class="crm-page-section-column half">
 								
 									<label>Account ID: <span class="label inverse">190791</span></label>
 									<label>
 										Username<span class="label inverse alert">*</span>
-										<input type="text" name="textusername" placeholder="Username" maxlength="50" required>
+										<span class="label">relianceadmin</span><input type="hidden" name="textusername" placeholder="Username" maxlength="50" required>
 									</label>
 									<label>
 										New Password:
@@ -122,7 +178,7 @@
 										<small>- <a href="agentlogindetails.asp?accountid=190791&amp;intNumdays=30&amp;enddate=9/6/2016" class="infolink">View Login History</a></small>
 									</p>
 									<p>
-										Site Use Terms & Conditions: <span class="label inverse success">Accepted</span>
+										Site Use Terms & Conditions: <span class="label inverse alert">Accepted</span>
 										<br>
 										<small>- <a class="infolink" href="javascript:void(0);" onclick="window.open('/modules/global/onlineagreement_text.asp', 'terms', 'scrollbars=yes,width=680px,height=700px');">Read Terms &amp; Conditions</a></small>
 									</p>
@@ -155,34 +211,34 @@
 				</section>
 				
 				<hr>
+				
 				<section class="crm-page-section">
 					<div class="crm-page-section-main">
-						<form>
+						<form method="post" action="/modules/intranet/UserEdit/profile.asp?" onsubmit="return chkForm('mainform')" name="mainform" id="mainform">
 							<h2>Account Information</h2>
 							<div class="crm-page-section-row">
 								<div class="crm-page-section-column half">
 									<label>
 										First Name<span class="label inverse alert">*</span>
-										<input type="text" name="firstname" id="firstname" value="_Reliance" maxlength="50" onkeyup="getCharCount(this);" required>
+										<span class="label">Reliance</span>
 									</label>
 									<label>
 										Last Name<span class="label inverse alert">*</span>
 										<input type="text" name="lastname" id="lastname" value="Administrator" maxlength="50" onkeyup="getCharCount(this);" required>
 									</label>
-									<p><small><em>(Max. length 50 char. for these two field combines)</em></small></p>
-									<p><small><span class="label inverse alert">*</span> <em>Fields marked with the red asterisk are required</em></small></p>
+									<small><span class="label inverse alert">*</span> <em>Fields marked with the red asterisk are required</em></small>
 								</div>
 								<div class="crm-page-section-column half">
 									<div class="crm-page-section-row">
 										<div class="crm-page-section-column full">
-											<label>Default Title:<span class="label inverse">Administrator</span></label>
+											<label>Default Title:<span class="label inverse">Administrator</span><small>(overwritten with Custom Title)</small></label>
 											<label>
 												Custom Title:
 												<input type="text" name="title" value="" maxlength="40">
 											</label>
 											<label>
-												Display Title on Agent Site:
 												<input type="checkbox" name="chkDisplayAccountTitle" id="chkDisplayAccountTitle" onclick="javascript:toggleAccountTitleSetting(this);">
+												Display Title on Agent Site:
 											</label>
 											<label>
 												Associate ID:
@@ -200,7 +256,8 @@
 								<div class="crm-page-section-column half">
 									<label>
 										Primary Email <span class="label inverse"><small>'Primary'</small></span>
-										<input type="email" name="email" id="email" maxlength="50" value="">
+										<span class="label">rollandwalsh@gmail.com</span>
+										<input type="hidden" name="email" id="email" maxlength="50" value="">
 									</label>
 									<label>
 										Email 2 <span class="label inverse"><small>'To-Agent Copies'</small></span>
@@ -255,7 +312,7 @@
 									</select>
 								</div>
 								<div class="crm-page-section-column half">
-									<input type="tel" name="Phone1Number" value="" maxlength="30" placeholder="Enter number here">
+									<input type="tel" name="Phone1Number" value="" maxlength="30" placeholder="Enter Primary number here">
 								</div>
 								<div class="crm-page-section-column half">
 									<select name="phone2label" id="phone2label">
@@ -282,7 +339,7 @@
 									</select>
 								</div>
 								<div class="crm-page-section-column half">
-									<input type="tel" name="Phone2Number" value="" maxlength="30" placeholder="Enter number here">
+									<input type="tel" name="Phone2Number" value="" maxlength="30" placeholder="Enter Phone 2 number here">
 								</div>
 								<div class="crm-page-section-column half">
 									<select name="phone3label" id="phone1labe3">
@@ -309,7 +366,7 @@
 									</select>
 								</div>
 								<div class="crm-page-section-column half">
-									<input type="tel" name="Phone3Number" value="" maxlength="30" placeholder="Enter number here">
+									<input type="tel" name="Phone3Number" value="" maxlength="30" placeholder="Enter Phone 3 number here">
 								</div>
 								<div class="crm-page-section-column half">
 									<select name="phone4label" id="phone4label">
@@ -336,7 +393,7 @@
 									</select>
 								</div>
 								<div class="crm-page-section-column half">
-									<input type="tel" name="Phone4Number" value="" maxlength="30" placeholder="Enter number here">
+									<input type="tel" name="Phone4Number" value="" maxlength="30" placeholder="Enter Phone 4 number here">
 								</div>
 								<div class="crm-page-section-column half">
 									<select name="phone5label" id="phone5label">
@@ -363,7 +420,7 @@
 									</select>
 								</div>
 								<div class="crm-page-section-column half">
-									<input type="tel" name="Phone5Number" value="" maxlength="30" placeholder="Enter number here">
+									<input type="tel" name="Phone5Number" value="" maxlength="30" placeholder="Enter Phone 5 number here">
 								</div>
 							</div>
 							
@@ -396,16 +453,359 @@
 							</ul>
 						</div>
 					</div>
-<!--
-					<div class="crm-page-section-sidebar">
-						<h2>Upcoming Tasks & Events</h2>
+				</section>
+				
+				<hr>
+				
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">
+						<form action"="" modules="" intranet="" useredit="" profile.asp?"="" method="post" onsubmit="javascript:return checkFormSocialMedia(this);">
+							<h2>Social Network Icon Links</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column half">
+									<label>
+										Facebook <small>(your user/page name only, ex: JaneSmith)</small>
+										<input type="text" name="facebook" maxlength="75" value="" id="Text1" placeholder="ex: JaneSmith">
+									</label>
+									<label>
+										Twitter <small>(your Twitter ID, ex: @MyTwitterID)</small>
+										<input type="text" name="twitter" maxlength="50" value="" id="Text2" placeholder="ex: @MyTwitterID">
+									</label>
+									<label>
+										LinkedIn <small>(LinkedIn public profile URL)</small>
+										<input type="text" name="linkedin" maxlength="50" value="" id="Text3" placeholder="LinkedIn URL">
+									</label>
+									<label>
+										Blog <small>(your blog's URL)</small>
+										<input type="text" name="blog" maxlength="50" value="" id="Text4" placeholder="Blog URL">
+									</label>
+								</div>
+								<div class="crm-page-section-column half">
+									<label>
+										Google+ <small>(your Google+ URL)</small>
+										<input type="text" name="googleplus" maxlength="50" value="" id="Text5" placeholder="Google+ URL">
+									</label>
+									<label>
+										YouTube <small>(your YouTube URL)</small>
+										<input type="text" name="youtube" maxlength="50" value="" id="Text6" placeholder="YouTube URL">
+									</label>
+									<label>
+										Pinterest <small>(your Pinterest URL)</small>
+										<input type="text" name="pinterest" maxlength="50" value="" id="Text7" placeholder="Pinterest URL">
+									</label>
+									<label>
+										Instagram <small>(your Instagram URL)</small>
+										<input type="text" name="instagram" maxlength="50" value="" id="Text8" placeholder="Instagram URL">
+									</label>
+								</div>
+							</div>
+							
+							<hr>
+							
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<br>
+									<input type="submit" value="Submit Changes" class="button">
+									<input type="reset" value="Cancel" class="button">
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="crm-page-section-sidebar info">
 						<div class="crm-page-section-sidebar-content">
-							<p class="crm-page-section-sidebar-content-message"><strong>No Upcoming Tasks/Events</strong></p>
-							<a href="#" class="button large expand">View & Schedule Tasks/Events<i class="rn-icon-triangle-right"></i></a>
 						</div>
 					</div>
--->
 				</section>
+				
+				<hr>
+				
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">
+						<form name="formaccountsettings" id="formaccountsettings" action="/modules/intranet/UserEdit/profile.asp?" method="post">
+							<h2>Office Information</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<label>
+										New Office
+										<select class="input" name="OfficeID" id="Select1">
+											<option selected="" value="6908">_Reliance Setup Office (Bellevue)</option>
+											<option value="9212">_test Office_</option>
+											<option value="7314">comm office</option>
+											<option value="7213">Commercial Demo Office (Seattle)</option>
+											<option value="7372">Commercial View Test Office (Seattle)</option>
+											<option value="9058">RE/MAX Achievers (Bellevue)</option>
+											<option value="6998">RE/MAX Great Lakes</option>
+											<option value="6976">RE/MAX Michigan Test Office</option>
+											<option value="6978">RE/MAX PA Offices (Exton)</option>
+											<option value="6977">RE/MAX Regional Office</option>
+											<option value="6909">RE/MAX Test Bellevue — XXX999XXX</option>
+											<option value="7418">Remax LLC office</option>
+											<option value="9326">Test Office No Web</option>
+											<option value="7200">Test Office Zip — TEST23444</option>
+											<option value="7820">test srnc</option>
+											<option value="7821">Test Sync - (delete me)</option>
+											<option value="7320">Zip Satellite Office — TEST9586</option>
+										</select>
+									</label>
+								</div>
+							</div>
+							
+							<hr>
+							
+							<h2>User Account</h2>
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<label>
+										User Type
+										<select onchange="return checkOfficeGroupAdminRoleIDs()" name="roleid" id="roleid">
+											<option selected="" value="9">Administrator, website -- "Administrator"</option>
+											<option value="11">Administrator, website, no leads -- "Administrator"</option>
+											<option value="4">Administrator, no display -- "Administrator"</option>
+											<option value="146">Administrator SEO Vendor, no display -- "SEO Vendor"</option>
+											<option value="197">Office-Group Admin, Comm/Res, website -- "Office-Group Administrator"</option>
+											<option value="195">Office-Group Admin, Commercial, website -- "Office-Group Administrator"</option>
+											<option value="97">Office-Group Admin, website -- "Office-Group Administrator"</option>
+											<option value="98">Office-Group Admin, no display -- "Office-Group Adminsitrator"</option>
+											<option value="194">Manager, Commercial, website -- "Manager"</option>
+											<option value="207">Manager, Comm/Res, website -- "Manager"</option>
+											<option value="32">Manager, website -- "Manager"</option>
+											<option value="42">Office Staff, no display -- "Office Staff"</option>
+											<option value="26">Demo-Test Site, no display -- "Demo-Test Site"</option>
+											<option value="59">Sales Associate, website -- "Sales Associate"</option>
+											<option value="196">Sales Associate, Comm/Res, website -- "Sales Associate"</option>
+											<option value="193">Sales Associate, Commercial, website -- "Sales Associate"</option>
+											<option value="208">Sales Associate (New Agent), Comm/Res, website, no display -- "Sales Associate"</option>
+											<option value="209">Sales Associate (New Agent), website, no display -- "Sales Associate"</option>
+											<option value="136">Sales Associate -Terminated -- "Sales Associate"</option>
+											<option value="61">Sales Associate, website, no leads -- "Sales Associate"</option>
+										</select>
+									</label>
+								</div>
+							</div>
+
+							<hr>
+							
+							<div class="crm-page-section-row">
+								<div class="crm-page-section-column full">
+									<input type="submit" value="Submit Changes" class="button">
+									<input type="reset" value="Cancel" class="button">
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="crm-page-section-sidebar info">
+						<div class="crm-page-section-sidebar-content">
+						</div>
+					</div>
+				</section>
+				
+				<hr>
+
+				<section class="crm-page-section">
+					<div class="crm-page-section-main">
+						<form name="formaccountsettings" id="formaccountsettings" action="<%=request.ServerVariables("script_name")%>?<%=request.QueryString%>" method="post" ID="Form3">
+							<input type="hidden" name="savemode" value="saveaccountsettings" ID="Hidden6">
+							<% blnHasUpdateFields = false %>
+							<% if (blnUserIsAdmin or (blnUserIsOfficeGroupAdmin and (cbool(vsoOfficeAgentAdd) or (vsoOfficeTeamAdd and blnAccountIsTeamSite)))) and not blnAccountIsOfficeSite then %>
+								<h2>Office Information</h2>
+								<div class="crm-page-section-row">
+									<div class="crm-page-section-column half">
+										<% if lcase(Request.QueryString("mode")) = "u" then %>
+											<label>
+												Current Office
+												<span class="label"><%=strOfficeName%></span>
+											</label>
+										<% end if %>
+										<% if blnUserIsAdmin or blnUserIsOfficeGroupAdmin then %>
+											<label>
+												New Office
+												<select name="OfficeID" id="Select1"><%=getOfficeOptions()%></select>
+											</label>
+										<% else %>
+											<input type="hidden" name="OfficeID" value="<%=lngOfficeID%>" id="Hidden2">
+										<% end if %>
+										<% blnHasUpdateFields = true %>
+										<% blnOfficeIDFieldDrawn = true %>
+									</div>
+								</div>
+							<% else %>
+								<input type="hidden" name="OfficeID" value="<%=lngOfficeID%>">
+							<%end if%>
+							
+							<h2>User Account</h2>
+							<tr>
+									<td class="dataItem" height="100%" >
+										<table border="0" cellpadding="2" cellspacing="0" id="Table4">
+											<tr>
+												<td ><%if blnAccountIsOfficeSite then%>Office<%else%>User<%end if%> Type:&nbsp;</td>
+												
+										<%if ((blnUserIsOfficeManager or blnUserIsOfficeGroupAdmin) and (vsoOfficeAgentAdd or (vsoOfficeTeamAdd and blnAccountIsTeamSite))) or blnUserIsAdmin and (not blnAccountIsOfficeGroupSite) then %>
+												<td><%=strRoleFormElems%></td>
+											</tr>
+											
+											<%if blnUserIsAdmin then %>
+												<tr name="accountgrouproleTr" id="accountgrouproleTr" style="display:<%if not blnUserOriginalRoleIsOfficeGroupAdmin then%>none<%else%>block<%end if%>;">
+													<td  valign="top" style="padding-top:8px;">Office Groups:&nbsp;</td>
+													<td  style="padding-top:8px;"><select multiple="multiple"size="5" name="accountgroupid" style="width:220px;" id="Select3"><%=getOfficeGroupOptions()%></select></td>
+												</tr>
+											<%end if
+											blnHasUpdateFields = true
+										else %>
+												<td <%if blnUserIsAdmin then%>class="data"<%end if%>><%=strRoleName%><input type="hidden" name="roleid" value="<%=lngRoleID%>" id="Hidden3"></td>
+											</tr>
+											<%if blnRoleShowsOnRoster and not (blnUserIsAdmin or ((blnUserIsOfficeManager or blnUserIsOfficeGroupAdmin) and (vsoOfficeAgentAdd or (vsoOfficeTeamAdd and blnAccountIsTeamSite)))) and not (blnAccountIsOfficeSite or blnAccountIsOfficeGroupSite) then%>
+												<tr>
+													<td >Show on roster:&nbsp;</td>
+													<td><%if blnAccountShowsOnRoster then%>Yes<%else%>No<%end if%></td>
+												</tr>
+											<%end if
+											if intForwardRosterToAccountID > 0 then
+												strRosterLink = getRosterLink(intForwardRosterToAccountID)
+												if len(strRosterLink) > 0 then %>
+													<tr>
+														<td align="right">Roster link:&nbsp;</td>
+														<td><%=strRosterLink%></td>
+													</tr>
+												<%end if
+											end if
+										end if
+										if (blnUserIsAdmin or ((blnUserIsOfficeManager or blnUserIsOfficeGroupAdmin) and vsoOfficeAccountDelete)) and CBool(vsoHasAccountOnHoldOption) and not (blnAccountIsOfficeSite or blnAccountIsOfficeGroupSite) then %>
+											<tr>
+												<td nowrap>Account On Hold&nbsp;&nbsp;</td>
+												<td style="padding-right:5px;">
+													<input type="checkbox" onclick="javascript:set_onhold_status(this);" <%if blnAccountOnHold then response.Write sCheckboxStatus end if%>>
+													<span class="invalid">&nbsp;Select this option to disable this account and cancel any/all team membership</span>
+												</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td style="padding-left:25px;">(no website, no intranet, no roster, no domain/URL redirect, no campaign emails)</td>
+											</tr>
+											<input type="hidden" name="checkonholdstatus" id="checkonholdstatus_id" value="<%if blnAccountOnHold then response.Write "1" else response.Write "0" end if%>">
+										<%end if%>
+										<td colspan="2">
+											<%if (GetAppCompanyId()=46 or GetAppCompanyId()=62 or GetAppCompanyId()=94 or GetAppCompanyId()=137 or GetAppCompanyId()=140 or GetAppCompanyId()=141 or GetAppCompanyId()=142 or GetAppCompanyId()=145 or GetAppCompanyId()= 156) and blnUserIsAdmin then%>
+												<input type="checkbox" name="collectionAgent" value="<%=blnCollectionAgent%>" onclick="$(this).attr('value', this.checked ? true : false)" style="margin-right:8px;" <%if blnCollectionAgent then%>checked<%end if%>>Collection Agent
+											<%end if%>
+										</td>
+				                   </table>
+								</td>
+							</tr>
+							<%if blnRoleShowsOnRoster and (blnUserIsAdmin or ((blnUserIsOfficeManager or blnUserIsOfficeGroupAdmin) and (vsoOfficeAgentAdd or (vsoOfficeTeamAdd and blnAccountIsTeamSite)))) and not (blnAccountIsOfficeGroupSite) then%>
+								<tr>
+									<td><img src="<%=cStatic%>/global/invis.gif" width="100%" height="12" alt=""></td>
+								</tr>
+								<tr><td class="itemTitle"><a name="aRosterOptions"></a>Roster Options</td></tr>
+								<tr>
+									<td class="dataItem">
+										<table cellpadding="0" cellspacing="0" border="0" id="Table6">
+											<%if blnUserIsAdmin and blnRoleShowsOnRoster then%>
+												<tr>
+													<%if blnAccountIsManager and not blnAccountIsOfficeSite then%>
+														<td colspan="2" style="padding-bottom:5px;"><input type="checkbox" <%if not blnAccountShowsOnRoster then%>checked <%end if%>value="0" name="hideFromRoster" id="hideFromRoster" onclick="showHideRedirect(this.checked)"> Hide On Roster</td>
+													<% else %>
+														<td>Hide On Roster</td>
+														<td><input style="margin-left:-2px;" type="checkbox" <%if not blnAccountShowsOnRoster then%>checked <%end if%>value="0" name="hideFromRoster" id="hideFromRoster" onclick="showHideRedirect(this.checked)"></td>
+													<%end if%>
+												</tr>
+											<%end if
+											if blnRoleCanHideTitleOnRoster then%>
+												<tr>
+													<%if blnAccountIsManager then%>
+														<td colspan="2"><input type="checkbox" <%if blnHideTitleOnRoster then%>checked <%end if%>value="1" name="hideTitleOnRoster" id="hideTitleOnRoster"> Hide title on roster</td>
+													<%else %>
+														<td>Hide title on roster</td>
+														<td><input style="margin-left:-2px;" type="checkbox" <%if blnHideTitleOnRoster then%>checked <%end if%>value="1" name="hideTitleOnRoster" id="hideTitleOnRoster"></td>
+													<%end if%>
+												</tr>
+											<%end if
+											if blnAccountIsManager and blnAccountIsAgentSite and 1=0 then %>
+												<% 'if this is a manager, office admin, og admin or admin allow them to redirect to office site
+												'UPDATE: BReeves - 03.09.10 -  Per ticket 37283, we are allowing managers (with websites) to point at any account, not just the office account.  The office account appears
+												'in the dropdown list as an option anyways, so anyone who has selected this option, will automatically have th eofifce account selected in the dropdown %>
+												<tr>
+													<td colspan="2"><input <%if not blnAccountShowsOnRoster then%>disabled <%end if%>type="checkbox" name="linkToOffice" id="linkToOffice" value="<%=getOfficeAccountID(lngOfficeID)%>" <%if intForwardRosterToAccountID > 0 then%> checked<%end if%>> Link to Office Site on roster page*</td>
+												</tr>
+											<% elseif blnAccountIsAgentSite or blnAccountIsOfficeSite then
+												strSelectOffice = getOfficeList(lngOfficeID)
+				
+												'4/15/14, JM: #74990, setting intCurrOfficeID to lngOfficeID when intCurrOfficeID length is 0
+												if len(intCurrOfficeID) > 0 then
+													strSelectAgent = getAgentList(intCurrOfficeID, false)
+												else
+													strSelectAgent = getAgentList(lngOfficeID, false)
+												end if %>
+												<tr>
+													<td>Point Roster Link To:&nbsp;</td>
+													<td><%=strSelectOffice%>&nbsp;&nbsp;<i>Step 1</i></td>
+												<tr>
+													<td>&nbsp;</td>
+													<td align="left"><%=strSelectAgent%>&nbsp;<i>Step 2</i></td>
+												</tr>
+											<%end if%>
+										</table>
+									</td>
+								</tr>
+								<%blnHasUpdateFields = true %>
+							<% end if
+							if blnShowCSmailCheckbox or blnHasCSemailtOptionOpen then%>
+								<tr>
+									<td class="dataItem" height="100%">
+										<table border="0" cellpadding="0" cellspacing="0" id="Table10">
+											<tr>
+												<td align="right" style="vertical-align:top;padding-top:5px;">Service Tickets:&nbsp;</td>
+												<td>
+													<table border="0" cellpadding="0" cellsapcing="0" id="Table5">
+														<%if blnShowCSmailCheckbox then%>
+															<tr>
+																<td valign="top" align="left" style="padding-right:5px;"><%=getAdminReceiveEmailsFormElems("closeticket")%></td>
+																<td align="left" valign="middle">Send an email everytime a service ticket is <b>closed</b> (for Technical Admins only)</td>
+															</tr>
+														<%end if
+														if blnHasCSemailtOptionOpen then%>
+															<tr>
+																<td valign="top" align="left" style="padding-right:5px;"><%=getAdminReceiveEmailsFormElems("openticket")%></td>
+																<td align="left" valign="middle">Send an email everytime a service ticket is <b>opened</b> (for Technical Admins only)</td>
+															</tr>
+														<%end if%>
+													</table>					
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<%blnHasUpdateFields = true %>
+							<% end if
+							if blnHasUpdateFields then
+								if blnAccountIsAgentSite then %>
+									<tr>
+										<td ><span class="note">Roster link settings only editable if account shows on roster</span></td>
+									</tr>
+								<%end if%>
+								<tr><td class="itemTitle" style="font-size:1px;">&nbsp;</td></tr>
+								<tr>
+									<td class="item" >
+										<span class="buttonSurround"><input type="submit" class="button" value="Submit Changes"></span>
+										<span class="buttonSurround"><input type="button" class="button" value="Cancel" onclick="javascript:pagecancel();"></span>
+									</td>
+								</tr>
+							<%end if%>
+							
+						</form>
+					</div>
+					
+					<aside class="crm-page-section-sidebar info">
+						<div class="crm-page-section-sidebar-content">
+							<ul class="crm-page-section-sidebar-content-icon-list">
+								<li class="attention">Use the drop-down menu to assign an account to a different office.</li>
+								<li class="alert">Only Administrators can change the User Type.</li>
+							</ul>
+						</div>
+					</aside>
+				</div>
+			</section>
 				
 <!--
 				<section class="crm-page-section">
