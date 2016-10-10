@@ -39,6 +39,16 @@
 		color: $white;
 	}
 	
+	.user-options-heading { // TODO: Change class name after removing previous CRM structure
+		background: lighten($primary-color, 69%);
+		color: $primary-color;
+		font-size: rem-calc(11);
+		font-weight: bold;
+		text-transform: uppercase;
+		
+		padding: ($global-padding / 2) $global-padding;
+	}	
+	
 	.dropdown > li > a { // Border around dropdown link
 		border-color: $medium-gray;
 		border-style: solid;

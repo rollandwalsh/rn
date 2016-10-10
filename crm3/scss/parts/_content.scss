@@ -28,6 +28,8 @@ $site-content-border-color: $medium-gray;
 
 .crm-page-section {
 	display: flex; // Allows for main / sidebar flexing
+
+	margin-bottom: $site-content-spacing;
 	
 	h2 {
 		background: $white;
@@ -69,15 +71,14 @@ $site-content-border-color: $medium-gray;
 
 .crm-page-section-column {
 	padding: 0 $global-padding;
-	
+	width: 100%;
+
 	.crm-page-section-row {
 		margin-right: -$global-padding;
 		margin-left: -$global-padding;
 	}
 	
-	@include breakpoint(small) {
-		width: 100%;
-		
+	@include breakpoint(small only) {
 		&.half.small {
 			width: 50%;
 		}
@@ -229,4 +230,32 @@ $site-content-border-color: $medium-gray;
 			}
 		}
 	}
+}
+
+
+.crm-help-link {
+	background-color: $warning-color;
+	border: 1px solid $white;
+	border-radius: 100%; // Creates a circle border
+	color: $white;
+	text-decoration: none; // Removes default underline
+	
+	height: 1.5rem; // Needed to keep circle shape
+	width: 1.5rem; // Needed to keep circle shape
+	
+	align-items: center; // Center icon vertically
+	display: inline-flex;
+	justify-content: center; // Center icon horizontally
+	
+	transition: .25s all ease-in-out;
+	
+	&:hover {
+		background: scale-color($warning-color, $lightness: -15%);
+		color: $white; // Overwrites defaul a:hover color
+	}
+}
+
+.crm-help-contnet {
+	@include callout-base;
+	@include callout-style($warning-color);
 }
