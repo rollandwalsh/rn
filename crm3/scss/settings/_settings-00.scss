@@ -48,13 +48,13 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $crm-palette: (
-  primary: #00308a, // remax-blue
-  secondary: #ee1c26, // remax-red
-  tertiary: #1593CF, // remax-light-blue
-  light: lighten(#00308a, 69%), // remax-blue lightened
-  success: #70a807,
+  primary: #0ba8df, // Inde-blue
+  secondary: #808080, // Inde-gray
+  tertiary: #000, // Inde-black
+  light: #eaf3fa, // Inde-blue-light 
+  success: #3adb76,
   warning: #ffae00,
-  alert: #ee1c26, // remax-red
+  alert: #ec5840,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -66,12 +66,12 @@ $body-font-color: $black;
 $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
-$global-padding: $global-margin / 2;
+$global-padding: .5rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
-$global-flexbox: true;
+$global-flexbox: false;
 $print-transparent-backgrounds: true;
 
 @include add-crm-colors;
@@ -308,7 +308,7 @@ $dropdown-sizes: (
 // -----------------
 
 $dropdownmenu-arrows: true;
-$dropdownmenu-arrow-color: $anchor-color;
+$dropdownmenu-arrow-color: map-get($crm-palette, tertiary);
 $dropdownmenu-min-width: rem-calc(160);
 $dropdownmenu-background: $white;
 $dropdownmenu-border: 1px solid $medium-gray;
@@ -381,9 +381,9 @@ $menu-margin: 0;
 $menu-margin-nested: 1rem;
 $menu-item-padding: $global-padding;
 $menu-item-color-active: $white;
-$menu-item-background-active: map-get($crm-palette, primary);
-$menu-item-color-hover: map-get($crm-palette, primary);
-$menu-item-background-hover: $light-gray;
+$menu-item-background-active: map-get($crm-palette, tertiary);
+$menu-item-color-hover: $white;
+$menu-item-background-hover: map-get($crm-palette, secondary);
 $menu-icon-spacing: $global-padding / 2;
 
 // 23. Meter
@@ -454,7 +454,7 @@ $progress-radius: $global-radius;
 // ----------
 
 $reveal-background: $white;
-$reveal-width: 300px;
+$reveal-width: 900px;
 $reveal-max-width: $global-width;
 $reveal-padding: $global-padding;
 $reveal-border: 1px solid $medium-gray;
@@ -571,13 +571,13 @@ $topbar-unstack-breakpoint: medium;
 // 37. CRM User
 // ------------
 
-$crm-user-color: map-get($crm-palette, primary);
+$crm-user-color: map-get($crm-palette, tertiary);
 $crm-user-background: map-get($crm-palette, light);
 
 // 38. CRM Navigation
 // ------------------
 
-$crm-nav-background: map-get($crm-palette, primary);
-$crm-nav-background-hover: map-get($crm-palette, secondary);
+$crm-nav-background: map-get($crm-palette, secondary);
+$crm-nav-background-hover: map-get($crm-palette, tertiary);
 $crm-nav-background-selected: $crm-nav-background-hover;
 $crm-nav-button-background: $crm-nav-background-hover;

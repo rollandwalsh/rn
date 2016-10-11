@@ -48,13 +48,13 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $crm-palette: (
-  primary: #00308a, // remax-blue
-  secondary: #ee1c26, // remax-red
-  tertiary: #1593CF, // remax-light-blue
-  light: lighten(#00308a, 69%), // remax-blue lightened
-  success: #70a807,
+  primary: #562449, // bhhs-purple
+  secondary: #777777, // bhhs-gray
+  tertiary: #f2f2f2, // bhhs-gray-light
+  light: #f2f2f2, // bhhs-gray-light
+  success: #3adb76,
   warning: #ffae00,
-  alert: #ee1c26, // remax-red
+  alert: #ec5840,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -454,7 +454,7 @@ $progress-radius: $global-radius;
 // ----------
 
 $reveal-background: $white;
-$reveal-width: 300px;
+$reveal-width: 900px;
 $reveal-max-width: $global-width;
 $reveal-padding: $global-padding;
 $reveal-border: 1px solid $medium-gray;
@@ -577,7 +577,7 @@ $crm-user-background: map-get($crm-palette, light);
 // 38. CRM Navigation
 // ------------------
 
-$crm-nav-background: map-get($crm-palette, primary);
-$crm-nav-background-hover: map-get($crm-palette, secondary);
+$crm-nav-background: map-get($crm-palette, secondary);
+$crm-nav-background-hover: map-get($crm-palette, primary);
 $crm-nav-background-selected: $crm-nav-background-hover;
 $crm-nav-button-background: $crm-nav-background-hover;

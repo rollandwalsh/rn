@@ -57,7 +57,7 @@ $site-content-border-color: $medium-gray;
 	flex: 1 1 auto;
 	
 	form {
-		background: lighten($primary-color, 69%);
+		background: map-get($crm-palette, light);
 		
 		.button {
 			margin: $global-padding 0;
@@ -97,8 +97,20 @@ $site-content-border-color: $medium-gray;
 			width: 50%;
 		}
 		
+		&.quarter {
+			width: 25%;
+		}
+		
+		&.three-quarters {
+			width: 75%;
+		}
+		
 		&.third {
 			width: calc(100% / 3);
+		}
+		
+		&.two-thirds {
+			width: calc(100% / 3 * 2);
 		}
 	}
 }
@@ -118,7 +130,7 @@ $site-content-border-color: $medium-gray;
 	}
 	
 	&:nth-of-type(odd) {
-		background: lighten($primary-color, 69%);
+		background: map-get($crm-palette, light);
 	}
 }
 
@@ -127,7 +139,7 @@ $site-content-border-color: $medium-gray;
 }
 
 .crm-page-section-sidebar {
-	background: lighten($primary-color, 69%);
+	background: map-get($crm-palette, light);
 	border: 1px solid $site-content-border-color;
 	font-size: rem-calc(14);
 	
@@ -136,8 +148,8 @@ $site-content-border-color: $medium-gray;
 	flex-direction: column;
 	
 	&.info {
-		background: $primary-color;
-		border-color: $primary-color;
+		background: map-get($crm-palette, primary);
+		border-color: map-get($crm-palette, primary);
 		color: $white;
 	}
 	
@@ -207,12 +219,12 @@ $site-content-border-color: $medium-gray;
 		}
 		
 		&.attention:before {
-			background: $warning-color;
+			background: map-get($crm-palette, warning);
 			content: '\e962';
 		}
 		
 		&.alert:before {
-			background: $warning-color;
+			background: map-get($crm-palette, warning);
 			content: '\e90f';
 			font-size: rem-calc(24);
 		}
@@ -234,7 +246,7 @@ $site-content-border-color: $medium-gray;
 
 
 .crm-help-link {
-	background-color: $warning-color;
+	background-color: map-get($crm-palette, warning);
 	border: 1px solid $white;
 	border-radius: 100%; // Creates a circle border
 	color: $white;
@@ -257,5 +269,26 @@ $site-content-border-color: $medium-gray;
 
 .crm-help-contnet {
 	@include callout-base;
-	@include callout-style($warning-color);
+	@include callout-style(map-get($crm-palette, warning));
+}
+
+
+.crm-site-builder-toggle {
+	&.selected {
+		@include button();
+	
+		font-size: rem-calc(16);
+	}
+	
+	&:not(.selected) {
+		@include button($style: hollow);
+		
+		font-size: rem-calc(16);
+	}
+}
+
+.crm-site-builder-image {
+	border: 2px solid $black;
+	
+	margin-bottom: $global-margin;
 }

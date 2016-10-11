@@ -34,14 +34,14 @@
 	}
 	
 	.initials {
-		background: $primary-color;
-		border: 1px solid $primary-color; // Gives border to span to match dropdown link
+		background: $crm-user-color;
+		border: 1px solid $crm-user-color; // Gives border to span to match dropdown link
 		color: $white;
 	}
 	
 	.user-options-heading { // TODO: Change class name after removing previous CRM structure
-		background: lighten($primary-color, 69%);
-		color: $primary-color;
+		background: $crm-user-background;
+		color: $crm-user-color;
 		font-size: rem-calc(11);
 		font-weight: bold;
 		text-transform: uppercase;

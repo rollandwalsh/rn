@@ -2,7 +2,7 @@
 // - - - - - - - - - - - - -
 
 .crm-site-header-nav {
-	background: $primary-color; // primary-color bar spans entire width of screen
+	background: $crm-nav-background; // $crm-nav-background (set in settings file) bar spans entire width of screen
 }
 
 .crm-site-header-menu {
@@ -36,13 +36,13 @@
 	
 	li { // Targets all lis in .crm-site-header-nav
 		&:hover > a {
-			background: $secondary-color; // Sets hover state for direct a tag decendent
+			background: $crm-nav-background-hover; // Sets hover state for direct a tag decendent
 		}
 		
 		&[data-child-selected='true']
 		&[data-selected='true'] {
 			> a {
-				border-bottom: 3px solid $secondary-color; // Sets UI indication of selected link or sublink
+				border-bottom: 3px solid $crm-nav-background-selected; // Sets UI indication of selected link or sublink
 			
 				padding-bottom: calc(#{$global-padding} - 3px); // Offsets padding-bottom with addition of 3px border
 			}
@@ -50,7 +50,7 @@
 	}
 	
 	a {
-		background: $primary-color;
+		background: $crm-nav-background;
 		color: $white;
 		font-size: rem-calc(12);
 		line-height: 2.5; // Sets height of a > li > nav to 2.5 * font (12px * 2.5 = 30px)
@@ -64,7 +64,7 @@
 		display: block; // Allows a to fill li completely
 		
 		&.button {
-			background: $secondary-color;
+			background: $crm-nav-button-background;
 			font-weight: 600; // Boldens button text slightly more than default a
 			line-height: 2; // Decreases line-height from 2.5 to create a thinner button
 			
@@ -72,7 +72,7 @@
 			padding: 0 $global-padding;
 			
 			&:hover {
-				background: mix($black, $secondary-color, 25%); // Adds background color to match default state's border-bottom color
+				background: mix($black, $crm-nav-button-background, 25%); // Adds background color to match default state's border-bottom color
 			}
 		}
 	}
