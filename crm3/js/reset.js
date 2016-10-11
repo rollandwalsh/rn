@@ -50,7 +50,7 @@ $('.has-dropdown > .dropdown > .has-dropdown').attr('class', 'has-slideright');
 
 $('.divider').remove();
 
-$('<i class="crm-icon-triangle-right"></i>').appendTo('.intranet-resources-button a');
+$('<i class="rn-icon-triangle-right"></i>').appendTo('.intranet-resources-button a');
 
 $('.intranet-resources-button').removeAttr('class');
 
@@ -69,6 +69,16 @@ $('.breadcrumbs').removeAttr('class');
 $('.left-off-canvas-menu').remove();
 
 $('.main-section').attr('class', 'crm-site-content');
+
+$('.reveal-modal').attr('class', 'reveal');
+
+if ($('a[href="javascript: // Resources"]').length > 0) {
+  $('a[href="javascript: // Resources"]').attr('data-open', 'resources-modal');
+}
+
+if ($('.resource-category[data-type="link"]').length > 0) {
+  $('.resource-category[data-type="link"] > a').attr('class', 'button expanded').prepend('<i class="rn-icon-link"></i> ').unwrap();
+}
 
 setTimeout((function() {
   $('#spinner').fadeOut('slow');

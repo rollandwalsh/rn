@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic,300' rel='stylesheet' type='text/css'>
-		<link href="css/theme-01.css" rel="stylesheet">
+		<link href="css/theme-00.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -41,7 +41,7 @@
 			
 			<nav class="crm-site-header-nav">
 				<ul class="crm-site-header-menu">
-					<li class="has-dropdown">
+					<li class="has-dropdown" data-child-selected="true">
 						<a href="#">Home</a>
 						<ul class="dropdown">
 							<li><a href="#">Company Dashboard</a></li>
@@ -190,7 +190,7 @@
 								<div class="crm-page-section-column full">
 									<input type="submit" value="Submit Changes" class="button">
 									<input type="button" value="Cancel" class="button" onclick="pagecancel();">
-									<input type="button" value="Delete Account" class="button" onclick="confirmdelete()">
+									<input type="button" value="Delete Account" class="button alert" onclick="confirmdelete()">
 								</div>
 							</div>
 						</form>
